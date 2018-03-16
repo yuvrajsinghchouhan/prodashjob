@@ -3,8 +3,8 @@
     "mongodb": {
         "host": "bxdug7fgf6smial-mongodb.services.clever-cloud.com",
         "port": "27017",
-        "username:"ullz0quqftozbjm",
-        "password:"v0mrnnfMrLoAJ2zqLfCE",
+        "username": "ullz0quqftozbjm",
+        "password": "v0mrnnfMrLoAJ2zqLfCE",
         "database": "bxdug7fgf6smial"
     },
     "directory": {
