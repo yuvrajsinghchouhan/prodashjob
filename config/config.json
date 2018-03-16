@@ -1,11 +1,11 @@
 {
     "port": "8080",
     "mongodb": {
-        "host": "ds115219.mlab.com",
+        "host": "bxdug7fgf6smial-mongodb.services.clever-cloud.com",
         "port": "27017",
-        "username": "Yuvi_09",
-        "password": "Yuvi*786",
-        "database": "qrjob"
+        "username": "ullz0quqftozbjm",
+        "password": "v0mrnnfMrLoAJ2zqLfCE",
+        "database": "data"
     },
     "directory": {
         "users": "./uploads/images/users/",
