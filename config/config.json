@@ -1,9 +1,9 @@
 {
     "port": "8080",
     "mongodb": {
-        "host": "bwl3qctilj4ypo7-mongodb.services.clever-cloud.com",
+        "host": "bxdug7fgf6smial-mongodb.services.clever-cloud.com",
         "port": "27017",
-        "database": "bwl3qctilj4ypo7"
+        "database": "bxdug7fgf6smial"
     },
     "directory": {
         "users": "./uploads/images/users/",
