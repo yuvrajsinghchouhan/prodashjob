@@ -57,13 +57,7 @@ CONFIG.NOTIFICATION.JOB_BOOKED = 'Job booked';
 CONFIG.NOTIFICATION.HIRED_JOB = 'Hired job';
 // Notifications Ends
 
-CONFIG.APNS = {};
-CONFIG.APNS.MODE = false; // Production = true or Development = false
-CONFIG.APNS.BUNDLE_ID_USER = 'com.casperon.quickrabitUser';
-CONFIG.APNS.BUNDLE_ID_TASKER = 'com.casperon.quickrabbitpartner';
-CONFIG.APNS.CERT_TASKER = path.join(__dirname, "/apns/dev/handypartnerdist.pem");
-CONFIG.APNS.CERT_USER = path.join(__dirname, "/apns/dev/handyuserDist.pem");
-CONFIG.APNS.KEY = path.join(__dirname, "/apns/dev/handyuserdistkey.pem");
+
 
 CONFIG.SOCIAL_NETWORKS = {
     'facebookAuth': {
