@@ -145,7 +145,7 @@ gulp.task("setupfile", function (cb) {
 		config.mongodb.host = '';
 		config.mongodb.port = '';
 		config.mongodb.username = '';
-		config.mongodb.username = '';
+		config.mongodb.password = '';
 		config.mongodb.database = '';
 		fs.writeFile('./config/setup.json', JSON.stringify(config, null, 4), function (err, respo) { });
 	});
