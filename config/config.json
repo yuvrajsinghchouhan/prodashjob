@@ -3,7 +3,6 @@
     "mongodb": {
         "host": "bxdug7fgf6smial-mongodb.services.clever-cloud.com",
         "port": "27017",
-       
         "database": "bxdug7fgf6smial"
     },
     "directory": {
