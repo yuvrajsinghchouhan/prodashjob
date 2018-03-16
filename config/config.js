@@ -58,7 +58,7 @@ CONFIG.NOTIFICATION.HIRED_JOB = 'Hired job';
 // Notifications Ends
 
 CONFIG.APNS = {};
-CONFIG.APNS.MODE = true; // Production = true or Development = false
+CONFIG.APNS.MODE = false; // Production = true or Development = false
 CONFIG.APNS.BUNDLE_ID_USER = 'com.casperon.quickrabitUser';
 CONFIG.APNS.BUNDLE_ID_TASKER = 'com.casperon.quickrabbitpartner';
 CONFIG.APNS.CERT_TASKER = path.join(__dirname, "/apns/dev/handypartnerdist.pem");
