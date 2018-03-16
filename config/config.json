@@ -4,7 +4,7 @@
         "host": "bxdug7fgf6smial-mongodb.services.clever-cloud.com",
         "port": "27017",
         "user": "ullz0quqftozbjm",
-        "passord": "v0mrnnfMrLoAJ2zqLfCE",
+        "password": "v0mrnnfMrLoAJ2zqLfCE",
         "database": "bxdug7fgf6smial"
     },
     "directory": {
