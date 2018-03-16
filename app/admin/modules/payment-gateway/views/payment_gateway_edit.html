@@ -1,0 +1,179 @@
+<div class="page page-tables-bootstrap">
+    <!-- page header -->
+    <div class="pageheader">
+        <h2>{{ 'Menu.PAYMENT_GATEWAY' | translate }} </h2>
+        <div class="page-bar">
+            <ul class="page-breadcrumb">
+                <li><a ui-sref="app.dashboard"><i class="fa fa-home"></i>{{main.title}}</a>
+                </li>
+                <li><a ui-sref="app.paymentgateway.list" href="#/app/payment-gateway/list">{{'Menu.PAYMENT_GATEWAY'|translate}}</a>
+                </li>
+                <li> {{EPAYGC.editPaymentData.gateway_name}}</li>
+            </ul>
+        </div>
+    </div>
+    <!-- /page header -->
+    <!-- page content -->
+
+
+    <div class="pagecontent">
+        <div class="row">
+            <div class="col-md-12">
+                <section class="tile" ng-show="EPAYGC.editPaymentData.alias == 'paypal'">
+
+                    <div class="tile-header dvd dvd-btm">
+                        <h1 class="custom-font"><strong>{{EPAYGC.editPaymentData.gateway_name}}</strong></h1>
+                    </div>
+                    <!-- Paypal IPN -->
+                    <div class="tile-body">
+                        <form class="profile-settings" name="paypalForm" novalidate>
+                            <div class="form-group" ng-class="{ 'has-error' : paypalForm.client_id.$invalid && !paypalForm.client_id.$pristine, 'has-success' : paypalForm.client_id.$valid && !paypalForm.client_id.$pristine}">
+                                <label for="client_id">Client ID</label>
+                                <input type="text" name="client_id" class="form-control" ng-model="EPAYGC.editPaymentData.settings.client_id" id="client_id"
+                                    on-blur-validation required>
+                                <p class="help-block">
+                                    <span ng-show="paypalForm.client_id.$invalid && !paypalForm.client_id.$pristine">Client ID is required.</span>
+                                </p>
+                            </div>
+                            <div class="form-group" ng-class="{ 'has-error' : paypalForm.client_secret.$invalid && !paypalForm.client_secret.$pristine, 'has-success' : paypalForm.client_secret.$valid && !paypalForm.client_secret.$pristine}">
+                                <label for="client_secret">Client Secret</label>
+                                <input type="text" name="client_secret" class="form-control" ng-model="EPAYGC.editPaymentData.settings.client_secret" id="client_secret"
+                                    on-blur-validation required>
+                                <p class="help-block">
+                                    <span ng-show="paypalForm.client_secret.$invalid && !paypalForm.client_secret.$pristine">Client Secret is required.</span>
+                                </p>
+                            </div>
+                            <div class="form-group">
+                                <label for="paymentMode">Payment Mode</label>
+                                <select id="paymentMode" name="paymentMode" ng-model="EPAYGC.editPaymentData.settings.mode" class="form-control mb-10">
+                                    <option value='live'>Live</option>
+                                    <option value='sandbox'>Sandbox</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="paymentMode">Enable/Disable</label>
+                                <select id="paymentMode" name="enable_disable" ng-model="EPAYGC.editPaymentData.status" class="form-control mb-10">
+                                    <option value='1'>Enable</option>
+                                    <option value='2'>Disable</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="tile-footer text-right bg-tr-black lter dvd dvd-top">
+                        <button class="btn btn-success btn-ef btn-ef-3 btn-ef-3c mb-10" ng-click="EPAYGC.submitPaymetData(paypalForm.$valid,EPAYGC.editPaymentData)"
+                            ng-disabled="pageForm.$invalid">Submit<i class="fa fa-arrow-right"></i>
+                            </button>
+                    </div>
+                </section>
+                <!-- /Paypal IPN -->
+                <!-- Stripe -->
+                <section class="tile" ng-show="EPAYGC.editPaymentData.alias == 'stripe'">
+                    <div class="tile-header dvd dvd-btm">
+                        <h1 class="custom-font"><strong>{{EPAYGC.editPaymentData.gateway_name}}</strong></h1>
+                    </div>
+                    <div class="tile-body">
+                        <form class="profile-settings " name="stripeForm " novalidate>
+                            <div class="form-group ">
+                                <label for="paymentMode ">Payment Mode</label>
+                                <select id="paymentMode " name="paymentMode " ng-model="EPAYGC.editPaymentData.settings.mode " class="form-control mb-10 ">
+                                        <option value='live'>Live</option>
+                                        <option value='sandbox'>Sandbox</option>
+                                    </select>
+                            </div>
+                            <div class="form-group " ng-class="{ 'has-error' : stripeForm.secretKey.$invalid && !stripeForm.secretKey.$pristine, 'has-success' : stripeForm.secretKey.$valid && !stripeForm.secretKey.$pristine} ">
+                                <label for="secretKey ">Secret Key</label>
+                                <input required type="text " name="secretKey " class="form-control " ng-model="EPAYGC.editPaymentData.settings.secret_key "
+                                    id="secretKey ">
+                            </div>
+                            <!--
+                            <div class="form-group " ng-class="{ 'has-error' : stripeForm.publishableKey.$invalid && !stripeForm.publishableKey.$pristine, 'has-success' : stripeForm.publishableKey.$valid && !stripeForm.publishableKey.$pristine} ">
+                                <label for="publishableKey ">Publishable Key</label>
+                                <input required type="text " name="publishableKey " class="form-control " ng-model="EPAYGC.editPaymentData.settings.publishable_key ">
+                            </div>
+                            <div class="form-group " ng-class="{ 'has-error' : stripeForm.ClientKey.$invalid && !stripeForm.ClientKey.$pristine, 'has-success' : stripeForm.ClientKey.$valid && !stripeForm.ClientKey.$pristine} ">
+                                <label for="ClientKey ">Client Key</label>
+                                <input required type="text " name="ClientKey " class="form-control " ng-model="EPAYGC.editPaymentData.settings.client_key ">
+                            </div>
+                            <div class="form-group " ng-class="{ 'has-error' : stripeForm.redirect_uri.$invalid && !stripeForm.redirect_uri.$pristine, 'has-success' : stripeForm.redirect_uri.$valid && !stripeForm.redirect_uri.$pristine} ">
+                                <label for="redirect_uri">Redirect Uri</label>
+                                <input required type="text " name="redirect_uri " class="form-control " ng-model="EPAYGC.editPaymentData.settings.redirect_uri ">
+                            </div>
+                            <div class="form-group ">
+                                <label for="paymentMode ">Enable/Disable</label>
+                                <select id="paymentMode " name="enable_disable " ng-model="EPAYGC.editPaymentData.status " class="form-control mb-10 ">
+                                        <option value='1' selected="selected ">Enable</option>
+                                        <option value='2'>Disable</option>
+                                    </select>
+                            </div>
+                                -->
+                            <div class="tile-footer text-right bg-tr-black lter dvd dvd-top ">
+                                <button class="btn btn-success btn-ef btn-ef-3 btn-ef-3c mb-10 " ng-click="EPAYGC.submitPaymetData(stripeForm.$valid,EPAYGC.editPaymentData) "
+                                    ng-disabled="pageForm.$invalid ">Submit<i class="fa fa-arrow-right "></i>
+                            </button>
+                            </div>
+                          
+                        </form>
+                    </div>
+                </section>
+                <!-- /Stripe -->
+                <section class="tile" ng-show="EPAYGC.editPaymentData.alias == 'remita'">
+                    <div class="tile-header dvd dvd-btm">
+                        <h1 class="custom-font"><strong>{{EPAYGC.editPaymentData.gateway_name}}</strong></h1>
+                    </div>
+                    <!-- Paypal IPN -->
+                    <div class="tile-body">
+                        <form class="profile-settings" name="payForm" novalidate>
+                            <div class="form-group" ng-class="{ 'has-error' : payForm.merchant_id.$invalid && !payForm.merchant_id.$pristine, 'has-success' : payForm.merchant_id.$valid && !payForm.merchant_id.$pristine}">
+                                <label for="merchant_id">Merchant ID</label>
+                                <input type="text" name="merchant_id" class="form-control" ng-model="EPAYGC.editPaymentData.settings.merchant_id" id="merchant_id"
+                                    on-blur-validation required>
+                                <p class="help-block">
+                                    <span ng-show="payForm.merchant_id.$invalid && !payForm.merchant_id.$pristine">Client ID is required.</span>
+                                </p>
+                            </div>
+                            <div class="form-group" ng-class="{ 'has-error' : payForm.service_typeid.$invalid && !payForm.service_typeid.$pristine, 'has-success' : payForm.service_typeid.$valid && !payForm.service_typeid.$pristine}">
+                                <label for="service_typeid">service_typeid</label>
+                                <input type="text" name="service_typeid" class="form-control" ng-model="EPAYGC.editPaymentData.settings.service_typeid" id="service_typeid"
+                                    on-blur-validation required>
+                                <p class="help-block">
+                                    <span ng-show="payForm.service_typeid.$invalid && !payForm.service_typeid.$pristine">Client Secret is required.</span>
+                                </p>
+                            </div>
+                            <div class="form-group" ng-class="{ 'has-error' : payForm.api_key.$invalid && !payForm.api_key.$pristine, 'has-success' : payForm.api_key.$valid && !payForm.api_key.$pristine}">
+                                <label for="api_key">api_key</label>
+                                <input type="text" name="api_key" class="form-control" ng-model="EPAYGC.editPaymentData.settings.api_key" id="api_key" on-blur-validation
+                                    required>
+                                <p class="help-block">
+                                    <span ng-show="payForm.api_key.$invalid && !payForm.api_key.$pristine">Client Secret is required.</span>
+                                </p>
+                            </div>
+                            <div class="form-group">
+                                <label for="paymentMode">Payment Mode</label>
+                                <select id="paymentMode" name="paymentMode" ng-model="EPAYGC.editPaymentData.settings.mode" class="form-control mb-10">
+                                    <option value='live'>Live</option>
+                                    <option value='sandbox'>Sandbox</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="paymentMode">Enable/Disable</label>
+                                <select id="paymentMode" name="enable_disable" ng-model="EPAYGC.editPaymentData.status" class="form-control mb-10">
+                                    <option value='1'>Enable</option>
+                                    <option value='2'>Disable</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="tile-footer text-right bg-tr-black lter dvd dvd-top">
+                        <button class="btn btn-success btn-ef btn-ef-3 btn-ef-3c mb-10" ng-click="EPAYGC.submitPaymetData(payForm.$valid,EPAYGC.editPaymentData)"
+                            ng-disabled="pageForm.$invalid">Submit<i class="fa fa-arrow-right"></i>
+                            </button>
+                    </div>
+                </section>
+                <!-- /tile -->
+            </div>
+            <!-- /col -->
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /page content -->
+</div>

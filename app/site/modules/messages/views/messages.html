@@ -1,0 +1,68 @@
+<section class="quickFixedheight">
+    <div class="applyto-tasker accounts">
+        <div class="container2">
+          <div class="acc-head">
+              <h1 class="top-texts acc-tle">{{'MESSAGES'|translate}}</h1>
+            </div>
+            <div class="full-holder msg-container">
+                <!-- <h1 class="faqHeader"></h1> -->
+                <div class="bs-example" data-example-id="simple-table">
+                    <div class="table-responsive">
+                        <table class="table" ng-if="MSG.messages[0]">
+                            <thead>
+                                <tr>
+                                    <th style="width:30px;">#</th>
+                                    <th class="nme-msg" style="width:200px;">{{'NAME'|translate}}</th>
+                                    <th style="width:200px;">{{'TASK'|translate}}</th>
+                                    <th style="width:50px;">{{'ACTIONS'|translate}}</th>
+                                </tr>
+                            </thead>
+							              <tbody ng-if="MSG.currentusertype == 'user' ">
+                                <tr ng-repeat="message in MSG.messages1" ng-class="{'red': MSG.currentusertype == 'user' && message.user_status == 1 && MSG.currentuserid != message.from}">
+                                    <td scope="row" style="line-height:30px">{{$index + 1}}</td>
+                                    <td class="nme-msg" style="line-height:30px">{{message.user[0].username}} </td>
+                                    <td style="line-height:30px">{{message.task.booking_id}}</td>
+                                    <td class="msg-actions">
+                                        <a ui-sref="chat({task:message.task._id, user:message.task.user,tasker:message.tasker[0]._id})" class="btn btn-default">{{'VIEW'|translate}}</a>
+                                        <a href="#" class="btn btn-default" ng-click="MSG.deletemessage(message.task._id,message.task.user,message.tasker[0]._id,MSG.currentPage)">{{'DELETE'|translate}}</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody ng-if="MSG.currentusertype == 'tasker' ">
+                                <tr ng-repeat="message in MSG.messages1" ng-class="{'red': MSG.currentusertype == 'tasker' && message.tasker_status == 1 && MSG.currentuserid != message.from}">
+                                    <td scope="row" style="line-height:30px">{{$index + 1}}</td>
+                                    <td class="nme-msg" style="line-height:30px">{{message.user[0].username}}</td>
+                                    <td style="line-height:30px">{{message.task.booking_id}}</td>
+                                    <td class="msg-actions">
+                                        <a ui-sref="chat({task:message.task._id, user:message.task.user,tasker:message.tasker[0]._id})" class="btn btn-default">{{'VIEW'|translate}}</a>
+                                        <a href="#" class="btn btn-default" ng-click="MSG.deletemessage(message.task._id,message.task.user,message.tasker[0]._id,MSG.currentPage)">{{'DELETE'|translate}}</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                      <div style="margin-top: 200px;margin-left: 300px;" ng-if="MSG.msgtotalItem > 0" class="pagination_inner clearfix">
+                          <nav>
+                              <uib-pagination max-size="5" items-per-page="MSG.msgitemsPerPage" ng-change="MSG.getMessage(MSG.currentPage)"
+                                  total-items="MSG.msgtotalItem" ng-model="MSG.currentPage" class="pagination pagination-lg" previous-text="&lsaquo;"
+                                  next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;">
+                              </uib-pagination>
+                          </nav>
+                      </div>
+                    <div class="bs-example" ng-if="!MSG.messages[0]" >
+                        <h4>{{'NO_MESSAGES_AVAILABLE'|translate}}...!!</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+<style>
+    .green{
+        color:green!important;
+    }
+    .red{
+        color:red!important;
+    }
+    </style>

@@ -1,0 +1,55 @@
+<div class="page page-tables-bootstrap">
+  <div class="pageheader">
+      <h2>{{ 'Menu.EMAILTEMPLATE' | translate  }} </h2>
+      <div class="page-bar">
+          <ul class="page-breadcrumb">
+              <li> <a ui-sref="app.dashboard"><i class="fa fa-home"></i> {{main.title}}</a></li>
+              <li><a ui-sref="app.notifications.list">{{ 'Menu.EMAILTEMPLATE' | translate  }}</a></li>
+              <li><a ui-sref="app.giftCards.giftCardsSettings" href="#/app/giftCards/gift-cards-settings">{{ NMLC.breadcrumb | translate }}</a></li>
+          </ul>
+      </div>
+  </div>
+
+    <div class="pagecontent">
+        <div class="row">
+            <div class="col-md-12">
+                <section class="tile">
+                    <div class="tile-body">
+                        <form class="profile-settings" submit-validate name="emailtemplate" novalidate>
+                            <div class="form-group" ng-class="{ 'has-error' : emailtemplate.name.$invalid && !emailtemplate.name.$pristine || emailtemplate.name.$invalid && submitted, 'has-success' : emailtemplate.name.$valid && !emailtemplate.name.$pristine || emailtemplate.name.$valid && submitted}">
+                                <label for="name">Message Title</label>
+                                <input type="text" name="name" class="form-control" ng-model="NMLC.templateData.name" id="name" on-blur-validation required>
+                                <p class="help-block">
+                                    <span ng-show="emailtemplate.name.$invalid && !emailtemplate.name.$pristine || emailtemplate.name.$invalid && submitted">Message Name is required.</span>
+                                </p>
+                            </div>
+
+
+                            <div class="form-group" ng-class="{ 'has-error' : emailtemplate.emailsubject.$invalid && !emailtemplate.emailsubject.$pristine || emailtemplate.emailsubject.$invalid && submitted, 'has-success' : emailtemplate.emailsubject.$valid && !emailtemplate.emailsubject.$pristine || emailtemplate.emailsubject.$valid && submitted}">
+                                <label for="emailsubject">Message Subject</label>
+                                <input type="text" name="emailsubject" class="form-control" ng-model="NMLC.templateData.subject" on-blur-validation
+                                    id="emailsubject" required>
+                                <p class="help-block">
+                                    <span ng-show="emailtemplate.emailsubject.$invalid && !emailtemplate.emailsubject.$pristine || emailtemplate.emailsubject.$invalid && submitted">Email Subject is required.</span>
+                                </p>
+                            </div>
+
+
+
+                            <div class="form-group" ng-class="{ 'has-error' : emailtemplate.emailcontent.$invalid && !emailtemplate.emailcontent.$pristine || emailtemplate.emailcontent.$invalid && submitted, 'has-success' : emailtemplate.emailcontent.$valid && !emailtemplate.emailcontent.$pristine || emailtemplate.emailcontent.$valid && submitted}">
+                                <label for="emailcontent">Message Content</label>
+                                <textarea name="emailcontent" required ng-model="NMLC.templateData.content" on-blur-validation></textarea>
+                                <p class="help-block">
+                                    <span ng-show="emailtemplate.emailcontent.$invalid && !emailtemplate.emailcontent.$pristine || emailtemplate.emailcontent.$invalid && submitted">Message Content is required.</span>
+                                </p>
+                            </div>
+                            <div class="tile-footer text-right bg-tr-black lter dvd dvd-top">
+                                <button class="btn btn-success btn-ef btn-ef-3 btn-ef-3c mb-10" ng-click="NMLC.submitTemplateEditData(emailtemplate.$valid,NMLC.templateData)">Submit<i class="fa fa-arrow-right"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>

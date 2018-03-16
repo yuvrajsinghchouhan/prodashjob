@@ -1,0 +1,30 @@
+extends layout
+
+block vars
+  - var title='Step 5'
+  - var description = 'Maidac Tasker Registration'
+
+block content
+ form(action="/mobile/provider/register/step6", method="post")
+    .applyto-tasker.apply2
+      .container2
+        .full-holder
+          //h1.top-texts Apply To Be A Tasker
+          h1.top-textsinput(class='backbutton',action='action', type='button', value='Back', onclick='history.go(-1);') Back | Apply To Be A Tasker
+          
+        
+          .tasker-pannel
+            .tasker-head
+            .tasker-body
+              span.topedtext
+                 Use This section to introduce yourself both personally and professionally to potential Clients and our Community.
+              .lop-div-task
+              ul.abt-cnt
+                each val, index in question
+                 span.topedtext
+                 li= val.question
+                  .botom-fuls
+                   input(type="hidden" name="profiledetails["+index+"][question]" value=val._id)
+                   textarea(name="profiledetails["+index+"][answer]")
+              .lop-div-task
+              input.blue-btn(value='Continue', type='submit')

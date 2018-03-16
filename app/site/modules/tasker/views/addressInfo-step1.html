@@ -1,0 +1,158 @@
+<section>
+  <div class="applyto-tasker apply1">
+    <div class="container2">
+      <div class="full-holder">
+        <h1 class="top-texts">{{'APPLY_TO_BE_A_TASKER' | translate}}</h1>
+        <div class="tasker-pannel">
+          <div class="tasker-head">
+            <span class="left-tile">{{'TELL_US_ABOUT_YOURSELF' | translate}}</span>
+            <div class="right-progrs">
+              <span class="completion-text">{{'APPLCATIONS_COMPLETION' | translate}} 10%</span>
+              <div class="progressbar">
+                <span style="width:10%"></span>
+              </div>
+            </div>
+          </div>
+          <div class="tasker-body">
+            <form ng-init="BTC.data.next='step3'" name="becometaskerForm" submit-validate novalidate>
+              <div class="lop-div-task">
+                <span class="topedtext">{{'WHAT_IS_YOUR_BIRTHDATE' | translate}}?</span>
+                <div class="botom-fuls">
+                  <ul class="day-list dte-pkr">
+
+                    <div ng-controller="DatepickerDobCtrl" class="cal-holde" style="width: 23%;!importent">
+                      <style>
+
+                        .datepicker .btn-default {
+                          border-width: 0;
+                          width: 100%;
+                          -webkit-box-shadow: none;
+                          box-shadow: none;
+                        }
+
+                        .btn-success{
+                            display:none;
+                        }
+                        .day-list li {
+                          float: left;
+                          margin: 0 18px 0 0;
+                          width: 140px;
+                          }
+                        .btn-group > .btn, .btn-group-vertical > .btn  {
+                          display:none;
+                        }
+
+                        .datepicker .btn-default .glyphicon {
+                          align: center;
+                          top: 2px;
+                        }
+
+                        .datepicker .btn[disabled] {
+                          opacity: .3;
+                        }
+
+                        .datepicker .btn-info {
+                          color: white !important;
+                        }
+
+                        .datepicker .btn-info .text-info {
+                          color: white;
+                        }
+
+                        .datepicker .btn-info.active {
+                          background-color: #5bc0de !important;
+                        }
+                      </style>
+                        <i ng-click="open($event)" class="fa fa-calendar"></i>
+                          <input ng-change="BTC.filterDate()" type="text" name="valid_from" id="valid_from" class="dateside" datepicker-popup="{{format}}"
+                            ng-model="BTC.WorkingDate" is-open="opened" datepicker-options="dateOptions" min-date="minDate" ng-required="true" placeholder="DD-MM-YYYY"
+                            close-text="Close"  show-clear="false" required/ style="margin-top: -2px;width: 85%;">
+                      </div>
+                      <br>
+
+                  <!--  <li><input min="1945" max="2016" name="year" required placeholder="Enter Year (YYYY)" ng-model='BTC.data.birthdate.year'
+                        type="number">
+                      <span class="validerr" ng-show="becometaskerForm.year.$invalid && !becometaskerForm.year.$pristine">Birth Year is required.</span>
+                      <span class="validerr"ng-show="becometaskerForm.year.$error.min">Birth Year Invalid.</span>
+                      <span class="validerr" ng-show="becometaskerForm.year.$error.max">Birth Year Invalid.</span>
+                    </li>
+                    <li><input min="1" max="12" required name="month" placeholder="Enter Month (MM)" ng-model='BTC.data.birthdate.month'
+                        type="number">
+                      <span class="validerr" ng-show="becometaskerForm.month.$invalid && !becometaskerForm.month.$pristine">Birth Month is required.</span>
+                      <span class="validerr" ng-show="becometaskerForm.month.$error.min">Birth Month Invalid.</span>
+                      <span class="validerr" ng-show="becometaskerForm.month.$error.max">Birth Month Invalid.</span>
+                    </li>
+                    <li>
+                      <input min="1" max="31" required name="date" placeholder="Enter Date (DD)" ng-model='BTC.data.birthdate.date'
+                        type="number">
+                      <span class="validerr"  ng-show="becometaskerForm.date.$invalid && !becometaskerForm.date.$pristine">Birth Date is required.</span>
+                      <span class="validerr" ng-show="becometaskerForm.date.$error.min">Birth Date Invalid.</span>
+                      <span class="validerr" ng-show="becometaskerForm.date.$error.max">Birth Date Invalid.</span>
+                    </li>-->
+                  </ul>
+                  <span class="validerr" ng-show="becometaskerForm.valid_from.$invalid && !becometaskerForm.valid_from.$pristine">{{'DOB' | translate }}.</span>
+                </div>
+              </div>
+              <div class="lop-div-task">
+                <span class="topedtext">{{'GENDER' | translate}}</span>
+                <div class="botom-fuls">
+                  <ul class="day-list">
+                    <li style="width: 208px;">
+                      <select required name="gender" ng-model='BTC.data.gender'>
+                                            <option value="">{{'SELECT_A_GENDER' | translate}}</option>
+                                            <option value="male">{{'MALE' | translate}}</option>
+                                            <option value="female">{{'FEMALE' | translate}}</option>
+                                        </select>
+                      <span  class="validerr" ng-show="becometaskerForm.gender.$invalid && !becometaskerForm.gender.$pristine">{{'SELECT GENDER' | translate }}.</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="lop-div-task">
+                <span class="topedtext">{{'WHERE_DO_YOU_LIVE' | translate}}?</span>
+                <div class="botom-fuls">
+                  <ul class="wher-live">
+
+                    <li>
+                      <label>{{'STREET_ADDRESS' | translate}}</label>
+                      <input type="text" name="street" required  placeholder="{{'ENTER YOUR LOCATION'| translate}}"  types="address" places-auto-complete ng-model='BTC.data.address.line1' on-place-changed="BTC.placeChanged(BTC.data.address.line1)" placeholder="{{'ENTER YOUR STREET ADDRESS'| translate}}">
+                      <span style="margin-top:10px;margin-left:10px" class="validerr" ng-show="becometaskerForm.street.$invalid && !becometaskerForm.street.$pristine">{{'STREET ADDRESS IS REQUIRED'| translate}}.</span>
+                    </li>
+                     <li>
+                      <label>{{'STREET_ADDRESS_LINE_2' | translate}}</label>
+                      <input type="text" name="streetline"  ng-model='BTC.data.address.line2' placeholder="{{'ENTER YOUR STREET ADDRESS LINE 2' | translate}}">
+                    </li>
+                     <li>
+                      <label>{{'TOWN/CITY' | translate}}</label>
+                      <input name="city" type="text" required  ng-model="BTC.data.address.city" placeholder="{{'ENTER YOUR TOWN/CITY'| translate}}">
+                      <span style="margin-top:10px;margin-left:10px" class="validerr" ng-show="becometaskerForm.city.$invalid && !becometaskerForm.city.$pristine">{{'CITY IS REQUIRED' | translate}}.</span>
+                    </li>
+
+                      <li>
+                      <label>{{'STATE' | translate}}</label>
+                      <input type="text" name="state" required ng-model='BTC.data.address.state' placeholder="{{'ENTER YOUR STATE'| translate}}">
+                      <span style="margin-top:10px;margin-left:10px" class="validerr" ng-show="becometaskerForm.state.$invalid && !becometaskerForm.state.$pristine">{{'STATE IS REQUIRED'| translate}}.</span>
+                    </li>
+                     <li>
+                      <label>{{'COUNTRY' | translate}}</label>
+                      <input type="text" name="country" required ng-model='BTC.data.address.country' placeholder="{{'ENTER YOUR COUNTRY'| translate}}">
+                      <span style="margin-top:10px;margin-left:10px" class="validerr" ng-show="becometaskerForm.country.$invalid && !becometaskerForm.country.$pristine">{{'COUNTRY IS REQUIRED'| translate}}.</span>
+                    </li>
+                      <li>
+                      <label>{{'ZIPCODE' | translate}}</label>
+                      <input  type="text" name="zipcode"  ng-model='BTC.data.address.zipcode' placeholder="{{'ENTER YOUR ZIPCODE NUMBER'| translate}}" required>
+                      <span style="margin-top:10px;margin-left:10px" class="validerr" ng-show="becometaskerForm.zipcode.$invalid && !becometaskerForm.zipcode.$pristine">{{'ZIPCODE IS REQUIRED'| translate}}.</span>
+                    </li>
+
+                  </ul>
+                </div>
+              </div>
+              <input class="blue-btn" value="{{'SUBMIT' | translate}}" type="submit" ng-click="BTC.SubmitTasker(1,becometaskerForm.$valid)">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

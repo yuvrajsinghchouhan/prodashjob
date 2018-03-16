@@ -1,0 +1,204 @@
+
+  </form>
+  <div style="width:100%; margin:0px auto; clear:both;font-family:verdana;" class="trx-dsply">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" ng-click="TTEMS.ok()">×</button>
+      <h1 class="day-text">{{'VIEW_TASK_DETAILS' | translate}}</h1>
+    </div>
+    <table style="width:100%; background:#EAEAEA; color:#fff; padding:5px 10px"  class="log-hdr">
+      <tbody>
+        <tr>
+          <td style="padding:5px;"><img style="width: 200px;" src={{TTEMS.getsettings.settings.logo}}></td>
+          <td style="text-align: right; font-size: 13px; line-height: 20px; padding:10px; color:#000">
+            <p style="margin: 0px 0px 0px; line-height: 20px; font-size: 13px; font-family:verdana;">
+              {{TTEMS.TaskDetails.date | date:'medium'}}</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table style="width:100%; color:#000; padding:10px; border-bottom: 1px solid #ddd;" class="amt-dsply">
+      <tbody>
+        <tr>
+          <td style="padding:10px; font-size:26px;">{{TTEMS.defaultcurrency[0].symbol}}{{(TTEMS.TaskDetails.invoice.amount.grand_total) * TTEMS.defaultcurrency[0].value
+            | number:2}}</td>
+          <td style="text-align: right; font-size: 13px; line-height: 20px; padding:10px; color:#999">
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table style="width:100%; color:#000; padding:0px; background: #D1D1D1; border-bottom: 1px solid #ddd;" class="bok-id">
+      <tbody>
+        <tr>
+          <td style="padding:10px; font-size:13px;">{{'BOOKING_ID' | translate}}: {{TTEMS.task.booking_id}}</td>
+          <td style="text-align: right; font-size: 13px; line-height: 20px; padding:10px;">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr>
+                  <!-- <td style="text-align: right;font-size: 13px;">Transaction ID: {{TTEMS.TaskDetails.transcationid}}</td> -->
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table width="97%" border="0" cellspacing="0" cellpadding="10" style="margin:5px; text-align: left; font-size: 13px; line-height: 20px;" class="wrk-dtls">
+      <tbody>
+        <tr>
+          <td class="dtls-info">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="font-size: 13px;" >
+              <tbody>
+                <tr>
+                  <td height="30">{{'CATEGORY_NAME' | translate}}:</td>
+                  <td height="30">{{TTEMS.maincategoryname}}({{TTEMS.TaskDetails.categoryname}})</td>
+                </tr>
+                <!-- <tr  ng-if="TTEMS.task.tasker.name">
+                  <td height="30">Tasker Name:</td>
+                  <td>{{TTEMS.task.tasker.name.first_name}} {{TTEMS.task.tasker.name.last_name}}</td>
+                </tr> -->
+                <tr  ng-if="TTEMS.task.tasker.username">
+                  <td height="30">{{'TASKER_NAME' | translate}}:</td>
+                  <td height="30">{{TTEMS.task.tasker.name.first_name}}({{TTEMS.task.tasker.username}})</td>
+                </tr>
+                <tr  ng-if="TTEMS.TaskDetails.addresss">
+                  <td height="30">{{'TASK_ADDRESS' | translate}}:</td>
+                  <td height="30"> {{TTEMS.TaskDetails.addresss}}</td>
+                </tr>
+                <tr  ng-if="TTEMS.TaskDetails.invoice.worked_hours_human">
+                  <td height="30">{{'TOTAL_HOURS' | translate}}:</td>
+                  <td height="30">{{TTEMS.TaskDetails.invoice.worked_hours_human}}</td>
+                </tr>
+                <tr ng-if="TTEMS.task.hourly_rate">
+                  <td height="30">{{'PER_HOURS' | translate}}:</td>
+                  <td height="30">{{TTEMS.defaultcurrency[0].symbol}}{{TTEMS.task.hourly_rate * TTEMS.defaultcurrency[0].value | number:2}}</td>
+                </tr>
+                <tr  ng-if="TTEMS.TaskDetails.invoice.amount.minimum_cost">
+                  <td height="30" style="width: 180px; ">{{'MINIMUM_HOURLY_RATE' | translate}}:</td>
+                  <td height="30">{{TTEMS.defaultcurrency[0].symbol}}{{TTEMS.TaskDetails.invoice.amount.minimum_cost* TTEMS.defaultcurrency[0].value | number:2}}</td>
+                </tr>
+                <tr  ng-if="TTEMS.task.payment_type">
+                  <td height="30" style="width: 180px;">{{'PAYMENT TYPE' | translate}}:</td>
+                  <td height="30"> {{TTEMS.task.payment_type}}</td>
+                </tr>
+
+                <tr  ng-if ="TTEMS.task.invoice.miscellaneous.length > 0">
+                <td height="30" style="color: #2196f3; font-size:14px;font-weight: 900;">{{'Material Details' | translate}}:</td>
+                <tr  ng-if ="TTEMS.task.invoice.miscellaneous.length > 0"s>
+                  <td height="30" style="color: #FF5722; font-size:14px;font-weight: 900;"> Products </td>
+                  <td height="30"style="color: #FF5722; font-size:14px; font-weight: 900;"> Price</td>
+                <tr  ng-repeat="alert in TTEMS.task.invoice.miscellaneous">
+                  <td height="30"> {{alert.name}}</td>
+                  <td height="30"> {{TTEMS.defaultcurrency[0].symbol}}{{alert.price *TTEMS.defaultcurrency[0].value | number:2 }} </td>
+                </tr>
+              </tr>
+              </tr>
+
+
+
+              </tbody>
+            </table>
+          </td>
+          <td    class="amt-info">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="font-size: 13px;" >
+              <tbody>
+                <tr ng-if="TTEMS.TaskDetails.invoice.amount.extra_amount" >
+                  <td height="30">{{'MISCELLANEOUS_AMOUMT' | translate}} :</td>
+                  <td style="text-align: right;">
+                    {{TTEMS.defaultcurrency[0].symbol}}{{(TTEMS.TaskDetails.invoice.amount.extra_amount)
+                    * TTEMS.defaultcurrency[0].value | number:2}}
+                  </td>
+                </tr>
+
+				<tr>
+                  <td height="30">{{'TASK AMOUMT' | translate}} :</td>
+                  <td style="text-align: right;">
+                    </div>{{TTEMS.defaultcurrency[0].symbol}}{{(TTEMS.TaskDetails.invoice.amount.total)
+                    * TTEMS.defaultcurrency[0].value | number:2}}
+                  </td>
+                </tr>
+
+                <tr ng-if="TTEMS.TaskDetails.invoice.amount.service_tax">
+                  <td height="30">{{'SERVICE_TAX' | translate}}:</td>
+                  <td style="text-align: right;">{{TTEMS.defaultcurrency[0].symbol}}{{(TTEMS.TaskDetails.invoice.amount.service_tax) * TTEMS.defaultcurrency[0].value
+                    | number:2}} </td>
+                  </tr>
+
+				              <tr ng-if ="TTEMS.TaskDetails.invoice.amount.coupon" style="border-top: 1px solid #ddd; border-bottom: 1px solid #ddd;">
+                    <td height="50" style="font-weight: bold; font-size: 15px;">{{'AMOUNT_TO_PAY' | translate}}</td>
+                    <td style="text-align: right;font-size: 15px;"><b>{{TTEMS.defaultcurrency[0].symbol}}{{(TTEMS.TaskDetails.invoice.amount.total + TTEMS.TaskDetails.invoice.amount.service_tax) * TTEMS.defaultcurrency[0].value | number:2}}</b></td>
+                  </tr>
+
+                  <tr  ng-if ="TTEMS.TaskDetails.invoice.amount.coupon">
+                    <td height="30">{{'DISCOUNT AMOUNT' | translate}} :</td>
+                    <td style="text-align: right;">
+                    </div>  {{TTEMS.defaultcurrency[0].symbol}}{{ TTEMS.TaskDetails.invoice.amount.coupon * TTEMS.defaultcurrency[0].value | number:2}}
+                    </td>
+                  </tr>
+                  <tr ng-if ="!TTEMS.TaskDetails.invoice.amount.coupon" style="border-top: 1px solid #ddd; border-bottom: 1px solid #ddd;">
+                    <td height="50" style="font-weight: bold; font-size: 15px;">{{'TOTAL_AMOUNT' | translate}}</td>
+                    <td style="text-align: right;font-size: 15px;"><b>{{TTEMS.defaultcurrency[0].symbol}}{{(TTEMS.TaskDetails.invoice.amount.grand_total) * TTEMS.defaultcurrency[0].value | number:2}}</b></td>
+                  </tr>
+
+				              <tr ng-if ="TTEMS.TaskDetails.invoice.amount.coupon" style="border-top: 1px solid #ddd; border-bottom: 1px solid #ddd;">
+                    <td height="50" style="font-weight: bold; font-size: 15px;">{{'TOTAL AMOUNT AFTER DISCOUNT' | translate}}</td>
+                    <td style="text-align: right;font-size: 15px;"><b>{{TTEMS.defaultcurrency[0].symbol}}{{(TTEMS.TaskDetails.invoice.amount.grand_total) * TTEMS.defaultcurrency[0].value | number:2}}</b></td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <table style="width:100%; color:#fff; padding:0px; border-top: 1px solid #ddd; background: #000; font-size:13px;" class="spt-ftr">
+    <tbody>
+      <tr>
+        <td>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr>
+                <td style="width: 75px;"><img src="app/site/public/images/chat-icon.png" width="40" style="margin-left: 20px;"></td>
+                <td style=" width: 280px;">
+                  <h6 style="color: #FC7800; margin: 0px 0px 5px;">{{TTEMS.getsettings.settings.site_title}} Support</h6>
+                  <p style="font-size:10px; color: #FFFFFF; margin: 0px;">{{TTEMS.getsettings.settings.email_address}}<br>
+
+                  </p>
+                </td>
+                <td style="width: 75px;">
+                </td>
+                <td width="40" style="  margin-left: 20px; padding: 20px 20px; width: 75px;">
+                </td>
+
+                <td style=" width: 280px;">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tbody>
+                      <tr>
+
+                        <td style="width: 20px; text-align: center;">
+                          <p> &nbsp;</p>
+                        </td>
+                        <td style="width: 20px; text-align: center;">
+                          <p>&nbsp; <a href="{{TTEMS.getsettings.settings.site_url}}site/account/userdownloadPdf?trans={{TTEMS.TaskDetails.bookingid}}&symbol={{TTEMS.defaultcurrency[0].symbol}}&value={{TTEMS.defaultcurrency[0].value}}"
+                              style="font-size:16px;color:red" target="_blank" class="fa fa-file-pdf-o"> &nbsp; {{'DOWNLOAD PDF' | translate}}</a></p>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr>
+                <td>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+  </form>

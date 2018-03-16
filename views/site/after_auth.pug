@@ -1,0 +1,23 @@
+html(lang='en')
+  head
+    title Single Page Application Authentication - Auth Success
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+  body
+    script(type='text/javascript').
+      if (window.opener) {
+      window.opener.focus();
+      var data={};
+      if('#{username}') {   data.username = JSON.stringify('#{username}');  }
+      if('#{_id}') {  data._id =  JSON.stringify('#{_id}'); }
+      if('#{role}') {   data.role = JSON.stringify('#{role}');  }
+      if('#{token}') {  data.token = JSON.stringify('#{token}');  }
+      if('#{avatar}'){ data.avatar = JSON.stringify('#{avatar}');  }
+      if('#{email}') {  data.email =  JSON.stringify('#{email}');  }
+      console.log(data);
+      if (window.opener.app &&
+      window.opener.app.authState) {
+      window.opener.app.authState(data);
+      }
+      }
+      window.close();

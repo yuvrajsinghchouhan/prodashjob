@@ -1,0 +1,115 @@
+<section id="header" class="{{main.settings.navbarHeaderColor}}">
+
+  <header class="clearfix">
+    <div class="branding {{main.settings.brandingColor}}">
+      <a class="brand" ui-sref="app.dashboard">
+        <img ng-src="{{rc.logo}}" style="width: 200px;">
+<!--
+<span><strong>{{main.title}}</strong></span>
+-->
+</a>
+</div>
+<ul class="nav-left pull-left list-unstyled list-inline">
+  <li class="sidebar-collapse divided-right">
+    <a href="javascript:;" collapse-sidebar>
+      <fa name="outdent"></fa>
+    </a>
+  </li>
+</ul>
+<ul class="nav-right pull-right list-inline">
+  <li class="dropdown users" dropdown>
+    <a href class="dropdown-toggle" dropdown-toggle>
+      <fa name="user"></fa>
+      <span ng-if="pendingTaskerLength != 0" class="badge bg-lightred">{{pendingTaskerLength}}</span>
+    </a>
+    <div class="dropdown-menu pull-right with-arrow panel panel-default animated littleFadeInUp" role="menu">
+      <div class="panel-heading">
+        You have <strong>{{pendingTaskerLength}}</strong> requests
+      </div>
+      <ul slimscroll="{height: '100%'}" class="list-group header-scroll" id="table-scroll">
+        <li class="list-group-item" ng-repeat="ptasker in pendingTaskers">
+          <a ui-sref="app.taskers.edit({'id':ptasker._id})" class="media">
+            <div class="media-left">
+              <!--<span class="media-object thumb thumb-sm">
+                  <img src="images/arnold-avatar.jpg" alt="" class="img-circle">
+                </span>-->
+            </div>
+            <div class="media-body">
+              <span class="block">{{ptasker.username}}</span>
+              <small class="text-muted">{{ptasker.createdAt|timeago}}</small>
+            </div>
+          </a>
+        </li>
+      </ul>
+      <div class="panel-footer" ng-if="pendingTaskers.length">
+        <a ui-sref="app.taskers.list">Show all requests <fa name="angle-right" class="pull-right"></fa></a>
+      </div>
+    </div>
+  </li>
+  <li class="dropdown nav-profile" dropdown>
+    <a href class="dropdown-toggle" dropdown-toggle>
+      <span style="font-size: 17px;">{{globals.currentUser.username}}
+<fa name="angle-down"></fa>
+</span>
+</a>
+
+<ul class="dropdown-menu animated littleFadeInRight pull-marginleft-100" role="menu">
+  <li>
+    <a ng-if=" presentUser.role == 'admin' " ui-sref="app.admins.add({id:CurrentUser._id})">
+      <fa name="user"></fa>Profile
+    </a>
+    <a ng-if=" presentUser.role == 'subadmin' && Profiledata.edit!=false" ui-sref="app.admins.subadd({id:CurrentUser._id})">
+      <fa name="user"></fa>Profile
+    </a>
+  </li>
+  <li>
+    <a href="{{siteUrl}}" target="_blank">
+      <fa name="check"></fa>Visit Site
+    </a>
+  </li>
+  <li>
+    <a ng-if="settingdata.view !=false" ui-sref="app.settings.generalSettings">
+      <fa name="cog"></fa>Settings
+    </a>
+  </li>
+  <li>
+    <a ui-sref="logout">
+      <fa name="sign-out"></fa>Logout
+    </a>
+  </li>
+</ul>
+</li>
+</ul>
+</header>
+</section>
+
+<div id="controls">
+  <aside id="sidebar" class="{{main.settings.sidebarColor}} back">
+    <div id="sidebar-wrap">
+      <accordion slimscroll="{height: '100%'}">
+        <accordion-group>
+          <ul id="navigation" nav-collapse ripple>
+            <li ng-repeat="menu in menus" ui-sref-active="active">
+              <a ui-sref="{{menu.state}}">
+                <fa name="{{menu.icon}}"></fa>
+                <span>{{ menu.name | translate }}</span>
+              </a>
+              <ul ng-if="menu.childs">
+                <li ng-repeat="submenu in menu.childs" ui-sref-active="active">
+                  <a ui-sref="{{submenu.state}}">
+                    <fa name="caret-right"></fa>
+                    {{ submenu.name | translate }}
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </accordion-group>
+      </accordion>
+    </div>
+  </aside>
+</div>
+<div class="view-container" ui-view-container>
+  <section ui-view id="content" autoscroll="false">
+  </section>
+</div>

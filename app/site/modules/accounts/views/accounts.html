@@ -1,0 +1,53 @@
+<section>
+
+    <div class="applyto-tasker accounts">
+        <div class="container2">
+            <div class="full-holder">
+                <div class="acc-head">
+                    <h1 class="top-texts acc-tle">{{'MY_ACCOUNT' | translate}}</h1>
+
+                    <div class="onoffswitch labeled inline-block availabilities-day-form " ng-if="ACC.taskervariable.currentUser.user_type== 'tasker' ">
+                        <h1 style="margin-top:28px;">{{'AVAILABILITY' | translate}}</h1>
+                        <input type="checkbox" checked="" id="switch09" class="u-hidden onoffswitch-checkbox" name="onoffswitch" ng-model="ACC.availabilityvalue"
+                            ng-init="ACC.availabilityvalue = ACC.availabilityvalue || 0" ng-change="ACC.availabilityChange(ACC.availabilityvalue)">
+                        <label for="switch09" class="onoffswitch-label switch">
+                          <span class="onoffswitch-inner"></span>
+                          <span class="onoffswitch-switch"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="account">
+                    <uib-tabset class="maintab">
+                        <uib-tab index="$index + 1" ng-repeat="tab in ACC.SettingsTab" heading="{{tab.heading | translate}}" active="tab.active"
+                            ng-click="tab.function.init();tab.initFunction;" disable="tab.disabled" class="acc-lst">
+                            <ng-include src="tab.template"></ng-include>
+                        </uib-tab>
+                    </uib-tabset>
+                    <uib-tabset class="maintab mob-tab-link">
+                        <uib-tab index="$index + 1" ng-repeat="tab in ACC.SettingsTab" heading="{{tab.heading | translate}}" ng-click="tab.function.init();tab.initFunction;"
+                            disable="tab.disabled" class="acc-lst">
+                            <ng-include src="tab.template"></ng-include>
+                        </uib-tab>
+                    </uib-tabset>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+<style>
+    .onoffswitch {
+        float: right;
+        width: 34%;
+        margin: 30px 0;
+    }
+    
+    .onoffswitch h1 {
+        float: left;
+        margin: 0px 10px;
+    }
+    
+    .onoffswitch .switch {
+        background: #ababab none repeat scroll 0 0;
+    }
+</style>

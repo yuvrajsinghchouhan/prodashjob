@@ -1,0 +1,54 @@
+<div class="page page-forms-common">
+  <!-- page header -->
+  <div class="pageheader">
+    <h2> {{'Menu.TOOLS'|translate}}</h2>
+    <div class="page-bar">
+      <ul class="page-breadcrumb">
+        <li>
+          <a ui-sref="app.dashboard"><i class="fa fa-home"></i> {{main.title}}</a>
+        </li>
+        <li>
+          <a href="javascript:;">{{'Menu.TOOLS'|translate}}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- /page header -->
+  <!-- page content -->
+  <div class="pagecontent">
+    <!-- row -->
+    <div class="row">
+      <!-- col -->
+      <div class="col-md-12">
+        <!-- tile -->
+        <section class="tile" fullscreen="isFullscreen03">
+          <!-- tile header -->
+          <div class="tile-header dvd dvd-btm">
+            <h1 class="custom-font"><strong>Export</strong> Datas</h1>
+          </div>
+          <!-- /tile header -->
+          <!-- tile body -->
+          <div class="tile-body">
+            <form class="form-inline" role="form">
+              <div class="form-group">
+                <label class="sr-only" for="exampleInputPassword2">Password</label>
+                <select class="form-control mb-10" ng-model="data">
+							 <option>User</option> 
+							<option>Taskers</option>
+              <option>Tasks</option>
+							<option>Transactions</option>
+						</select>
+              </div>
+              <button type="submit" class="btnfixed btn btn-default" ng-click="TSC.exportData(data)">Export</button>
+            </form>
+          </div>
+          <!-- /tile body -->
+        </section>
+        <!-- /tile -->
+      </div>
+      <!-- /col -->
+    </div>
+    <!-- /row -->
+  </div>
+  <!-- /page content -->
+</div>

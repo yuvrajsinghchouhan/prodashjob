@@ -1,0 +1,80 @@
+<form name="walletform" submit-validate role="form" novalidate>
+  <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" dismiss-on-timeout="{{alertTimeout}}" close="closeAlert($index)">{{alert.msg}}</uib-alert>
+  <div role="tabpanel" class="tab-pane" id="wallet">
+    <div class="account-section">
+      <span>{{'WALLET'|translate }}</span>
+      <!-- <a class="cur-bal wal-bal"><h4>{{'CURRENT_BALANCE'|translate }}:<span > {{rc.DefaultCurrency[0].symbol}} {{ACC.getwalletdetails.total * rc.DefaultCurrency[0].value | number:2}} </span></h4></a> -->
+    </div>
+    <div class="wltamtsection">
+      <div class="wal-mbal">
+        <div class="user-pickup-detail">
+          <h2>{{'RECHARGE_WALLET_MONEY'|translate }}</h2>
+        </div>
+        <div class="col-md-12 money-head">
+          <img src="../app/site/public/images/purse_icon.png">
+          <div class="current-balance">
+            <a class="cur-bal">
+              <h4>{{'CURRENT_BALANCE'|translate }}:<span> {{rc.DefaultCurrency[0].symbol}}{{ACC.getwalletdetails.total * rc.DefaultCurrency[0].value | number:2}} </span></h4>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="wall-balrgt">
+        <div class="recharge-money">
+          <h4>{{'RECHARGE_WALLET_MONEY'|translate }}</h4>
+        </div>
+        <div class="mny-pay">
+          <div class="col-md-12">
+            <div  class="col-md-1" style="font-size:20px">
+            <lable class="curr-value"> {{rc.DefaultCurrency[0].symbol}}</lable></div>
+            <div  class="col-md-11">
+            <input type="number" name="walletamount" ng-model-options="{allowInvalid: true}" ng-change="ACC.changeWalletAmt(ACC.walletAamount)"
+              string-to-number ng-model="ACC.walletAamount" min="{{ACC.walletMinAmt}}" max="{{ACC.walletMaxAmt}}" required
+              placeholder="{{'ENTER AMOUNT TO BE ADDED IN WALLET'|translate}}">
+            </div >
+
+             <!-- <div class="col-md-2" style="margin-top: 10px;">
+
+            </div > -->
+             <!-- <div class="col-md-10">
+
+              </div> -->
+          </div>
+          <span class="help-inline" ng-show="walletform.walletamount.$error.min">{{'AMOUNT IS LESS THEN'|translate}}  {{rc.DefaultCurrency[0].symbol}}{{ACC.getsettings.settings.wallet.amount.minimum * rc.DefaultCurrency[0].value | number:2}} </span>
+          <span class="help-inline" ng-show="walletform.walletamount.$error.max">{{'AMOUNT IS GREATER THEN'|translate}} {{rc.DefaultCurrency[0].symbol}}{{ACC.getsettings.settings.wallet.amount.maximum * rc.DefaultCurrency[0].value | number:2}}.</span>
+        </div>
+        <ul class="wallet-mny">
+          <li>
+            <input type="radio" id="option1" string-to-number ng-change="ACC.changeWallet(ACC.walletAamount)" name="amount" ng-model="ACC.walletAamount"
+              value="{{ACC.getsettings.settings.wallet.amount.minimum * rc.DefaultCurrency[0].value}}">
+            <label for="option1">{{rc.DefaultCurrency[0].symbol}}{{ACC.getsettings.settings.wallet.amount.minimum * rc.DefaultCurrency[0].value | number:2}}</label>
+            <div class="check"></div>
+          </li>
+          <li>
+            <input type="radio" id="option2" string-to-number ng-change="ACC.changeWallet(ACC.walletAamount)" name="amount" ng-model="ACC.walletAamount"
+              value="{{(ACC.getsettings.settings.wallet.amount.maximum/2)* rc.DefaultCurrency[0].value}}">
+            <label for="option2">{{rc.DefaultCurrency[0].symbol}}{{(ACC.interamount) * rc.DefaultCurrency[0].value | number:2}}</label>
+            <div class="check"></div>
+          </li>
+          <li>
+            <input type="radio" id="option3" string-to-number ng-change="ACC.changeWallet(ACC.walletAamount)" name="amount" ng-model="ACC.walletAamount"
+              value="{{ACC.getsettings.settings.wallet.amount.maximum* rc.DefaultCurrency[0].value}}">
+            <label for="option3">{{rc.DefaultCurrency[0].symbol}}{{ACC.getsettings.settings.wallet.amount.maximum * rc.DefaultCurrency[0].value | number:2}}</label>
+            <div class="check"></div>
+          </li>
+        </ul>
+        <br>
+        <div class="btnholder typ-crd">
+          <input class="bluebtn" ng-click="ACC.savewallet({amount:ACC.walletAamount, min:ACC.walletMinAmt, max:ACC.walletMaxAmt},rc.DefaultCurrency[0].value)"
+            value="{{'ADD MONEY TO WALLET'| translate}}" type="submit">
+        </div>
+
+         <div class="btnholder typ-paypal">
+          <input class="bluebtn" ng-click="ACC.savewalletpaypal({amount:ACC.walletAamount, min:ACC.walletMinAmt, max:ACC.walletMaxAmt},rc.DefaultCurrency[0].value)"
+            value="{{'Add Money to Wallet(Paypal)'| translate}}" type="submit">
+        </div>
+
+      </div>
+    </div>
+  </div>
+</form>

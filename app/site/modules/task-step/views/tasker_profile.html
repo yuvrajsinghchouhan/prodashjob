@@ -1,0 +1,193 @@
+<section>
+  <div class="profilepage">
+    <div class="profilepage-top" style="background:rgb(63, 63, 63) url('{{rc.tpimg.image}}');">
+      <div class="container">
+        <div class="profimg-holder">
+          <figure><img ng-src={{TPC.taskDetailInfo.avatar}} err-src></figure>
+        </div>
+        <h1 class="text-fil">{{'HELLO' | translate}}, I’m {{TPC.taskDetailInfo.name.first_name}}({{TPC.taskDetailInfo.username}}).</h1>
+        <h4>
+          <rating ng-model="TPC.induvidualrating" readonly="true">
+          </h4>
+          <ul class="profil-flow">
+            <li ng-if="TPC.availableSymbal"  style="width:auto;float:right!important">
+              <i class="fa fa-thumbs-o-up"></i>
+              <div class="txt-rit">
+                <span class="pstv-text">{{TPC.availabilityValue | translate}}</span>
+              </div>
+            </li>
+
+            <li ng-if="!TPC.availableSymbal" style="width:auto;float:right!important">
+              <i class="fa fa-thumbs-down"></i>
+              <div class="txt-rit">
+                <span class="pstv-text">{{TPC.availabilityValue | translate}}</span>
+              </div>
+            </li>
+
+            <li class="bdr-lin">
+              <i class="fa fa-check"></i>
+              <div class="txt-rit">
+                <span class="pstv-text"> {{'IVE DONE' | translate}}<b> {{TPC.taskprofile[0].task.length}} {{'TASKS' | translate}} .</b></span>
+                <span class="sml-text"> {{'IVE BEEN A TASKER' | translate}}<b> {{'SINCE' | translate}}  {{TPC.convertdate | date:' MMM, yyyy' }}</b></span>
+              </div>
+            </li>
+
+            <li class="loc-cnt">
+              <i class="fa fa-map-marker"></i>
+              <div class="txt-rit">
+                <span class="pstv-text">{{'LOCATIONS' | translate}}</span>
+                <span class="sml-text">{{TPC.taskDetailInfo.availability_address}}</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="profile-pages">
+      <div class="tabbable-panel">
+        <div class="tabbable-line">
+          <div class="profle-container">
+            <div class="container2">
+              <uib-tabset active="active">
+                <uib-tab index="0" heading="{{'HIRE ME' | translate}}">
+                  <div class="profi-content" id="category_content">
+                    <div class="container2">
+                      <div class="tab-content">
+                        <div class="tab-pane active" id="tab_default_1">
+                          <ul class="hire-liip">
+                          </ul>
+                          <div class="col-md-12 hire-tab" ng-repeat="data in TPC.taskprofile[0].taskercategory" ng-if="data.childid[0].name">
+                            <div class="brdlinr">
+                              <div class="generlinf">
+                                <div class="col-md-6 hire-title" style="margin-top:10px">
+                                  <h3>{{data.childid[0].name}}</h3>
+                                </div>
+                                <div class="col-md-6 hire-price">
+                                  <a class="hirebtn" ui-sref="hirestep1({slug:data.childid[0].slug})" style="width:auto;float:right!important;">
+                                    <span class="muted">{{'SELECT FOR' | translate}}</span>: {{rc.DefaultCurrency[0].symbol}}<span>{{data.hour_rate * rc.DefaultCurrency[0].value | number:2}}/hr</span></a>
+                                  </div>
+                                  <ul class="generlinf">
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </uib-tab>
+
+                  <uib-tab index="1" heading="{{'REVIEWS' | translate}}">
+                    <div class="profi-content review-tab-heading">
+                      <div class="container2">
+                        <div ng-if="TPC.taskprofile[0].rate" class="tab-content" ng-repeat="profile in TPC.taskprofile">
+                          <div class="tab-pane2 review-tab">
+                            <ul class="hire-liip">
+                              <li>
+                                <div class="col-md-3 legncont review-page">
+                                  <h2>{{profile.category[0].name}}</h2>
+                                  <span class="review-title">
+                                    <div class="profimg-holder1">
+                                      <figure1><img ng-src={{profile.user.avatar}} err-src style="height:100%;width:100%"></figure1>
+                                      <span style="text-align:center; font-size:15px" class="taskli1">{{profile.user.name.first_name}} ({{profile.user.username}})</span>
+                                    </div>
+                                  </span>
+                                </div>
+                                <div class="col-md-6 review-star">
+                                  <p>{{profile.rate.comments}}</p>
+                                </div>
+                                <div class="col-md-3 review-star">
+                                  <rating ng-model="profile.rate.rating" readonly="true">
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div class="tab-content" style="text-align : center" ng-if="!TPC.taskprofile[0].rate">
+                            <h4>{{'TASKER HAS NOT YET GOT ANY REVIEWS'|translate}}</h4>
+                          </div>
+                        </div>
+                      </div>
+                    </uib-tab>
+                    <uib-tab index="3" heading="{{'ABOUT' | translate}}">
+                      <div class="profi-content">
+                        <div class="container2">
+                          <div class="tab-content">
+                            <div class="tab-pane2">
+                              <div class="aboutpage">
+                                <div class="abouttop">
+                                  <ul class="factloop">
+                                    <h3>{{'A FEW FUN FACTS ABOUT ME' | translate}}:</h3>
+                                    <li><i class="fa fa-calendar"></i>
+                                      <p>{{'I’VE BEEN A TASKER' | translate}}<b> {{'SINCE' | translate}}  {{TPC.convertdate | date:' MMM, yyyy' }} .</b></p>
+                                    </li>
+
+                                    <li><i class="fa fa-check"></i>
+                                      <p>{{'I’VE DONE' | translate}} <b>{{TPC.taskprofile[0].task.length}}</b> {{'TASKS' | translate}}.</p>
+                                    </li>
+
+                                  </ul>
+                                  <ul class="factloop">
+                                    <h3>{{'WHY I AM YOUR TASKER' | translate}}:</h3>
+                                    <li ng-repeat="data in TPC.questionValue track by $index" ng-if="data.question.question">
+                                      <h4>{{data.question.question}}</h4>
+                                      <p ng-bind-html="data.answer"></p>
+                                    </li>
+
+                                    <li ng-if="!TPC.taskDetailInfo.profile_details[0].question">
+                                      <h4>{{TPC.questionValue | translate}}</h4>
+                                      <p ng-if="TPC.checkVAlue" ng-bind-html="TPC.answerValue"></p>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </uib-tab>
+                  </uib-tabset>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+
+        </div>
+      </section>
+
+
+      <style>
+      .profimg-holder1 > figure1 {
+        border: 4px solid #fff;
+        border-radius: 50%;
+        display: inline-block;
+        height: 100px;
+        overflow: hidden;
+        width: 100px;
+        margin:0 10px -50px;
+      }
+      .figure1 {
+        margin: 0;
+      }
+      .profimg-holder1 {
+        display: inline-block;
+        width: 200px;
+        /* height: 160px; */
+        overflow: hidden;
+      }
+
+      .taskli1 {
+        display: inline-block;
+        background: #00964b;
+        border-radius: 6px;
+        color: #fff;
+        margin: 26px 0px 3px 0px;
+        padding: -8px 0px;
+        width: 120px
+      }
+      </style>

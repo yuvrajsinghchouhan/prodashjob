@@ -1,0 +1,22 @@
+<div ng-init="ACC.getTaskDetailsByStaus('assigned');" role="tabpanel" class="tab-pane" id="Transactions">
+  <uib-tabset class="tabdetails" active="active">
+    <uib-tab index="0" active="tabOneActive" ng-click="ACC.currentPage= 1; ACC.getTaskDetailsByStaus('assigned')" heading="{{'ASSIGNED' | translate}}">
+      <ng-include src="'app/site/modules/accounts/views/task-invitation.sub.tab.html'"></ng-include>
+    </uib-tab>
+    <!--<uib-tab index="0" ng-click="ACC.currentPage= 1; ACC.getTaskDetailsByStaus(2)" heading="Accepted">
+      <ng-include src="'app/site/modules/accounts/views/task-invitation.sub.tab.html'"></ng-include>
+    </uib-tab>-->
+    <uib-tab index="1" active="tabTwoActive" ng-click="ACC.currentPage= 1; ACC.getTaskDetailsByStaus('ongoing')" heading="{{'ONGOING' | translate}}">
+      <ng-include src="'app/site/modules/accounts/views/task-invitation.sub.tab.html'"></ng-include>
+    </uib-tab>
+    <uib-tab index="2" active="tabThreeActive" ng-click="ACC.currentPage= 1;ACC.getTaskDetailsByStaus('completed')" heading="{{'COMPLETED' | translate}}">
+      <ng-include src="'app/site/modules/accounts/views/task-invitation.sub.tab.html'"></ng-include>
+    </uib-tab>
+    <uib-tab index="3" active="ACC.tabFourActive" ng-click="ACC.currentPage= 1; ACC.getTaskDetailsByStaus('cancelled')" heading="{{'CANCELLED' | translate}}">
+      <ng-include src="'app/site/modules/accounts/views/task-invitation.sub.tab.html'"></ng-include>
+    </uib-tab>
+    <!-- <uib-tab index="4" ng-click="ACC.currentPage= 1;ACC.getTaskDetailsByStaus('disputed')" heading="Disputed ">
+      <ng-include src="'app/site/modules/accounts/views/task-invitation.sub.tab.html'"></ng-include>
+    </uib-tab> -->
+  </uib-tabset>
+</div>

@@ -1,0 +1,27 @@
+<form name="invitefriend" submit-validate role="form" novalidate>
+  <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" dismiss-on-timeout="{{alertTimeout}}" close="closeAlert($index)">{{alert.msg}}</uib-alert>
+  <div role="tabpanel" class="tab-pane" id="wallet">
+    <div class="account-section">
+      <span>{{'INVITE_FRIENDS' | translate}}</span>
+    </div>
+    <div class="wltamtsection emptyfie" ng-if="ACC.getsettings.settings.referral.status == '0'">
+      {{'INVITE_FRIENDS_OPTION_BLOCKER_BY_ADMIN' | translate}}
+    </div>
+    <div class="wltamtsection invite-frnds">
+      <div class="btnholder" ng-if="ACC.getsettings.settings.referral.status == '1'">
+        <span>
+          <img src="/app/site/public/images/gmail-icon.png">
+        </span>
+        <a href="mailto:?subject=Invitation for Registration&body=Refer and Earn,when your friend signup with your referral code,you earn ${{ACC.getsettings.settings.referral.amount.referrer}} in your wallet and your friend earn ${{ACC.getsettings.settings.referral.amount.referral}}.%0ASignup using the code  {{ACC.user.unique_code}} and earn money in your wallet !Download: {{ACC.getsettings.settings.site_url}}"
+          target="_blank" class="invite-mail">{{'INVITE_FRIENDS' | translate}}</a>
+      </div>
+      <div class="btnholder" ng-if="ACC.getsettings.settings.referral.status == '1'">
+        <span>
+          <img src="/app/site/public/images/fb-icon.png">
+
+        </span>
+        <a href="#" ng-click="ACC.FacebookInviteFriends();" class="invite-fb">{{'BRING_YOUR_FRIENDS' | translate}}</a>
+      </div>
+    </div>
+  </div>
+</form>

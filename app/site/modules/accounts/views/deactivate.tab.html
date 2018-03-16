@@ -1,0 +1,7 @@
+<div role="tabpanel" class="tab-pane" id="Password">
+    <div class="account-section">
+        <span>{{'ACCOUNT_DEACTIVATIONS' | translate}}</span>
+    </div>
+    <button type="button" class="btn btn-primary deactive-btn" ng-click="ACC.deactivateTasker()" ng-if="ACC.user.role=='tasker'">{{'DEACTIVATE_YOUR_ACCOUNT' | translate}}</button>
+    <button type="button" class="btn btn-primary deactive-btn" ng-click="ACC.deactivate()" ng-if="ACC.user.role=='user'">{{'DEACTIVATE_YOUR_ACCOUNT' | translate}}</button>
+</div>

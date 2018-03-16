@@ -1,0 +1,42 @@
+<div class="page page-tables-bootstrap">
+   <!-- page header -->
+   <div class="pageheader">
+    <h2>{{'Menu.COUPONS' | translate}} </h2>
+    <div class="page-bar">
+       <ul class="page-breadcrumb">
+          <li>
+             <a ui-sref="app.dashboard"><i class="fa fa-home"></i> {{main.title}}</a>
+          </li>
+          <li>
+             <a href="javascript:;">{{'Menu.COUPONS' | translate}}</a>
+          </li>
+          <li>
+             <a ui-sref="app.coupons.list">{{ 'SubMenu.COUPONS_LIST' | translate }}</a>
+          </li>
+       </ul>
+    </div>
+ </div>
+   <!-- /page header -->
+   <!-- page content -->
+   <div class="pagecontent">
+      <!-- row -->
+      <div class="row">
+         <!-- col -->
+         <div class="col-md-12">
+            <section class="tile" fullscreen="isFullscreen07">
+               <div class="tile-header dvd dvd-btm">
+                  <h1 class="custom-font">
+				  <strong>Coupon</strong> List</h1>
+               </div>
+                           <!--<custom-table data="CLC.couponList" count="CLC.count" current-pages="CLC.couponReload" multi-delete="CLC.deleteBtn" layout="CLC.layout" delete-call="CLC.couponReload()"></custom-table>-->
+
+						   <custom-table data="CLC.table" delete-call="CLC.deletedData" ></custom-table>
+
+            </section>
+            <!-- /col -->
+         </div>
+         <!-- /row -->
+      </div>
+      <!-- /page content -->
+   </div>
+</div>

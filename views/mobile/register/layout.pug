@@ -1,0 +1,40 @@
+doctype html
+html
+  block vars
+  head
+    title #{title}
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no')
+    title Step one
+    link(rel='stylesheet', type='text/css', href=siteurl+'app/mobile/register/css/bootstrap.css')
+    link(rel='stylesheet', type='text/css', href=siteurl+'app/mobile/register/css/intlTelInput.css')
+    link(rel='stylesheet', type='text/css', href=siteurl+'app/mobile/register/css/style.css')
+    link(rel='stylesheet', type='text/css', href=siteurl+'app/mobile/register/css/product.css')
+    link(rel='stylesheet', href=site_url+'app/mobile/styles/style.css', type='text/css', media='all')
+     
+    
+  body
+    block content
+    script(type='text/javascript', src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js")
+    script(type='text/javascript', src=siteurl+'app/mobile/register/js/jquery.validate.min.js')
+    script(type='text/javascript', src=siteurl+'app/mobile/register/js/jquery.date-dropdowns.js')
+    script(type='text/javascript', src=siteurl+'app/mobile/register/js/jquery-ui.min.js')
+    script(type='text/javascript', src=siteurl+'app/mobile/register/js/bootstrap.min.js')
+    //script(type='text/javascript',src='https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places&key=AIzaSyDFmED2h9eocAvN_PHhYrNaZdFTWpX7UZY')
+    script(type='text/javascript', src=siteurl+'app/mobile/register/js/ng-intl-tel-input/intlTelInput.js')
+    script(type='text/javascript', src=siteurl+'app/mobile/register/js/ng-intl-tel-input/utils.js')
+    script(type='text/javascript', src=siteurl+'app/mobile/register/js/custom.js')
+    //script(type='text/javascript', src=siteurl+'app/mobile/register/js/autofill.js')
+    script $(document).ready(function() { $("#year").datepicker(); });
+    
+    //script(type='text/javascript').
+      function init() {
+        var input = document.getElementById('locationTextField');
+        var autocomplete = new google.maps.places.Autocomplete(input);
+        google.maps.event.addListener(autocomplete, 'place_changed', function () {
+        var place = autocomplete.getPlace();
+        $('#geolat').val(place.geometry.location.lat());
+        $('#geolang').val(place.geometry.location.lng());
+        });
+        }
+       google.maps.event.addDomListener(window, 'load', init);

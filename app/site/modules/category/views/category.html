@@ -1,0 +1,89 @@
+<section>
+  <div class="product-set bg-color">
+    <section class="section-white">
+      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="item active">
+            <img ng-src="{{CAC.categoryDatails.image}}" alt="...">
+          </div>
+        </div>
+        <div class="forms-holer">
+          <div class="container">
+            <div class="main-text search-bar">
+              <span class="bold-text">{{CAC.categoryDatails.name}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="col-md-12 cat-list">
+        <ul class="product-list">
+          <li ng-repeat="subcategory in CAC.subcategory">
+            <div class="prodt-container">
+              <a ui-sref="hirestep1({slug:subcategory.slug})">
+                <figure><img ng-src="{{subcategory.image}}" err-src>
+                  <div class="mask"></div>
+                </figure>
+
+                <figcaption>
+                  <h4 class="futer-text ng-binding"><a ui-sref="hirestep1({slug:subcategory.slug})">{{subcategory.name}}</a></h4>
+                </figcaption>
+              </a>
+            </div>
+          </li>
+        </ul>
+        <div ng-if="CAC.totalItems > CAC.itemsPerPage" class="pagination_inner clearfix">
+          <nav>
+            <uib-pagination max-size="5" items-per-page="CAC.itemsPerPage" ng-change="CAC.getSubcategory()" total-items="CAC.totalItems"
+              ng-model="CAC.currentPage" class="pagination pagination-lg" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;"
+              last-text="&raquo;"></uib-pagination>
+          </nav>
+        </div>
+        <div ng-if="CAC.subcategory.length == 0" style="display:none" record-response="CAC.getSubcategoryResponse" no-record num-records="CAC.subcategory.length">
+<div class="errorContainer clearfix">
+  <p class="ErrorMsg">{{'SUBCATEGORY_IS_EMPTY'|translate}}</p>
+  <a class="gotoHome" ui-sref="landing">{{'GO_TO_HOME'|translate}}</a>
+</div>
+</div>
+<style>
+          .ErrorMsg {
+            color: #333;
+            font-family: MyriadProRegular;
+            font-size: 27px;
+            width: 91%;
+            margin-bottom: 35px;
+            margin-left: 60px;
+          }
+
+          .errorContainer {
+            margin: 10px auto 0;
+            max-width: 801px;
+            width: 100%;
+            padding: 20px 40px 40px;
+            border: 1px solid #d3d3d3;
+            border-radius: 10px;
+            background: #f5f5f5;
+            -webkit-box-shadow: 0 2px 2px #818181;
+            -moz-box-shadow: 0 2px 2px #818181;
+            box-shadow: 0 2px 2px #818181;
+            background-image: -ms-linear-gradient(top, #f9f9f9 0, #f1f1f1 100%);
+            background-image: -moz-linear-gradient(top, #f9f9f9 0, #f1f1f1 100%);
+            background-image: -o-linear-gradient(top, #f9f9f9 0, #f1f1f1 100%);
+            background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f9f9f9), color-stop(1, #f1f1f1));
+            background-image: -webkit-linear-gradient(top, #f9f9f9 0, #f1f1f1 100%);
+            background-image: linear-gradient(to bottom, #f9f9f9 0, #f1f1f1 100%);
+            text-align: center;
+            clear: both;
+          }
+
+          .errorContainer img {
+            float: left;
+            margin-top: -5px;
+          }
+        </style>
+</div>
+</div>
+</div>
+</section>

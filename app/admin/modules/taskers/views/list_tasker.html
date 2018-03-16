@@ -1,0 +1,162 @@
+<div class="page page-tables-bootstrap">
+
+
+    <!-- page header -->
+    <div class="pageheader">
+
+        <h2>{{'Menu.TASKERS' | translate}} </h2>
+
+        <div class="page-bar">
+
+            <ul class="page-breadcrumb">
+                <li>
+                    <a ui-sref="app.dashboard"><i class="fa fa-home"></i> {{main.title}}</a>
+                </li>
+                <li>
+                    <a href="javascript:;">{{'Menu.TASKERS' | translate}}</a>
+                </li>
+                <li>
+                    <a ui-sref="app.taskers.list">{{'SubMenu.TASKER_LIST' | translate}}</a>
+                </li>
+            </ul>
+
+            <div ng-if="presentUser.role == 'admin'" class="page-toolbar ng-scope" ng-click="TSLC.exporttasker()"  >
+            <a class="btn btn-front bg-blue no-border ng-isolate-scope">
+            <i class="fa fa-download"></i>
+            <span class="ng-binding">Export</span>
+            </a>
+            </div>
+            <div class="page-toolbar ng-scope" ui-sref="app.taskers.delete"  >
+            <a style="margin-right:1px" class="btn btn-lightred no-border ng-isolate-scope" >
+            <i class="fa fa-trash-o"></i>
+            <span class="ng-binding">Trash</span>
+            </a>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- /page header -->
+
+
+
+    <!-- page content -->
+    <div class="pagecontent">
+
+        <div class="row">
+
+                <div class="feature-box-container col-lg-3 col-sm-6 col-sm-12" >
+                <div class="card" ng-click="TSLC.statusPass(0,10,0)">
+                    <div class="front bg-greensea">
+                    <div class="row" >
+                        <div class="col-xs-4">
+                        <i class="fa fa-users fa-4x"></i>
+                        </div>
+                        <div class="col-xs-8">
+                        <p class="text-elg text-strong mb-0">{{TSLC.allValue || 0}}</p>
+                        <span>All Taskers</span>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                <div class="feature-box-container col-lg-3 col-sm-6 col-sm-12" >
+                <div class="card" ng-click="TSLC.statusPass(3,10,0)">
+                    <div class="front bg-lightred">
+                    <div class="row" >
+                        <div class="col-xs-4">
+                        <i class="fa fa-tasks fa-4x"></i>
+                        </div>
+                        <div class="col-xs-8">
+                        <p class="text-elg text-strong mb-0">{{TSLC.pendingValue || 0}}</p>
+                        <span>Pending Taskers</span>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+               <div class="feature-box-container col-lg-3 col-sm-6 col-sm-12">
+                <div class="card" ng-click="TSLC.statusPass(1,10,0)">
+                    <div class="front bg-blue">
+                    <div class="row">
+                        <div class="col-xs-4">
+                        <i class="fa fa-check fa-4x"></i>
+                        </div>
+                        <div class="col-xs-8">
+                        <p class="text-elg text-strong mb-0">{{TSLC.verifiedValue || 0}}</p>
+                        <span>Verified Taskers</span>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+
+                <div class="feature-box-container col-lg-3 col-sm-6 col-sm-12">
+                <div class="card"  ng-click="TSLC.statusPass(2,10,0)">
+                    <div class="front bg-slategray">
+                    <div class="row">
+                        <div class="col-xs-4">
+                        <i class="fa fa-times  fa-4x"></i>
+                        </div>
+                        <div class="col-xs-8">
+                        <p class="text-elg text-strong mb-0">{{TSLC.unverifiedValue || 0}}</p>
+                        <span>Unverified Taskers</span>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                <!--<div class="feature-box-container col-lg-2 col-sm-6 col-sm-12">
+                <div class="card" ng-init="TSLC.statusPass('availability')" ng-click="TSLC.statusPass('availability')">
+                    <div class="front bg-slategray">
+                    <div class="row">
+                        <div class="col-xs-4">
+                        <i class="fa fa-navicon fa-2x"></i>
+                        </div>
+                        <div class="col-xs-8">
+                        <p class="text-elg text-strong mb-0">{{TSLC.availabilityValue}}</p>
+                        <span>Available Taskers </span>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </div>-->
+            </div>
+
+        <!-- row -->
+        <div class="row" >
+            <!-- col -->
+            <div class="col-md-12">
+                <section class="tile" fullscreen="isFullscreen07">
+
+                    <!-- tile header -->
+                    <div class="tile-header dvd dvd-btm">
+                        <h1 class="custom-font"><strong>Taskers</strong> List</h1>
+
+                    </div>
+
+
+                    <!-- <div custom-table data="USLC.adminUsersList"  datalength="USLC.dataValue" filter-data="USLC.tableFilter"
+                          table-headers="USLC.tableInit" current-pages = "USLC.usersReload" delete-call="USLC.userReload()" delete-url="USLC.userDeleteCall"
+                         table-actions="USLC.editData" delete-model="USLC.openUsersDeleteModal"></div> -->
+                    <!--<custom-table data="USLC.adminUsersList" count="USLC.count" current-pages="USLC.usersReload" filter-data="USLC.tableFilter" layout="USLC.layout" delete-call="USLC.usersReload()" datalength="USLC.dataValue"></custom-table>-->
+                    <custom-table data="TSLC.table" delete-call="TSLC.deletedData"></custom-table>
+
+                </section>
+            </div>
+            <!-- /col -->
+        </div>
+        <!-- /row -->
+
+
+
+
+
+
+    </div>
+    <!-- /page content -->
+
+
+
+
+</div>

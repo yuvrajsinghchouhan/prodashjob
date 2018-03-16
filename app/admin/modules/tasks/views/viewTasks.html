@@ -1,0 +1,109 @@
+<div class="page page-tables-bootstrap">
+    <div class="pageheader">
+        <h2>{{ 'Menu.TASKS' | translate }} </h2>
+        <div class="page-bar">
+            <ul class="page-breadcrumb">
+                <li>
+                    <a ui-sref="app.dashboard"><i class="fa fa-home"></i> {{main.title}}</a>
+                </li>
+                <li>
+                    <a href="javascript:;">{{ 'Menu.TASKS' | translate }}</a>
+                </li>
+                <li>
+                    <a href="javascript:;">{{ 'SubMenu.TASKS_LIST' | translate }}</a>
+                </li>
+            </ul>
+            <div ng-if="presentUser.role == 'admin'" class="page-toolbar ng-scope" ng-click="VTC.exportTask()"  >
+            <a class="btn btn-front bg-blue no-border ng-isolate-scope">
+            <i class="fa fa-download"></i>
+            <span class="ng-binding">Export</span>
+            <!-- <i class="fa fa-angle-down"></i> -->
+            </a>
+            </div>
+
+            <div class="page-toolbar ng-scope" ui-sref="app.tasks.delete"  >
+            <a class="btn btn-lightred no-border ng-isolate-scope">
+            <i class="fa fa-trash-o"></i>
+            <span class="ng-binding">Trash</span>
+            <!-- <i class="fa fa-angle-down"></i> -->
+            </a>
+            </div>
+        </div>
+    </div>
+    <div class="pagecontent">
+
+        <div class="row">
+            <div class="feature-box-container col-lg-3 col-sm-6 col-sm-12">
+                <div class="card" ng-click="VTC.statusPass(0,10,0)">
+                    <div class="front bg-greensea">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <i class="fa fa-navicon fa-4x"></i>
+                            </div>
+                            <div class="col-xs-8">
+                                <p class="text-elg text-strong mb-0">{{VTC.allValue || 0}}</p>
+                                <span>All Tasks</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="feature-box-container col-lg-3 col-sm-6 col-sm-12">
+                <div class="card" ng-click="VTC.statusPass(1,10,0)">
+                    <div class="front bg-lightred">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <i class="fa fa-tasks fa-4x"></i>
+                            </div>
+                            <div class="col-xs-8">
+                                <p class="text-elg text-strong mb-0">{{VTC.onGoingValue || 0}}</p>
+                                <span>OnGoing</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="feature-box-container col-lg-3 col-sm-6 col-sm-12">
+                <div class="card" ng-click="VTC.statusPass(7,10,0)">
+                    <div class="front bg-blue">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <i class="fa fa-check-square-o  fa-4x"></i>
+                            </div>
+                            <div class="col-xs-8">
+                                <p class="text-elg text-strong mb-0">{{VTC.comlpleteValue || 0}}</p>
+                                <span>Completed</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="feature-box-container col-lg-3 col-sm-6 col-sm-12">
+                <div class="card" ng-click="VTC.statusPass(8,10,0)">
+                    <div class="front bg-slategray">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <i class="fa fa-times fa-4x"></i>
+                            </div>
+                            <div class="col-xs-8">
+                                <p class="text-elg text-strong mb-0">{{VTC.cancellValue || 0}}</p>
+                                <span>Cancelled</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <section class="tile list-task" fullscreen="isFullscreen07">
+                    <div class="tile-header dvd dvd-btm">
+                        <h1 class="custom-font"><strong>Tasks</strong> List</h1>
+                    </div>
+                    <custom-table data="VTC.table" delete-call="VTC.deletedData"></custom-table>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>

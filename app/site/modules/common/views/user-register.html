@@ -1,0 +1,125 @@
+<div>
+  <div class="signup-page">
+  <div style="background-image: url('{{rc.signupimg.image}}');" class="sinupimg-container"></div>
+    <div class="sign-up-holder login-holder register-holder">
+      <div class="logo-container">
+        <a ui-sref="landing"><img src="{{rc.getsetting.logo}}"></a>
+      </div>
+      <form ng-init="RGC.UserDetails.next='step1'" class="profile-settings" name="registerForm" submit-validate novalidate>
+        <ul class="sign-btns">
+          <li>
+            <label>{{'FIRST_NAME' | translate}}  </label>
+            <input type="text" name="firstname" ng-minlength="3" ng-maxlength="25" ng-pattern="/^[a-zA-Z ]*$/" ng-model="RGC.UserDetails.firstname" required>
+            <p class="help-block">
+              <span class="validerr" ng-show="registerForm.firstname.$error.required && !registerForm.firstname.$pristine" ng-if="!RGC.UserDetails.firstname">{{'ENTER FIRST NAME' | translate}}.</span>
+              <span class="validerr" ng-show="registerForm.firstname.$error.pattern && !registerForm.firstname.$untouched">{{'FIRST NAME ONLY ALLOW CHARACTERS' | translate}} </span>
+              <span class="validerr" ng-show="registerForm.firstname.$error.minlength">{{'FIRST NAME IS TOO SHORT' | translate}}.</span>
+              <span class="validerr" ng-show="registerForm.firstname.$error.maxlength">{{'FIRST NAME IS TOO LONG' | translate}}.</span>
+            </p>
+          </li>
+          <li>
+            <label>{{'LAST_NAME' | translate}}</label>
+            <input ng-model="RGC.UserDetails.lastname"  name="lastname" type="text" ng-pattern="/^[a-zA-Z ]*$/" required>
+            <p class="help-block">
+            <span class="validerr" ng-show="registerForm.lastname.$error.required && !registerForm.lastname.$pristine">{{'ENTER LAST NAME' | translate}}.</span>
+            <span class="validerr" ng-show="registerForm.lastname.$error.pattern && !registerForm.lastname.$untouched">{{'LAST NAME ONLY ALLOW CHARACTERS' | translate}}</span>
+          </p>
+          </li>
+        <!--  <li>
+            <label>{{'USER_NAME' | translate}}</label>
+            <input type="text" name="username" ng-minlength="4" ng-maxlength="25" ng-model="RGC.UserDetails.username" ng-pattern="/^[a-z0-9]*$/" required>
+            <span class="validerr" ng-show="registerForm.username.$error.required && !registerForm.username.$pristine">{{'ENTER USER NAME' | translate}}.</span>
+            <span class="validerr" ng-show="registerForm.username.$error.minlength">{{'USER NAME MUST BE MINIMUM OF 4 CHARACTERS' | translate}}.</span>
+            <span class="validerr" ng-show="registerForm.username.$error.maxlength">{{'USER NAME MUST BE MAXIMUM OF 25 CHARACTERS' | translate}}.</span>
+			      <span class="validerr" ng-show="registerForm.username.$error.pattern">{{'UPPERCASES/SPECIAL SYMBOLS/SPACES ARE NOT ALLOWED' | translate}}</span>
+          </li>-->
+          <li>
+        <label>{{'USER_NAME' | translate}}</label>
+        <input type="text" name="username" ng-minlength="4" ng-maxlength="20" ng-model="RGC.UserDetails.username" disallow-spaces
+          ng-pattern="/^[a-z0-9\_\. ]*$/" required>
+        <span class="validerr" ng-show="registerForm.username.$error.required && !registerForm.username.$pristine">{{'ENTER USER NAME' | translate}}.</span>
+        <span class="validerr" ng-show="registerForm.username.$error.minlength">{{'USER NAME MUST BE MINIMUM OF 4 CHARACTERS' | translate}}.</span>
+        <span class="validerr" ng-show="registerForm.username.$error.maxlength">{{'USER NAME MUST BE MAXIMUM OF 20 CHARACTERS' | translate}}.</span>
+        <span class="validerr" ng-show="registerForm.username.$error.pattern">{{'ALLOW ONLY DOT AND UNDERSCORE LOWERCASE' | translate}}</span>
+      </li>
+          <li>
+            <label>{{'EMAIL_ADDRESS'| translate}}</label>
+            <input ng-model="RGC.UserDetails.email" ng-pattern="/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/" ng-blur="RGC.emailchange(RGC.UserDetails.email)" name="email"
+              required type="text">
+            <span class="validerr" ng-show="registerForm.email.$error.required && !registerForm.email.$pristine">{{'ENTER EMAIL' | translate}}.</span>
+            <span class="validerr" ng-show="!registerForm.email.$error.required && registerForm.email.$error.pattern">{{'INVALID EMAIL ID' | translate}}.</span>
+          </li>
+          <li>
+            <label>{{'PHONE_NUMBER'| translate}}</label>
+            <input style=" padding-left: 48px;" type="tel" ng-model="RGC.UserDetails.phone" name="tel" id="tel" required ng-intl-tel-input>
+            <span class="validerr" ng-show="registerForm.tel.$error.required && !registerForm.tel.$pristine && registerForm.tel.$untouched">{{'ENTER PHONE NUMBER' | translate}} .</span>
+            <span class="validerr" style="color:red" ng-show="registerForm.tel.$invalid && !registerForm.tel.$pristine && !registerForm.tel.$untouched">{{'PHONE NUMBER IS INCORRECT' | translate}}.</span>
+          </li>
+          <li>
+            <label>{{'PASSWORD'| translate}}</label>
+            <input ng-model="RGC.UserDetails.pwd" name="pwd" ng-minlength="6" ng-maxlength="25" ng-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,12}$/" required type="password">
+            <span class="validerr" ng-show="registerForm.pwd.$error.required && !registerForm.pwd.$pristine">{{'ENTER PASSWORD' | translate}}.</span>
+            <span class="validerr" style="color:red" ng-show="registerForm.pwd.$invalid && !registerForm.pwd.$pristine && !registerForm.pwd.$untouched">{{'PASSWORD MUST CONTAIN ATLEAST ONE UPPERCASE,ONE LOWER CASE,ONE NUMERIC DIGIT' | translate}}.</span>
+            <span class="validerr" ng-show="registerForm.pwd.$error.minlength">{{'PASSWORD MUST BE MINIMUM OF 6 CHARACTERS' | translate}}.</span>
+            <span class="validerr" ng-show="registerForm.pwd.$error.maxlength">{{'PASSWORD MUST BE MAXIMUM OF 12 CHARACTERS' | translate}}.</span>
+          </li>
+          <li>
+            <label>{{'CONFIRM_PASSWORD'| translate}}</label>
+            <input name="confirm_pwd" ng-model="RGC.UserDetails.confirm_pwd" type="password" required>
+            <span class="validerr" ng-show="registerForm.confirm_pwd.$error.required && !registerForm.confirm_pwd.$pristine">{{'ENTER CONFIRM PASSWORD' | translate}} .</span>
+            <span class="validerr" ng-show=" RGC.UserDetails.pwd!='' && RGC.UserDetails.confirm_pwd!='' && RGC.UserDetails.confirm_pwd != RGC.UserDetails.pwd">{{'PASSWORD AND CONFIRM PASSWORD SHOULD BE SAME' | translate}} .</span>
+          </li>
+          <li ng-if="rc.getsetting.referral.status == 1">
+            <label for="referalcode">{{'REFERRAL_CODE' | translate}} ({{'OPTIONAL' | translate}})</label>
+            <input  type="text" ng-model="RGC.UserDetails.referalcode" name="referalcode" ng-blur="RGC.change(RGC.UserDetails.referalcode)">
+          </li>
+          <li>
+            <label for="city">{{'CITY' | translate}}</label>
+            <input name="city" required type="text" placeholder="{{'ENTER YOUR LOCATION'| translate}}" places-auto-complete size=80 ng-model="RGC.UserDetails.address.city" types="['address']" on-place-changed="RGC.placeChanged()" />
+            <span class="validerr" ng-show="registerForm.city.$error.required && !registerForm.city.$pristine">{{'ENTER YOUR CITY' | translate}}.</span>
+          </li>
+          <li>
+            <span ng-bind="RGC.Error"></span>
+            <button class="grn-btn blu-btn" ng-click="RGC.registerUser(registerForm.$valid,RGC.UserDetails)"><span>{{'SUBMIT' | translate}}</span></button>
+            <!--
+           <a ui-sref="registerTasker" class="grn-btn blu-btn"><span>Create Account</span></a>
+		   -->
+          </li>
+          <li>
+            <small class="logtext">
+            {{'BY_SIGNING_UP_YOU_AGREE_TO_OUR'| translate}}
+            <a href="{{rc.site_url}}/page/termsandconditions">{{'TERMSOFUSE'| translate}}</a>
+            {{'AND'| translate}}
+            <a href="{{rc.site_url}}/page/privacypolicy">{{'PRIVACY_POLICY'| translate}}.</a>
+          </small>
+          </li>
+        </ul>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+  $(".dropdown-filter-full").click(function(){
+
+$(".filter-full").slideToggle();
+
+});
+
+</script>
+
+<style>
+.has-error .form-control, .has-error .form-control:focus {
+    border-color: #ff7b76;
+    box-shadow: none;
+}
+.has-error .control-label, .has-error .help-block {
+    color: #ff635c;
+}
+.help-block {
+    display: block;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+</style>

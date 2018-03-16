@@ -1,0 +1,85 @@
+<section>
+<div class="applyto-tasker apply6">
+<div class="container2">
+<div class="full-holder">
+<h1 class="top-texts">{{'APPLY_TO_BE_A_TASKER' | translate}}</h1>
+
+<div class="tasker-pannel">
+  <div class="tasker-head">
+
+    <span class="left-tile">{{'UPLOAD_YOUR_PHOTO' | translate}}</span>
+    <div class="right-progrs">
+  <span class="completion-text">{{'APPLCATIONS_COMPLETION' | translate}}  60%</span>
+    <div class="progressbar">
+  <span style="width:60%"></span>
+    </div>
+
+
+    </div>
+</div>
+
+<div class="tasker-body">
+<div class="left-pic">
+ <!--<img ng-if="temp"  ngf-src="BTC.data.avatar">-->
+ <img ng-if="BTC.data.avatar=='' && visibleValue == false"  ng-src="uploads/default/user.jpg" >
+ <img ng-if="!BTC.data.avatar=='' && visibleValue == false" class="img-square" ngf-src="BTC.data.avatar" >
+ <img style="max-width: 100% !important;" ng-if="visibleValue" class="img-square" ngf-src="BTC.myCroppedImage">
+
+</div>
+
+<div class="righ-side-pic">
+<div class="btn-contee">
+<div class="filetype-holdr">
+<form name="imageForm">
+    <div ng-init = "BTC.data.next='step8'"  class="form-group">
+
+         <input class="bluebtn savdedit" ui-jq="filestyle" type="file" crop-img-change="handleFileSelect" ngf-change="fileupload($files, $event, $rejectedFiles);" ngf-select="temp=true" ng-model="BTC.data.avatar" name="image" ngf-pattern="'image/jpg,image/jpeg,image/png,image/gif/*'"
+                             ngf-max-size="1MB"  ngf-model-invalid="errorFiles" class="filestyle" ui-options="{ buttonText: 'Select file', iconName: 'fa fa-inbox'}"
+                                  id="image" value="Upload" checkFileSize err-src>
+         <span class="help-block">{{'ALLOWED FILES: GIF, PNG, JPG. MAX FILE SIZE 1MB' | translate}}</span>
+         <!-- <p class="help-block">
+                     <span ng-show="imageForm.image.$invalid && !imageForm.image.$pristine" style="color:red;">{{'Image File is required' | translate}}.</span>
+           </p>-->
+    </div>
+         <!--- Croping -->
+                            <div class="tcol" ng-if="visibleValue">
+                            <label for="avatar">Image Crop</label>
+                            <div class="p-15">
+                            <div class="row">
+                            <div class="p-10 bg-white b-a b-solid " style="height:320px">
+                            <img-crop image="myImage" result-image="BTC.myCroppedImage" result-image-size="160" area-type="square"></img-crop>
+                            </div>
+                            </div>
+                            <div class="row" ng-show="visibleValue">
+                            <div class="p-10 bg-white b-a b-solid inline-block">
+                            <img ng-src="{{BTC.myCroppedImage}}"/>
+                            </div>
+                            </div>
+                            </div>
+                        </div>
+                <!--- Croping -->
+    </form>
+</div>
+<input   class="blue-btn" value="{{'SUBMIT' | translate}}" type="submit" style="
+    margin-top: 30px;" ng-click="BTC.SubmitTasker(2,true)">
+</div>
+</div>
+
+
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+</section>
+<!--<style>
+    .imagesource{
+        background-image: url("uploads/default/user.jpg");
+        background-repeat: no-repeat;
+        background-position: 50%;
+        background-size: contain;
+
+    }
+    </style>-->

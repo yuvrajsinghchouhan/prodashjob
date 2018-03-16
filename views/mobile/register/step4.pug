@@ -1,0 +1,79 @@
+extends layout
+
+block vars
+  - var title='Step 4'
+  - var description = 'Maidac Tasker Registration'
+
+block content
+  form(action="/mobile/provider/register/step5", method="post",id="step4")
+    .applyto-tasker.apply2
+      .container2
+        .full-holder
+          //h1.top-texts Apply To Be A Tasker
+          h1.top-textsinput(class='backbutton',action='action', type='button', value='Back', onclick='history.go(-1);') Back | Apply To Be A Tasker
+          .tasker-pannel
+            .tasker-head
+            .tasker-body
+              .lop-div-task
+                span.topedtext#ftext Availability
+                span.topedtext Select the days you are available to work.
+                .botom-fuls
+                  ul.availblty
+                    each days in workingday
+                      li
+                        a(href='#', data-toggle='modal', data-target='#modal-'+((days.day).toLowerCase()))
+                          label #{days.label}
+                  ul.availblty_new.loc-fld
+                    span.topedtext#ftext Work Location
+                    li
+                      input#locationTextField(type='text',name='location', value="" required)
+                      input#geolat(type='hidden',name='lat')
+                      input#geolang(type='hidden',name='lng')
+                      
+                    
+                    span.topedtext#ftext Radius
+                    li
+                     input#radius(type='number',name='radius',placeholder="Enter  radius")
+                     span#radi KM
+                   
+                     
+                    li
+                    
+                    input#submit_btn.grn-btn.blu-btn(type='submit', value='Continue',onclick="return validateformsfourth()")
+                  each days, index in workingday
+                    div(id='modal-'+(days.day).toLowerCase(), class='modal-'+ index).modal.fade.availabilities-day-form(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
+                      .modal-dialog(role='document')
+                        .modal-content
+                          .modal-header
+                            button.close(type='button', data-dismiss='modal', aria-label='Close')
+                              span(aria-hidden='true') &times;
+                            h4#myModalLabel.modal-title #{days.day}
+                          .modal-body
+                            input#day(type='hidden', name='working_days['+index+'][day]', value=days.day )
+                            ul.radio-contr
+                              li
+                                input(id=(days.day)+'morning').u-hidden.ng-untouched.ng-valid.ng-dirty.ng-valid-parse.ng-empty(type='checkbox', name='working_days['+index+'][hour][morning]')
+                                label.switch(for=(days.day)+'morning')
+                                label(for=(days.day)+'morning') Morning (8am - 12pm)
+                              li
+                                input(id=(days.day)+'afternoon').u-hidden.ng-untouched.ng-valid.ng-dirty.ng-valid-parse.ng-empty(type='checkbox', name='working_days['+index+'][hour][afternoon]')
+                                label.switch(for=(days.day)+'afternoon')
+                                label(for=(days.day)+'afternoon') Afternoon (12pm - 4pm)
+                              li
+                                input(id=(days.day)+'evening').u-hidden.ng-pristine.ng-untouched.ng-valid.ng-empty(type='checkbox', name='working_days['+index+'][hour][evening]')
+                                label.switch(for=(days.day)+'evening')
+                                label(for=(days.day)+'evening') Evening (4pm - 8pm)
+                          .modal-footer
+                            button#submit_btn.btn.btn-default.pull-left(type='button',class="close",data-dismiss="modal" onclick="savedata("+index+")") Save
+    script(type='text/javascript',src='https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places&key=AIzaSyDFmED2h9eocAvN_PHhYrNaZdFTWpX7UZY')
+    script.
+       function init() {
+       var input = document.getElementById('locationTextField');
+       var autocomplete = new google.maps.places.Autocomplete(input);
+       google.maps.event.addListener(autocomplete, 'place_changed', function () {
+       var place = autocomplete.getPlace();
+       $('#geolat').val(place.geometry.location.lat());
+       $('#geolang').val(place.geometry.location.lng());
+       });
+       }
+       google.maps.event.addDomListener(window, 'load', init);

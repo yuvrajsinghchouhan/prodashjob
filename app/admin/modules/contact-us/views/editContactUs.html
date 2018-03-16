@@ -1,0 +1,49 @@
+<div class="page page-tables-bootstrap">
+    <div class="pageheader">
+        <h2>{{ 'Menu.CONTACTUS' | translate }} </h2>
+        <div class="page-bar">
+            <ul class="page-breadcrumb">
+                <li><a ui-sref="app.dashboard"><i class="fa fa-home"></i> {{main.title}}</a></li>
+                <li><a ui-sref="app.contact.view">{{ 'Menu.CONTACTUS' | translate }}</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="add-nav">
+        <div class="nav-heading">
+            <h3>Email : <strong class="text-greensea">{{EDCC.editContactData.email}}</strong></h3>
+            <span class="controls pull-right">
+          <a ui-sref="app.contact.view" class="btn btn-ef btn-ef-1 btn-ef-1-default btn-ef-1a btn-rounded-20 mr-5" tooltip="Back" href="#/app/shop/invoices"><i class="fa fa-arrow-left"></i></a>
+        </span>
+            <div class="sub-heading" style="margin-top: 10px;">
+<strong>Sent On : </strong> {{EDCC.editContactData.createdAt | date}}
+</div>
+</div>
+
+<div class="pagecontent">
+    <div class="row">
+        <div class="col-md-12">
+            <section class="tile">
+                <div class="tile-header dvd dvd-btm">
+                    <h1 class="custom-font"><strong>Contact </strong></h1>
+                </div>
+                <div class="tile-body">
+                    <div class="form-group">
+                        <strong>Name : </strong> {{EDCC.editContactData.name}}
+                    </div>
+                    <div class="form-group">
+                        <strong>Mobile : </strong> {{EDCC.editContactData.mobile}}
+                    </div>
+                    <div class="form-group">
+                        <strong>Subject : </strong> {{EDCC.editContactData.subject}}
+                    </div>
+
+                    <div class="form-group">
+                        <strong>Message : </strong> {{EDCC.editContactData.message}}
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+</div>
+</div>

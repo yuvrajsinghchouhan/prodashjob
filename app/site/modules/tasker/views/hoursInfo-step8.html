@@ -1,0 +1,152 @@
+<section>
+    <div class="applyto-tasker apply6">
+        <div class="container2">
+            <div class="full-holder">
+                <h1 class="top-texts">{{'APPLY_TO_BE_A_TASKER' | translate}}</h1>
+                <div class="tasker-pannel">
+                    <div class="tasker-head">
+                        <h1 class="top-tile" style="width:50%;"><i class="fa fa-user"></i><span>{{'YOUR_SKILLS' | translate}}</span><p>{{BTC.data.taskerskills.length}}</p></h1>
+
+                        <div class="right-progrs">
+                            <span class="completion-text">{{'APPLCATIONS_COMPLETION' | translate}} 90%</span>
+                            <div class="progressbar">
+                                <span style="width:90%"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tasker-body populr-skills">
+                        <div class="catagory-body ">
+                            <uib-tabset>
+                                <uib-tab ng-repeat="category in BTC.categoryList" heading="{{category.name}}">
+                                    <span ng-if="category.category.length == 0" style="text-align:center ; margin-left: 240px;color: red; font-size: 22px;" class="no-category"> There is No Subcategory   </span>
+                                    <uib-tab ng-click="BTC.selectedCategory($parent.$index,$index)" index="$index + 1" ng-repeat="subcategory in category.category"
+                                        heading="{{subcategory.name}}">
+                                        <ng-include src="'app/site/modules/tasker/views/selectedcategory.html'"></ng-include>
+                                    </uib-tab>
+                                </uib-tab>
+                            </uib-tabset>
+                        </div>
+
+                        <!--  mobile view -->
+                        <!--<div class="faq-content">
+    <div class="container2">
+        <div class="faq-page">
+            <div class="faqHeader">{{'APPLY_TO_BE_A_TASKER'| translate}}</div>
+                <uib-accordion close-others="oneAtATime">
+                    <div uib-accordion-group class="panel-default" heading="{{category.name}}" ng-repeat="category in BTC.categoryList" >
+                            <uib-accordion close-others="oneAtATime">
+                                <span  ng-if="category.category.length == 0" style="text-align:center ; margin-left: 240px;color: red; font-size: 22px;" class="no-category"> There is No Subcategory   </span>
+                              <div uib-accordion-group class="panel-default" heading="{{subcategory.name}}" ng-click="BTC.selectedCategory($parent.$index,$index)" ng-repeat="(key, subcategory) in category.category">
+                                <div class="faq-cnt">
+
+                         <div class="">
+
+                          <div class="panel-bod">
+
+                      <form submit-validate novalidate name="becometaskerForm">
+                          <div ng-click="BTC.flag=!BTC.flag" class="desb-top">
+
+                              <span class="selectactive glyphicon glyphicon-ok" ng-if="BTC.selectedcategory.hour_rate">selected</span>
+                              <span ng-if="BTC.selectedcategory.hour_rate > 0" class="dolar20"> {{rc.DefaultCurrency[0].symbol}} {{(BTC.selectedcategory.hour_rate *rc.DefaultCurrency[0].value) > 0 ? (BTC.selectedcategory.hour_rate *rc.DefaultCurrency[0].value) :''}}<i style="cursor: pointer" class="fa fa-caret-down"></i></span>
+                          </div>
+                              <div class="desb-botom">
+                                  <div class="skil-expetn">
+                                      <span clas="skilexpectasin">{{'QUICK_PITCH' | translate}}</span>
+                                      <div class="hourel">
+
+                                          <textarea style="width: 612px; height: 61px;" name="about"  ng-model='BTC.selectedcategory.quick_pitch'></textarea>
+                                        </div>
+                                    <label style="margin-bottom: -192px;color:red" ng-show="becometaskerForm.about.$invalid && !becometaskerForm.about.$pristine">{{'PITCH IS REQUIRED'|translate}}.</label>
+                                </div>
+                              </div>
+                              <div class="desb-botom">
+                                  <div class="skil-expetn">
+                                      <span clas="skilexpectasin">{{'SET_HOURLY_RATE' | translate}}</span>
+                                      <div class="hourel">
+                                          <span> {{rc.DefaultCurrency[0].symbol}}</span>
+
+                                          <input name="hourlyrate" required min="{{BTC.selectedcategory.commision* rc.DefaultCurrency[0].value}}" ng-model="BTC.selectedcategory.hour_rate" type="number" required>
+                                          <label>{{'MINIMUM_HOURLY_RATE_IS' | translate}} {{rc.DefaultCurrency[0].symbol}} {{BTC.selectedcategory.commision* rc.DefaultCurrency[0].value | number:0}}  /hr</label>
+                                          </br>
+                                          <label style="clear: both; color:red" ng-show="becometaskerForm.hourlyrate.$error.min">{{'MINIMUM HOURLY RATE SHOULD BE'|translate}} {{rc.DefaultCurrency[0].symbol}} {{BTC.selectedcategory.commision* rc.DefaultCurrency[0].value | number:0}}  /hr.</label>
+                                          </br>
+                                          <label style="margin-right: 340px;color:red" ng-show="becometaskerForm.hourlyrate.$error.required && !becometaskerForm.hourlyrate.$pristine">{{'HOURLY RATE IS REQUIRED'|translate}}.</label>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="desb-botom">
+                                  <div class="skil-expetn">
+                                      <span class="skilexpectasin">{{'LEVEL_OF_EXPERIENCE' | translate}}</span>
+                                      <div class="hourel">
+                                          <select class="levl-selc" name="experience" ng-model="BTC.selectedcategory.experience" required>
+                                              <option value=''>{{'SELECT_YOUR_EXPERIENCE' | translate}}</option>
+                                              <option ng-repeat="experience in BTC.experience" value="{{experience._id}}">{{experience.name}}</option>
+                                          </select>
+                                          <label style="color:red" ng-show="becometaskerForm.experience.$invalid && !becometaskerForm.experience.$pristine">{{'EXPERIENCE IS REQUIRED'|translate}}.</label>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="btn-container">
+                                  <input class="savebtn" ng-click="BTC.addskillsmobile(becometaskerForm.$valid)" value="{{'SAVE' | translate}}" type="submit">
+                              </div>
+                          </form>
+                      </div>
+                  </div>
+
+                                            </div>
+                                          </div>
+                                      </uib-accordion>
+
+                    </div>
+              </uib-accordion>
+       </div>
+    </div>
+    <input  class="blue-btn" value="{{'MOBILE SUBMIT' | translate}}" type="submit" ng-click="BTC.TaskerMobileRegister(BTC.taskerskillsmobile.length)">
+</div>-->
+                        <!--  mobile view -->
+
+
+                        <input class="blue-btn" value="{{'SUBMIT' | translate}}" type="submit" ng-click="BTC.TaskerRegister(BTC.data.taskerskills.length)">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+<style>
+    .tasker-body ul.nav > li.active > a {
+        background: #158aa2;
+        color: #fff;
+    }
+
+    .tasker-body ul.nav {
+        width: 25%;
+        float: left;
+    }
+
+    .tasker-body li {
+        float: left;
+        width: 100%;
+    }
+
+    .ng-isolate-scope .nav-tabs > li {
+        padding: 0px 0;
+    }
+
+    .tasker-body li a {
+        float: left;
+        width: 100%;
+        color: #6f6f6f;
+        font-size: 18px;
+        padding: 7px 10px;
+        border-bottom: 1px solid #ccc;
+        font-family: proximanovaregular;
+    }
+
+    .tasker-body li a:hover {
+        background: #158aa2;
+        color: #fff;
+        text-decoration: none;
+    }
+</style>

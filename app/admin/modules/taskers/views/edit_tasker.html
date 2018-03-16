@@ -1,0 +1,533 @@
+<div class="page page-profile">
+    <div class="pageheader">
+        <h2>{{'Menu.TASKERS' | translate}}</h2>
+        <div class="page-bar">
+            <ul class="page-breadcrumb">
+                <li><a ui-sref="app.dashboard"><i class="fa fa-home"></i> {{main.title}}</a></li>
+                <li><a ui-sref="app.taskers.list">{{'SubMenu.TASKER_LIST' | translate}}</a></li>
+                <li><a ui-sref="app.pages.profile">{{'SubMenu.ADD_TASKER' | translate}}</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="pagecontent">
+        <div class="row">
+            <form name="taskerEditForm" submit-validate role="form" enctype="multipart/form-data" novalidate class="taskeditfrm">
+                <div class="col-md-4">
+                    <section class="tile tile-simple">
+                        <div class="tile-widget p-20 text-center">
+                            <div class="img-tskr">
+                                <div class="imgview">
+                                    <figure class="fighld">
+                                        <img class="img-circle" && ng-if="visibleValue == false" ngf-src="ATSC.tasker.avatar" style="height: 150px ; width: 150px">
+<img style="max-width: 100% !important;" ng-if="visibleValue" class="img-circle" ngf-src="ATSC.myCroppedImage">
+</figure>
+</div>
+</div>
+
+<h4 class="mb-0"><strong>{{ATSC.tasker.username}}</strong></h4>
+</div>
+
+<div class="tile-widget p-20 text-center">
+    <h4>Availability</h4>
+    <label class="switch">
+            <input class="switch-input" type="checkbox" ng-model="ATSC.availabilityvalue" ng-init="ATSC.availabilityvalue = ATSC.availabilityvalue || 0" ng-change="ATSC.availabilityChange(ATSC.availabilityvalue)" />
+            <span class="switch-label"></span>
+            <span class="switch-handle"></span>
+          </label>
+</div>
+<div class="tile-body"></div>
+</section>
+</div>
+</form>
+<div class="col-md-8">
+    <section class="tile tile-simple">
+        <div class="tile-body p-0">
+            <tabset class="tabs-dark">
+                <tab heading="General">
+                    <div class="wrap-reset">
+                        <form name="taskerEditForm" submit-validate role="form" enctype="multipart/form-data" novalidate>
+                            <div class="row">
+                                <div class="form-group col-md-12 legend">
+                                    <h4><strong>Personal</strong> Settings</h4>
+                                    <p>Your personal account settings</p>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group col-sm-12">
+                                    <label for="username">Username</label>
+                                    <input type="text" class="form-control" id="username" ng-model="ATSC.tasker.username">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group col-sm-6" ng-class="{ 'has-error' : taskerEditForm.firstName.$invalid && !taskerEditForm.firstName.$pristine, 'has-success' : taskerEditForm.firstName.$valid && !taskerEditForm.firstName.$pristine}">
+                                    <label for="firstName">First Name</label>
+                                    <input type="text" name="firstName" id="firstName" ng-pattern="/^[a-zA-Z ]*$/" class="form-control" ng-model="ATSC.tasker.name.first_name"
+                                        required>
+                                    <p class="help-block">
+                                        <span ng-show="taskerEditForm.firstName.$invalid && !taskerEditForm.firstName.$pristine">firstName is required.</span>
+                                        <span class="validerr" ng-show="taskerEditForm.firstName.$error.pattern && !taskerEditForm.firstName.$untouched">First Name only allow Characters</span>
+                                    </p>
+                                </div>
+                                <div class="form-group col-sm-6" ng-pattern="/^[a-zA-Z ]*$/" ng-class="{ 'has-error' : taskerEditForm.lastName.$invalid && !taskerEditForm.lastName.$pristine, 'has-success' : taskerEditForm.lastName.$valid && !taskerEditForm.lastName.$pristine}">
+                                    <label for="lastName" class="control-label">Last Name</label>
+                                    <input type="text" name="lastName" id="lastName" class="form-control" ng-model="ATSC.tasker.name.last_name" required>
+                                    <p class="help-block">
+                                        <span ng-show="taskerEditForm.lastName.$invalid && !taskerEditForm.lastName.$pristine">lastName is required.</span>
+                                        <span class="validerr" ng-show="taskerEditForm.lastName.$error.pattern && !taskerEditForm.lastName.$untouched">First Name only allow Characters</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group  col-sm-6">
+                                    <label class="control-label">DOB</label>
+                                    <div class="input-group w-md">
+                                        <input type="text" class="form-control" datepicker-popup="{{format}}" ng-change="ATSC.dateChange()" ng-model="ATSC.dob" is-open="status.opened"
+                                            max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)"
+                                            ng-required="true" close-text="Close" />
+                                        <span class="input-group-btn">
+                      <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                  </span>
+                                    </div>
+                                </div>
+                                <div class="form-group col-sm-6" ng-class="{ 'has-error' : taskerEditForm.gender.$invalid && !taskerEditForm.gender.$pristine, 'has-success' : taskerEditForm.gender.$valid && !taskerEditForm.gender.$pristine}">
+                                    <label for="gender" class="control-label">Gender</label>
+                                    <select type="text" name="gender" id="gender" class="form-control" ng-model="ATSC.tasker.gender" required>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="None">Rather not say</option>
+                                </select>
+                                    <p class="help-block">
+                                        <span ng-show="taskerEditForm.gender.$invalid && !taskerEditForm.gender.$pristine">gender is required.</span>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!--  processs
+          <div class="hidnig">
+          <input name="line1" required type="text" places-auto-complete size=80 ng-model="ATSC.tasker.address.line1" types="address"
+            on-place-changed="ATSC.placeChanged()" class="inline form-control ng-pristine ng-untouched ng-valid" />
+
+          </div>
+      end -->
+                            <div class="row">
+                                <div class="form-group col-sm-6" ng-class="{ 'has-error' : taskerEditForm.line1.$invalid && !taskerEditForm.line1.$pristine, 'has-success' : taskerEditForm.line1.$valid && !taskerEditForm.line1.$pristine}">
+                                    <label for="line1" class="control-label">Address Line 1</label>
+                                    <!-- <input type="text" name="line1" ng-model="ATSC.tasker.address.line1" id="line1" class="form-control" required> -->
+                                    <input name="line1" required type="text" places-auto-complete size=80 ng-model="ATSC.tasker.address.line1" types="['address']"
+                                        on-place-changed="ATSC.placeChanged()" class="inline form-control ng-pristine ng-untouched ng-valid"
+                                    />
+
+                                    <p class="help-block">
+                                        <span ng-show="taskerEditForm.line1.$invalid && !taskerEditForm.line1.$pristine">Address Line is required.</span>
+                                    </p>
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <label for="line2" class="control-label">Address Line 2</label>
+                                    <input type="text" name="line2" ng-model="ATSC.tasker.address.line2" id="line2" class="form-control">
+                                    <!--<p class="help-block">
+                  <span ng-show="taskerEditForm.line2.$invalid && !taskerEditForm.line2.$pristine">Address Line is required.</span>
+              </p>-->
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-sm-6" ng-class="{ 'has-error' : taskerEditForm.city.$invalid && !taskerEditForm.city.$pristine, 'has-success' : taskerEditForm.city.$valid && !taskerEditForm.city.$pristine}">
+                                    <label for="city" class="control-label">City</label>
+                                    <input type="text" name="city" ng-model="ATSC.tasker.address.city" id="city" class="form-control" required>
+                                    <p class="help-block">
+                                        <span ng-show="taskerEditForm.city.$invalid && !taskerEditForm.city.$pristine">City required.</span>
+                                    </p>
+                                </div>
+                                <div class="form-group col-sm-6" ng-class="{ 'has-error' : taskerEditForm.state.$invalid && !taskerEditForm.state.$pristine, 'has-success' : taskerEditForm.state.$valid && !taskerEditForm.state.$pristine}">
+                                    <label for="state" class="control-label">State</label>
+                                    <input type="text" name="state" ng-model="ATSC.tasker.address.state" id="state" class="form-control" required>
+                                    <p class="help-block">
+                                        <span ng-show="taskerEditForm.state.$invalid && !taskerEditForm.state.$pristine">State is required.</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-sm-6">
+                                    <label for="zipcode" class="control-label">Zipcode</label>
+                                    <input type="text" name="zipcode" ng-model="ATSC.tasker.address.zipcode" id="zipcode" class="form-control">
+                                    <!-- <p class="help-block">
+                  <span ng-show="taskerEditForm.zipcode.$invalid && !taskerEditForm.zipcode.$pristine">Zipcode is required.</span>
+                  <span id="error" style="color: Red; display: none"> Zipcode should be numbers</span>
+                  <script type="text/javascript">
+                      var specialKeys = new Array();
+                  specialKeys.push(8); //Backspace
+                  function IsNumeric(e) {
+                    var keyCode = e.which ? e.which : e.keyCode
+                    var ret = ((keyCode >= 48 && keyCode <= 57) || specialKeys.indexOf(keyCode) != -1);
+                    document.getElementById("error").style.display = ret ? "none" : "inline";
+                    return ret;
+                    }
+                  </script>
+              </p> -->
+                                </div>
+                                <div class="form-group col-sm-6" ng-class="{ 'has-error' : taskerEditForm.country.$invalid && !taskerEditForm.country.$pristine, 'has-success' : taskerEditForm.country.$valid && !taskerEditForm.country.$pristine}">
+                                    <label for="country" class="control-label">Country</label>
+                                    <input type="text" name="country" ng-model="ATSC.tasker.address.country" id="country" class="form-control" required>
+                                    <p class="help-block">
+                                        <span ng-show="taskerEditForm.country.$invalid && !taskerEditForm.country.$pristine">Country is required.</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-sm-6" ng-class="{ 'has-error' : taskerEditForm.email.$invalid && !taskerEditForm.email.$pristine, 'has-success' : taskerEditForm.email.$valid && !taskerEditForm.email.$pristine}">
+                                    <label for="email" class="control-label">E-mail</label>
+                                    <input type="text" name="email" ng-model="ATSC.tasker.email" id="email" class="form-control" required>
+                                    <p class="help-block">
+                                        <span ng-show="taskerEditForm.email.$invalid && !taskerEditForm.email.$pristine">E-mail is required.</span>
+                                    </p>
+                                </div>
+                                <div class="form-group col-sm-6" ng-class="{ 'has-error' : taskerEditForm.phone.$invalid && !taskerEditForm.phone.$pristine, 'has-success' : taskerEditForm.phone.$valid && !taskerEditForm.phone.$pristine}">
+                                    <label for="phone" class="control-label">Phone</label>
+                                    <input type="text" name="tel" id="tel" class="form-control" ng-model="ATSC.tasker.phone" ng-intl-tel-input>
+                                    <p class="help-block">
+                                        <span style="color:red" ng-show="taskerEditForm.tel.$invalid && !taskerEditForm.tel.$pristine">Phone is required.</span>
+</p>
+</div>
+</div>
+
+<div class="row">
+    <div class="form-group col-sm-12">
+        <label for="avatar">Avatar</label>
+        <input ui-jq="filestyle" type="file" crop-img-change="handleFileSelect" ngf-change="fileupload($files, $event, $rejectedFiles);"
+            ngf-select="temp=true" ng-model="ATSC.tasker.avatar" ngf-pattern="'image/jpg,image/jpeg,image/png,image/gif/*'" name="avatar"
+            accept="image/*" ngf-max-size="1MB" ngf-model-invalid="errorFiles" class="filestyle" ui-options="{ buttonText: 'Select file', iconName: 'fa fa-inbox'}"
+            id="avatar">
+        <span class="help-block">Allowed files: gif, png, jpg. Max file size 1Mb</span>
+    </div>
+</div>
+<!--- Croping -->
+<div class="row m-10" ng-if="ATSC.tasker.avatar" ng-hide="visibleValue">
+    <div class="p-10 bg-white b-a b-solid inline-block">
+        <img style="max-width: 100% !important; width: 150px; " ngf-src="ATSC.tasker.avatar">
+</div>
+</div>
+<div class="tcol row col-sm-8" ng-if="visibleValue">
+    <label for="avatar">Image Crop</label>
+    <div class="p-15">
+        <div class="row">
+            <div class="p-10 bg-white b-a b-solid " style="height:320px">
+<img-crop image="myImage" result-image="ATSC.myCroppedImage" result-image-size="160" area-type="square"></img-crop>
+</div>
+</div>
+<div class="row mt-10" ng-show="visibleValue">
+    <div class="p-10 bg-white b-a b-solid inline-block">
+        <img ng-src="{{ATSC.myCroppedImage}}" />
+    </div>
+</div>
+
+</div>
+</div>
+<!--- Croping -->
+
+<div class="row">
+    <div class="form-group col-sm-6" ng-class="{ 'has-error' : taskerEditForm.status.$invalid && !taskerEditForm.status.$pristine, 'has-success' : taskerEditForm.status.$valid && !taskerEditForm.status.$pristine}">
+        <label for="status" class="control-label">Status</label>
+        <select type="text" name="status" id="status" class="form-control" ng-model="ATSC.tasker.status" convert-to-number required>
+                  <option value="1">Verified</option>
+                  <option value="2">Unverified</option>
+                  <option value="3">Pending</option>
+              </select>
+        <p class="help-block">
+            <span ng-show="taskerEditForm.status.$invalid && !taskerEditForm.status.$pristine">status is required.</span>
+        </p>
+    </div>
+</div>
+
+<div class="tile-footer text-right bg-tr-black lter dvd dvd-top">
+    <button class="btn btn-success btn-ef btn-ef-3 btn-ef-3c mb-10" ng-click="ATSC.submitTaskerEditData(taskerEditForm.$valid,ATSC.tasker)">Submit<i class="fa fa-arrow-right"></i></button>
+</div>
+</form>
+</div>
+</tab>
+<tab heading="Security">
+    <div class="wrap-reset">
+        <form name="taskerEditForm1" submit-validate role="form" enctype="multipart/form-data" novalidate>
+            <div class="row">
+                <div class="form-group col-md-12 legend">
+                    <h4><strong>Security</strong> Settings</h4>
+                    <p>Secure your account</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-6" ng-class="{ 'has-error' : taskerEditForm1.newpassword.$invalid && !taskerEditForm1.newpassword.$pristine, 'has-success' : taskerEditForm1.newpassword.$valid && !taskerEditForm1.newpassword.$pristine}">
+                    <label for="newpassword">New Password</label>
+                    <input type="password" name="newpassword" id="newpassword" class="form-control" ng-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,12}$/"
+                        ng-minlength="6" ng-maxlength="12" ng-model="ATSC.tasker.newpassword" on-blur-validation required>
+                    <p class="help-block">
+                        <span ng-show="taskerEditForm1.newpassword.$invalid && !taskerEditForm1.newpassword.$pristine">New Password is required.</span>
+                        <span class="validerr" style="color:red" ng-show="taskerEditForm1.newpassword.$invalid && !taskerEditForm1.newpassword.$pristine && taskerEditForm1.newpassword.$error.pattern"">Password
+Must Contain Atleast One uppercase,One lower case,One Numeric digit"</span>
+<span class="validerr" style="color:red" ng-show="taskerEditForm1.newpassword.$error.minlength">Password must be minimum of 6 characters.</span>
+<span class="validerr" style="color:red" ng-show="taskerEditForm1.newpassword.$error.maxlength">Password must be maximum of 12 characters.</span>
+</p>
+</div>
+<div class="form-group col-md-6" ng-class="{ 'has-error' : taskerEditForm1.new_confirmed.$invalid && !taskerEditForm1.new_confirmed.$pristine, 'has-success' : taskerEditForm1.new_confirmed.$valid && !taskerEditForm1.new_confirmed.$pristine}">
+    <label for="new_confirmed">Password Confirmation</label>
+    <input type="password" name="new_confirmed" id="new_confirmed" class="form-control" ng-model="ATSC.tasker.new_confirmed"
+        ui-validate=" '$value==ATSC.tasker.newpassword' " ui-validate-watch=" 'ATSC.tasker.newpassword'" on-blur-validation required>
+    <p class="help-block">
+        <span ng-show='taskerEditForm1.new_confirmed.$error.validator'>Passwords do not match!</span>
+    </p>
+</div>
+</div>
+<div class="tile-footer text-right bg-tr-black lter dvd dvd-top">
+    <button class="btn btn-success btn-ef btn-ef-3 btn-ef-3c mb-10" ng-click="ATSC.savepassword(taskerEditForm1.$valid,ATSC.tasker)">Submit<i class="fa fa-arrow-right"></i></button>
+</div>
+
+</form>
+</div>
+</tab>
+
+<tab heading="About">
+    <div class="row">
+        <div class="form-group col-md-12 legend">
+            <h4><strong>Profile</strong> Settings</h4>
+            <p>Your Profile Details</p>
+        </div>
+    </div>
+    <div class="row">
+        <div style="float: left; width: 100%; padding-right: 15px; padding-left: 15px;">
+<div class="qas" ng-repeat="profileinfo in ATSC.getQuestion">
+    <h4 class="question">{{profileinfo.question}}</h4>
+    <div class="answer">
+        <textarea rows="4" cols="90" style="resize:vertical;" ng-model="ATSC.profileDetails[profileinfo._id]" required></textarea>
+</div>
+</div>
+</div>
+<div class="tile-footer text-right bg-tr-black lter dvd dvd-top" style="float: left; width: 100%;">
+<button class="btn btn-success btn-ef btn-ef-3 btn-ef-3c mb-10" ng-click="ATSC.saveProfile(profileDetails)">Submit<i class="fa fa-arrow-right"></i></button>
+</div>
+</div>
+</tab>
+<tab heading="Category">
+    <div class="row">
+        <div class="form-group col-md-12 legend">
+            <div style="float: left; width: 80%;">
+<h4><strong>Category</strong> Settings</h4>
+</div>
+<div class="account-section" style="float: right; width: 20%;">
+<button type="button" class="btn btn-success" ng-click="ATSC.categoryModal()">Add Category</button>
+</div>
+<p>Your Category</p>
+</div>
+</div>
+<div class="row">
+    <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" dismiss-on-timeout="{{alertTimeout}}" close="closeAlert($index)">{{alert.msg}}</uib-alert>
+    <div class="category-details" ng-repeat="category in ATSC.taskercategory">
+        <div class="col-md-8">
+            <h4 class="category" ng-if="category.childid">{{category.childid.name}}</h4>
+        </div>
+        <div class="col-md-4">
+            <button type="button" class="btn btn-rounded-20 btn-sm btn-info" ng-click="ATSC.categoryModal(category.childid._id)" style="width:30px;"><i class="fa fa-edit" style="margin-left: -2px;"></i>
+</button>
+<button type="button" class="btn btn-rounded-20  btn-sm btn-warning " ng-click="ATSC.deletecategory(category.childid._id)"
+    style="width:30px;"><i class="fa fa-trash" style="margin-left: -2px;"></i>
+</button>
+<button type="button" class="btn btn-rounded-20  btn-sm btn-danger" ng-if="category.status == 2" ng-click="ATSC.approvtaskercategory(category.childid._id,1)"
+    style="width:30px;"><i class="fa fa-times" style="margin-left: -2px;"></i>
+</button>
+<button type="button" class="btn btn-rounded-20  btn-sm btn-success" ng-if="category.status == 1" ng-click="ATSC.approvtaskercategory(category.childid._id,2)"
+    style="width:30px;"><i class="fa fa-check" style="margin-left: -2px;"></i>
+</button>
+
+</div>
+<br>
+
+</div>
+
+</div>
+</tab>
+
+<tab heading="Availability" ng-click="ATSC.AvailabilityMap()">
+
+    <div style="margin:10px">
+
+<div class="row">
+    <div class="wrap-reset">
+        <ul class="availblty">{{ATSC.availabilityModal}}
+            <li ng-repeat="day in ATSC.availability.days">
+                <a href="javascript:;" ng-click="ATSC.availabilityModal($index)">
+                    <label>{{day}}</label>
+                    <span>{{((ATSC.workingDays[$index].hour.morning == true) ||
+                  (ATSC.workingDays[$index].hour.afternoon == true) ||
+                  (ATSC.workingDays[$index].hour.evening == true ))
+                  ? 'Selected' : 'Not Working'}}</span>
+                </a>
+            </li>
+        </ul>
+        <label class="sublin-hea">Availability Location</label>
+        <br>
+        <input class="form-control" name="taskerarea" required type="text" places-auto-complete size=80 ng-model="ATSC.tasker.availability_address"
+            types="['address']" on-place-changed="ATSC.taskerareaChanged()" />
+
+        <!--   <span style="color:green" ng-if="ATSC.dummyAddress=='1' "><h4>Address is valid.</h4></span>
+            <span style="color:red" ng-if="ATSC.dummyAddress=='0' "><h4>Please Enter the Full Address</h4></span>-->
+
+        <div class="lop-div-task">
+            <label class="sublin-hea">Availability radius</label>
+            <div class="botom-fuls">
+                <div class="input-group mb-10" style="width: 250px;">
+<input class="form-control" name="taskerarea" required type="text" ng-model="ATSC.tasker.radius">
+<span class="input-group-addon">KM</span>
+</div>
+</div>
+</div>
+<div class="lop-div-task">
+    <!-- ===========[{{ATSC.tasker.location.lat}},{{ATSC.tasker.location.lng}}]========= -->
+    <ng-map id="foo" center="[{{ATSC.tasker.location.lat}},{{ATSC.tasker.location.lng}}]" zoom="8" mayTypeId="TERRAIN">
+        <shape id="circle" name="circle" centered="true" stroke-color='#FF0000' stroke-opacity="0.8" stroke-weight="2" center="[{{ATSC.tasker.location.lat}},{{ATSC.tasker.location.lng}}]"
+            radius="{{ATSC.tasker.radius * 1000}}" on-radius_changed="ATSC.mapToInput()" on-center_changed="ATSC.mapToInput()"
+            editable="true"></shape>
+    </ng-map>
+</div>
+
+<style>
+#foo{
+height: 250px
+}
+</style>
+
+
+
+<div class="tile-footer text-right" style="float: left; width: 100%;">
+<button class="btn btn-success btn-ef btn-ef-3 btn-ef-3c mb-10" ng-if="ATSC.tasker.availability_address && ATSC.tasker.radius"
+    ng-click="ATSC.saveAvailability(true)">Submit <i class="fa fa-arrow-right"> </i>
+  </button>
+</div>
+</div>
+</div>
+</div>
+</tab>
+
+<tab heading="Account Information">
+
+    <div class="wrap-reset">
+        <form name="banking" submit-validate role="form" novalidate>
+            <div class="row">
+                <div class="form-group col-md-12 legend">
+                    <h4><strong>Bank Account</strong> Settings</h4>
+                    <p>Your Bank Account Informations</p>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="banking">
+
+                    <ul class="paswdsection" style="padding: 0;">
+<li>
+    <div class="form-group" ng-class="{ 'has-error' : banking.acc_holder_name.$invalid && !banking.acc_holder_name.$pristine, 'has-success' : banking.acc_holder_name.$valid && !banking.acc_holder_name.$pristine}">
+        <label>Account Name:</label>
+        <input type="text" name="acc_holder_name" id="acc_holder_name" class="form-control" ng-model="ATSC.banking.acc_holder_name"
+            on-blur-validation required>
+        <p class="help-block">
+            <span ng-show="banking.acc_holder_name.$invalid && !banking.acc_holder_name.$pristine">Enter The Account Name</span>
+        </p>
+    </div>
+</li>
+<li>
+    <div class="form-group" ng-class="{ 'has-error' : banking.acc_holder_address.$invalid && !banking.acc_holder_address.$pristine, 'has-success' : banking.acc_holder_address.$valid && !banking.acc_holder_address.$pristine}">
+        <label>Address:</label>
+        <input type="text" name="acc_holder_address" id="acc_holder_address" class="form-control" ng-model="ATSC.banking.acc_holder_address"
+            on-blur-validation required>
+        <p class="help-block">
+            <span ng-show="banking.acc_holder_address.$invalid && !banking.acc_holder_address.$pristine">Enter The Address</span>
+        </p>
+    </div>
+</li>
+<li>
+    <div class="form-group" ng-class="{ 'has-error' : banking.acc_number.$invalid && !banking.acc_number.$pristine, 'has-success' : banking.acc_number.$valid && !banking.acc_number.$pristine}">
+        <label>Account Number:</label>
+        <input type="text" name="acc_number" id="acc_number" class="form-control" ng-model="ATSC.banking.acc_number" on-blur-validation
+            required>
+        <p class="help-block">
+            <span ng-show='banking.acc_number.$invalid && !banking.acc_number.$pristine'>Enter Account Number</span>
+        </p>
+    </div>
+</li>
+<li>
+    <div class="form-group" ng-class="{ 'has-error' : banking.bank_name.$invalid && !banking.bank_name.$pristine, 'has-success' : banking.bank_name.$valid && !banking.bank_name.$pristine}">
+        <label>Bank Name:</label>
+        <input type="text" name="bank_name" id="bank_name" class="form-control" ng-model="ATSC.banking.bank_name" on-blur-validation
+            required>
+        <p class="help-block">
+            <span ng-show="banking.bank_name.$invalid && !banking.bank_name.$pristine">Enter The Branch Name</span>
+        </p>
+    </div>
+</li>
+<li>
+    <div class="form-group" ng-class="{ 'has-error' : banking.branch_name.$invalid && !banking.branch_name.$pristine, 'has-success' : banking.branch_name.$valid && !banking.branch_name.$pristine}">
+        <label>Branch:</label>
+        <input type="text" name="branch_name" id="branch_name" class="form-control" ng-model="ATSC.banking.branch_name" on-blur-validation
+            required>
+        <p class="help-block">
+            <span ng-show="banking.branch_name.$invalid && !banking.branch_name.$pristine">Enter The Branch </span>
+        </p>
+    </div>
+</li>
+<li>
+    <div class="form-group" ng-class="{ 'has-error' : banking.branch_address.$invalid && !banking.branch_address.$pristine, 'has-success' : banking.branch_address.$valid && !banking.branch_address.$pristine}">
+        <label>Branch Address:</label>
+        <input type="text" name="branch_address" id="branch_address" class="form-control" ng-model="ATSC.banking.branch_address"
+            on-blur-validation required>
+        <p class="help-block">
+            <span ng-show="banking.branch_address.$invalid && !banking.branch_address.$pristine">Enter The Branch Address</span>
+        </p>
+    </div>
+</li>
+
+<li>
+    <div class="form-group" ng-class="{ 'has-error' : banking.swift_code.$invalid && !banking.swift_code.$pristine, 'has-success' : banking.swift_code.$valid && !banking.swift_code.$pristine}">
+        <label>IFSC Code:</label>
+        <input type="text" name="swift_code" id="swift_code" class="form-control" ng-model="ATSC.banking.swift_code" on-blur-validation
+            required>
+        <p class="help-block">
+            <span ng-show='banking.swift_code.$invalid && !banking.swift_code.$pristine'>Enter The IFSC</span>
+        </p>
+    </div>
+</li>
+
+<li>
+    <div class="form-group" ng-class="{ 'has-error' : banking.routing_number.$invalid && !banking.routing_number.$pristine, 'has-success' : banking.routing_number.$valid && !banking.routing_number.$pristine}">
+        <label>Routing Number:</label>
+        <input type="text" name="'routing_number" id="routing_number" class="form-control" ng-model="ATSC.banking.routing_number"
+            on-blur-validation required>
+        <p class="help-block">
+            <span ng-show='banking.routing_number.$invalid && !banking.routing_number.$pristine'>Enter The Routing Number</span>
+        </p>
+    </div>
+</li>
+<div class="btnholder">
+    <input class="bluebtn" ng-click="ATSC.saveaccountinfo(banking.$valid,ATSC.banking)" value="Save" type="submit">
+    </ul>
+</div>
+</div>
+
+</form>
+
+</div>
+</tab>
+
+
+<style>
+                   .btn.btn-sm.btn-danger{
+                        margin-left:10px;
+                    }
+                    .account{
+                      padding : 10px
+                    }
+                    .btn.btn-sm.btn-danger{
+                      margin-left: 0px
+                    }
+              </style>
+
+</tabset>
+</div>
+
+</section>
+</div>
+</div>
+</div>
+</div>

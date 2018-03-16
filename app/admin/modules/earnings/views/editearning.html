@@ -1,0 +1,164 @@
+<div class="page page-tables-bootstrap">
+  <div class="pageheader">
+    <h2>{{ 'Menu.EARNINGS' | translate }} </h2>
+    <div class="page-bar">
+      <ul class="page-breadcrumb">
+        <li>
+          <a ui-sref="app.dashboard"><i class="fa fa-home"></i> {{main.title}}</a>
+        </li>
+        <li>
+          <a ui-sref='app.earnings.list'>All {{ 'Menu.EARNINGS' | translate }}</a>
+        </li>
+        <li>
+          <a href="javascript:;"> View {{ 'Menu.EARNINGS' | translate }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="pagecontent">
+    <div class="add-nav">
+      <div class="col-md-6">
+        <div class="nav-heading">
+          <h3> Tasker name : <strong class="text-greensea">{{ENCC.eraninglist[0].tasker[0].username}}</strong></h3>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="nav-heading">
+          <p class="text-uppercase text-strong mb-10 custom-font">Details</p>
+          <ul class="list-unstyled text-default lt mb-20">
+            <li><strong>Total Task:</strong> {{ENCC.payDetails.count}}</li>
+            <li ng-if="ENCC.payDetails.total.total"><strong>Total Amount:</strong>{{ENCC.payDetails.total.total | money : currency}}</li>
+          </ul>
+        </div>
+      </div>
+      <tabset>
+        <tab heading="Earnings List">
+          <div class="row">
+            <div class="col-md-12">
+              <section class="tile list-task" fullscreen="isFullscreen07">
+                <div class="tile-header dvd dvd-btm">
+                  <h1 class="custom-font"><strong>Earnings</strong> List</h1>
+                </div>
+                <custom-table data="ENCC.table" delete-call="ENCC.deletedData"></custom-table>
+              </section>
+            </div>
+          </div>
+        </tab>
+        </tab>
+
+        <tab heading="Summary ">
+          <div class="row">
+            <div class="col-md-12">
+              <section class="tile time-simple ">
+                <div class="tile-header dvd dvd-btm">
+                  <h1 class="custom-font"><strong>Earnings</strong> Summary</h1>
+                </div>
+                <div class="tile-body">
+                  <div class="row">
+                    <div class="col-md-10">
+                      <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" dismiss-on-timeout="{{alertTimeout}}" close="closeAlert($index)">{{alert.msg}}</uib-alert>
+                      <div class="row" ng-if="ENCC.payDetails.count">
+                        <div class="col-xs-6 col-sm-6">
+                          <Strong>  Total Task Count </strong>
+                        </div>
+                        <div class="col-xs-6 col-sm-6">{{ENCC.payDetails.count}}</div>
+                      </div>
+                      <!--
+                      <div class="row">
+                        <div class="col-xs-6 col-sm-6">
+                          <Strong>Paid Count</strong>
+                        </div>
+                        <div class="col-xs-6 col-sm-6">{{ENCC.payDetails.total.paid_count}}</div>
+                      </div>
+                      <div class="row">
+                        <div class="col-xs-6 col-sm-6">
+                          <Strong>Pending</strong>
+                        </div>
+                        <div class="col-xs-6 col-sm-6">{{ENCC.payDetails.count - ENCC.payDetails.total.paid_count}}</div>
+                      </div>
+                      -->
+                      <div class="row">
+                        <div class="col-xs-6 col-sm-6">
+                          <Strong>Total Amount</strong>
+                        </div>
+                        <div class="col-xs-6 col-sm-6">{{ENCC.payDetails.total.total| number:2  | money : currency}}</div>
+                      </div>
+                      <div class="row">
+                        <div class="col-xs-6 col-sm-6">
+                          <Strong>Service Tax</strong>
+                        </div>
+                        <div class="col-xs-6 col-sm-6">{{ENCC.payDetails.total.servicetax| number:2  | money : currency}}</div>
+                      </div>
+					  <div class="row">
+                        <div class="col-xs-6 col-sm-6">
+                          <Strong>Miscellaneous Charges</strong>
+                        </div>
+                        <div class="col-xs-6 col-sm-6">{{ENCC.payDetails.total.extra_amount| number:2  | money : currency}}</div>
+                      </div>
+                      <div class="row">
+                        <div class="col-xs-6 col-sm-6">
+                          <Strong>Grand Total Amount </strong>
+                        </div>
+                        <div class="col-xs-6 col-sm-6">{{(ENCC.payDetails.total.total + ENCC.payDetails.total.servicetax) + (ENCC.payDetails.tasker_extra_amount)| number:2  | money : currency}} (Incl Service Tax,Miscellaneous charge)</div>
+                      </div>
+                      <div class="row">
+                        <div class="col-xs-6 col-sm-6">
+                          <Strong>Admin Commission</strong>
+                        </div>
+                        <div class="col-xs-6 col-sm-6"> {{ENCC.payDetails.total.admin_commission| number:2 | money : currency}}</div>
+                      </div>
+                      <div class="row">
+                        <div class="col-xs-6 col-sm-6">
+                          <Strong>Tasker Earning</strong>
+                        </div>
+                        <div class="col-xs-6 col-sm-6"> {{(ENCC.payDetails.total.total - ENCC.payDetails.total.admin_commission) 
+						+ (ENCC.payDetails.tasker_extra_amount)| number:2  | money : currency}}
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-xs-6 col-sm-6">
+                          <strong>Amount to be given by Admin to Tasker</strong>
+                        </div>
+                        <div class="col-xs-6 col-sm-6">{{ENCC.amtWithAdmin | number:2 | money : currency}}</div>
+                      </div>
+                      <div class="row">
+                        <div class="col-xs-6 col-sm-6">
+                          <strong>Amount to be given by Tasker to Admin</strong>
+                        </div>
+                        <div class="col-xs-6 col-sm-6">{{ENCC.amtWithTasker | number:2 | money : currency}}</div>
+                      </div>
+                      <div class="row k_tab">
+                        <div ng-if="ENCC.payDetails.count - ENCC.payDetails.total.paid_count !=0">
+                          <div>
+                            <strong>Hence, {{ENCC.amounttosettle.by}} have to settle an amount of {{ENCC.amounttosettle.amount}} to {{ENCC.amounttosettle.to}}</strong>
+                          </div>
+                          <input class="btn btn-info btn-ef btn-ef-5 btn-ef-5a j_tab" ng-if="ENCC.billingCycle" ng-click="ENCC.paytasker()" value="Update Payee"
+                            type="button">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </section>
+              </div>
+            </div>
+          </div>
+        </tab>
+    </div>
+  </div>
+</div>
+
+<style>
+  .row {
+    margin-right: -15px;
+    margin-left: -15px;
+    padding: 6px;
+  }
+
+  .j_tab {
+    margin-top: 25px;
+  }
+
+  .k_tab {
+    margin: 0px;
+  }
+</style>

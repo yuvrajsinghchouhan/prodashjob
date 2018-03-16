@@ -1,0 +1,17 @@
+{
+    "port": "",
+    "mongodb": {
+        "host": "",
+        "port": "",
+        "database": ""
+    },
+    "directory": {
+        "users": "./uploads/images/users/",
+        "taskers": "./uploads/images/tasker/"
+    },
+    "default_image": {
+        "users": "",
+        "taskers": "",
+        "category": ""
+    }
+}

@@ -1,0 +1,31 @@
+<div class="page page-core page-login" style="background: url({{getImage[0].image}}) no-repeat;background-size: cover;" >
+    <div class="text-center">
+    <!-- <h3 class="text-light text-white">{{main.title}}</h3> -->
+      <img style="max-width:300px "src="{{rc.logo}}">
+    </div>
+    <div class="container w-420 p-15 bg-white mt-40 text-center">
+        <h2 class="text-light text-greensea">Log In</h2>
+        <form ng-submit="login()" role="form" name="form" class="form-validation mt-20" method="post" novalidate>
+            <div class="form-group">
+                <input type="username" autocomplete="remember==true?on:off" class="form-control underline-input" name="username" placeholder="User Name"
+                    ng-model="username" required>
+                <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Username is required</span>
+            </div>
+            <div class="form-group">
+                <input type="password" autocomplete="remember==true?on:off" placeholder="Password" name="password" class="form-control underline-input"
+                    ng-model="password" required>
+                <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span>
+            </div>
+            <h3 ng-show="error" class="text-light text-greensea">{{error}}</h3>
+            <div class="form-group text-left mt-20">
+                <div class="form-actions">
+                    <button type="submit" ng-disabled="form.$invalid" class="btn btn-greensea b-0 br-2 mr-5 pull-right">Login</button>
+                    <a ui-sref="forgotpwdadmin" class="btn btn-greensea b-0 br-2 mr-5">Forgot Password</a>
+                </div>
+                <!-- <label class="checkbox checkbox-custom-alt inline-block">
+                    <input type="checkbox" ng-model="remember"><i></i>  Remember me
+                </label> -->
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,64 @@
+extends layout
+
+block vars
+  - var title='Step 6'
+  - var description = 'Maidac Tasker Registration'
+
+block content
+  .applyto-tasker.apply
+    .container2
+      .full-holder
+        //h1.top-texts Apply To Be A Tasker
+        h1.top-textsinput(class='backbutton',action='action', type='button', value='Back', onclick='history.go(-1);') Back | Apply To Be A Tasker
+        if errors
+          ul
+            for error in errors
+              li!= error.msg
+        .tasker-pannel
+          .tasker-head
+          .tasker-body
+            .catagory-body
+              h3 Category
+              #accordion.panel-group
+                .panel.panel-default
+                  .panel-heading
+                    h4.panel-title
+                    each val, parent in category
+                      .parentcategory
+                        a.collapsed(class="parentcollapse",data-toggle='collapse', data-parent='#accordion', href='#val'+(val._id)+'-'+(parent))
+                          span= val.name
+                        div(id='val'+(val._id)+'-'+(parent)).panel-collapse.collapse
+                          each cat, child in val.category
+                              .panel-body
+                                #nested.panel-group
+                                  .panel.panel-default
+                                    .panel-heading
+                                      h4.panel-title
+                                        a.collapsedit(class="collapse",id='mySidenav-'+(cat._id),data-toggle='collapse', data-parent='#nested', href='#nested-collapseOne'+(cat._id)+'-'+(child))
+                                          span= cat.name
+                                        div(id='nested-collapseOne'+(cat._id)+'-'+(child)).panel-collapse.collapse
+                                          .inner_panel_body
+                                            ul.category_list
+                                              li
+                                                h5 Quick Pitch
+                                                textarea.hourpitch(rows='5', cols='30',name="taskerskills["+parent+child+"][quickpitch]" )
+                                              li
+                                                h5 Set Hourly Rate
+                                                span.dollar_sign  #{symbol}
+                                                input#rate.hourly_rate(type='number',name="taskerskills["+parent+child+"][hourrate]", min=+cat.commision)
+                                                label.label_hourly_rate Minimum hourly rate is #{symbol}  #{cat.commision}/hr
+                                                li
+                                                  h5 Level Of Experience
+                                                  select.experience(name="taskerskills["+parent+child+"][experience]")
+                                                    option Select your experience
+                                                    each experience in experiences
+                                                      option(value=experience._id) #{experience.name}
+                                              li
+                                                input.categoryid(type="hidden" name="taskerskills["+parent+child+"][categoryid]" value=val._id)
+                                                input.childid(type="hidden" name="taskerskills["+parent+child+"][childid]" value=cat._id)
+                                                input(type="hidden" class="selected" name="taskerskills["+parent+child+"][select]" value="0")
+                                                input#submit_btn.grn-btn.blu-btn.category_save_btn.catselect(type='button', value='Save')
+              form(action="/mobile/provider/register/success", method="post",id="step6")
+                  input(type='hidden', id="selectedcat" name="taskerskills", value='{"name":"John"}')
+                  input#finalbtn.bluebtn(value='submit', type='submit', style='float: right;')
+                                                                       

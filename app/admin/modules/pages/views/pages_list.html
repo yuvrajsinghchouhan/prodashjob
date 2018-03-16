@@ -1,0 +1,30 @@
+<div class="page page-tables-bootstrap">
+    <div class="pageheader">
+        <h2>{{'Menu.PAGES' | translate}} </h2>
+        <div class="page-bar">
+            <ul class="page-breadcrumb">
+                <li>
+                    <a ui-sref="app.dashboard"><i class="fa fa-home"></i> {{main.title}}</a>
+                </li>
+                <li>
+                    <a href="javascript:;">{{'Menu.PAGES' | translate}}</a>
+                </li>
+                <li>
+                    <a ui-sref="app.tables.bootstrap">{{ 'SubMenu.ALL_PAGES' | translate }}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="pagecontent">
+        <div class="row">
+            <div class="col-md-12">
+                <section class="tile" fullscreen="isFullscreen07">
+                    <div class="tile-header dvd dvd-btm">
+                        <h1 class="custom-font"><strong>Pages</strong> List</h1>
+                    </div>
+                    <custom-table data="PLC.table" delete-call="PLC.deletedData"></custom-table>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>

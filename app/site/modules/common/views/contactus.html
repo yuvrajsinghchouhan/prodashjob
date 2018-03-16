@@ -1,0 +1,53 @@
+<div class="cont-us">
+    <div class="sign-up-holder login-holder">
+        <h2 style="text-align: center; margin-top: 0; margin-bottom: 20px;">Contact Us</h2>
+
+        <form role="form" name="contactform" class="mt-20" method="post" submit-validate novalidate>
+            <div class="form-group" ng-class="{ 'has-error' : contactform.username.$invalid && !contactform.username.$pristine, 'has-success' : contactform.username.$valid && !contactform.username.$pristine}">
+                <input type="text" autocomplete="remember==true?on:off" class="form-control underline-input" name="username" placeholder="{{'USERNAME' | translate}}"
+                    ng-model="CTTC.Messagedetails.username" required>
+                <span class="validerr" ng-show="contactform.username.$dirty && contactform.username.$error.required" class="help-block">Username is required</span>
+            </div>
+
+            <div class="form-group" ng-class="{ 'has-error' : contactform.email.$invalid && !contactform.email.$pristine, 'has-success' : contactform.email.$valid && !contactform.email.$pristine}">
+                <input type="email" ng-pattern="/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/" autocomplete="remember==true?on:off"
+                    class="form-control underline-input" name="email" placeholder="{{'EMAIL_ADDRESS' | translate}}" ng-model="CTTC.Messagedetails.email"
+                    required>
+                <span class="validerr" ng-show="contactform.email.$error.required && !contactform.email.$pristine">Email is required.</span>
+                <span class="validerr" ng-show="!contactform.email.$error.required && contactform.email.$error.pattern">Invalid email.</span>
+            </div>
+
+            <div class="form-group" ng-class="{ 'has-error' : contactform.mobile.$invalid && !contactform.mobile.$pristine, 'has-success' : contactform.mobile.$valid && !contactform.mobile.$pristine}">
+                <input type="tel" autocomplete="remember==true?on:off" class="form-control" name="mobile" placeholder="{{'MOBILE_NUMBER' | translate}}"
+                    ng-model="CTTC.Messagedetails.mobile" required ng-intl-tel-input>
+                <span class="validerr" ng-show="(contactform.mobile.$dirty && contactform.mobile.$error.required) || (contactform.mobile.$dirty && CTTC.Messagedetails.mobile == undefined)" class="help-block">Mobile Number is  required</span>
+            </div>
+
+            <div class="form-group" ng-class="{ 'has-error' : contactform.subject.$invalid && !contactform.subject.$pristine, 'has-success' : contactform.subject.$valid && !contactform.subject.$pristine}">
+                <input type="text" autocomplete="remember==true?on:off" class="form-control underline-input" name="subject" placeholder="{{'SUBJECT' | translate}}"
+                    ng-model="CTTC.Messagedetails.subject" required>
+                <span class="validerr" ng-show="contactform.subject.$dirty && contactform.subject.$error.required" class="help-block">Subject is  required</span>
+            </div>
+
+            <div class="form-group" ng-class="{ 'has-error' : contactform.message.$invalid && !contactform.message.$pristine, 'has-success' : contactform.message.$valid && !contactform.message.$pristine}">
+                <textarea cols="60" rows="4" class="form-control underline-input" placeholder="{{'MESSAGE' | translate}}" name="message"
+                    ng-model="CTTC.Messagedetails.message" required></textarea>
+                <span class="validerr" ng-show="contactform.message.$dirty && contactform.message.$error.required" class="help-block">Message Content is  required</span>
+            </div>
+
+            <div class="form-group">
+                <span ng-bind="CTTC.Error"></span>
+                <button class="grn-btn blu-btn" ng-click="CTTC.userMessage(contactform.$valid,contactform);"><span>{{'SEND' | translate}}</span></button>
+            </div>
+
+        </form>
+    </div>
+</div>
+<script type="text/javascript">
+    $(".dropdown-filter-full").click(function(){
+
+$(".filter-full").slideToggle();
+
+});
+
+</script>

@@ -1,0 +1,17 @@
+{
+    "port": "3003",
+    "mongodb": {
+        "host": "bwl3qctilj4ypo7-mongodb.services.clever-cloud.com",
+        "port": "27017",
+        "database": "bwl3qctilj4ypo7"
+    },
+    "directory": {
+        "users": "./uploads/images/users/",
+        "taskers": "./uploads/images/tasker/"
+    },
+    "default_image": {
+        "users": "",
+        "taskers": "",
+        "category": ""
+    }
+}

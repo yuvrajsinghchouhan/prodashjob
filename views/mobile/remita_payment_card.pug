@@ -1,0 +1,92 @@
+doctype transitional
+html(xmlns='http://www.w3.org/1999/xhtml')
+  head
+      meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+      meta(name='viewport', content='width=device-width, initial-scale=1.0')
+      title= 'Payment Credit Card'
+      link(rel='stylesheet', href=site_url+'app/mobile/styles/style.css', type='text/css', media='all')
+      script(type='text/javascript', src=site_url+'app/mobile/scripts/library/jquery-1.10.2.js')
+  body
+      section
+        .shipping_address
+          .main
+            .app-content-box
+              h1
+                | Remita Payment
+                a.close_btn(href=base_url+'wallet-recharge/pay-cancel?mobileId='+transaction_id)
+              h2(style='margin-left:15px;')
+                | Your total charge is !{currencies} !{transaction.amount}
+              span.payNote(style='margin-left:15px;')
+                b NOTE :
+                |  Your card information will be saved in remita secure gateway for your later and faster transaction.
+              form#wallet_recharge_form(name='wallet_recharge_form', method='post',action=site_url+'mobile/app/payment/remita-payment-process', autocomplete='off', onsubmit="return showLoader();")
+                input(type='hidden', value=transaction._id, name='transaction_id')
+                input(type='hidden', value=transaction.user, name='user_id')
+                input(type='hidden', value=transaction.task, name='task_id')
+                input(type='hidden', value=transaction.amount, name='total_amount')
+                ul
+                  li
+                    input#payername.input-scroll(type='text', placeholder='Payer Name', name='payername')
+                  li
+                    input#payeremail.input-scroll(type='email', placeholder='Payer Email', name='payeremail')
+                  li
+                     input#payerphone.input-scroll(type='text', placeholder='Payer Phone', name='payerphone')
+                  li.input-scroll-20
+                     label Payer Type
+                     select#payertype.input-scroll-22(name='payer_type')
+                       option(value='', selected="selected")= ''
+                       option(value='ATM' )= 'ATM'
+                       option(value='POS' )= 'POS'
+                       option(value='VERVE' )= 'VERVE'
+                       option(value='VISA' )= 'VISA'
+                       option(value='MASTERCARD' )= 'MASTERCARD'
+                       option(value='UNION_PAY' )= 'UNION_PAY'
+                       option(value='REMITA' )= 'REMITA'
+                       option(value='BANK_BRANCH' )= 'BANK_BRANCH'
+                       option(value='BANK_INTERNET' )= 'BANK_INTERNET'
+                       option(value='WALLET' )= 'WALLET'
+                       option(value='RRRGEN' )= 'RRRGEN'
+                  li.last
+                    input#submit_btn.input-submit-btn(type='submit', value='Pay With Remita Payment', onclick='return validatecard();')
+                  li.last
+                    p#loading.input-loading(style='display:none;') This page redirect automatically, please wait...
+                  li.last
+                    img#payLoader(src=site_url+'app/mobile/images/small-loader.gif', style='display:none;')
+      script(type='text/javascript').
+        function validatecard(){
+        var payername=document.getElementById("payername").value.trim();
+        document.getElementById("payername").classList.remove("txt-error");
+         var payeremail=document.getElementById("payeremail").value.trim();
+        document.getElementById("payeremail").classList.remove("txt-error");
+         var payerphone=document.getElementById("payerphone").value.trim();
+        document.getElementById("payerphone").classList.remove("txt-error");
+         var payertype=document.getElementById("payertype").value.trim();
+        document.getElementById("payertype").classList.remove("txt-error");
+        var status=0;
+        if(payername==""){
+        document.getElementById("payername").classList.add("txt-error");
+        status++;
+        }
+         if(payeremail==""){
+        document.getElementById("payeremail").classList.add("txt-error");
+        status++;
+        }
+         if(payerphone==""||isNaN(payerphone)){
+        document.getElementById("payerphone").classList.add("txt-error");
+        status++;
+        }
+         if(payertype==""){
+        document.getElementById("payertype").classList.add("txt-error");
+        status++;
+        }
+        if(status!=0){
+        return false;
+        }else{
+        document.getElementById("submit_btn").style.display = 'none';
+        document.getElementById("loading").style.display = 'block';
+        }
+        }
+      script.
+        function showLoader(){
+          $('#payLoader').css('display','block');
+        }

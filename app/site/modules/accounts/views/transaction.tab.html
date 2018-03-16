@@ -1,0 +1,46 @@
+<div ng-init="ACC.getTransactionHis()" role="tabpanel" class="tab-pane" id="Transaction">
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>{{'S.NO'|translate }} </th>
+                    <th>{{'BOOKING_ID'|translate }} </th>
+                    <th>{{'TASK'|translate }} </th>
+                    <th>{{'TASK_EARNINIG'|translate }}</th>
+                    <th>{{'ADMIN_FEE'|translate }} </th>
+                    <th>{{'TOTAL_AMOUNT'|translate }} </th>
+                    <th  style="width:50px;">{{'ACTIONS'|translate }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="taskerDetails in ACC.transcationhis">
+
+                    <td>{{$index + 1}}  </td>
+                    <td>{{taskerDetails.booking_id}}</td>
+                    <!-- <td>{{taskerDetails.billing_address.city}}</td> -->
+                    <td> {{taskerDetails.category.name}}</td>
+                    <td>{{rc.DefaultCurrency[0].symbol}}{{(taskerDetails.invoice.amount.total) * rc.DefaultCurrency[0].value | number:2}}</td>
+                    <td>{{rc.DefaultCurrency[0].symbol}}{{taskerDetails.invoice.amount.admin_commission  * rc.DefaultCurrency[0].value | number:2}}</td>
+                    <td>{{rc.DefaultCurrency[0].symbol}}{{(taskerDetails.invoice.amount.total - taskerDetails.invoice.amount.admin_commission)  * rc.DefaultCurrency[0].value | number:2}}</td>
+                    <td>
+                        <a href="javascript:void(0)" ng-click="ACC.TaskTranscationViewModal($index,taskerDetails.category._id)" class="btn btn-secondary js-deactivate-trigger confrm conform"
+                            style="width:80px;">{{'VIEW'|translate }}</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div ng-if="!ACC.transcationhis.length" class="emptyfie">
+        <span>{{'YOU DONT HAVE ANY TRANSACTIONS YET'|translate }}!</span>
+    </div>
+    <div style="margin-top: 200px;margin-left: 300px;" ng-if="ACC.transcationhis.length > 0" class="pagination_inner clearfix">
+        <nav>
+          <uib-pagination max-size="5" items-per-page="ACC.taskertransitemsPerPage" ng-change="ACC.getTransactionHis(ACC.taskertransCurrentPage)"
+              total-items="ACC.taskertranstotalItem" ng-model="ACC.taskertransCurrentPage" class="pagination pagination-lg" previous-text="&lsaquo;"
+              next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></uib-pagination>
+        </nav>
+    </div>
+
+
+
+</div>

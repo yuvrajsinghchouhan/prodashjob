@@ -1,0 +1,58 @@
+Task Status (status)
+-----------
+0 - Deleted
+1 - Onprogress
+2 - Accepted
+3 - StartOff
+4 - Arrived
+5 - StartJob
+6 - Request payment from tasker
+7 - Completed
+8 - Cancelled
+9 - Dispute
+10- Search
+
+Task Payment Status (invoice.amount.status)
+-----------
+0 - Incompleted
+1 - Completed
+2 - Pending
+
+Pay Status (status)
+----------
+0 - Unpaid
+1 - Paid
+2 - Pending
+3 - Processing
+
+Tasker Status (status)
+-------------
+0 - Delete
+1 - Verified
+2 - Unverified
+3 - Pending
+
+
+Tasker Availability(mode)
+------------------------
+0 -  Unavailable
+1 -  Booked
+2 -  Available
+
+Messages
+------------------------
+0 -  Deleted
+1 -  Sent
+2 -  Seen
+
+Notification
+------------------------
+0 -  Deleted
+1 -  Unseen
+2 -  Seen
+
+User
+----------------------
+0- Deleted
+1- Active
+2- Deactive

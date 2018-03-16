@@ -1,0 +1,24 @@
+2017-07-28 02:36 -07:00: Server turned on with development mode on port 3003
+2017-07-28 02:36 -07:00: MongoDB connected!
+2017-07-28 10:37 -07:00: >>>>>>>>>>>emailQuery>>>>>>>>>>>
+2017-07-28 10:37 -07:00: [ { '$match': { status: [Object] } },
+  { '$project': { name: 1, email_subject: 1, sender_email: 1, dname: [Object] } },
+  { '$project': { name: 1, document: '$$ROOT' } },
+  { '$group': { _id: null, count: [Object], documentData: [Object] } },
+  { '$unwind': { path: '$documentData', preserveNullAndEmptyArrays: true } },
+  { '$sort': { 'documentData.createdAt': -1 } },
+  { '$skip': 0 },
+  { '$limit': 10 },
+  { '$group': { _id: null, count: [Object], documentData: [Object] } } ]
+>>>>>>>>>>emailQuery>>>>>>>>>>>>
+2017-08-03 10:12 -07:00: >>>>>>>>>>>emailQuery>>>>>>>>>>>
+2017-08-03 10:12 -07:00: [ { '$match': { status: [Object] } },
+  { '$project': { name: 1, email_subject: 1, sender_email: 1, dname: [Object] } },
+  { '$project': { name: 1, document: '$$ROOT' } },
+  { '$group': { _id: null, count: [Object], documentData: [Object] } },
+  { '$unwind': { path: '$documentData', preserveNullAndEmptyArrays: true } },
+  { '$sort': { 'documentData.createdAt': -1 } },
+  { '$skip': 0 },
+  { '$limit': 10 },
+  { '$group': { _id: null, count: [Object], documentData: [Object] } } ]
+>>>>>>>>>>emailQuery>>>>>>>>>>>>

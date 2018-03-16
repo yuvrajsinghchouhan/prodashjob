@@ -1,0 +1,165 @@
+/************* Card - Feature Box *************/
+.feature-box-container {
+  position: relative; }
+  .feature-box-container .card {
+    min-height: 110px;
+    margin-bottom: 20px;
+    position: relative;
+    width: 100%;
+    cursor: pointer;
+    z-index: 9; }
+    .feature-box-container .card .front {
+      height: 100%;
+      position: relative;
+      width: 100%;
+      padding: 28px;
+      top: 0;
+      left: 0;
+      z-index: 11; }
+
+/************* /Card - Feature Box *************/
+/************* Custom CSS *************/
+.red {
+    color: red;
+}
+.pull-marginleft-100 {
+  margin-left: -100px; }
+
+.margintop-20 {
+  margin-top: 20px; }
+
+.pagination {
+  margin: 0 !important; }
+
+.showitems span.first {
+  padding: 5px 10px 5px 0; }
+
+.showitems span.last {
+  padding: 5px 0px 5px 10px; }
+
+.showitems select {
+  width: 75px; }
+
+table.listtable th span.sort {
+  cursor: pointer; }
+
+table.listtable th span.sorting:after {
+  font-family: "Glyphicons Halflings";
+  content: "\e150";
+  /*padding-left: 10px;*/
+  font-size: 10px;
+  cursor: pointer; }
+
+table.listtable th span.sorting-asc:after {
+  font-family: "Glyphicons Halflings";
+  content: "\e155";
+  /*padding-left: 10px;*/
+  font-size: 10px;
+  cursor: pointer; }
+
+table.listtable th span.sorting-dec:after {
+  font-family: "Glyphicons Halflings";
+  content: "\e156";
+  /*padding-left: 10px;*/
+  font-size: 10px;
+  cursor: pointer; }
+
+ul.tabletop-sub-list {
+  float: left;
+  padding: 0px; }
+  ul.tabletop-sub-list li {
+    float: left;
+    list-style: none; }
+  ul.tabletop-sub-list a {
+    padding: 0 10px 0 10px; }
+
+/************* paid_payment(G) CSS *************/
+.marginRL-0 {
+  margin-right: 0px;
+  margin-left: 0px; }
+
+/************* /paid_payment(G) CSS *************/
+.ui-select-bootstrap .ui-select-choices {
+  top: 35px !important; }
+
+/************* /Custom CSS *************/
+#content {
+  padding-top: 45px;
+  width: auto;
+  -webkit-overflow-scrolling: touch;
+  -webkit-overflow-scrolling: -blackberry-touch;
+  -webkit-transition: right 0.25s cubic-bezier(0.6, 0.04, 0.98, 0.335), padding-right 0.25s cubic-bezier(0.6, 0.04, 0.98, 0.335);
+  -moz-transition: right 0.25s cubic-bezier(0.6, 0.04, 0.98, 0.335), padding-right 0.25s cubic-bezier(0.6, 0.04, 0.98, 0.335);
+  transition: right 0.25s cubic-bezier(0.6, 0.04, 0.98, 0.335), padding-right 0.25s cubic-bezier(0.6, 0.04, 0.98, 0.335); }
+
+
+
+#content div[ui-view] {
+  height: 100%; }
+
+#content.ng-enter .page {
+  -webkit-animation: littleFadeInUp 0.5s ease;
+  -moz-animation: littleFadeInUp 0.5s ease;
+  animation: littleFadeInUp 0.5s ease;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden; }
+
+#content.ng-leave .page {
+  filter: alpha(opacity=0);
+  opacity: 0; }
+
+#content [ui-view].ng-enter, #content [ui-view].ng-leave {
+  position: absolute;
+  left: 0;
+  right: 0;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out; }
+
+#content [ui-view].ng-enter {
+  filter: alpha(opacity=0);
+  opacity: 0;
+  -webkit-transform: scale3d(0.5, 0.5, 0.5);
+  -moz-transform: scale3d(0.5, 0.5, 0.5);
+  -ms-transform: scale3d(0.5, 0.5, 0.5);
+  -o-transform: scale3d(0.5, 0.5, 0.5);
+  transform: scale3d(0.5, 0.5, 0.5); }
+
+#content [ui-view].ng-enter-active {
+  filter: alpha(opacity=100);
+  opacity: 1;
+  -webkit-transform: scale3d(1, 1, 1);
+  -moz-transform: scale3d(1, 1, 1);
+  -ms-transform: scale3d(1, 1, 1);
+  -o-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1); }
+
+#content [ui-view].ng-leave {
+  filter: alpha(opacity=100);
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0); }
+
+#content [ui-view].ng-leave-active {
+  filter: alpha(opacity=0);
+  opacity: 0;
+  -webkit-transform: translate3d(100px, 100px, 0);
+  -moz-transform: translate3d(100px, 100px, 0);
+  -ms-transform: translate3d(100px, 100px, 0);
+  -o-transform: translate3d(100px, 100px, 0);
+  transform: translate3d(100px, 100px, 0); }
+
+.tab-pane .dashboard  .thumb img {
+height: 50px;
+max-width: 50px;
+}
+
+.pac-container {
+  z-index: 9999;
+}

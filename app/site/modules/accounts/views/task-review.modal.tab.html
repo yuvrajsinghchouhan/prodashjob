@@ -1,0 +1,19 @@
+<div class="modal-header">
+    <h3 class="modal-title">{{'REVIEW' | translate}}</h3>
+</div>
+
+<div class="modal-body">
+   <div class="form-group">
+        <label for="line1">{{'RATE_YOUR_USER_FOR_THIS_TASK' | translate}} ? </label></br>
+        <uib-rating ng-model="TREMS.review.rating" max="5" state-on="'fa fa-star text-orange text-lg'" state-off="'fa fa-star-o text-lg'"></uib-rating>
+    </div>
+    <div class="form-group">
+        <label for="line1">{{'COMMENTS' | translate}}</label>
+        <textarea type="text" class="form-control" ng-model="TREMS.review.comments"></textarea>
+    </div>
+</div>
+
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="TREMS.ok()">{{'OK' | translate}}</button>
+    <button class="btn btn-warning" type="button" ng-click="TREMS.cancel()">{{'CANCEL' | translate}}</button>
+</div>

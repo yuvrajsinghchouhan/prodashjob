@@ -1,0 +1,62 @@
+<div class="page page-tables-bootstrap">
+
+    <!-- page header -->
+    <div class="pageheader">
+
+        <h2>{{ 'Menu.FAQ' | translate }} </h2>
+
+        <div class="page-bar">
+
+            <ul class="page-breadcrumb">
+                <li>
+                    <a ui-sref="app.dashboard"><i class="fa fa-home"></i> {{main.title}}</a>
+                </li>
+                <li>
+                    <a href="javascript:;">{{ 'Menu.FAQ' | translate }}</a>
+                </li>
+                <li>
+                <a ui-sref="app.giftCards.giftCardsList" href="#/app/giftCards/gift-cards-list">{{ 'SubMenu.ALL_FAQ' | translate }}</a>
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+    <!-- /page header -->
+
+    <!-- page content -->
+    <div class="pagecontent">
+
+        <!-- row -->
+        <div class="row">
+            <!-- col -->
+            <div class="col-md-12">
+
+
+                <!-- tile -->
+                <section class="tile" fullscreen="isFullscreen07">
+
+                    <!-- tile header -->
+                    <div class="tile-header dvd dvd-btm">
+                        <h1 class="custom-font"><strong>FAQ</strong> List</h1>
+
+                    </div>
+
+                    <!-- /tile footer -->
+      <custom-table data="FLC.table"></custom-table>
+
+                </section>
+                <!-- /tile -->
+
+            </div>
+            <!-- /col -->
+        </div>
+        <!-- /row -->
+
+    </div>
+    <!-- /page content -->
+
+
+
+
+</div>

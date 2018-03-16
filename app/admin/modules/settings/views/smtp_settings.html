@@ -1,0 +1,77 @@
+<div class="page page-forms-common">
+   <!-- page header -->
+   <div class="pageheader">
+        <h2>{{ 'Menu.SETTINGS' | translate }}</span></h2>
+        <div class="page-bar">
+           <ul class="page-breadcrumb">
+              <li><a ui-sref="app.dashboard"><i class="fa fa-home"></i> {{main.title}}</a></li>
+              <li><a href="javascript:;">{{'Menu.SETTINGS'|translate}}</a></li>
+              <li> {{'SubMenu.SMTP_SETTINGS'|translate}} </li>
+           </ul>
+        </div>
+     </div>
+   <!-- /page header -->
+   <!-- page content -->
+   <div class="pagecontent">
+      <!-- row -->
+      <div class="row">
+         <!-- col -->
+         <div class="col-md-12">
+            <!-- tile -->
+            <section class="tile" fullscreen="isFullscreen02">
+               <form role="form"  submit-validate enctype="multipart/form-data" name="smtpForm"  novalidate>
+                  <!-- tile body -->
+                  <div class="tile-body">
+                     <div class="form-group" ng-class="{ 'has-error' :smtpForm.name.$invalid && !smtpForm.name.$pristine, 'has-success' : smtpForm.name.$valid && !smtpForm.name.$pristine}">
+                        <label for="exampleInputEmail1">SMTP Host</label>
+                        <input type="text" name="name" id="name" class="form-control" ng-model="SMTPSC.smtpSettings.smtp_host" required="" aria-required="true" aria-invalid="true" on-blur-validation required>
+                         <p class="help-block">
+                           <span ng-show="smtpForm.name.$invalid && !smtpForm.name.$pristine">smtp host is required.</span>
+                        </p>
+                     </div>
+                     <div class="form-group" ng-class="{ 'has-error' :smtpForm.name.$invalid && !smtpForm.name.$pristine, 'has-success' : smtpForm.name.$valid && !smtpForm.name.$pristine}">
+                        <label for="exampleInputEmail1">SMTP Port</label>
+                        <input type="text" name="name" id="name" class="form-control" ng-model="SMTPSC.smtpSettings.smtp_port" required="" aria-required="true" aria-invalid="true" on-blur-validation required>
+                         <p class="help-block">
+                           <span ng-show="smtpForm.name.$invalid && !smtpForm.name.$pristine">smtp port is required.</span>
+                        </p>
+                     </div>
+                     <div class="form-group" ng-class="{ 'has-error' :smtpForm.name.$invalid && !smtpForm.name.$pristine, 'has-success' : smtpForm.name.$valid && !smtpForm.name.$pristine}">
+                        <label for="exampleInputEmail1">SMTP Username</label>
+                        <input type="text" name="name" id="name" class="form-control" ng-model="SMTPSC.smtpSettings.smtp_username" required="" aria-required="true" aria-invalid="true" on-blur-validation required>
+                         <p class="help-block">
+                           <span ng-show="smtpForm.name.$invalid && !smtpForm.name.$pristine">smtp username is required.</span>
+                        </p>
+                     </div>
+                     <div class="form-group" ng-class="{ 'has-error' :smtpForm.name.$invalid && !smtpForm.name.$pristine, 'has-success' : smtpForm.name.$valid && !smtpForm.name.$pristine}">
+                        <label for="exampleInputEmail1">SMTP Password</label>
+                        <input type="text" name="name" id="name" class="form-control" ng-model="SMTPSC.smtpSettings.smtp_password" required="" aria-required="true" aria-invalid="true" on-blur-validation required>
+                         <p class="help-block">
+                           <span ng-show="smtpForm.name.$invalid && !smtpForm.name.$pristine"> smtp password is required.</span>
+                        </p>
+                     </div>
+                     <div class="form-group" ng-class="{ 'has-error' :smtpForm.mode.$invalid && !smtpForm.mode.$pristine, 'has-success' : smtpForm.mode.$valid && !smtpForm.mode.$pristine}">
+                        <label for="publish">Mode</label>
+                        <select id="mode" name="mode" ng-model="SMTPSC.smtpSettings.mode" class="form-control" required="" aria-required="true" aria-invalid="true" on-blur-validation required>
+                           <option value='development'>Development</option>
+                           <option value='production'>Production</option>
+                           <p class="help-block">
+                          <span ng-show="smtpForm.mode.$invalid && !smtpForm.mode.$pristine">Mode is required.</span>
+                        </p>
+                        </select>
+                     </div>
+                  </div>
+                  <div class="tile-footer text-right bg-tr-black lter dvd dvd-top">
+                     <button type="submit" class="btn btn-success btn-ef btn-ef-3 btn-ef-3c mb-10" ng-click="SMTPSC.saveSMTPSettings(smtpForm.$valid,SMTPSC.smtpSettings)">Submit<i class="fa fa-arrow-right"></i></button>
+                  </div>
+               </form>
+               <!-- /tile body -->
+            </section>
+            <!-- /tile -->
+         </div>
+         <!-- /col -->
+      </div>
+      <!-- /row -->
+   </div>
+   <!-- /page content -->
+</div>

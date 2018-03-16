@@ -1,0 +1,51 @@
+<div class="signup-page">
+  <div style="background-image: url('{{rc.loginimage.image}}');" class="sinupimg-container"></div>
+    <div class="sign-up-holder login-holder">
+        <div class="logo-container">
+            <a ui-sref="landing"><img src="{{rc.getsetting.logo}}"></a>
+        </div>
+        <form ng-submit="login()" role="form" name="form" class="form-validation mt-20" method="post" novalidate>
+            <div class="form-group" ng-class="{ 'has-error' : form.username.$invalid && !form.username.$pristine, 'has-success' : form.username.$valid && !form.username.$pristine}">
+                <input type="username" autocomplete="remember==true?on:off" class="form-control underline-input" name="username" placeholder="{{'USERNAME' | translate}}"
+                    ng-model="username" required>
+                <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">{{'ENTER USER NAME'| translate}}</span>
+            </div>
+            <div class="form-group" ng-class="{ 'has-error' : form.password.$invalid && !form.password.$pristine, 'has-success' : form.password.$valid && !form.password.$pristine}">
+                <input type="password" autocomplete="remember==true?on:off" placeholder="{{'PASSWORD' | translate}}" name="password" class="form-control underline-input"
+                    ng-model="password" required>
+                <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block validerr">{{'ENTER PASSWORD'| translate}}</span>
+            </div>
+            <h3 ng-show="error" style="color:red;" class="text-light text-greensea validerr">{{error | translate}}</h3>
+            <div class="form-group text-left mt-20">
+                <div class="form-actions">
+                    <button type="submit"  class="grn-btn blu-btn">{{ 'LOGIN' | translate}}</button>
+                </div>
+            </div>
+        </form>
+
+        <!-- <ul class="sign-btns">
+          <li><a class="grn-btn fb-btn" href="#" ng-click="facebookLogin()">{{'LOGIN_WITH_FACEBOOK'| translate}}</a></li>
+        </ul> -->
+
+         <div class="frget-pwd arrange">
+           <a style="float:left" href="#" ng-click="rc.otpverifications(username)">{{'ACTIVATE YOUR ACCOUNT'| translate}}</a>
+           <a class="" ui-sref="forgotpwduser">{{'FORGET_PASSWORD'| translate}}</a>
+        </div>
+         <div class="newsignup">
+            {{'DONT HAVE AN ACCOUNT'| translate}} <a class="" ui-sref="signup"><strong>{{'CLICK HERE'| translate}}</strong></a>
+        </div>
+    </div>
+</div>
+<style>
+    .newsignup{
+        float: left;
+    width: 100%;
+    text-align: left;
+    font-size: 13px;
+    margin: 10px 0px;
+    }
+    .arrange{
+            margin: 10px 0px !important;
+             font-size: 14px !important;
+    }
+    </style>

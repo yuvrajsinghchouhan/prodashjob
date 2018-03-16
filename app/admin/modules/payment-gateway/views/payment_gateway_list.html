@@ -1,0 +1,24 @@
+<div class="page page-tables-bootstrap">
+  <div class="pageheader">
+        <h2>{{ 'Menu.PAYMENT_GATEWAY' | translate }}</h2>
+        <div class="page-bar">
+            <ul class="page-breadcrumb">
+                <li>
+                    <a ui-sref="app.dashboard"><i class="fa fa-home"></i>{{main.title}}</a>
+                 </li>
+                <li><a ui-sref="app.paymentgateway.list" >{{'Menu.PAYMENT_GATEWAY'|translate}}</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="pagecontent">
+        <div class="row">
+            <div class="col-md-12">
+                <section class="tile" fullscreen="isFullscreen07">
+                    <div class="tile-header dvd dvd-btm">
+                        <h1 class="custom-font"><strong>Payment</strong> gateway</h1>
+                    </div>
+                    <custom-table data="PAYGC.table" delete-call="VSC.deletedData"></custom-table>
+                </section>
+            </div>
+        </div>
+    </div>

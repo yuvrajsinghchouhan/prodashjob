@@ -1,0 +1,27 @@
+<div class="page page-core page-login">
+    <div class="text-center">
+        <h3 class="text-light text-white">  <img style="width:200px "src="{{rc.logo}}"> </h3>
+      <!-- <h3 class="text-light text-white">QUICK RABBIT</h3> -->
+    </div>
+    <div class="container w-420 p-15 bg-white mt-40 text-center">
+        <h2 class="text-light text-greensea">Forgot Password</h2>
+        <form ng-submit="login()"  role="form" name="form" class="form-validation mt-20" method="post" novalidate>
+            <div class="form-group">
+                <input type="password" autocomplete="remember==true?on:off" class="form-control underline-input" name="Password" placeholder="Password" ng-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,12}$/" ng-minlength="6" ng-maxlength="12" ng-model="AFMC.Password" required>
+                 <span class="validerr" style="color:red" ng-show="form.Password.$error.required && !form.Password.$pristine">Password is required.</span>
+                 <span class="validerr" style="color:red" ng-show="form.Password.$invalid && !form.Password.$pristine && form.Password.$error.pattern">Password Must Contain Atleast One uppercase,One lower case,One Numeric digit.</span>
+                <span class="validerr" style="color:red" ng-show="form.Password.$error.minlength">Password must be minimum of 6 characters.</span>
+                <span class="validerr" style="color:red" ng-show="form.Password.pwd.$error.maxlength">Password must be maximum of 12 characters.</span>
+
+                <input type="password" autocomplete="remember==true?on:off" class="form-control underline-input" name="CPassword" placeholder="Conform Password" ng-model="AFMC.CPassword" required>
+                 <span class="validerr" style="color:red" ng-show="form.CPassword.$error.required && !form.CPassword.$pristine">Confirm Password is required.</span>
+                 <span class="validerr" style="color:red" ng-show=" AFMC.Password!='' && AFMC.CPassword!='' && AFMC.CPassword != AFMC.Password">Password and Confirm Password can be same.</span>
+                <div class="form-group text-left mt-20">
+                    <div class="form-actions">
+                        <button type="submit"  ng-disabled="form.$invalid"  class="btn btn-greensea b-0 br-2 mr-5" ng-click="AFMC.forgotpassmail(form.$valid,AFMC.Password,AFMC.CPassword)">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

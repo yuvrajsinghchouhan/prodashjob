@@ -1,0 +1,402 @@
+[
+  {
+    "name": "Menu.DASHBOARD",
+    "alias": "dashboard",
+    "state": "app.dashboard",
+    "action": "all",
+    "icon": "dashboard"
+  },
+  {
+    "name": "Menu.ADMINISTRATORS",
+    "alias": "administrators",
+    "state": "app.admins",
+    "action": "list",
+    "icon": "users",
+    "childs": [
+      {
+        "name": "SubMenu.ADMIN_LIST",
+        "alias": "administrators-admin",
+        "state": "app.admins.list",
+        "action": "all"
+      },
+      {
+        "name": "SubMenu.SUB_ADMIN_LIST",
+        "alias": "administrators-subadmin",
+        "state": "app.admins.sub",
+        "action": "all"
+      }
+    ]
+  },
+  {
+    "name": "Menu.USERS",
+    "alias": "users",
+    "action": "list",
+    "state": "app.users",
+    "icon": "users",
+    "childs": [
+      {
+        "name": "SubMenu.USER_LIST",
+        "action": "all",
+        "state": "app.users.list"
+      },
+      {
+        "name": "SubMenu.ADD_NEW_USER",
+        "action": "add",
+        "state": "app.users.add"
+      }
+    ]
+  },
+  {
+    "name": "Menu.TASKERS",
+    "alias": "tasker",
+    "state": "app.taskers",
+    "icon": "users",
+    "action": "list",
+    "childs": [
+      {
+        "name": "SubMenu.TASKER_LIST",
+        "alias": "list",
+        "action": "all",
+        "state": "app.taskers.list"
+      },
+      {
+        "name": "SubMenu.ADD_NEW_TASKER",
+        "action": "add",
+        "state": "app.taskers.add"
+      }
+    ]
+  },
+  {
+    "name": "Menu.REVIEWS",
+    "alias": "reviews",
+    "state": "app.reviews.list",
+    "action": "list",
+    "icon": "pencil-square-o"
+  },
+  {
+    "name": "Menu.TASKS",
+    "alias": "tasks",
+    "state": "app.tasks.viewsTasks",
+    "action": "list",
+    "icon": "question"
+  },
+  {
+    "name": "Menu.CANCELLATION",
+    "alias": "cancellation",
+    "state": "app.cancellation.list",
+    "action": "list",
+    "icon": "close"
+  },
+  {
+    "name": "Menu.EARNINGS",
+    "alias": "earnings",
+    "state": "app.earnings.list",
+    "action": "list",
+    "icon": "dollar"
+  },
+  {
+    "name": "Menu.PAGES",
+    "alias": "page",
+    "state": "app.pages",
+    "action": "list",
+    "icon": "folder",
+    "childs": [
+      {
+        "name": "SubMenu.ALL_PAGES",
+        "alias": "page",
+        "action": "all",
+        "state": "app.pages.list"
+      },
+      {
+        "name": "SubMenu.ADD_NEW_PAGE",
+        "action": "add",
+        "state": "app.pages.action"
+      }
+    ]
+  },
+  {
+    "name": "Menu.SLIDER",
+    "alias": "slider",
+    "action": "list",
+    "state": "app.sliders",
+    "icon": "picture-o",
+    "childs": [
+      {
+        "name": "SubMenu.ALL_SLIDERS",
+        "alias": "slider",
+        "action": "all",
+        "state": "app.sliders.viewsSlider"
+      },
+      {
+        "name": "SubMenu.ADD_NEW_SLIDER",
+        "action": "add",
+        "state": "app.sliders.add"
+      }
+    ]
+  },
+  {
+    "name": "Menu.IMAGES",
+    "alias": "images",
+    "state": "app.images.imagelist",
+    "action": "list",
+    "icon": "picture-o"
+  },
+  {
+    "name": "Menu.EMAILTEMPLATE",
+    "alias": "etemplate",
+    "action": "list",
+    "state": "app.emailtemplate",
+    "icon": "envelope",
+    "childs": [
+      {
+        "name": "SubMenu.EMAILTEMPLATE_LIST",
+        "alias": "etemplate",
+        "action": "all",
+        "state": "app.emailtemplate.list"
+      },
+      {
+        "name": "SubMenu.EMAILTEMPLATE_ADD",
+        "alias": "view",
+        "action": "add",
+        "state": "app.emailtemplate.action({action:'add'})"
+      }
+    ]
+  },
+  {
+    "name": "Menu.CATEGORIES",
+    "alias": "categories",
+    "action": "list",
+    "state": "app.categories",
+    "icon": "sort-alpha-asc",
+    "childs": [
+      {
+        "name": "SubMenu.MAIN_CATEGORY",
+        "alias": "categories",
+        "action": "all",
+        "state": "app.categories.list"
+      },
+      {
+        "name": "SubMenu.SUB_CATEGORY",
+        "alias": "add",
+        "action": "all",
+        "state": "app.categories.subcategorylist"
+      }
+    ]
+  },
+  {
+    "name": "Menu.COUPONS",
+    "alias": "coupons",
+    "action": "list",
+    "state": "app.coupons",
+    "icon": "sort-alpha-asc",
+    "childs": [
+      {
+        "name": "SubMenu.COUPONS_LIST",
+        "action": "all",
+        "state": "app.coupons.list"
+      },
+      {
+        "name": "SubMenu.ADD_COUPONS",
+        "action": "add",
+        "state": "app.coupons.action"
+      }
+    ]
+  },
+  {
+    "name": "Menu.PUSHNOTIFICATION",
+    "alias": "notification",
+    "action": "list",
+    "state": "app.pushnotifications.templates",
+    "icon": "sort-alpha-asc",
+    "childs": [
+      {
+        "name": "SubMenu.USER",
+        "action": "list",
+        "state": "app.pushnotifications.user"
+      },
+      {
+        "name": "SubMenu.TASKER",
+        "action": "list",
+        "state": "app.pushnotifications.tasker"
+      },
+      {
+        "name": "SubMenu.ADD-PUSH-NOTIFICATION",
+        "action": "add",
+        "state": "app.pushnotifications.templates"
+      }
+    ]
+  },
+  {
+    "name": "Menu.FAQ",
+    "alias": "faq",
+    "action": "all",
+    "state": "app.faq",
+    "icon": "question",
+    "childs": [
+      {
+        "name": "SubMenu.ALL_FAQ",
+        "alias": "view",
+        "action": "all",
+        "state": "app.faq.list"
+      },
+      {
+        "name": "SubMenu.ADD_NEW",
+        "action": "add",
+        "state": "app.faq.edit"
+      }
+    ]
+  },
+  {
+    "name": "Menu.EXPERIENCE",
+    "alias": "experience",
+    "action": "all",
+    "state": "app.experience",
+    "icon": "users",
+    "childs": [
+      {
+        "name": "SubMenu.ALL_EXPERIENCE",
+        "alias": "view",
+        "action": "all",
+        "state": "app.experience.list"
+      },
+      {
+        "name": "SubMenu.ADD_NEW",
+        "action": "add",
+        "state": "app.experience.edit"
+      }
+    ]
+  },
+  {
+    "name": "Menu.QUESTIONMANAGEMENT",
+    "alias": "questionmanagement",
+    "action": "all",
+    "state": "app.question",
+    "icon": "question",
+    "childs": [
+      {
+        "name": "SubMenu.ALL_QUESTIONS",
+        "alias": "view",
+        "action": "all",
+        "state": "app.question.viewsQuestion"
+      },
+      {
+        "name": "SubMenu.ADD_QUESTION",
+        "action": "add",
+        "state": "app.question.add"
+      }
+    ]
+  },
+  {
+    "name": "Menu.POSTHEADERMANAGEMENT",
+    "alias": "postheader",
+    "action": "all",
+    "state": "app.postheader",
+    "icon": "picture-o",
+    "childs": [
+      {
+        "name": "SubMenu.POSTHEADER_LIST",
+        "alias": "view",
+        "action": "all",
+        "state": "app.postheader.viewpostheader"
+      },
+      {
+        "name": "SubMenu.ADD_POSTHEADER",
+        "action": "add",
+        "state": "app.postheader.addpostheader"
+      }
+    ]
+  },
+  {
+    "name": "Menu.TOOLS",
+    "alias": "tool",
+    "action": "all",
+    "state": "app.tools",
+    "icon": "magic"
+  },
+  {
+    "name": "Menu.SETTINGS",
+    "alias": "settings",
+    "action": "all",
+    "state": "app.settings",
+    "icon": "gears",
+    "childs": [
+      {
+        "name": "SubMenu.GENERAL_SETTINGS",
+        "alias": "view",
+        "action": "all",
+        "state": "app.settings.generalSettings"
+      },
+      {
+        "name": "SubMenu.SEO_SETTINGS",
+        "alias": "view",
+        "action": "all",
+        "state": "app.settings.seoSettings"
+      },
+      {
+        "name": "SubMenu.WIDGETS",
+        "alias": "view",
+        "action": "all",
+        "state": "app.settings.widgets"
+      },
+      {
+        "name": "SubMenu.SMTP_SETTINGS",
+        "alias": "view",
+        "action": "all",
+        "state": "app.settings.smtpSettings"
+      },
+      {
+        "name": "SubMenu.SMS_SETTINGS",
+        "alias": "view",
+        "action": "all",
+        "state": "app.settings.smssettings"
+      },
+      {
+        "name": "SubMenu.SOCIAL_NETWORKS_SETTINGS",
+        "alias": "view",
+        "action": "all",
+        "state": "app.settings.SocialNetworksSettings"
+      },
+      {
+        "name": "SubMenu.CURRENCY_SETTINGS",
+        "alias": "view",
+        "action": "all",
+        "state": "app.settings.currencySettings.list"
+      },
+      {
+        "name": "SubMenu.LANGUAGE_SETTINGS",
+        "alias": "view",
+        "action": "all",
+        "state": "app.settings.languageSettings.list"
+      }
+    ]
+  },
+  {
+    "name": "Menu.NEWSLETTER",
+    "alias": "newsletter",
+    "action": "all",
+    "state": "app.newsletter",
+    "icon": "comment",
+    "childs": [
+      {
+        "name": "SubMenu.SUBSCRIBER",
+        "alias": "view",
+        "action": "all",
+        "state": "app.newsletter.subscriber"
+      }
+    ]
+  },
+  {
+    "name": "Menu.PAYMENT_GATEWAY",
+    "alias": "payment",
+    "action": "all",
+    "state": "app.paymentgateway.list",
+    "icon": "credit-card"
+  },
+  {
+    "name": "Menu.CONTACTUS",
+    "alias": "contact",
+    "action": "all",
+    "state": "app.contact.view",
+    "icon": "phone"
+  }
+]

@@ -1,0 +1,29 @@
+doctype html
+html.no-js(ng-app='quickRabbit.admin', ng-controller='RootCtrl as rc', class='{{containerClass}}')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+    meta(name='viewport', content='width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no')
+    meta(name='robots', content='noindex, nofollow')
+    title(ng-bind='rc.title')
+    link(rel='icon', href='{{rc.favicon}}')
+
+    //- inject:css
+    link(rel="stylesheet", href="/app/admin/public/css/lib/vendor.min.css")
+    link(rel="stylesheet", href="/app/admin/public/css/lib/style.min.css")
+    //- endinject
+
+    //- inject:js
+    script(src="/app/admin/public/scripts/vendor.min-7f329884eb6954c3e8e8ed2d12562215.js")
+    script(src="/app/admin/public/scripts/main.min-49d0166ad275fb5dcbac78e3dcee2a1d.js")
+    //- endinject
+
+    script(src='//maps.google.com/maps/api/js?key=' + googleMapAPI + '&libraries=places')
+
+  body#minovate.rightbar-hidden.appWrapper(ng-class="[main.settings.navbarHeaderColor, main.settings.activeColor, {'header-fixed': main.settings.headerFixed, 'header-static': !main.settings.headerFixed, 'aside-fixed': main.settings.asideFixed, 'aside-static': !main.settings.asideFixed, 'rightbar-show': main.settings.rightbarShow, 'rightbar-hidden': !main.settings.rightbarShow}]")
+    #wrap(ui-view='', autoscroll='false')
+    span(ng-if='imgSrc', style='position: absolute; z-index: 99999; top: 50%; left: 50%;')
+      .cssload-loader
+        .cssload-inner.cssload-one
+        .cssload-inner.cssload-two
+        .cssload-inner.cssload-three

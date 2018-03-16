@@ -1,0 +1,289 @@
+<!--dashboad Start-->
+<div class="page page-dashboard dashboar-landing">
+  <div class="row">
+    <div class="feature-box-container col-lg-3 col-sm-6 col-sm-12">
+      <div class="card">
+        <div ui-sref="app.users.list" class="front bg-greensea">
+          <div class="row">
+            <div class="col-xs-4">
+              <i class="fa fa-child fa-4x"></i>
+            </div>
+            <div class="col-xs-8">
+              <p class="text-elg text-strong mb-0">{{userlist}}</p>
+              <span>Users</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="feature-box-container col-lg-3 col-sm-6 col-sm-12">
+      <div class="card">
+        <div ui-sref="app.taskers.list" class="front bg-lightred">
+          <div class="row">
+            <div class="col-xs-4">
+              <i class="fa fa-users fa-4x"></i>
+            </div>
+            <div class="col-xs-8">
+              <p class="text-elg text-strong mb-0">{{taskers}}</p>
+              <span>Taskers</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="feature-box-container col-lg-3 col-sm-6 col-sm-12">
+      <div class="card">
+        <div ui-sref="app.tasks.viewsTasks" class="front bg-blue">
+          <div class="row">
+            <div class="col-xs-4">
+              <i class="fa fa-tasks  fa-4x"></i>
+            </div>
+            <div class="col-xs-8">
+              <p class="text-elg text-strong mb-0">{{tasks}}</p>
+              <span>Tasks</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="feature-box-container col-lg-3 col-sm-6 col-sm-12">
+      <div class="card">
+        <div ui-sref="app.categories.list" class="front bg-slategray">
+          <div class="row">
+            <div class="col-xs-4">
+              <i class="fa fa-navicon fa-4x"></i>
+            </div>
+            <div class="col-xs-8">
+              <p class="text-elg text-strong mb-0">{{categorylist}}</p>
+              <span>Categories</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="feature-box-container col-lg-3 col-sm-6 col-sm-12">
+      <div class="card">
+        <div ui-sref="app.earnings.list" class="front bg-green">
+          <div class="row">
+            <div class="col-xs-4">
+              <span style="font-size: 35px;">{{getdefaultcurrency.symbol}}</span>
+</div>
+<div class="col-xs-8">
+  <p class="text-elg text-strong mb-0"> {{earnings}}</p>
+  <span>Total Earning</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="feature-box-container col-lg-3 col-sm-6 col-sm-12">
+  <div class="card">
+    <div ui-sref="app.earnings.list" class="front bg-warning">
+      <div class="row">
+        <div class="col-xs-4">
+          <span style="font-size: 35px">{{getdefaultcurrency.symbol}}</span>
+</div>
+<div class="col-xs-8">
+  <p class="text-elg text-strong mb-0"> {{earningsadmin}}</p>
+  <span>Admin Earning</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="feature-box-container col-lg-3 col-sm-6 col-sm-12">
+  <div class="card">
+    <div ui-sref="app.coupons.list" class="front bg-dutch">
+      <div class="row">
+        <div class="col-xs-4">
+          <i class="fa fa-gift fa-4x"></i>
+        </div>
+        <div class="col-xs-8">
+          <p class="text-elg text-strong mb-0">{{coupons}}</p>
+          <span>Coupons</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="feature-box-container col-lg-3 col-sm-6 col-sm-12">
+  <div class="card">
+    <div ui-sref="app.newsletter.subscriber" class="front bg-lightblue6">
+      <div class="row">
+        <div class="col-xs-4">
+          <i class="fa fa-comment fa-4x"></i>
+        </div>
+        <div class="col-xs-8">
+          <p class="text-elg text-strong mb-0">{{subscriber}}</p>
+          <span>Subscriber</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<section class="tile" fullscreen="isFullscreen04">
+  <div class="tile-header dvd dvd-btm">
+    <h1 class="custom-font"><strong>Earnings </strong>Chart</h1>
+  </div>
+  <div class="tile-body">
+    <flot dataset="dataset" options="options" height="250px"></flot>
+  </div>
+</section>
+
+
+<div class="row">
+  <div class="col-md-6">
+    <section class="tile rcnt-tsk" fullscreen="isFullscreen08">
+      <div class="tile-header dvd dvd-btm">
+        <h1 class="custom-font"><strong>Recent </strong>Pending Tasker</h1>
+      </div>
+      <div class="tile-body p-0">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>User Name</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="tasker in taskersDetails">
+              <td>{{tasker.username}}</td>
+              <td ng-if="tasker.status == 1">Verified</td>
+              <td ng-if="tasker.status == 2">Unverified </td>
+              <td ng-if="tasker.status == 3">Pending </td>
+              <td>
+                <button type="button" ng-if="tasker" ng-click="DLC.edit(tasker._id)" class="btn btn-rounded-20 btn-default btn-sm mr-5" style="width:30px;"><i class="fa fa-pencil"></i></button>
+<button type="button" ng-if="tasker" class="btn btn-rounded-20 btn-default btn-sm" ng-click="DLC.approvtasker(tasker._id,1)"
+  style="width:30px;"><i class="fa fa-check" style="margin-left: -2px;"></i>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+
+<div class="col-md-6">
+  <section class="tile rcnt-tsk" fullscreen="isFullscreen08">
+    <div class="tile-header dvd dvd-btm">
+      <h1 class="custom-font"><strong>Recent </strong>Verified Tasker</h1>
+    </div>
+    <div class="tile-body p-0">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>User Name</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="tasker in verifiedtaskersDetails">
+            <td>{{tasker.username}}</td>
+            <td ng-if="tasker.status == 1">Verified</td>
+            <td ng-if="tasker.status == 2">Unverified </td>
+            <td ng-if="tasker.status == 3">Pending </td>
+            <td>
+              <button type="button" ng-if="tasker" ng-click="DLC.edit(tasker._id)" class="btn btn-rounded-20 btn-default btn-sm mr-5" style="width:30px;"><i class="fa fa-eye"></i></button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+</div>
+
+<div class="row">
+
+  <div class="col-md-6">
+    <section class="tile rcnt-tsk" fullscreen="isFullscreen08">
+      <div class="tile-header dvd dvd-btm">
+        <h1 class="custom-font"><strong>Recent </strong>User</h1>
+      </div>
+      <div class="tile-body p-0">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>User Name</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="user in RecentUsers">
+              <td>{{user.username}}</td>
+              <td ng-if="user.status == 1">Active</td>
+              <td ng-if="user.status == 2">Deactive </td>
+              <td>
+                <button type="button" ng-if="user" ng-click="DLC.edituser(user._id)" class="btn btn-rounded-20 btn-default btn-sm mr-5" style="width:30px;"><i class="fa fa-pencil"></i></button>
+<button type="button" ng-if="user" class="btn btn-rounded-20 btn-default btn-sm" style="width:30px;" ng-click="DLC.deleteuser(user._id)"><i class="fa fa-trash" style="margin-left: -2px;" ></i>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+
+<div class="col-md-6">
+  <section class="tile rcnt-tsk" fullscreen="isFullscreen08">
+    <div class="tile-header dvd dvd-btm">
+      <h1 class="custom-font"><strong>Recent </strong>Task</h1>
+    </div>
+    <div class="tile-body p-0">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Booking ID</th>
+            <th>User</th>
+            <th>Tasker</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="task in taskDetails" ng-class="{active:task.status==1,info:task.status==2,success:task.status==6 || task.status==7 ,danger:task.status==8,warning:task.status==9,info:task.status==5}">
+            <td>{{task.booking_id}}</td>
+            <td>{{task.user.username}}</td>
+            <td>{{task.tasker.username}}</td>
+            <td ng-if="task.status == 1">Onprogress</td>
+            <td ng-if="task.status == 2">Accepted </td>
+            <td ng-if="task.status == 3">StartOff </td>
+            <td ng-if="task.status == 4">Arrived</td>
+            <td ng-if="task.status == 5">StartJob </td>
+            <td ng-if="task.status == 6">Payment Pending</td>
+            <td ng-if="task.status == 7">Completed</td>
+            <td ng-if="task.status == 8">Cancelled </td>
+            <td ng-if="task.status == 9">Dispute</td>
+            <td>
+              <button type="button" ng-click="DLC.viewtask(task._id)" class="btn btn-rounded-20 btn-default btn-sm mr-5 view-btn" style="width:30px;"><i class="fa fa-eye"></i></button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+</div>
+
+<style>
+  .tab-list .media-body {
+    word-wrap: break-word;
+    display: inline-block;
+    width: 45%;
+  }
+</style>

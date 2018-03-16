@@ -1,0 +1,80 @@
+<div class="page page-tables-bootstrap">
+  <div class="pageheader">
+    <h2>{{ 'Menu.POSTHEADERMANAGEMENT' | translate }} </h2>
+    <div class="page-bar">
+      <ul class="page-breadcrumb">
+        <li>
+          <a ui-sref="app.dashboard"><i class="fa fa-home"></i> {{main.title}}</a>
+        </li>
+        <li>
+          <a ui-sref="app.postheader.viewpostheader">{{ 'Menu.POSTHEADERMANAGEMENT' | translate }}</a>
+        </li>
+        <li>
+          {{ EPHC.breadcrumb | translate }}
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="pagecontent">
+    <div class="row">
+      <div class="col-md-12">
+        <section class="tile">
+          <div class="tile-header dvd dvd-btm">
+            <h1 class="custom-font"><strong>Postheader</strong> Edit</h1>
+          </div>
+          <div class="tile-body" style="padding-bottom: 80px;">
+            <form class="profile-settings" submit-validate enctype="multipart/form-data" name="postheaderForm" novalidate>
+              <div class="form-group" ng-class="{ 'has-error' : postheaderForm.postheadername.$invalid && !postheaderForm.postheadername.$pristine, 'has-success' : postheaderForm.postheadername.$valid && !postheaderForm.postheadername.$pristine}">
+                <label for="postheadername">Postheader Name</label>
+                <input type="text" name="postheadername" class="form-control" ng-model="EPHC.editpostheaderData.title" id="postheadername"
+                  on-blur-validation required>
+                <p class="help-block">
+                  <span ng-show="postheaderForm.postheadername.$invalid && !postheaderForm.postheadername.$pristine">Postheader Name is required.</span>
+                </p>
+              </div>
+
+              <div class="form-group" ng-class="{ 'has-error' : postheaderForm.postheaderdescription.$invalid && !postheaderForm.postheaderdescription.$pristine, 'has-success' : postheaderForm.postheaderdescription.$valid && !postheaderForm.postheaderdescription.$pristine}">
+                <label for="postheaderdescription">Description</label>
+                <input type="text" name="postheaderdescription" class="form-control" ng-model="EPHC.editpostheaderData.description" id="postheaderdescription"
+                  on-blur-validation required>
+                <p class="help-block">
+                  <span ng-show="postheaderForm.postheaderdescription.$invalid && !postheaderForm.postheaderdescription.$pristine">Description is required.</span>
+                </p>
+              </div>
+
+              <div class="form-group">
+                <label class="control-label">Postheader Image</label>
+                <input ui-jq="filestyle" type="file" ngf-select="temp=true" ng-model="EPHC.editpostheaderData.image" name="image"
+                  ngf-max-size="1MB" ngf-pattern="'image/jpg,image/jpeg,image/png,image/gif,videos/*,application/pdf'" ngf-model-invalid="errorFiles" class="filestyle" ui-options="{ buttonText: 'Select file', iconName: 'fa fa-inbox'}"
+                  id="image">
+                <span class="help-block">Allowed files: gif, png, jpg. Max file size 1Mb</span>
+                <img ng-if="temp" height="150" ngf-src="EPHC.editpostheaderData.image">
+                <img ng-if="!temp&&!EPHC.editpostheaderData.image==''" height="150" ngf-src="EPHC.editpostheaderData.image">
+                <p class="help-block">
+                  <span ng-show="postheaderForm.image.$invalid && !postheaderForm.image.$pristine" style="color:red;">Image File is required.</span>
+                </p>
+              </div>
+
+              <div class="form-group" ng-class="{ 'has-error' : postheaderForm.publish.$invalid && !postheaderForm.publish.$pristine, 'has-success' : postheaderForm.publish.$valid && !postheaderForm.publish.$pristine}">
+                <label for="publish">Status</label>
+                <select id="publish" name="publish" ng-model="EPHC.editpostheaderData.status" convert-to-number class="form-control mb-10"
+                  on-blur-validation required>
+                         <option value="">Please select</option>
+                          <option value='1'>Publish</option>
+                          <option value='2'>Unpublish</option>
+                          <p class="help-block">
+                          <span ng-show="postheaderForm.publish.$invalid && !postheaderForm.publish.$pristine">status is required.</span>
+                       </p>
+                       </select>
+              </div>
+
+              <div class="form-group tcol">
+                <button class="btn btn-success btn-ef btn-ef-5 btn-ef-5a" ng-click="EPHC.submit(postheaderForm.$valid);"><i class="fa fa-upload"></i> <span>Submit</span></button>
+              </div>
+            </form>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>

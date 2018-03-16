@@ -1,0 +1,64 @@
+doctype html
+html(ng-app='quickRabbit.site', ng-controller='rootCtrl as rc')
+  head
+    base(href='/')
+    title() #{title}
+    meta(name='description', content='{{ngMeta.description}}')
+    meta(name='keyword', content='{{ngMeta.keyword}}')
+    meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+    meta(name='viewport', content='width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no')
+
+    meta(property='og:title', content=title)
+    meta(property='og:type', content="article")
+    meta(property='og:image', content=image)
+    meta(property='og:url', content=siteUrl)
+    meta(property='og:description', content=description)
+
+    link(rel='icon', href='{{rc.favicon}}')
+
+    //- inject:css
+    link(rel="stylesheet", href="/app/site/public/css/library/vendor.min.css")
+    //- endinject
+
+    link(rel="stylesheet", href="/app/site/public/css/customization.css")
+
+    script(src='/app/site/public/scripts/library/jquery-2.2.3.min.js')
+    script(src='/app/site/public/scripts/library/angular.min.js')
+
+    //- inject:js
+    script(src="/app/site/public/scripts/minified/group1.min-83fabbe4d96ead7f8ffdf43fed5a059f.js")
+    script(src="/app/site/public/scripts/minified/group2.min-5ecab06c16142d64b6f5f80c405782a9.js")
+    script(src="/app/site/public/scripts/minified/group3.min-7cc8733cbb4a5b56186da00d71c77846.js")
+    script(src="/app/site/public/scripts/minified/main.min-6cc412cc911548a01682daac7259977e.js")
+    //- endinject
+
+    script(src='//maps.google.com/maps/api/js?key=' + googleMapAPI + '&libraries=placeses,visualization,drawing,geometry,places')
+    script(src='//connect.facebook.net/en_US/all.js')
+    script.
+      FB.init({
+        appId:'#{fbappId}',
+        cookie:true,
+        status:true,
+        xfbml:true,
+        version:'v2.8'
+      });
+  body
+    section(ui-view='commonview')
+      section(ng-include="'app/site/modules/common/views/header.html'")
+      section(ui-view='content', autoscroll='true')
+      section(ng-include="'app/site/modules/common/views/footer.html'")
+    section(ui-view='specialview')
+    span.load-fade(ng-if='imgSrc')
+      //img.loader(img-preload='', src='/app/site/public/images/loader.gif')
+      .cssload-loader
+        .cssload-inner.cssload-one
+        .cssload-inner.cssload-two
+        .cssload-inner.cssload-three
+
+    script.
+      (function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date(); a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+      })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');

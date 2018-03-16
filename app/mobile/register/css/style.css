@@ -1,0 +1,2418 @@
+@font-face {
+  font-family: 'ProximaNovaRegular';
+  src: url("../fonts/ProximaNovaRegular.eot");
+  src: url("../fonts/ProximaNovaRegular.eot") format("embedded-opentype"), url("../fonts/ProximaNovaRegular.woff2") format("woff2"), url("../fonts/ProximaNovaRegular.woff") format("woff"), url("../fonts/ProximaNovaRegular.ttf") format("truetype"), url("../fonts/ProximaNovaRegular.svg#ProximaNovaRegular") format("svg"); }
+@font-face {
+  font-family: 'ProximaNovaSemibold';
+  src: url("../fonts/ProximaNovaSemibold.eot");
+  src: url("../fonts/ProximaNovaSemibold.eot") format("embedded-opentype"), url("../fonts/ProximaNovaSemibold.woff2") format("woff2"), url("../fonts/ProximaNovaSemibold.woff") format("woff"), url("../fonts/ProximaNovaSemibold.ttf") format("truetype"), url("../fonts/ProximaNovaSemibold.svg#ProximaNovaSemibold") format("svg"); }
+@font-face {
+  font-family: 'ralewaybold';
+  src: url("../fonts/Raleway-Bold-webfont.eot");
+  src: url("../fonts/Raleway-Bold-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/Raleway-Bold-webfont.woff2") format("woff2"), url("../fonts/Raleway-Bold-webfont.woff") format("woff"), url("../fonts/Raleway-Bold-webfont.ttf") format("truetype"), url("../fonts/Raleway-Bold-webfont.svg#ralewaybold") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'RalewayMedium';
+  src: url("../fonts/raleway-medium.eot");
+  src: url("../fonts/raleway-medium.eot") format("embedded-opentype"), url("../fonts/raleway-medium.woff2") format("woff2"), url("../fonts/raleway-medium.woff") format("woff"), url("../fonts/raleway-medium.ttf") format("truetype"), url("../fonts/raleway-medium.svg#RalewayMedium") format("svg"); }
+@font-face {
+  font-family: 'OpenSansBold';
+  src: url("../fonts/opensans-bold.eot");
+  src: url("../fonts/opensans-bold.eot") format("embedded-opentype"), url("../fonts/opensans-bold.woff2") format("woff2"), url("../fonts/opensans-bold.woff") format("woff"), url("../fonts/opensans-bold.ttf") format("truetype"), url("../fonts/opensans-bold.svg#OpenSansBold") format("svg"); }
+@font-face {
+  font-family: 'OpenSansRegular';
+  src: url("../fonts/opensans-regular.eot");
+  src: url("../fonts/opensans-regular.eot") format("embedded-opentype"), url("../fonts/opensans-regular.woff2") format("woff2"), url("../fonts/opensans-regular.woff") format("woff"), url("../fonts/opensans-regular.ttf") format("truetype"), url("../fonts/opensans-regular.svg#OpenSansRegular") format("svg"); }
+@font-face {
+  font-family: 'OpenSansSemibold';
+  src: url("../fonts/opensans-semibold.eot");
+  src: url("../fonts/opensans-semibold.eot") format("embedded-opentype"), url("../fonts/opensans-semibold.woff2") format("woff2"), url("../fonts/opensans-semibold.woff") format("woff"), url("../fonts/opensans-semibold.ttf") format("truetype"), url("../fonts/opensans-semibold.svg#OpenSansSemibold") format("svg"); }
+@font-face {
+  font-family: 'FontAwesome';
+  src: url("../fonts/fontawesome-webfont.eot?v=4.3.0");
+  src: url("../fonts/fontawesome-webfont.eot?#iefix&v=4.3.0") format("embedded-opentype"), url("../fonts/fontawesome-webfont.woff2?v=4.3.0") format("woff2"), url("../fonts/fontawesome-webfont.woff?v=4.3.0") format("woff"), url("../fonts/fontawesome-webfont.ttf?v=4.3.0") format("truetype"), url("../fonts/fontawesome-webfont.svg?v=4.3.0#fontawesomeregular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+/*
+.signup-page {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    position: relative;
+	background:#FC7800;
+}
+*/
+.sign-up-holder {
+    background: rgba(255,255,255,0.9) none repeat scroll 0 0;
+    border-radius: 4px;
+    display: inline-block;
+    float: none;
+    margin: 10px 0 10px;
+    padding: 30px 20px;
+    position: relative;
+    width: 95%;
+    z-index: 4;
+}
+.logo-container {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.logo-container img {
+   width: 70%;
+}
+.sign-btns {
+    float: left;
+    text-align: left;
+    width: 100%;
+}
+.sign-btns li {
+    float: left;
+    text-align: left;
+    width: 100%;
+    margin: 12px 0 0;
+}
+
+.sign-btns li label
+{
+display:block;
+}
+
+.sign-btns li .step_one_input
+{
+width:100%;
+padding:5px 10px;
+/*text-transform: lowercase;*/
+color: black;
+}
+#email{
+    text-transform: lowercase;
+}
+/*#username{
+  text-transform: lowercase;
+}*/
+.signup-page input[type="submit"] {
+    width: 100%;
+	margin-top:15px;
+}
+.applyto-tasker .tasker-body span#radi {
+    font-weight: bold;
+    padding-left: 5px;
+    float: right;
+    padding-top: 5px;
+}
+.applyto-tasker input[type="number"] {
+    width: 89%;
+}
+.blue-btn:hover, .grn-btn:hover {
+    background-color: #FC7800;
+}
+/*
+.blue-btn:hover, .grn-btn:hover {
+    background-color: #FC7800;
+    color: #fff;
+    text-decoration: none;
+}
+*/
+.blue-btn, .grn-btn {
+    background-color: #1da3bf;
+    border: 1px solid #1da3bf;
+    border-radius: 3px;
+    color: white;
+    float: right;
+    font-family: proximanovaregular;
+    padding: 11px 30px;
+    text-transform: capitalize;
+	width:100%;
+	font-size:18px;
+    margin-top: 10px;
+}
+.signup-page .sign-btns li #terms + small {
+    float: left;
+    margin: 2px 0 0 5px;
+}
+.signup-page .sign-btns li #terms+small {
+    /* float: right; */
+    font-size: 11px;
+    margin: 2px 4px 0;
+	width:90%;
+}
+.signup-page #terms {
+    float: left;
+}
+.signup-page .sign-btns li:nth-of-type(8) small {
+    position: absolute;
+    left: 20px;
+    top: 2px;
+}
+.signup-page .sign-btns li {
+    position: relative;
+}
+
+.full-holder {
+    float: left;
+    text-align: left;
+    width: 100%;
+}
+
+.tasker-pannel {
+    float: left;
+    text-align: left;
+    width: 100%;
+    background: #fff;
+}
+.tasker-head {
+    border-bottom: 1px solid #cccccc;
+    float: left;
+    /* padding: 14px 20px 15px; */
+    width: 100%;
+}
+.tasker-body {
+    float: left;
+    padding: 20px 20px 10px;
+    width: 100%;
+}
+
+
+.lop-div-task {
+    float: left;
+    text-align: left;
+    width: 100%;
+    margin: 14px 0;
+}
+
+.applyto-tasker .tasker-body span.topedtext {
+    float: left;
+    width: 100%;
+}
+
+.lop-div-task.dobcal ul {
+    float: left;
+    width: 100%;
+	padding:0px;
+	margin-left:0px !important;
+	margin-bottom:0px;
+}
+.lop-div-task.dobcal ul li {
+    width: 100%;
+	float:left;
+	margin:5px 0px;
+	padding:0px;
+}
+.applyto-tasker .tasker-body span.topedtext {
+    float: left;
+    width: 100%;
+}
+.ph-num select.botom-fuls {
+    width: 100% !important;
+}
+.applyto-tasker select {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    color: #7c7c7c;
+    float: left;
+    font-family: proximanovaregular;
+    font-size: 17px;
+    padding: 7px 4px;
+    width: 100%;
+}
+.topedtext {
+    float: left;
+    text-align: left;
+    width: 100%;
+    color: #424a4b;
+    font-family: proximanovaregular;
+    font-size: 18px;
+    margin-bottom: 9px;
+}
+.wher-live
+{
+width:100%;
+margin-left:0px !important;
+}
+.wher-live li {
+    float: left;
+    text-align: left;
+    width: 100%;
+    margin: 5px 0;
+	padding:0px;
+}
+.wher-live li label {
+    float: left;
+    font-family: proximanovaregular;
+    width: 100%;
+    font-size: 17px;
+    font-weight: normal;
+    padding: 6px 0 0;
+}
+.applyto-tasker input[type="text"] {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    color: #7c7c7c;
+    float: left;
+    font-family: proximanovaregular;
+    font-size: 17px;
+    padding: 5px 10px;
+    width: 100%;
+}
+
+.top-texts {
+   float: left;
+   text-align: center;/*left*/
+   width: 100%;
+   margin: 0;
+   font-size: 25px; /*20*/
+   background: #f60;
+  /*padding: 15px 10px;*/
+  padding: 4px 9px;
+   color: #fff;
+}
+.left-tile {
+    float: left;
+    font-family: proximanovaregular;
+    font-size: 20px;
+    font-weight: normal;
+    width: 100%;
+    margin: 6px 0 0;
+}
+.right-progrs {
+    float: right;
+    width: 100%;
+    margin: 10px 0px;
+}
+
+.progressbar {
+    float: left;
+    text-align: left;
+    width: 100%;
+    border-radius: 5px;
+    height: 10px;
+    overflow: hidden;
+    background: #dcdcdc;
+    margin-top: 7px;
+}
+/*
+.bluebtn {
+    background: #fc7800;
+    color: #fff;
+    padding: 11px 30px;
+    border: none;
+    border-radius: 3px;
+    font-family: proximanovaregular;
+    font-size: 20px;
+    border: 1px solid transparent;
+    text-transform: capitalize;
+	width:100%;
+}*/
+.bluebtn:hover {
+    text-decoration: none;
+    background: none;
+    border: 1px solid #14a89c;
+    color: #14a89c;
+}
+
+
+.applyto-tasker {
+    float: left;
+    text-align: left;
+    width: 100%;
+}
+
+.full-holder {
+    float: left;
+    text-align: left;
+    width: 100%;
+}
+.apply3 .tophln {
+    float: left;
+    font-family: proximanovaregular;
+    font-size: 22px;
+    font-weight: normal;
+    margin: 0 0 11px;
+    text-align: left;
+    width: 100%;
+}
+
+.apply3 .tasker-body
+{
+padding:0px;
+}
+
+
+
+/*Full Calendar Style*/
+/*!
+ * FullCalendar v2.4.0 Stylesheet
+ * Docs & License: http://fullcalendar.io/
+ * (c) 2015 Adam Shaw
+ */
+
+
+.fc {
+	direction: ltr;
+	text-align: left;
+}
+
+.fc-rtl {
+	text-align: right;
+}
+
+body .fc { /* extra precedence to overcome jqui */
+	font-size: 1em;
+}
+
+
+/* Colors
+--------------------------------------------------------------------------------------------------*/
+
+.fc-unthemed th,
+.fc-unthemed td,
+.fc-unthemed thead,
+.fc-unthemed tbody,
+.fc-unthemed .fc-divider,
+.fc-unthemed .fc-row,
+.fc-unthemed .fc-popover {
+	border-color: #ddd;
+}
+
+.fc-unthemed .fc-popover {
+	background-color: #fff;
+}
+
+.fc-unthemed .fc-divider,
+.fc-unthemed .fc-popover .fc-header {
+	background: #eee;
+}
+
+.fc-unthemed .fc-popover .fc-header .fc-close {
+	color: #666;
+}
+
+.fc-unthemed .fc-today {
+	background: #fcf8e3;
+}
+
+.fc-highlight { /* when user is selecting cells */
+	background: #bce8f1;
+	opacity: .3;
+	filter: alpha(opacity=30); /* for IE */
+}
+
+.fc-bgevent { /* default look for background events */
+	background: rgb(143, 223, 130);
+	opacity: .3;
+	filter: alpha(opacity=30); /* for IE */
+}
+
+.fc-nonbusiness { /* default look for non-business-hours areas */
+	/* will inherit .fc-bgevent's styles */
+	background: #d7d7d7;
+}
+
+
+/* Icons (inline elements with styled text that mock arrow icons)
+--------------------------------------------------------------------------------------------------*/
+
+.fc-icon {
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	line-height: 1em;
+	font-size: 1em;
+	text-align: center;
+	overflow: hidden;
+	font-family: "Courier New", Courier, monospace;
+
+	/* don't allow browser text-selection */
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	}
+
+/*
+Acceptable font-family overrides for individual icons:
+	"Arial", sans-serif
+	"Times New Roman", serif
+
+NOTE: use percentage font sizes or else old IE chokes
+*/
+
+.fc-icon:after {
+	position: relative;
+	margin: 0 -1em; /* ensures character will be centered, regardless of width */
+}
+
+.fc-icon-left-single-arrow:after {
+	content: "\02039";
+	font-weight: bold;
+	font-size: 200%;
+	top: -7%;
+	left: 3%;
+}
+
+.fc-icon-right-single-arrow:after {
+	content: "\0203A";
+	font-weight: bold;
+	font-size: 200%;
+	top: -7%;
+	left: -3%;
+}
+
+.fc-icon-left-double-arrow:after {
+	content: "\000AB";
+	font-size: 160%;
+	top: -7%;
+}
+
+.fc-icon-right-double-arrow:after {
+	content: "\000BB";
+	font-size: 160%;
+	top: -7%;
+}
+
+.fc-icon-left-triangle:after {
+	content: "\25C4";
+	font-size: 125%;
+	top: 3%;
+	left: -2%;
+}
+
+.fc-icon-right-triangle:after {
+	content: "\25BA";
+	font-size: 125%;
+	top: 3%;
+	left: 2%;
+}
+
+.fc-icon-down-triangle:after {
+	content: "\25BC";
+	font-size: 125%;
+	top: 2%;
+}
+
+.fc-icon-x:after {
+	content: "\000D7";
+	font-size: 200%;
+	top: 6%;
+}
+
+
+/* Buttons (styled <button> tags, normalized to work cross-browser)
+--------------------------------------------------------------------------------------------------*/
+
+.fc button {
+	/* force height to include the border and padding */
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+
+	/* dimensions */
+	margin: 0;
+	height: 2.1em;
+	padding: 0 .6em;
+
+	/* text & cursor */
+	font-size: 1em; /* normalize */
+	white-space: nowrap;
+	cursor: pointer;
+}
+
+/* Firefox has an annoying inner border */
+.fc button::-moz-focus-inner { margin: 0; padding: 0; }
+
+.fc-state-default { /* non-theme */
+	border: 1px solid;
+}
+
+.fc-state-default.fc-corner-left { /* non-theme */
+	border-top-left-radius: 4px;
+	border-bottom-left-radius: 4px;
+}
+
+.fc-state-default.fc-corner-right { /* non-theme */
+	border-top-right-radius: 4px;
+	border-bottom-right-radius: 4px;
+}
+
+/* icons in buttons */
+
+.fc button .fc-icon { /* non-theme */
+	position: relative;
+	top: -0.05em; /* seems to be a good adjustment across browsers */
+	margin: 0 .2em;
+	vertical-align: middle;
+}
+
+/*
+  button states
+  borrowed from twitter bootstrap (http://twitter.github.com/bootstrap/)
+*/
+
+.fc-state-default {
+	background-color: #f5f5f5;
+	background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
+	background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
+	background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);
+	background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+	background-repeat: repeat-x;
+	border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+	color: #333;
+	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.fc-state-hover,
+.fc-state-down,
+.fc-state-active,
+.fc-state-disabled {
+	color: #333333;
+	background-color: #e6e6e6;
+}
+
+.fc-state-hover {
+	color: #333333;
+	text-decoration: none;
+	background-position: 0 -15px;
+	-webkit-transition: background-position 0.1s linear;
+	   -moz-transition: background-position 0.1s linear;
+	     -o-transition: background-position 0.1s linear;
+	        transition: background-position 0.1s linear;
+}
+
+.fc-state-down,
+.fc-state-active {
+	background-color: #cccccc;
+	background-image: none;
+	box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.fc-state-disabled {
+	cursor: default;
+	background-image: none;
+	opacity: 0.65;
+	filter: alpha(opacity=65);
+	box-shadow: none;
+}
+
+
+/* Buttons Groups
+--------------------------------------------------------------------------------------------------*/
+
+.fc-button-group {
+	display: inline-block;
+}
+
+/*
+every button that is not first in a button group should scootch over one pixel and cover the
+previous button's border...
+*/
+
+.fc .fc-button-group > * { /* extra precedence b/c buttons have margin set to zero */
+	float: left;
+	margin: 0 0 0 -1px;
+}
+
+.fc .fc-button-group > :first-child { /* same */
+	margin-left: 0;
+}
+
+
+/* Popover
+--------------------------------------------------------------------------------------------------*/
+
+.fc-popover {
+	position: absolute;
+	box-shadow: 0 2px 6px rgba(0,0,0,.15);
+}
+
+.fc-popover .fc-header { /* TODO: be more consistent with fc-head/fc-body */
+	padding: 2px 4px;
+}
+
+.fc-popover .fc-header .fc-title {
+	margin: 0 2px;
+}
+
+.fc-popover .fc-header .fc-close {
+	cursor: pointer;
+}
+
+.fc-ltr .fc-popover .fc-header .fc-title,
+.fc-rtl .fc-popover .fc-header .fc-close {
+	float: left;
+}
+
+.fc-rtl .fc-popover .fc-header .fc-title,
+.fc-ltr .fc-popover .fc-header .fc-close {
+	float: right;
+}
+
+/* unthemed */
+
+.fc-unthemed .fc-popover {
+	border-width: 1px;
+	border-style: solid;
+}
+
+.fc-unthemed .fc-popover .fc-header .fc-close {
+	font-size: .9em;
+	margin-top: 2px;
+}
+
+/* jqui themed */
+
+.fc-popover > .ui-widget-header + .ui-widget-content {
+	border-top: 0; /* where they meet, let the header have the border */
+}
+
+
+/* Misc Reusable Components
+--------------------------------------------------------------------------------------------------*/
+
+.fc-divider {
+	border-style: solid;
+	border-width: 1px;
+}
+
+hr.fc-divider {
+	height: 0;
+	margin: 0;
+	padding: 0 0 2px; /* height is unreliable across browsers, so use padding */
+	border-width: 1px 0;
+}
+
+.fc-clear {
+	clear: both;
+}
+
+.fc-bg,
+.fc-bgevent-skeleton,
+.fc-highlight-skeleton,
+.fc-helper-skeleton {
+	/* these element should always cling to top-left/right corners */
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+}
+
+.fc-bg {
+	bottom: 0; /* strech bg to bottom edge */
+}
+
+.fc-bg table {
+	height: 100%; /* strech bg to bottom edge */
+}
+
+
+/* Tables
+--------------------------------------------------------------------------------------------------*/
+
+.fc table {
+	width: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+	border-spacing: 0;
+	font-size: 1em; /* normalize cross-browser */
+}
+
+.fc th {
+	text-align: center;
+}
+
+.fc th,
+.fc td {
+	border-style: solid;
+	border-width: 1px;
+	padding: 0;
+	vertical-align: top;
+}
+
+.fc td.fc-today {
+	border-style: double; /* overcome neighboring borders */
+}
+
+
+/* Fake Table Rows
+--------------------------------------------------------------------------------------------------*/
+
+.fc .fc-row { /* extra precedence to overcome themes w/ .ui-widget-content forcing a 1px border */
+	/* no visible border by default. but make available if need be (scrollbar width compensation) */
+	border-style: solid;
+	border-width: 0;
+}
+
+.fc-row table {
+	/* don't put left/right border on anything within a fake row.
+	   the outer tbody will worry about this */
+	border-left: 0 hidden transparent;
+	border-right: 0 hidden transparent;
+
+	/* no bottom borders on rows */
+	border-bottom: 0 hidden transparent;
+}
+
+.fc-row:first-child table {
+	border-top: 0 hidden transparent; /* no top border on first row */
+}
+
+
+/* Day Row (used within the header and the DayGrid)
+--------------------------------------------------------------------------------------------------*/
+
+.fc-row {
+	position: relative;
+}
+
+.fc-row .fc-bg {
+	z-index: 1;
+}
+
+/* highlighting cells & background event skeleton */
+
+.fc-row .fc-bgevent-skeleton,
+.fc-row .fc-highlight-skeleton {
+	bottom: 0; /* stretch skeleton to bottom of row */
+}
+
+.fc-row .fc-bgevent-skeleton table,
+.fc-row .fc-highlight-skeleton table {
+	height: 100%; /* stretch skeleton to bottom of row */
+}
+
+.fc-row .fc-highlight-skeleton td,
+.fc-row .fc-bgevent-skeleton td {
+	border-color: transparent;
+}
+
+.fc-row .fc-bgevent-skeleton {
+	z-index: 2;
+
+}
+
+.fc-row .fc-highlight-skeleton {
+	z-index: 3;
+}
+
+/*
+row content (which contains day/week numbers and events) as well as "helper" (which contains
+temporary rendered events).
+*/
+
+.fc-row .fc-content-skeleton {
+	position: relative;
+	z-index: 4;
+	padding-bottom: 2px; /* matches the space above the events */
+}
+
+.fc-row .fc-helper-skeleton {
+	z-index: 5;
+}
+
+.fc-row .fc-content-skeleton td,
+.fc-row .fc-helper-skeleton td {
+	/* see-through to the background below */
+	background: none; /* in case <td>s are globally styled */
+	border-color: transparent;
+
+	/* don't put a border between events and/or the day number */
+	border-bottom: 0;
+}
+
+.fc-row .fc-content-skeleton tbody td, /* cells with events inside (so NOT the day number cell) */
+.fc-row .fc-helper-skeleton tbody td {
+	/* don't put a border between event cells */
+	border-top: 0;
+}
+
+
+/* Scrolling Container
+--------------------------------------------------------------------------------------------------*/
+
+.fc-scroller { /* this class goes on elements for guaranteed vertical scrollbars */
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+.fc-scroller > * { /* we expect an immediate inner element */
+	position: relative; /* re-scope all positions */
+	width: 100%; /* hack to force re-sizing this inner element when scrollbars appear/disappear */
+	overflow: hidden; /* don't let negative margins or absolute positioning create further scroll */
+}
+
+
+/* Global Event Styles
+--------------------------------------------------------------------------------------------------*/
+
+.fc-event {
+	position: relative; /* for resize handle and other inner positioning */
+	display: block; /* make the <a> tag block */
+	font-size: .85em;
+	line-height: 1.3;
+	border-radius: 3px;
+	border: 1px solid #3a87ad; /* default BORDER color */
+	background-color: #3a87ad; /* default BACKGROUND color */
+	font-weight: normal; /* undo jqui's ui-widget-header bold */
+}
+
+/* overpower some of bootstrap's and jqui's styles on <a> tags */
+.fc-event,
+.fc-event:hover,
+.ui-widget .fc-event {
+	color: #fff; /* default TEXT color */
+	text-decoration: none; /* if <a> has an href */
+}
+
+.fc-event[href],
+.fc-event.fc-draggable {
+	cursor: pointer; /* give events with links and draggable events a hand mouse pointer */
+}
+
+.fc-not-allowed, /* causes a "warning" cursor. applied on body */
+.fc-not-allowed .fc-event { /* to override an event's custom cursor */
+	cursor: not-allowed;
+}
+
+.fc-event .fc-bg { /* the generic .fc-bg already does position */
+	z-index: 1;
+	background: #fff;
+	opacity: .25;
+	filter: alpha(opacity=25); /* for IE */
+}
+
+.fc-event .fc-content {
+	position: relative;
+	z-index: 2;
+}
+
+.fc-event .fc-resizer {
+	position: absolute;
+	z-index: 3;
+}
+
+
+/* Horizontal Events
+--------------------------------------------------------------------------------------------------*/
+
+/* events that are continuing to/from another week. kill rounded corners and butt up against edge */
+
+.fc-ltr .fc-h-event.fc-not-start,
+.fc-rtl .fc-h-event.fc-not-end {
+	margin-left: 0;
+	border-left-width: 0;
+	padding-left: 1px; /* replace the border with padding */
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+.fc-ltr .fc-h-event.fc-not-end,
+.fc-rtl .fc-h-event.fc-not-start {
+	margin-right: 0;
+	border-right-width: 0;
+	padding-right: 1px; /* replace the border with padding */
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+/* resizer */
+
+.fc-h-event .fc-resizer { /* positioned it to overcome the event's borders */
+	top: -1px;
+	bottom: -1px;
+	left: -1px;
+	right: -1px;
+	width: 5px;
+}
+
+/* left resizer  */
+.fc-ltr .fc-h-event .fc-start-resizer,
+.fc-ltr .fc-h-event .fc-start-resizer:before,
+.fc-ltr .fc-h-event .fc-start-resizer:after,
+.fc-rtl .fc-h-event .fc-end-resizer,
+.fc-rtl .fc-h-event .fc-end-resizer:before,
+.fc-rtl .fc-h-event .fc-end-resizer:after {
+	right: auto; /* ignore the right and only use the left */
+	cursor: w-resize;
+}
+
+/* right resizer */
+.fc-ltr .fc-h-event .fc-end-resizer,
+.fc-ltr .fc-h-event .fc-end-resizer:before,
+.fc-ltr .fc-h-event .fc-end-resizer:after,
+.fc-rtl .fc-h-event .fc-start-resizer,
+.fc-rtl .fc-h-event .fc-start-resizer:before,
+.fc-rtl .fc-h-event .fc-start-resizer:after {
+	left: auto; /* ignore the left and only use the right */
+	cursor: e-resize;
+}
+
+
+/* DayGrid events
+----------------------------------------------------------------------------------------------------
+We use the full "fc-day-grid-event" class instead of using descendants because the event won't
+be a descendant of the grid when it is being dragged.
+*/
+
+.fc-day-grid-event {
+	margin: 1px 2px 0; /* spacing between events and edges */
+	padding: 0 1px;
+}
+
+
+.fc-day-grid-event .fc-content { /* force events to be one-line tall */
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.fc-day-grid-event .fc-time {
+	font-weight: bold;
+}
+
+.fc-day-grid-event .fc-resizer { /* enlarge the default hit area */
+	left: -3px;
+	right: -3px;
+	width: 7px;
+}
+
+
+/* Event Limiting
+--------------------------------------------------------------------------------------------------*/
+
+/* "more" link that represents hidden events */
+
+a.fc-more {
+	margin: 1px 3px;
+	font-size: .85em;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+a.fc-more:hover {
+	text-decoration: underline;
+}
+
+.fc-limited { /* rows and cells that are hidden because of a "more" link */
+	display: none;
+}
+
+/* popover that appears when "more" link is clicked */
+
+.fc-day-grid .fc-row {
+	z-index: 1; /* make the "more" popover one higher than this */
+}
+
+.fc-more-popover {
+	z-index: 2;
+	width: 220px;
+}
+
+.fc-more-popover .fc-event-container {
+	padding: 10px;
+}
+
+/* Toolbar
+--------------------------------------------------------------------------------------------------*/
+
+.fc-toolbar {
+	text-align: center;
+	margin-bottom: 1em;
+}
+
+.fc-toolbar .fc-left {
+	float: left;
+}
+
+.fc-toolbar .fc-right {
+	float: right;
+}
+
+.fc-toolbar .fc-center {
+	display: inline-block;
+}
+
+/* the things within each left/right/center section */
+.fc .fc-toolbar > * > * { /* extra precedence to override button border margins */
+	float: left;
+	margin-left: .75em;
+}
+
+/* the first thing within each left/center/right section */
+.fc .fc-toolbar > * > :first-child { /* extra precedence to override button border margins */
+	margin-left: 0;
+}
+
+/* title text */
+
+.fc-toolbar h2 {
+	margin: 0;
+}
+
+/* button layering (for border precedence) */
+
+.fc-toolbar button {
+	position: relative;
+}
+
+.fc-toolbar .fc-state-hover,
+.fc-toolbar .ui-state-hover {
+	z-index: 2;
+}
+
+.fc-toolbar .fc-state-down {
+	z-index: 3;
+}
+
+.fc-toolbar .fc-state-active,
+.fc-toolbar .ui-state-active {
+	z-index: 4;
+}
+
+.fc-toolbar button:focus {
+	z-index: 5;
+}
+
+
+/* View Structure
+--------------------------------------------------------------------------------------------------*/
+
+/* undo twitter bootstrap's box-sizing rules. normalizes positioning techniques */
+/* don't do this for the toolbar because we'll want bootstrap to style those buttons as some pt */
+.fc-view-container *,
+.fc-view-container *:before,
+.fc-view-container *:after {
+	-webkit-box-sizing: content-box;
+	   -moz-box-sizing: content-box;
+	        box-sizing: content-box;
+}
+
+.fc-view, /* scope positioning and z-index's for everything within the view */
+.fc-view > table { /* so dragged elements can be above the view's main element */
+	position: relative;
+	z-index: 1;
+}
+
+/* BasicView
+--------------------------------------------------------------------------------------------------*/
+
+/* day row structure */
+
+.fc-basicWeek-view .fc-content-skeleton,
+.fc-basicDay-view .fc-content-skeleton {
+	/* we are sure there are no day numbers in these views, so... */
+	padding-top: 1px; /* add a pixel to make sure there are 2px padding above events */
+	padding-bottom: 1em; /* ensure a space at bottom of cell for user selecting/clicking */
+}
+
+.fc-basic-view .fc-body .fc-row {
+	min-height: 4em; /* ensure that all rows are at least this tall */
+}
+
+/* a "rigid" row will take up a constant amount of height because content-skeleton is absolute */
+
+.fc-row.fc-rigid {
+	overflow: hidden;
+}
+
+.fc-row.fc-rigid .fc-content-skeleton {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+}
+
+/* week and day number styling */
+
+.fc-basic-view .fc-week-number,
+.fc-basic-view .fc-day-number {
+	padding: 0 2px;
+}
+
+.fc-basic-view td.fc-week-number span,
+.fc-basic-view td.fc-day-number {
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+
+.fc-basic-view .fc-week-number {
+	text-align: center;
+}
+
+.fc-basic-view .fc-week-number span {
+	/* work around the way we do column resizing and ensure a minimum width */
+	display: inline-block;
+	min-width: 1.25em;
+}
+
+.fc-ltr .fc-basic-view .fc-day-number {
+	text-align: right;
+}
+
+.fc-rtl .fc-basic-view .fc-day-number {
+	text-align: left;
+}
+
+.fc-day-number.fc-other-month {
+	opacity: 0.3;
+	filter: alpha(opacity=30); /* for IE */
+	/* opacity with small font can sometimes look too faded
+	   might want to set the 'color' property instead
+	   making day-numbers bold also fixes the problem */
+}
+
+/* AgendaView all-day area
+--------------------------------------------------------------------------------------------------*/
+
+.fc-agenda-view .fc-day-grid {
+	position: relative;
+	z-index: 2; /* so the "more.." popover will be over the time grid */
+}
+
+.fc-agenda-view .fc-day-grid .fc-row {
+	min-height: 3em; /* all-day section will never get shorter than this */
+}
+
+.fc-agenda-view .fc-day-grid .fc-row .fc-content-skeleton {
+	padding-top: 1px; /* add a pixel to make sure there are 2px padding above events */
+	padding-bottom: 1em; /* give space underneath events for clicking/selecting days */
+}
+
+
+/* TimeGrid axis running down the side (for both the all-day area and the slot area)
+--------------------------------------------------------------------------------------------------*/
+
+.fc .fc-axis { /* .fc to overcome default cell styles */
+	vertical-align: middle;
+	padding: 0 4px;
+	white-space: nowrap;
+}
+
+.fc-ltr .fc-axis {
+	text-align: right;
+}
+
+.fc-rtl .fc-axis {
+	text-align: left;
+}
+
+.ui-widget td.fc-axis {
+	font-weight: normal; /* overcome jqui theme making it bold */
+}
+
+
+/* TimeGrid Structure
+--------------------------------------------------------------------------------------------------*/
+
+.fc-time-grid-container, /* so scroll container's z-index is below all-day */
+.fc-time-grid { /* so slats/bg/content/etc positions get scoped within here */
+	position: relative;
+	z-index: 1;
+}
+
+.fc-time-grid {
+	min-height: 100%; /* so if height setting is 'auto', .fc-bg stretches to fill height */
+}
+
+.fc-time-grid table { /* don't put outer borders on slats/bg/content/etc */
+	border: 0 hidden transparent;
+}
+
+.fc-time-grid > .fc-bg {
+	z-index: 1;
+}
+
+.fc-time-grid .fc-slats,
+.fc-time-grid > hr { /* the <hr> AgendaView injects when grid is shorter than scroller */
+	position: relative;
+	z-index: 2;
+}
+
+.fc-time-grid .fc-bgevent-skeleton,
+.fc-time-grid .fc-content-skeleton {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+}
+
+.fc-time-grid .fc-bgevent-skeleton {
+	z-index: 3;
+}
+
+.fc-time-grid .fc-highlight-skeleton {
+	z-index: 4;
+}
+
+.fc-time-grid .fc-content-skeleton {
+	z-index: 5;
+}
+
+.fc-time-grid .fc-helper-skeleton {
+	z-index: 6;
+}
+
+
+/* TimeGrid Slats (lines that run horizontally)
+--------------------------------------------------------------------------------------------------*/
+
+.fc-time-grid .fc-slats td {
+	height: 1.5em;
+	border-bottom: 0; /* each cell is responsible for its top border */
+}
+
+.fc-time-grid .fc-slats .fc-minor td {
+	border-top-style: dotted;
+}
+
+.fc-time-grid .fc-slats .ui-widget-content { /* for jqui theme */
+	background: none; /* see through to fc-bg */
+}
+
+
+/* TimeGrid Highlighting Slots
+--------------------------------------------------------------------------------------------------*/
+
+.fc-time-grid .fc-highlight-container { /* a div within a cell within the fc-highlight-skeleton */
+	position: relative; /* scopes the left/right of the fc-highlight to be in the column */
+}
+
+.fc-time-grid .fc-highlight {
+	position: absolute;
+	left: 0;
+	right: 0;
+	/* top and bottom will be in by JS */
+}
+
+
+/* TimeGrid Event Containment
+--------------------------------------------------------------------------------------------------*/
+
+.fc-time-grid .fc-event-container, /* a div within a cell within the fc-content-skeleton */
+.fc-time-grid .fc-bgevent-container { /* a div within a cell within the fc-bgevent-skeleton */
+	position: relative;
+}
+
+.fc-ltr .fc-time-grid .fc-event-container { /* space on the sides of events for LTR (default) */
+	margin: 0 2.5% 0 2px;
+}
+
+.fc-rtl .fc-time-grid .fc-event-container { /* space on the sides of events for RTL */
+	margin: 0 2px 0 2.5%;
+}
+
+.fc-time-grid .fc-event,
+.fc-time-grid .fc-bgevent {
+	position: absolute;
+	z-index: 1; /* scope inner z-index's */
+}
+
+.fc-time-grid .fc-bgevent {
+	/* background events always span full width */
+	left: 0;
+	right: 0;
+}
+
+
+/* Generic Vertical Event
+--------------------------------------------------------------------------------------------------*/
+
+.fc-v-event.fc-not-start { /* events that are continuing from another day */
+	/* replace space made by the top border with padding */
+	border-top-width: 0;
+	padding-top: 1px;
+
+	/* remove top rounded corners */
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+
+.fc-v-event.fc-not-end {
+	/* replace space made by the top border with padding */
+	border-bottom-width: 0;
+	padding-bottom: 1px;
+
+	/* remove bottom rounded corners */
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+
+/* TimeGrid Event Styling
+----------------------------------------------------------------------------------------------------
+We use the full "fc-time-grid-event" class instead of using descendants because the event won't
+be a descendant of the grid when it is being dragged.
+*/
+
+.fc-time-grid-event {
+	overflow: hidden; /* don't let the bg flow over rounded corners */
+}
+
+.fc-time-grid-event .fc-time,
+.fc-time-grid-event .fc-title {
+	padding: 0 1px;
+}
+
+.fc-time-grid-event .fc-time {
+	font-size: .85em;
+	white-space: nowrap;
+}
+
+/* short mode, where time and title are on the same line */
+
+.fc-time-grid-event.fc-short .fc-content {
+	/* don't wrap to second line (now that contents will be inline) */
+	white-space: nowrap;
+}
+
+.fc-time-grid-event.fc-short .fc-time,
+.fc-time-grid-event.fc-short .fc-title {
+	/* put the time and title on the same line */
+	display: inline-block;
+	vertical-align: top;
+}
+
+.fc-time-grid-event.fc-short .fc-time span {
+	display: none; /* don't display the full time text... */
+}
+
+.fc-time-grid-event.fc-short .fc-time:before {
+	content: attr(data-start); /* ...instead, display only the start time */
+}
+
+.fc-time-grid-event.fc-short .fc-time:after {
+	content: "\000A0-\000A0"; /* seperate with a dash, wrapped in nbsp's */
+}
+
+.fc-time-grid-event.fc-short .fc-title {
+	font-size: .85em; /* make the title text the same size as the time */
+	padding: 0; /* undo padding from above */
+}
+
+/* resizer */
+
+.fc-time-grid-event .fc-resizer {
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 8px;
+	overflow: hidden;
+	line-height: 8px;
+	font-size: 11px;
+	font-family: monospace;
+	text-align: center;
+	cursor: s-resize;
+}
+
+.fc-time-grid-event .fc-resizer:after {
+	content: "=";
+}
+
+#calendar .fc-state-default {
+    background: #14A89C;
+    color: #fff;
+}
+
+#calendar table tr th {
+    font-family: opensansregular;
+    font-size: 14px;
+    font-weight: normal;
+    padding: 7px 0;
+}
+#calendar table tr th {
+    font-family: opensansregular;
+    font-size: 14px;
+    font-weight: normal;
+    padding: 7px 0;
+	width:95%;
+}
+.fc-view.fc-agendaWeek-view.fc-agenda-view {
+    width: 100%;
+    overflow-x: auto;
+}
+#calendar {
+    margin: 40px auto 20px;
+    max-width: 900px;
+}
+#calendar .fc-center h2 {
+    font-size: 18px;
+    color: #414042;
+	margin: 20px 0px;
+}
+#calendar .fc-axis.fc-widget-header {
+    width: 65px !important;
+}
+#calendar table tr th {
+    font-size: 11px;
+}
+.fc-view table {
+    width: 700px !important;
+}
+.fc-ltr .fc-axis {
+    width: 58px!important;
+}
+.fc-ltr .fc-axis {
+    width: 87px !important;
+    text-align: center !important;
+}
+.tasker-pannel .tasker-body .blue-btn {
+    float: none;
+    margin: 10px auto;
+    text-align: center;
+    display: inherit;
+	width:100%;
+}
+
+.subcata-left {
+    float: left;
+    text-align: left;
+    width: 100%;
+    border-right: 1px solid #ccc;
+}
+.top-page-side {
+    float: left;
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+}
+.catagory-body {
+    float: left;
+    text-align: left;
+    width: 100%;
+}
+.populr-skills {
+    float: left;
+    text-align: left;
+    width: 100%;
+	padding:0px;
+}
+.populr-skills li {
+    float: left;
+    text-align: left;
+    width: 100%;
+}
+.populr-skills li a.selected {
+    background: #fc7800;
+	color:#fff;
+}
+.populr-skills li a {
+    float: left;
+    text-align: left;
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+    color: #6f6f6f;
+    font-size: 18px;
+    padding: 7px 10px;
+    font-family: 'OpenSansRegular';
+}
+
+.talt-des.actived {
+    display: block;
+}
+.applyto-tasker #wait {
+    font-size: 20px;
+    height: 20px;
+    left: 40%;
+    margin: 78px 0 0;
+    padding: 2px;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    width: 69px;
+}
+.talt-des {
+    float: left;
+    text-align: left;
+    width: 100%;
+    border-left: 1px solid #ccc;
+    margin: 0 0 0 -1px;
+}
+.top-tile>span {
+    font-size: 17px;
+    margin: 0 4px 0 5px;
+    float: left;
+    font-family: 'OpenSansRegular';
+}
+.top-tile>p {
+    color: #9c9c9c;
+    float: right;
+    font-size: 16px;
+    margin: 3px 10px 0 0;
+}
+
+.left-pic {
+    position: relative;
+    border: 1px solid #ccc;
+    /*float: left;*/
+    height: 160px;
+    margin: 0 auto 20px;
+    overflow: hidden;
+    width: 160px;
+}
+.btn-contee {
+    float: left;
+    text-align: left;
+ width: 100%;
+    margin-top: 20px;
+	margin-bottom:20px;
+}
+.filetype-holdr {
+    position: relative;
+    float: left;
+	width:100%;
+}
+/*.uplor-pice {
+    background: #FC7800;
+    border-radius: 3px;
+    color: #fff;
+    float: left;
+    font-size: 18px;
+    padding: 10px 23px;
+    width: 100%;
+    text-align: center;
+}
+*/
+.pic-up {
+    cursor: pointer;
+    height: 46px;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+.righ-side-pic .pic-dec
+{
+width:100%;
+float:left;
+}
+
+.tabs-left
+{
+float:left;
+width:100%;
+}
+.tabs-left ul li
+{
+width:100%;
+text-align:center;
+}
+.tabs-left ul
+{
+padding:0px;
+}
+
+.new_tabs_list
+{
+padding:0px;
+}
+
+
+
+
+
+/*********************step 3 ****************/
+
+.sublin-hea {
+    color: #4f4f4f;
+    float: left;
+    font-family: proximanovaregular;
+    font-size: 20px;
+    font-weight: normal;
+    width: 100%;
+}
+.lop-div-task {
+    float: left;
+    text-align: left;
+    width: 100%;
+    margin: 0px 0 14px;
+}
+.applyto-tasker .tasker-body span.topedtext {
+    float: left;
+    width: 100%;
+	text-align:justify;
+}
+.topedtext {
+    float: left;
+    text-align: left;
+    width: 100%;
+    color: #424a4b;
+    font-family: proximanovaregular;
+    font-size: 18px;
+    margin-bottom: 0px;
+}
+.day-list {
+    float: left;
+    text-align: left;
+    width: 100%;
+	    padding: 0;
+    color: #7c7c7c;
+}
+.day-list li {
+    margin: 0 18px 0 0;
+	    list-style: none;
+		width:100%;
+}
+.applyto-tasker input[type="text"] {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    color: #7c7c7c;
+    float: left;
+    font-family: proximanovaregular;
+    font-size: 17px;
+    padding: 4px 4px;
+    width: 100%;
+}
+.applyto-tasker input[type="number"] {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    color: #7c7c7c;
+    float: left;
+    font-family: proximanovaregular;
+    font-size: 17px;
+    padding: 4px 4px;
+    width: 89%;
+  
+}
+/*********************step 5 ****************/
+
+.map-sbtbtn {
+    text-align: center;
+    margin: 0px auto;
+    width: 100%;
+    display: inline-block;
+}
+.map-sbtbtn input.blue-btn {
+    float: none;
+}
+.botom-fuls {
+    float: left;
+    text-align: left;
+    width: 100%;
+}
+.botom-fuls textarea
+{
+	width:100%;
+}
+.rdio-btnas.radio-live li
+{
+	 list-style-type:none;
+}
+.radio-live li {
+    float: left;
+    text-align: left;
+    width: 100%;
+
+}
+
+/*********************step seprate****************/
+ul.availblty {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    overflow: hidden;
+    width: 100%;
+	padding:0;
+    float: left;
+}
+ul.availblty li {
+    float: left;
+    width: calc(100%/7);
+	list-style-type:none;
+	border-bottom: 1px solid #ccc;
+}
+.availblty a {
+    border-right: 1px solid #ccc;
+    float: left;
+    padding: 16px 0;
+    width: 100%;
+}
+.availblty a > label {
+    color: #606060;
+    float: left;
+    font-size: 11px;
+    font-weight: bold;
+    margin: 0px;
+    text-align: center;
+    width: 100%;
+}
+.availblty a > span {
+    color: #606060;
+    float: left;
+    font-size: 14px;
+    text-align: center;
+    width: 100%;
+}
+/*
+.availabilities-day-form .modal-header {
+    background-color: #FC7800;
+}
+*/
+
+
+*---------Step8.html-----------*
+.tasker-body ul.nav > li.active > a {
+    background: #158aa2;
+    color: #fff;
+}
+
+.tasker-body li a:hover {
+   /* background: #158aa2;
+    color: #fff;
+    text-decoration: none;*/
+}
+.tasker-body li a {
+    float: left;
+    width: 100%;
+    color: #6f6f6f;
+    font-size: 18px;
+    padding: 7px 10px;
+    border-bottom: 1px solid #ccc;
+    font-family: proximanovaregular;
+	display:block;
+}
+
+.panel-group .panel-heading + .panel-collapse > .panel-body {
+  border: 1px solid #ddd;
+}
+.panel-group,
+.panel-group .panel,
+.panel-group .panel-heading,
+.panel-group .panel-heading a,
+.panel-group .panel-title,
+.panel-group .panel-title a,
+.panel-group .panel-body,
+.panel-group .panel-group .panel-heading + .panel-collapse > .panel-body {
+  border-radius: 2px;
+  border: 0;
+}
+.panel-group .panel-heading {
+  padding: 0;
+}
+/*
+.panel-group .panel-heading a {
+  display: block;
+  background: #FC7800;
+  color: #ffffff;
+  padding: 15px;
+  text-decoration: none;
+  position: relative;
+  font-size: 17px;
+}
+*/
+.panel-group .panel-heading a.collapsed {
+  background: #158aa2;
+  color: #fff;
+}
+/*
+.panel-group .panel-heading a.collapsedit{
+     background: #fc7800;
+  color: #fff;
+  font-size: 14px;
+}
+*/
+.panel-group .panel-heading a:after {
+  content: '-';
+  position: absolute;
+  right: 20px;
+     font-size: 18px;
+    top: 14px;
+
+  
+}
+.panel-group .panel-heading .panel-title a:after {
+  top:5px;
+}
+.panel-group .panel-heading a.collapsed:after {
+  content: '+';
+}
+.panel-group .panel-collapse {
+  margin-top: 5px !important;
+  margin-bottom:5px !important;
+}
+.panel-group .panel-body {
+  background: #ffffff;
+  padding: 15px;
+}
+.panel-group .panel {
+  background-color: transparent;
+}
+.panel-group .panel-body p:last-child,
+.panel-group .panel-body ul:last-child,
+.panel-group .panel-body ol:last-child {
+  margin-bottom: 0;
+}
+
+
+.panel-group .panel-heading +.panel-group .panel-heading a
+{
+background:#eee !important;
+}
+
+
+
+.radio-contr li
+{
+	list-style-type:none;
+}
+.u-hidden {
+    display: none !important;
+}
+.availabilities-day-form .switch::after {
+    background: #f5f6f6 none repeat scroll 0 0;
+    border-radius: 100%;
+    content: "";
+    display: block;
+    height: 30px;
+    left: 5px;
+    position: absolute;
+    top: 5px;
+    transition: all 0.3s ease-in-out 0s;
+    width: 30px;
+}
+.availabilities-day-form .switch {
+    border: medium none;
+    border-radius: 50px;
+    cursor: pointer;
+    display: inline-block;
+    height: 40px;
+    margin-right: 0.5em;
+    position: relative;
+    transition: background 0.2s ease-in-out 0s;
+    vertical-align: middle;
+    width: 80px;
+	background:#eee;
+}
+.radio-contr
+{
+padding:0px;
+}
+.radio-contr li > label {
+    font-weight: normal;
+}
+.availabilities-day-form input:checked + .switch::after {
+    left: 100%;
+    transform: translateX(-35px);
+}
+/*
+.availabilities-day-form input:checked + .switch {
+    background:#FC7800  none repeat scroll 0 0;
+    
+}
+*/
+
+.panel-group .panel-body textarea
+{
+  width:100%;
+  max-width: 100%;
+  font-weight: normal;
+}
+
+.step1_select {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    color: #7c7c7c;
+    float: left;
+    font-family: proximanovaregular;
+    font-size: 17px;
+    padding: 7px 4px;
+    width: 100%;
+}
+.category_list
+{
+padding:0px;
+float:left;
+width:100%;
+}
+.category_list li
+{
+list-style-type:none;
+padding:10px 0px 20px;
+border-bottom:1px solid #ddd;
+float: left;
+    width: 100%;
+}
+.category_list li h5
+{
+margin:10px 0px 5px;
+}
+.inner_panel_body
+{
+padding:0px !important;
+}
+
+.hourly_rate
+{
+width:85% !important;
+float:right;
+}
+
+.dollar_sign
+{
+    float: left;
+    padding: 0px 5px;
+    line-height: 24px;
+    font-weight: normal;
+    font-size: 13px;
+    width: 8%;
+}
+
+.label_hourly_rate
+{
+float:left;
+padding:0px 5px;
+line-height:35px;
+font-weight:normal;
+font-size:13px;
+}
+
+.panel-group h4
+{
+margin:10px 0px 0px;
+}
+
+.catagory-body h3
+{
+margin:0px;
+}
+
+.category_save_btn
+{
+background:#6f6767 !important;
+border:1px solid #6f6767;
+}
+ul.availblty_new
+{
+    padding: 0px;
+    float: left;
+    width: 100%;
+    margin-top: 10px;
+}
+ul.availblty_new li {
+    float: left;
+    width: 100%;
+    list-style-type: none;
+    border-bottom: 1px solid #ccc;
+}
+
+.availblty li .selected
+{
+background:#FC7800;
+}
+.availblty li .selected label
+{
+color:#fff;
+}
+
+.availblty li .selected label:hover
+{
+cursor:pointer;
+}
+
+.modal-title
+{
+color:#fff;
+}
+
+li
+{
+list-style-type:none;
+}
+.iti-flag {
+    background-image: url("../images/flags.png");
+    }
+.intl-tel-input{
+        width: 100%;
+}
+/*
+.intl-tel-input .step_one_input{
+    padding-left: 48px !important;
+}
+*/
+
+ul.availblty li {
+    float: left;
+    width: 20%;
+    list-style-type: none;
+    border: 0;
+    margin: 5px;
+    outline: none;
+}
+ul.availblty li:focus {
+    outline: none;
+}
+
+ul.availblty {
+        border: none;
+}
+.availblty a {
+  border:1px solid #ddd;
+}
+.tasker-body li a  {
+  padding: 10px 10px;
+   border-radius: 8px;
+    min-height: 50px;
+    background: #a7aba8;
+}
+
+.availblty a > label {
+  font-size: 14px;
+  margin-top: 5px;
+      color: #fff;
+          cursor: pointer;
+}
+.availabilities-day-form .modal-footer .close {
+    background: #25889c;
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #fff;
+    font-weight: normal;
+    text-shadow: none;
+    opacity: 1;
+}
+.tasker-body ul.availblty li.selected a {
+      background: #0cd256;
+      outline: none;
+}
+
+
+
+
+
+      .stylee {
+      display:block;
+      }
+      .error-border{
+      border: 1px solid #e9714b !important;
+      }
+      .checkboxerr {
+      outline: 2px solid red;
+      }
+
+
+.tasker-body ul.abt-cnt, .tasker-body ul.abt-cnt li{
+    padding: 0px;
+    float: left;
+    width: 100%;
+}
+.tasker-body .botom-fuls textarea {
+    width: 100%;
+    max-width: 100%;
+}
+
+.panel-body.selected a.collapse{
+    background:#3c763d;
+}
+
+.parentcategory.selected a.parentcollapse{
+    background:#3c763d;
+}
+
+select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] { 
+ /* font-size: 16px;*/
+ font-weight: normal;
+
+ }
+ .righ-side-pic {
+    width: 85%;
+    margin: 0px auto;
+}
+.applyto-tasker .tasker-body span.topedtext {
+  margin: 5px 0px;
+}
+.applyto-tasker .loc-fld input[type="text"] {
+  margin: 10px 0px
+}
+.availblty_new .loc-fld input[type="submit"]{
+  margin: 10px 0px;
+}
+.left-pic img#myImg {
+    height: auto;
+    width: 100%;
+    min-height: 100%;
+}
+.left-pic img#loader {
+    position: absolute;
+    top: 30px;
+    z-index: 9999;
+    left: 30px;
+}
+.lop-div-task.dobcal ul.dop-flds li {
+    width: 31%;
+    margin: 0px 3px;
+}
+.parentcategory {
+    margin: 10px 0px;
+}
+.panel-group .panel-body {
+  padding: 5px;
+}
+.panel-group .panel-body .panel-group {
+  margin: 0px;
+}
+
+
+
+@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto+Condensed:400,700);
+
+/* Body - remove browser margin & set padding to accommodate for the fixed header bar */
+body {
+    margin: 0;
+    /*padding-top: 89px;*/
+    background: #FEFEFE;
+}
+
+/* Header Bar */
+.header-bar {
+    background: #EF6F6C;
+    color: #FFF;
+    padding: 0 50px 0 30px;
+    box-sizing: border-box;
+    font-family: "Roboto Condensed", helvetica, arial, sans-serif;
+    letter-spacing: 0.01em;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+}
+
+.header-bar h1 {
+    font-size: 1.45em;
+    font-weight: 400;
+    display: inline-block;
+}
+
+.header-bar h1 strong {
+    font-weight: 700;
+    margin-right: 2px;
+}
+
+.header-bar nav {
+    float: right;
+}
+
+.header-bar nav ul {
+    margin: 0;
+    padding: 0;
+}
+
+.header-bar nav ul li {
+    list-style-type: none;
+    display: inline-block;
+    float: left;
+}
+
+.header-bar nav ul li a {
+    line-height: 59px;
+    color: #FFF;
+    text-decoration: none;
+    font-size: 17px;
+    padding: 0 20px;
+    display: inline-block;
+}
+
+.header-bar nav ul li.active,
+.header-bar nav ul li:hover {
+    background: #F28B89;
+}
+
+.wrapper {
+    margin: 0 auto;
+    width: 95%;
+    text-align: center;
+}
+
+/* Plugin Example Container */
+.example {
+    width: 33%;
+    min-width: 400px;
+    padding: 15px;
+    display: inline-block;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.example:first-of-type {
+    position: relative;
+    bottom: 35px;
+}
+
+/* Example Heading */
+.example h2 {
+    font-family: "Roboto Condensed", helvetica, arial, sans-serif;
+    font-size: 1.3em;
+    margin: 15px 0;
+    color: #4F5462;
+}
+
+.example input {
+    display: block;
+    margin: 0 auto 20px auto;
+    width: 150px;
+    padding: 8px 10px;
+    border: 1px solid #CCCCCC;
+    border-radius: 3px;
+    background: #F2F2F2;
+    text-align: center;
+    font-size: 1em;
+    letter-spacing: 0.02em;
+    font-family: "Roboto Condensed", helvetica, arial, sans-serif;
+}
+
+.example select {
+    padding: 10px;
+    background: #ffffff;
+    border: 1px solid #CCCCCC;
+    border-radius: 3px;
+    margin: 0 3px;
+}
+
+.example select.invalid {
+    color: #E9403C;
+}
+
+.example input[type="submit"] {
+    margin-top: 10px;
+}
+
+.example input[type="submit"]:hover {
+    cursor: pointer;
+    background-color: #e5e5e5;
+}
+
+/* Code Blocks */
+pre.code-wrapper {
+    padding: 15px 30px;
+    margin-top: 20px;
+    background: #F4F6F4;
+    color: #393D3F;
+    text-align: left;
+    border: 1px solid #DCDFDC;
+    border-radius: 3px;
+}
+
+pre code {
+    font-family: 'Source Code Pro', monospace, monospace;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+/* Highlighted Code Blocks */
+pre code span.highlight {
+    color: #EF6F6C;
+}
+
+/* Media */
+
+@media(max-width: 847px) {
+    .header-bar h1 {
+        text-align: center !important;
+        width: 100%;
+    }
+
+    .header-bar nav {
+        display: none;
+    }
+
+    .example:first-of-type {
+        bottom: 0;
+    }
+}
+
+@media(min-width: 848px) {
+    .header-bar nav {
+        display: block;
+    }
+}
+
+.error{
+    padding-top: 9px;
+    padding-left: 20px;
+    color:red;
+    font-weight: normal;
+}
+.applyto-tasker .date-dropdowns select {
+  margin: 5px 0px 0px;
+  width: calc(100%/3);
+  font-size: 15px;
+  border-radius: 0;
+      border-right: 0px;
+    border-left: 0px;
+    outline: none;
+}
+.applyto-tasker .date-dropdowns select.month{
+    border-right: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+}
+.applyto-tasker .date-dropdowns select.day {
+  border-left: 1px solid #ccc;
+}
+.applyto-tasker .date-dropdowns select.year {
+    border-right: 1px solid #ccc;
+}
+.date-dropdowns input#example4 {
+    width: 100%;
+    float: left;
+    min-width: inherit;
+}
+/*
+.intl-tel-input .selected-flag .iti-flag {
+  margin: 12px 0px;
+}
+*/
+/*.intl-tel-input .selected-flag .arrow {
+  top: 28%;
+}*/
+/*
+.intl-tel-input .flag-dropdown {
+      height: 36px;
+}
+*/
+ul.availblty_new.loc-fld li:nth-child(4){
+  border-bottom: 0px;
+}
+ul.availblty_new.loc-fld li:nth-child(5){ 
+  display: none;
+}
+/*.backbutton{
+    float: left;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    font-size: 20px;
+    background: #f60;
+    padding: 15px 10px;
+    color: #fff;
+    
+}*/
+select#Gender {
+   color: #333;
+}
+.applyto-tasker .tasker-body span.topedtext#ftext{
+    font-weight: bold;
+
+}
+.collapse collapsed{
+     background: #f60;
+}
+.righ-side-pic img#pageloader {
+   position: absolute;
+   top: 40px;
+   z-index: 9999;
+   left: 0;
+   bottom: 0px;
+   right: 0px;
+   margin: 0px auto;
+}
+#phonecode{
+    padding-top: 10px;
+}
+
+img.tesrt{
+    width: 10%;
+}
+
+

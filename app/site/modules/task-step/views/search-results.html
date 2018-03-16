@@ -1,0 +1,283 @@
+<div class="stp2-container hirstpbg">
+  <section>
+    <div class="dashboard dashboardtop hirestep2">
+      <div class="container2">
+        <span class="find-txt">  {{'FIND_A_TASKER_FOR' | translate}}<b>{{TFC.taskbaseinfo.SubCategoryInfo.name}}</b> </span>
+        <a class="modbtn" ui-sref="hirestep1({slug:TFC.taskbaseinfo.SubCategoryInfo.slug})">{{'MODIFY_TASK_DETAILS' | translate}} <span class="glyphicon glyphicon-pencil"></span></a>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="choose-tasker" ng-if="TFC.TaskerDetails.length > 0">
+      <div class="container2">
+        <div class="container--wide">
+          <div class="srch-title">
+            <label class="btn2-tex"><span class="glyphicon glyphicon-user"></span> {{'CHOOSE THE TASKER YOU’D LIKE TO WORK WITH OR LET'| translate}} '{{rc.title}}' {{'FIND THE BEST ONE FOR YOUR JOB'| translate}}.</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="modal fade" id="changs" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header modal-header-primary">
+          <button class="close" aria-hidden="true" data-dismiss="modal" type="button">×</button>
+          <span class="headingconflm">{{'CONFIRM_NAVIGATION' | translate}}</span>
+        </div>
+        <div class="modal-body">
+          <span>{{'CHANEGING YOUR TASK TYPE WILL EARSE EVERYTHING ENTERED ON THIS PAGE.CONTINUE'| translate}}?</span>
+          <button class="borderbtn" aria-hidden="true" data-dismiss="modal" type="button">{{'CLOSE' | translate}}</button>
+          <input class="bluebtn" value="ok" type="submit">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hire-stp2">
+    <div class="hstp2 container2">
+      <div class="col-md-12 pull-right">
+        <section>
+          <div class="toggle-tab">
+            <div class="pull-left filter-opts">
+              <label class="col-md-2 tle-txt">{{'FILTER' | translate}} :</label>
+              <div class="col-md-10 filter-lst">
+                <ul>
+                  <li>
+                    <label>{{'TASK DATE' | translate}}<i class="fa fa-chevron-down" aria-hidden="true"></i></label>
+                    <div class="col-sm-12 pad0 fixed-box">
+                      <h2>{{'TASK DATE' | translate}}</h2>
+                      <div ng-controller="DatepickerDemoCtrl" class="cal-holde hre2-cal">
+                        <i ng-click="open($event)" class="fa fa-calendar"></i>
+                        <form name="hireStepForm">
+                          <input ng-change="TFC.filterDate()" type="text" name="valid_from" id="valid_from" class="dateside" datepicker-popup="{{format}}"
+                            ng-model="TFC.WorkingDate" ng-init="TFC.filterDate()" is-open="opened" datepicker-options="dateOptions"
+                            min-date="minDate" ng-required="true" close-text="Close" show-clear="false" required/>
+                          <span ng-show="hireStepForm.valid_from.$invalid && !hireStepForm.valid_from.$pristine">{{'valid from is required' | translate}}.</span>
+                        </form>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <label>{{'TIME' | translate}}<i class="fa fa-chevron-down" aria-hidden="true"></i></label>
+                    <div class="col-sm-12 pad0 fixed-box">
+                      <div class="hirestp-radio availabilities-day-form">
+                        <h2>{{'TIME' | translate}}</h2>
+                        <select ng-model="hours" ng-init="hours = TFC.dafaulttime" ng-change="TFC.hourfilter(hours)" class="time-selc" style="width: 100%!important;" ng-options="size.data as size.time for size in TFC.filterTiming" name="select_time" required>
+</select>
+<span ng-show="hireStepForm.select_time.$invalid && !hireStepForm.select_time.$pristine">{{'Time is required' | translate}}.</span>
+</div>
+</div>
+</li>
+<li>
+  <label>{{'PRICE' | translate}} <i class="fa fa-chevron-down" aria-hidden="true"></i></label>
+  <div class="col-sm-12 pad0 fixed-box price-range">
+    <h2>{{'PRICE' | translate}} </h2>
+    <div class="hirestp-radio availabilities-day-form">
+      <div class="priceSlider">
+        <div ui-slider="{range: true}" min="{{TFC.min}}" max="{{TFC.max}}" step="1" stop="TFC.getTaskerDetails()" use-decimals ng-model="TFC.UIslide"></div>
+        <div>
+          <span class="min-price">{{ TFC.UIslide[0] | money : rc.DefaultCurrency[0] }}</span>
+          <span class="max-price">{{ TFC.UIslide[1] | money : rc.DefaultCurrency[0] }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</li>
+</ul>
+</div>
+</div>
+<ul class="tab-icon">
+  <li ng-class="{active: TFC.viewType == 'map'}"><a href="#" ng-click="TFC.changeViewType('map');"><i class="fa fa-globe map-icon" aria-hidden="true"></i></a></li>
+  <li ng-class="{active: TFC.viewType == 'list'}"><a href="#" ng-click="TFC.changeViewType('list');"><i class="fa fa-outdent" name="outdent"></i></a></li>
+</ul>
+</div>
+<div class="hirestep-2 tasker_list" ng-if="TFC.viewType == 'list'">
+  <div class="container2">
+    <div class="hire2bottom">
+      <ul ng-if="TFC.TaskerDetails.length > 0" class="tatrnear">
+        <li ng-repeat="TaskerDetails in TFC.TaskerDetails">
+          <div class="ico-amt">
+            <figure>
+              <img ng-if="TaskerDetails.avatar" err-src ng-src="{{TaskerDetails.avatar}}" style="height:100%;width:100%;">
+<img ng-src="TaskerDetails.avatar ==''" style="height:100%;width:100%;" alt="empty" err-src>
+<div class="mob-options">
+  <ul>
+    <li>
+      <span title="chat" ui-sref="chat({task:TFC.filter.task,user:TFC.currentUserData._id,tasker:TaskerDetails._id,childid:TFC.filter.categoryid})"><i class="fa fa-wechat"></i></span>
+    </li>
+    <li>
+      <a class="" href="#" ng-click="TFC.confirmatask({task:TFC.filter.task,tasker:TaskerDetails,childid:TFC.filter.categoryid,bdate:TFC.WorkingDate,btime:TFC.hours})">
+        <span class="glyphicon glyphicon-ok"></span>
+      </a>
+    </li>
+    <li>
+      <a class="" href="javascript:void(0)" ui-sref="taskerProfile({taskerId:TaskerDetails._id,slug:TFC.taskbaseinfo.SubCategoryInfo.slug,lat:TFC.filter.lat,lon:TFC.filter.lon,vechile:TFC.filter.vechile,day:TFC.filter.day,hour:TFC.filter.hour,date:TFC.filter.date,booking_id:TFC.filter.booking_id,task:TFC.filter.task})">
+        <span class="glyphicon glyphicon-eye-open"></span>
+      </a>
+    </li>
+  </ul>
+</div>
+</figure>
+<span class="hur-amt" title="chat" ui-sref="chat({task:TFC.filter.task,user:TFC.currentUserData._id,tasker:TaskerDetails._id,childid:TFC.filter.categoryid})"><i class="fa fa-wechat"></i></span>
+<div class="tskr-vew">
+  <a class="hirebtn confirm-task" href="#" ng-click="TFC.confirmatask({task:TFC.filter.task,tasker:TaskerDetails,childid:TFC.filter.categoryid,bdate:TFC.WorkingDate,btime:TFC.hours})">
+    <span class="muted">{{'CONFIRM_TASK' | translate}}</span>
+  </a>
+  <a class="" href="javascript:void(0)" ui-sref="taskerProfile({taskerId:TaskerDetails._id,slug:TFC.taskbaseinfo.SubCategoryInfo.slug,lat:TFC.filter.lat,lon:TFC.filter.lon,vechile:TFC.filter.vechile,day:TFC.filter.day,hour:TFC.filter.hour,date:TFC.filter.date,booking_id:TFC.filter.booking_id,task:TFC.filter.task})">
+    <span class="muted"> {{'VIEW_PROFILE' | translate}}</span></a>
+</div>
+</div>
+<div class="tasker-dtl-info">
+  <div class="top-bx1">
+    <div class="col-md-7 tsker-ifo">
+      <h2 class="name-tile">{{TaskerDetails.name.first_name}}({{TaskerDetails.username}}) </h2>
+      <p ng-if="TaskerDetails.taskercount"><span class="glyphicon glyphicon-ok"></span> {{TaskerDetails.taskercount}} {{'COMPLATED_TASKS' | translate}}</p>
+      <p ng-if="!TaskerDetails.taskercount"><span class="glyphicon glyphicon-ok"></span> {{'TASKER NOT YET COMPLETED ANY TASK' | translate}}</p>
+      <p ng-if="TaskerDetails.avarating"><span class="glyphicon glyphicon-thumbs-up"></span> {{TaskerDetails.taskCount}} {{'REVIEWS' | translate}}: {{TaskerDetails.avarating*20}}%
+        {{'POSITIVE' | translate}}
+      </p>
+      <p ng-if="!TaskerDetails.avarating"><span class="glyphicon glyphicon-thumbs-down"></span> {{'NO ONE HAS REVIEWED YET' | translate}}</p>
+    </div>
+    <div class="col-md-5 tsker-rte">
+      <a class="tsk-amt">
+
+        <span class="muted">{{rc.DefaultCurrency[0].symbol}}{{((TaskerDetails.taskerskills | filter: {childid: TFC.filter.categoryid })[0].hour_rate) * rc.DefaultCurrency[0].value | number:2}}/hr</span>
+      </a>
+    </div>
+  </div>
+  <div class="top-bx2 tsker-ifo-cnt">
+    <h4>{{'HOW_I_CAN_HELP' | translate}}:</h4>
+    <p> {{((TaskerDetails.taskerskills | filter: {childid: TFC.filter.categoryid })[0].quick_pitch) }}</p>
+    <h4 class="name-tile" style="color:#ff6600; font-size: 12px;margin-top: 20px;" ng-if="!TaskerDetails.avarating">{{'TASKER HAS NOT YET GOT ANY REVIEWS'| translate}}</h4>
+<div class="rew-cnt" ng-if="TaskerDetails.avarating">
+  <div class="media--figure">
+    <img class="avatar-new-72" src="{{TaskerDetails.recentReview.userdetails.avatar}}" err-src="/">
+    <div class="us-name"> {{TaskerDetails.recentReview.userdetails.name.first_name}}({{TaskerDetails.recentReview.userdetails.username}})</div>
+
+  </div>
+  <div class="media--content reviewed-user-detail">
+    <div class="recommendations__review-content review-text ">
+      <rating class="col-md-12" ng-model="TaskerDetails.recentReview.rating" readonly="true">
+      </rating>
+    </div>
+    <div class="recommendations__review-content review-text">
+      <span class="comment-text">{{TaskerDetails.recentReview.comments}}</span>
+    </div>
+    <div class="u-muted review-date">
+      - {{TaskerDetails.recentReview.updatedAt | date:'MMMM dd, yyyy'}}
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</li>
+<div style="float: left;margin-left: 430px;" ng-if="TFC.totalItem > 7" class="pagination_inner clearfix">
+ <nav>
+  <uib-pagination max-size="6" items-per-page="TFC.itemsPerPage" ng-change="TFC.getTaskerDetails()" total-items="TFC.totalItem"
+    ng-model="TFC.currentPage" class="pagination pagination-lg" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;"
+    last-text="&raquo;"></uib-pagination>
+</nav>
+</div>
+
+<div ng-if="TFC.TaskerDetails.length == 0" style="display:none" record-response="TFC.getTaskerDetailsResponse" no-record num-records="TFC.TaskerDetails.length">
+<div class="notaster" id="notaster">
+  {{'WE ARE SORRY BUT WE DONT HAVE A TASKER WHO MATCHES YOUR CRITERIA' | translate}}.. <br>
+  <span style="margin-left: -15px;">{{'PLEASE CLICK TO MODIFY YOUR TASK DETAILS AND TRY AGAIN' | translate}} <a ui-sref="hirestep1({slug:TFC.taskbaseinfo.SubCategoryInfo.slug})">{{'MODIFY TASK DETAILS'|translate}}</a></span>
+</div>
+</div>
+
+
+
+
+
+<style>
+  .selected {background: yellow;}
+  .notaster {
+    border: 1px solid #ccc;
+    color: #df6810;
+    font-size: 20px;
+    margin: 40px 0 20px;
+    padding: 20px 0;
+    text-align: center;
+  }
+
+  .notaster a {
+    color: #428bca;
+    text-decoration: none;
+  }
+
+  .btn-danger {
+    display: none;
+  }
+</style>
+</div>
+</div>
+</div>
+<div class="col-md-12 map-view tskr-detail-inmap" ng-if="TFC.viewType == 'map'">
+  <ng-map default-style="true" zoom="8" center="[{{markerData[0].latitude}}, {{markerData[0].longitude}}]" style="height:100%!important;" class="map-view" >
+
+<custom-marker position="{{pin.position}}" id="m{{pin.id}}" title="{{pin.id}}" ng-repeat="pin in markerData track by $index"
+  on-click="TFC.showCity(event,pin)">
+  <div class="cm">
+    <!-- <div class='pin'><img ng-src="{{TFC.marker}}" width="30" err-src></div> -->
+     <div class='pin'><img ng-src="{{pin.avatar}}" width="30" err-src></div>
+
+    <div class='pulse'></div>
+  </div>
+</custom-marker>
+<info-window id="myInfoWindow">
+  <div ng-non-bindable class="tskr-padd tsk-mapview">
+    <div class="tskr-vew-part1">
+      <div class="profimg-holder img-only col-md-3">
+        <figure>
+          <figure>
+            <img style="width: 100%; height: 100%;" ng-src={{selectedCity.tasker.avatar}} err-src></figure>
+</figure>
+<div class="profimg-holder details-only col-md-6">
+  <ul class="factloop">
+    <h3 class="ng-binding" style=" text-transform: capitalize;color: #00964b;">{{selectedCity.tasker.name.first_name}}({{selectedCity.tasker.username}})</h3>
+<li class="amt-mpv">
+  <i>
+</i>
+  <p class="ng-binding">
+    <b class="ng-binding" style="color:#3f4451;font-size:25px;"> {{rc.DefaultCurrency[0].symbol}}{{((selectedCity.tasker.taskerskills | filter: {childid: TFC.filter.categoryid })[0].hour_rate)*
+rc.DefaultCurrency[0].value | number:2 }} </b>
+</p>
+</li>
+<li style="color: #333;">
+  <rating ng-if="selectedCity.tasker.avarating > 0" ng-model="selectedCity.tasker.avarating" readonly="true"></rating>
+    <h5 ng-if="!selectedCity.tasker.avarating" class="ng-binding" style=" text-transform: capitalize;color: #ff5722;">{{'NO ONE HAS REVIEWED YET' | translate}}</h5>
+</li>
+
+
+<li style="color: #f60;"><p class="ng-binding" style="color:#ffc107;font-size:15px;"><i class="fa fa-map-marker "></i> {{selectedCity.title}}.</p>
+</li>
+</ul>
+</div>
+</div>
+
+</div>
+<div class="col-md-12 tskr-vew tskr-vew-part2">
+  <a class="hirebtn confirm-task" href="#" ng-click="TFC.confirmatask({task:TFC.filter.task,tasker:selectedCity.tasker,childid:TFC.filter.categoryid,bdate:TFC.WorkingDate,btime:TFC.hours})">
+    <span class="muted">{{'CONFIRM_TASK' | translate}}</span>
+  </a>
+  <a class="hirebtn viewprfl-btn" href="javascript:void(0)" ui-sref="taskerProfile({taskerId:selectedCity.tasker._id,slug:TFC.taskbaseinfo.SubCategoryInfo.slug,lat:TFC.filter.lat,lon:TFC.filter.lon,vechile:TFC.filter.vechile,day:TFC.filter.day,hour:TFC.filter.hour,date:TFC.filter.date,booking_id:TFC.filter.booking_id,task:TFC.filter.task})">
+    <span class="muted"> {{'VIEW_PROFILE' | translate}}</span>
+  </a>
+  <a class="hirebtn viewprfl-btn" href="javascript:void(0)" ui-sref="chat({task:TFC.filter.task,user:TFC.currentUserData._id,tasker:selectedCity.tasker._id,childid:TFC.filter.categoryid})">
+    <span class="muted"> {{'CHAT' | translate}}</span>
+  </a>
+</div>
+
+</div>
+</info-window>
+</ng-map>
+
+
+</div>
+</section>
+</div>
+</div>
+</div>
+</div>

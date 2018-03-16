@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style type="text/css">
+        body
+        {
+            font-family: Arial;
+            font-size: 10pt;
+        }
+    </style>
+</head>
+<body>
+<select name="ddlNames" id="ddlNames">
+    <option value="Mudassar Khan">Mudassar Khan</option>
+    <option value="John Hammond">John Hammond</option>
+    <option value="Mike Stanley">Mike Stanley</option>
+</select>
+<br />
+<br />
+<input type="button" value="Select" onclick="SetName();" />
+<script type="text/javascript">
+    SetName();
+    function SetName() {
+        if (window.opener != null && !window.opener.closed) {
+            var txtName = window.opener.document.getElementById("txtName");
+            txtName.value = document.getElementById("ddlNames").value;
+        }
+        window.close();
+    }
+</script>
+</body>
+</html>

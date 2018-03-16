@@ -1,0 +1,147 @@
+<section>
+  <div class="applyto-tasker accounts">
+    <div class="container2">
+      <div class="task-dtls">
+        <div class="chat_def col-left">
+          <h1 class="top-texts">{{'TASK_DETAILS'|translate}}</h1>
+          <div>
+            <span>{{'TASK_CATEGORY'|translate}}</span><big>{{CHAT.taskinfo.category.name}}</big>
+          </div>
+          <div>
+            <span>{{CHAT.CurrentType}}</span><big>{{CHAT.currentname}} ({{CHAT.UserName}})</big>
+          </div>
+          <div>
+            <span>{{'BOOKING_ID'|translate}}</span><big>{{CHAT.taskinfo.booking_id}}</big>
+          </div>
+          <!-- <div ng-if="CHAT.taskinfo.booking_information.booking_date">
+            <span>{{'BOOKING DATE'|translate}}</span><big>{{CHAT.taskinfo.booking_information.booking_date  | date :'medium'}}</big>
+          </div> -->
+          <div>
+            <span>{{'TASK_DATE'|translate}}</span><big>{{CHAT.taskinfo.task_date  | date}}</big>
+          </div>
+          <div>
+            <span>{{'DAY'|translate}}</span><big>{{CHAT.taskinfo.task_day | translate }}</big>
+          </div>
+          <div style="text-transform: capitalize;">
+<span>{{'SESSION'|translate}}</span><big>{{CHAT.taskinfo.task_hour | translate}}</big>
+</div>
+<div>
+  <span>{{'AMOUNT'|translate}}</span><big>{{rc.DefaultCurrency[0].symbol}} {{CHAT.taskinfo.amount * rc.DefaultCurrency[0].value }}/hr</big>
+</div>
+<div>
+  <span ng-if="CHAT.taskinfo.status=='10'">{{'STATUS'|translate}}</span><big ng-if="CHAT.taskinfo.status=='10'" style="color:red">Yet To Confirm</big>
+<span ng-if="CHAT.taskinfo.status=='2'">{{'STATUS'|translate}}</span><big ng-if="CHAT.taskinfo.status=='2'" style="color:red">Accepted</big>
+</div>
+<a class="btn btn-default confirm_buut ng-binding ng-scope" ng-if="CHAT.taskinfo.status=='10' && CHAT.currentusertype == 'user'"
+  href="search/{{CHAT.taskinfo.category.slug}}?&task={{CHAT.taskinfo._id}}">Back</a>
+<button class="btn btn-default confirm_buut" ng-if="CHAT.taskinfo.status=='10' && CHAT.currentusertype=='user'" type="submit"
+  ng-click="CHAT.confirmatask(1)">{{'CONFIRM_TASK'|translate}}</button>
+<button class="btn btn-default confirm_buut" ng-if="CHAT.taskinfo.status=='1' && CHAT.currentusertype=='tasker' && CHAT.taskinfo.status!='2'"
+  type="submit" ng-click="CHAT.confirmatask(2)">{{'ACCEPT'|translate}}</button>
+</div>
+<div class="full-holder col-right">
+  <h1 class="top-texts">{{'MESSANGER'|translate}}</h1>
+  <div class="chat-list" id="chatscroll" scroll>
+    <div class="chat-cnt" id="userList" style="display: block;" ng-repeat="data in CHAT.messages track by $index" ng-init="CHAT.currentUser == data.from ? user = true : user = false ;
+CHAT.data.user._id == data.from ? userProfile = CHAT.data.user : userProfile = CHAT.data.tasker">
+<div class="col-xs-2 chat-col" ng-class="{'col-xs-push-10': user}">
+  <a href="#">
+                  <img ng-if="userProfile.avatar" src="{{userProfile.avatar}}" class="img-thumbnail img-responsive img-circle" ng-class="user ? 'pull-left' : 'pull-right'"
+                    style="" err-src>
+</a>
+</div>
+<div class="col-xs-10 chat-col" ng-class="{'col-xs-pull-2': user}">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div>
+        <a href="#">{{userProfile.name.first_name}} ({{userProfile.username}})</a>
+      </div>
+      {{data.message}}<br>
+      <div class="label label-info">{{data.date}}</div>
+      <div ng-if="CHAT.currentUser == data.from" ng-init="type = (CHAT.currentusertype == 'user') ? 'user' : 'tasker'; ">
+        <div ng-if="type == 'tasker'" style="margin-top:25px;" class="label label-seccess nt-scn ng-binding " style="color:red">
+<span ng-if="status=(data.user_status == 2 ? 'SEEN' : 'NOT_SEEN')"><i class="fa fa-check" aria-hidden="true"></i>{{status|translate}}</span>
+</div>
+<div ng-if="type == 'user'" style="margin-top:25px;" class="label label-seccess nt-scn ng-binding " style="color:red">
+<span ng-if="status=(data.tasker_status == 2 ? 'SEEN' : 'NOT_SEEN')"><i class="fa fa-check" aria-hidden="true"></i>{{status|translate}}</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="chat-post">
+  <h2 class="text-center">{{'GOT_SOMETHING_TO_SAY'|translate}}?</h2>
+  <div ng-if="CHAT.typing.status">{{CHAT.typing.message}}</div>
+  <div class="chat-box">
+    <form>
+      <div class="input-group">
+        <input class="form-control input-large" ng-model="message" type="text" ng-change="CHAT.ontyping()" placeholder="{{'ADD_TO_THE_CONVERSATION' | translate}}"
+          id="inputText" style="">
+<button class="input-group-addon" ng-click="CHAT.send(message)" style="width: 52px;height: 34px;">{{'POST'|translate}}</button>
+</div>
+</form>
+</div>
+<div class="clearfix"></div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<style>
+  .label {
+    color: green !important;
+  }
+
+  .chat_def span {
+    display: inline-block;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 5px;
+    width: 20%;
+    float: left;
+  }
+
+  .chat_def big {
+    display: inline-block;
+    font-size: 15px;
+    padding: 5px;
+    width: 80%;
+  }
+
+  .chat_def h1 {
+    text-align: center;
+  }
+
+  .back_buut {
+    background: orange none repeat scroll 0 0;
+    border: 1px solid orange;
+    border-radius: 13px;
+    color: #fff;
+    display: inline-block;
+    /*margin-top: 25px;*/
+  }
+
+  .back_buut:hover {
+    border: 1px solid orange !important;
+  }
+
+  .confirm_buut {
+    background: #158aa2 none repeat scroll 0 0;
+    border: 1px solid #bf7d38;
+    color: #fff;
+    display: block;
+    border-radius: 16px;
+    margin: 10px auto;
+  }
+
+  .confirm_buut:hover {
+    border: 1px solid #bf7d38 !important;
+  }
+</style>

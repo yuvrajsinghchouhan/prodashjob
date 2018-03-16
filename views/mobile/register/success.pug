@@ -1,0 +1,13 @@
+extends layout
+
+block vars
+  - var title='Success'
+  - var description = 'Maidac Tasker Registration'
+
+block content
+ form(action='/mobile/provider/register/step2',method='post', name="basicinfo" )
+    .signup-page
+      .sign-up-holder.login-holder
+        .logo-container
+          a(href='#')
+            img(src=siteurl+logo)

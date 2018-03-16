@@ -1,0 +1,193 @@
+<ul class="talt-des actived col-md-9 ">
+ <li >
+ <form submit-validate novalidate  name ="becometaskerForm"  >
+<div ng-click="ATSC.flag=!ATSC.flag" class="desb-top">
+
+<span class="reds-tile">{{ATSC.selectedcategory.name}}</span>
+<label class="popl-skill"><i class="fa fa-star-o"></i>popular skill</label>
+
+<span ng-if = "ATSC.selectedcategory.hour_rate > 0" class="dolar20">{{ATSC.selectedcategory.hour_rate > 0 ? '$'+ATSC.selectedcategory.hour_rate :''}}<i class="fa fa-caret-down"></i></span>
+</div>
+
+<div class="desb-middle">
+<span>{{ATSC.selectedcategory.name}}	 an appartment , house , car , house or office</span>
+</div>
+<div ng-if="ATSC.flag"class="desb-botom-holdert-1 stylee" style="display: block;">
+  <div class="desb-botom">
+   <div class="skil-expetn">
+      <span clas="skilexpectasin">Skill Expectations</span>
+    <ul class="nedskil">
+		<li ng-repeat = " skills in ATSC.selectedcategory.skills" >
+		<input class="" type="checkbox" name="skills"  ng-model="skills.selected">  {{skills.tags}}
+		</li>
+		</ul>
+<div class="agersprm">
+<input ng-class="{checkboxerr :becometaskerForm.terms.$invalid && !becometaskerForm.terms.$pristine}" class="chkbx " type="checkbox" required name="terms" ng-model="ATSC.selectedcategory.terms" >
+<span>I agree that I am able to fulfill these expectations.</span>
+<label ng-show = "becometaskerForm.terms.$invalid && !becometaskerForm.terms.$pristine" ></label>
+</div>
+</div>
+</div>
+<div class="desb-botom">
+                            <div class="skil-expetn">
+                                <span clas="skilexpectasin">Quick Pitch</span>
+                                <div class="hourel">
+								<textarea  style="width: 612px; height: 61px;"  ng-maxlength="140" name= "about" required ui-tinymce="tinymceOptions" ng-model="ATSC.selectedcategory.quick_pitch"></textarea>
+                                                                  </div>
+                            </div>
+                        </div>
+                        <div class="desb-botom">
+                            <div class="skil-expetn">
+                                <span clas="skilexpectasin">Set Hourly Rate</span>
+                                <div class="hourel">
+                                    <span> $</span>
+									<input name="hourlyrate" required  min="10"  ng-model = "ATSC.selectedcategory.hour_rate"  type="number" >
+								<label>Minimum hourly rate is $ 10/hr</label>
+								</br>
+								<label style="margin-left: -192px;color:red" ng-show="becometaskerForm.hourlyrate.$error.min">Hourly Rate Invalid.</label>
+								</br>
+									<label style="margin-right: 340px;color:red"  ng-show="becometaskerForm.hourlyrate.$invalid && !becometaskerForm.hourlyrate.$pristine">Hourly Rate is required.</label>
+                                </div>
+
+                            </div>
+                        </div>
+
+			<div class="desb-botom">
+					<div class="skil-expetn">
+					<span class="skilexpectasin">Level Of Experience</span>
+						<div class="hourel">
+				<select   required ng-model ="ATSC.selectedcategory.experience" class="levl-selc" name="experience">
+				<option value="">Select a Type</option>
+				<option value="1 year expeirience">1 year expeirience</option>
+				<option value="2 year expeirience" selected="selected">2 year expeirience</option>
+				<option value="3 year expeirience">3 year expeirience</option>
+				<option value="4 year expeirience">4 year expeirience</option>
+				</select>
+				<label  style = "color:red" ng-show="becometaskerForm.experience.$invalid && !becometaskerForm.experience.$pristine">Experience is required.</label>
+				</div>
+                            </div>
+                        </div>
+			<div class="desb-botom">
+				<div class="skil-expetn">
+				<span>Upload Experience Document</span>
+				<input id="file-1" type="file" ngf-select ngf-change="fileDropped($files, $event, $rejectedFiles,ATSC.selectedcategory._id);"
+           class="col-md-4 form-control-no-width" style="margin-top: 8px;" ngf-multiple="true"
+           ngf-allow-dir="false" ngf-accept="'*'"/>
+                            </div>
+                        </div>
+                        <!--LEVL OF EXPERIENCE-->
+						<div class="btn-container">
+                            <input class="savebtn" ng-click = "ATSC.addskills(becometaskerForm.$valid)" value="save" type="submit" >
+                        </div>
+                    </div>
+<form>
+</li>
+</ul>
+<style>
+.desb-botom {
+    background-color: #f7f7f7;
+    border: 1px solid #ccc;
+    float: left;
+    margin: 20px 0 0;
+    padding: 20px;
+    width: 100%;
+}
+.skil-expetn {
+    float: left;
+    width: 100%;
+}
+.skil-expetn > span {
+    border-bottom: 1px solid #ccc;
+    float: left;
+    font-size: 16px;
+    padding: 0 0 6px;
+    width: 100%;
+}
+.nedskil {
+    float: left;
+    width: 100%;
+    padding: 0 0 0 30px;
+}
+.nedskil > li {
+    float: left;
+    list-style: outside none disc;
+    padding: 10px 0 10px 4px;
+    width: 100%;
+}
+.agersprm {
+    float: left;
+    padding: 14px 0 0;
+    width: 100%;
+}
+.hourel {
+    float: left;
+    margin: 18px 0 0;
+    width: 100%;
+}
+#categorydetails .hourel > textarea {
+    width: 100% !important;
+}
+.hourel span {
+    color: #7c7c7c;
+    float: left;
+    font-size: 24px;
+    margin: 0 6px 0 0;
+}
+.hourel input[type="text"] {
+    float: left;
+    width: 100px;
+    padding: 5px;
+}.hourel input[type="number"] {
+    float: left;
+    width: 100px;
+    padding: 5px;
+}
+.hourel label {
+    color: #606060;
+    float: left;
+    font-weight: normal;
+    margin: 5px 0 0 4px;
+}
+.applyto-tasker select {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    color: #7c7c7c;
+    float: left;
+    font-family: proximanovaregular;
+    font-size: 17px;
+    padding: 7px 4px;
+    width: 100%;
+}
+.skil-expetn > span {
+    border-bottom: 1px solid #ccc;
+    float: left;
+    font-size: 16px;
+    padding: 0 0 6px;
+    width: 100%;
+}
+.skil-expetn > input[type="file"] {
+    display: block;
+    margin: 20px 0 0;
+}
+.btn-container {
+    float: left;
+    width: 100%;
+    margin-top: 20px;
+}
+.btn-container input {
+    background-color: #1da3bf;
+    border: medium none;
+    border-radius: 3px;
+    color: #fff;
+    float: left;
+    font-size: 18px;
+    margin: 0 10px 0 0;
+    padding: 7px 20px;
+}
+.checkboxerr {
+    outline: 2px solid red;
+}
+.error-border {
+    border: 1px solid #e9714b !important;
+}
+</style>

@@ -1,0 +1,93 @@
+<div class="availabilities-day-form adminweekmodal" id="viewdetails">
+    <div class="">
+        <div class="">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" ng-click="RMC.ok()">×</button>
+                <h1 class="day-text">{{'REVIEW_DETAILS' | translate}}</h1>
+            </div>
+            <div class="modal-body rew-dtls">
+                <form method="post" action="savenewrate" id="addnewrate">
+
+                    <ul class="view-detail-pop">
+                        <li ng-if="RMC.reviewData.task.booking_id">
+                            <label class="col-md-5">{{'BOOKING_ID' | translate}}:</label>
+                            <p value="" readonly="">{{RMC.reviewData.task.booking_id}}</p>
+                        </li>
+                        <!-- <li ng-if="RMC.role=='user'">
+                            <label class="col-md-5">{{'TASKER_NAME' | translate}}:</label>
+                            <p value="" readonly="">{{RMC.reviewData.tasker.name.first_name}} {{RMC.reviewData.tasker.name.last_name}}</p>
+                        </li> -->
+                        <li ng-if="RMC.role=='user' && RMC.reviewData.tasker.username  ">
+                            <label class="col-md-5">{{'TASKER_NAME' | translate}}:</label>
+                            <p value="" readonly="">{{RMC.reviewData.tasker.name.first_name}}({{RMC.reviewData.tasker.username}})</p>
+                        </li>
+                        <li ng-if="RMC.role=='tasker' && RMC.reviewData.user.username">
+                            <label class="col-md-5">{{'USER_NAME' | translate}}:</label>
+                            <p value="" readonly="">{{RMC.reviewData.user.username}}</p>
+                        </li>
+                        <!-- <li ng-if="RMC.role=='tasker'">
+                            <label class="col-md-5">{{'USER_NAME' | translate}}:</label>
+                            <p value="" readonly="">{{RMC.reviewData.user.name.first_name}} {{RMC.reviewData.user.name.last_name}}</p>
+                        </li> -->
+                        <li>
+                            <label class="col-md-5">{{'RATING' | translate}}:</label>
+                            <rating ng-model="RMC.reviewData.rating" readonly="true"></rating>
+                        </li>
+                        <li>
+                            <label class="col-md-5">{{'COMMENT' | translate}}:</label>
+                            <p style="width: 253px;float: right;display: inline;" value="" readonly="">{{RMC.reviewData.comments}}</p>
+                        </li>
+                        <li>
+                            <!--<input class="bluebtn " value="Save" onclick="savenewrate();" type="submit">-->
+                            <!--<button type="button" ui-sref="account" ng-click="RMC.ok()" class="bluebtn" data-dismiss="modal">{{'CANCEL' | translate}}</button>-->
+                        </li>
+                    </ul>
+                </form>
+            </div>
+            <!-- /.modal-content -->
+            <div class="modal-footer">
+                <button type="button" ui-sref="account" ng-click="RMC.ok()" class="bluebtn" data-dismiss="modal">{{'CANCEL' | translate}}</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<style>
+    .availabilities-day-form .modal-header {
+        background-color: #545454;
+    }
+
+    #viewdetails .modal-body {
+        float: left;
+        text-align: left;
+        width: 100%;
+        background: #fff;
+    }
+
+    #viewdetails .modal-body {
+        float: left;
+        text-align: left;
+        width: 100%;
+        background: #fff;
+    }
+
+    #viewdetails .view-detail-pop>li label {
+        font-weight: normal;
+    }
+
+    #viewdetails .view-detail-pop input {
+        padding: 5px;
+    }
+
+    .modal-body {
+        position: relative;
+        padding: 20px;
+    }
+
+    #viewdetails .logo-container#taskerimage img.img-circle {
+        width: 100px;
+        height: 100px;
+    }
+</style>

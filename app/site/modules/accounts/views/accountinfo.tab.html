@@ -1,0 +1,97 @@
+
+
+<form name="banking" submit-validate role="form" novalidate>
+  <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" dismiss-on-timeout="{{alertTimeout}}" close="closeAlert($index)">{{alert.msg}}</uib-alert>
+<div role="tabpanel" class="tab-pane" id="banking">
+    <div class="account-section">
+        <span>{{'BANK_ACCOUNT_INFORMATION' | translate}}</span>
+    </div>
+    <ul class="paswdsection bnk-acinfo">
+        <li>
+    			<div class="form-group" ng-class="{ 'has-error' : banking.acc_holder_name.$invalid && !banking.acc_holder_name.$pristine, 'has-success' : banking.acc_holder_name.$valid && !banking.acc_holder_name.$pristine}">
+    				<label>{{'ACCOUNT_NAME' | translate}}:</label>
+    				<input type="text" name="acc_holder_name" id="acc_holder_name" class="form-control" ng-model="ACC.banking.acc_holder_name" on-blur-validation required>
+    				<p class="help-block">
+                <span ng-show="banking.acc_holder_name.$invalid && !banking.acc_holder_name.$pristine">{{'ENTER ACCOUNT NAME'|translate}}</span>
+    				</p>
+    			</div>
+        </li>
+        <li>
+    			<div class="form-group" ng-class="{ 'has-error' : banking.acc_holder_address.$invalid && !banking.acc_holder_address.$pristine, 'has-success' : banking.acc_holder_address.$valid && !banking.acc_holder_address.$pristine}">
+    					<label>{{'ADDRESS' | translate}}:</label>
+              <input type="text" name="acc_holder_address" id="acc_holder_address" class="form-control" ng-model="ACC.banking.acc_holder_address" on-blur-validation required>
+      				<p class="help-block">
+                  <span ng-show="banking.acc_holder_address.$invalid && !banking.acc_holder_address.$pristine">{{'ENTER ADDRESS'|translate}}</span>
+      				</p>
+    			</div>
+        </li>
+        <li>
+    			<div class="form-group" ng-class="{ 'has-error' : banking.acc_number.$invalid && !banking.acc_number.$pristine, 'has-success' : banking.acc_number.$valid && !banking.acc_number.$pristine}">
+            <label>{{'ACCOUNT_NUMBER' | translate}}:</label>
+    				<input type="text" name="acc_number" id="acc_number" class="form-control" ng-model="ACC.banking.acc_number"  on-blur-validation required>
+              <p class="help-block">
+                <span ng-show='banking.acc_number.$invalid && !banking.acc_number.$pristine'>{{'ENTER ACCOUNT NUMBER' | translate}}!</span>
+              </p>
+    			</div>
+        </li>
+        <li>
+    			<div class="form-group" ng-class="{ 'has-error' : banking.bank_name.$invalid && !banking.bank_name.$pristine, 'has-success' : banking.bank_name.$valid && !banking.bank_name.$pristine}">
+    				<label>{{'BANK_NAME' | translate}}:</label>
+    				<input type="text" name="bank_name" id="bank_name" class="form-control" ng-model="ACC.banking.bank_name" on-blur-validation required>
+    				<p class="help-block">
+                <span ng-show="banking.bank_name.$invalid && !banking.bank_name.$pristine">{{'ENTER BANK NAME'|translate}}</span>
+    				</p>
+    			</div>
+        </li>
+        <li>
+    			 <div class="form-group" ng-class="{ 'has-error' : banking.branch_name.$invalid && !banking.branch_name.$pristine, 'has-success' : banking.branch_name.$valid && !banking.branch_name.$pristine}">
+    					<label>{{'BRANCH_NAME' | translate}}:</label>
+              <input type="text" name="branch_name" id="branch_name" class="form-control" ng-model="ACC.banking.branch_name" on-blur-validation required>
+      				<p class="help-block">
+                  <span ng-show="banking.branch_name.$invalid && !banking.branch_name.$pristine">{{'ENTER BRANCH NAME'|translate}}</span>
+      				</p>
+    			</div>
+       </li>
+       <li>
+          <div class="form-group" ng-class="{ 'has-error' : banking.branch_address.$invalid && !banking.branch_address.$pristine, 'has-success' : banking.branch_address.$valid && !banking.branch_address.$pristine}">
+             <label>{{'BRANCH_ADDRESS' | translate}}:</label>
+             <input type="text" name="branch_address" id="branch_address" class="form-control" ng-model="ACC.banking.branch_address" on-blur-validation required>
+             <p class="help-block">
+                 <span ng-show="banking.branch_address.$invalid && !banking.branch_address.$pristine">{{'ENTER BRANCH ADDRESS'|translate}}</span>
+             </p>
+         </div>
+      </li>
+
+        <li>
+			<div class="form-group" ng-class="{ 'has-error' : banking.swift_code.$invalid && !banking.swift_code.$pristine, 'has-success' : banking.swift_code.$valid && !banking.swift_code.$pristine}">
+        <label>{{'IFSC_CODE' | translate}}:</label>
+				<input type="text" name="swift_code" id="swift_code" class="form-control" ng-model="ACC.banking.swift_code"  on-blur-validation required>
+          <p class="help-block">
+            <span ng-show='banking.swift_code.$invalid && !banking.swift_code.$pristine'>{{'ENTER IFSC' | translate}}!</span>
+          </p>
+			</div>
+        </li>
+
+    <li>
+      <div class="form-group" ng-class="{ 'has-error' : banking.routing_number.$invalid && !banking.routing_number.$pristine, 'has-success' : banking.routing_number.$valid && !banking.routing_number.$pristine}">
+        <label>{{'ROUTING_NUMBER' | translate}}:</label>
+				<input type="text" name="routing_number" id="routing_number" class="form-control" ng-model="ACC.banking.routing_number" on-blur-validation required>
+          <p class="help-block">
+            <span ng-show='banking.routing_number.$invalid && !banking.routing_number.$pristine'>{{'ENTER ROUTING NUMBER' | translate}}!</span>
+          </p>
+			</div>
+        </li>
+        <div class="btnholder">
+          <input class="bluebtn" ng-click="ACC.saveaccountinfo(banking.$valid,ACC.banking)" value="{{'SAVE' | translate}}" type="submit" >
+    </ul>
+</div>
+</form>
+
+
+<style>
+.help-block{
+    left: 10px;
+    top: 10px;
+    position: relative;
+    }
+</style>

@@ -1,0 +1,28 @@
+
+
+
+<section>
+    <div class="hirecontainer">
+        <div class="container">
+            <ul class="hireloop">
+                 <li class="col-md-4" ng-repeat="categoryinfo in MOC.data"> 
+                    <div class="prodt-container">
+                        <a ui-sref="category({slug:categoryinfo.slug})" href="category({slug:categoryinfo.slug})">
+                            <figure>
+                                <div afkl-lazy-image="{{categoryinfo.image}}" class="afkl-lazy-wrapper" lazyerr></div>
+                                <!--
+                                <img src="{{categoryinfo.image}}" err-src>
+                                -->
+                                <div class="mask"></div>
+                            </figure>
+                            <figcaption>
+                                <h4 class="futer-text">{{categoryinfo.name}}</h4>
+                            </figcaption>
+                        </a>
+                    </div>
+                </li>			
+            </ul>
+			<button class="btn btn-success btn-ef btn-ef-3 btn-ef-3c mb-10" ui-sref="landing">Go Back to Home</button>
+        </div>
+    </div>
+</section>

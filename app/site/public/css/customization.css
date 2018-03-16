@@ -1,0 +1,7 @@
+@font-face {
+  font-family: 'harabara';
+  src: url("../../fonts/Harabara.ttf"); }
+
+div.hirecontainer div.container span.top-text-til {
+  color: #f58220;
+  font-family: 'harabara'; }

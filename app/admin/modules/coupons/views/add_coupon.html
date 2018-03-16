@@ -1,0 +1,152 @@
+<div class="page page-forms-common">
+  <div class="pageheader">
+    <h2> {{'Menu.COUPONS' | translate}} </h2>
+    <div class="page-bar">
+      <ul class="page-breadcrumb">
+        <li><a ui-sref="app.dashboard"><i class="fa fa-home"></i> {{main.title}}</a></li>
+        <li><a ui-sref="app.coupons.list"> {{'SubMenu.COUPONS_LIST' | translate }} </a></li>
+        <li><a href="#"> {{ECC.action | capitalize}} {{'Menu.COUPONS' | translate}} </a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="pagecontent">
+    <div class="row">
+      <div class="col-md-12">
+        <section class="tile" fullscreen="isFullscreen02">
+          <div class="tile-header dvd dvd-btm">
+            <h1 class="custom-font"><strong>Coupon</strong> </h1>
+          </div>
+          <div class="tile-body">
+            <form role="form" name="couponForm" submit-validate novalidate>
+              <div class="form-group" ng-class="{ 'has-error' : couponForm.name.$invalid && !couponForm.name.$pristine, 'has-success' : couponForm.name.$valid && !couponForm.name.$pristine}">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" class="form-control" required="" ng-model="ECC.editData.name" aria-required="true"
+                  aria-invalid="true" on-blur-validation required>
+                <p class="help-block">
+                  <span ng-show="couponForm.name.$invalid && !couponForm.name.$pristine">Coupon Name is required.</span>
+                </p>
+              </div>
+
+              <!-- <div class="form_group">
+               <label for="namefgv">Users</label>
+            <div class="form-control" ng-dropdown-multiselect="" options="ECC.example1data" selected-model="ECC.example1model22" ></div>
+
+            </div>-->
+              <!--<div class="form-group" ng-class="{ 'has-error' : couponForm.discount_type.$invalid && !couponForm.discount_type.$pristine, 'has-success' : couponForm.discount_type.$valid && !couponForm.discount_type.$pristine}">
+                <label for="discount_type">Users</label>
+                <select multiple chosen="{width: '240px'}" id="discount_type" name="discount_type" ng-model="ECC.editData.discount_type" class="form-control mb-10" on-blur-validation
+                  required>
+                <option value="">(no users)</option>
+                <option ng-repeat="(key, value) in ECC.availableUsers" value="{{key}}">{{value.username}}</option>
+                </select>
+                <p class="help-block">
+                  <span ng-show="couponForm.discount_type.$invalid && !couponForm.discount_type.$pristine">discount type is required.</span>
+                </p>
+              </div>-->
+
+              <div class="form-group" ng-class="{ 'has-error' : couponForm.code.$invalid && !couponForm.code.$pristine, 'has-success' : couponForm.code.$valid && !couponForm.code.$pristine}">
+                <label for="name">Code</label>
+                <input type="text" name="code" id="code" class="form-control" required="" ng-model="ECC.editData.code" aria-required="true"
+                  aria-invalid="true" on-blur-validation required>
+                <p class="help-block">
+                  <span ng-show="couponForm.code.$invalid && !couponForm.code.$pristine">Coupon Code is required.</span>
+                </p>
+              </div>
+              <div class="form-group">
+                <label for="name">Description</label>
+                <textarea cols="60" rows="4" style="resize: vertical;" class="form-control" ng-model="ECC.editData.description" required="" aria-required="true" aria-invalid="true"></textarea>
+                <!--<input type="text" name="description" id="description" class="form-control" required="" ng-model="ECC.editData.description"
+                  aria-required="true" aria-invalid="true">-->
+              </div>
+              <div class="form-group" ng-class="{ 'has-error' : couponForm.discount_type.$invalid && !couponForm.discount_type.$pristine, 'has-success' : couponForm.discount_type.$valid && !couponForm.discount_type.$pristine}">
+                <label for="discount_type">Discount type</label>
+                <select id="discount_type" name="discount_type" ng-model="ECC.editData.discount_type" class="form-control mb-10" on-blur-validation
+                  required>
+                <option value="">Select</option>
+                <option ng-repeat="(key, value) in ECC.discount_type" value="{{key}}">{{value}}</option>
+                </select>
+                <p class="help-block">
+                  <span ng-show="couponForm.discount_type.$invalid && !couponForm.discount_type.$pristine">discount type is required.</span>
+                </p>
+              </div>
+              <div class="form-group" ng-class="{ 'has-error' : couponForm.amount_percentage.$invalid && !couponForm.amount_percentage.$pristine, 'has-success' : couponForm.amount_percentage.$valid && !couponForm.amount_percentage.$pristine}">
+                <label for="amount_percentage">Amount/Percentage</label>
+                <input type="text" id="Integer" name="amount_percentage" id="amount_percentage" class="form-control" required="" ng-model="ECC.editData.amount_percentage"
+                  aria-required="true" aria-invalid="true" on-blur-validation required allow-only-numbers>
+                <p class="help-block">
+                  <span ng-show="couponForm.amount_percentage.$invalid && !couponForm.amount_percentage.$pristine">Amount/Percentage is required.</span>
+                </p>
+              </div>
+              <div class="form-group" ng-class="{ 'has-error' : couponForm.total_coupons.$invalid && !couponForm.total_coupons.$pristine, 'has-success' : couponForm.total_coupons.$valid && !couponForm.total_coupons.$pristine}">
+                <label for="total_coupons">Usage Limit Per Coupon</label>
+                <input type="text" name="total_coupons" id="total_coupons" class="form-control" required="" ng-model="ECC.editData.usage.total_coupons"
+                  aria-required="true" aria-invalid="true" on-blur-validation required allow-only-numbers>
+                <p class="help-block">
+                  <span ng-show="couponForm.total_coupons.$invalid && !couponForm.total_coupons.$pristine">usage limit per coupon is required.</span>
+                </p>
+              </div>
+              <div class="form-group" ng-class="{ 'has-error' : couponForm.per_user.$invalid && !couponForm.per_user.$pristine, 'has-success' : couponForm.per_user.$valid && !couponForm.per_user.$pristine}">
+                <label for="per_user">Usage Limit Per User</label>
+                <input type="text" name="per_user" id="per_user" class="form-control" required="" ng-model="ECC.editData.usage.per_user"
+                  aria-required="true" aria-invalid="true" on-blur-validation required allow-only-numbers>
+                <p class="help-block">
+                  <span ng-show="couponForm.per_user.$invalid && !couponForm.per_user.$pristine">usage limit per user is required.</span>
+                </p>
+              </div>
+              <div class="form-group">
+                <label for="valid_from">Valid From</label>
+                <div ng-controller="DatepickerDemoCtrl">
+                  <div class="input-group w-md">
+                    <input type="text" min-date="mindate" max-date="ECC.editData.expiry_date" name="valid_from" id="valid_from" class="form-control"
+                      datepicker-popup="{{format}}" ng-model="ECC.editData.valid_from" is-open="opened" datepicker-options="dateOptions"
+                      close-text="Close" date-validator required />
+                    <p class="help-block">
+                      <span style="color:red;" ng-show="couponForm.valid_from.$invalid && !couponForm.valid_from.$pristine">valid from is required.</span>
+                    </p>
+                    <span class="input-group-btn">
+                      <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                      </span>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group" ng-if="ECC.editData.valid_from">
+                <label for="expiry_date">Expiry Date </label>
+                <div ng-controller="DatepickerDemoCtrl">
+                  <div class="input-group w-md">
+                    <input type="text" min-date="ECC.editData.valid_from" name="expiry_date" id="expiry_date" class="form-control" datepicker-popup="{{format}}" allow-only-numbers
+                      ng-model="ECC.editData.expiry_date" is-open="opened" datepicker-options="dateOptions" close-text="Close"
+                      date-validator required />
+                    <p class="help-block">
+                      <span style="color:red;" ng-show="couponForm.expiry_date.$invalid && !couponForm.expiry_date.$pristine">expiry date is required.</span>
+                      <span style="color:red;" ng-show="couponForm.expiry_date.$invalid && !couponForm.expiry_date.$pristine">expiry date is required.</span>
+                    </p>
+                    <span class="input-group-btn">
+                      <button type="button" class="btn btn-default" ng-focus="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                      </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group" ng-class="{ 'has-error' : couponForm.publish.$invalid && !couponForm.publish.$pristine, 'has-success' : couponForm.publish.$valid && !couponForm.publish.$pristine}">
+                <label for="publish">Status</label>
+                <select id="publish" name="publish" ng-model="ECC.editData.status" convert-to-number class="form-control mb-10" on-blur-validation
+                  required>
+                          <option value='1'>Publish</option>
+                          <option value='2'>Unpublish</option>
+                          <p class="help-block">
+                          <span ng-show="couponForm.publish.$invalid && !couponForm.publish.$pristine">status is required.</span>
+                       </p>
+                       </select>
+                <button type="submit" ng-click="ECC.submitData(couponForm.$valid, ECC.editData)" ng-disabled="ECC.disbledValue" class="btn btn-rounded btn-success btn-sm">Submit</button>
+              </div>
+            </form>
+        </section>
+        </div>
+      </div>
+    </div>
+  </div>
+  <style>
+    .btn.btn-sm.btn-danger {
+      margin-left: 10px;
+    }
+  </style>

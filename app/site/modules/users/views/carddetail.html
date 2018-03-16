@@ -1,0 +1,78 @@
+<section>
+   <form name="taskConfirmForm" submit-validate no-validate >
+      <div class="hirestep3 ">
+         <div class="container2">
+            <div class="hirestp3holder">
+               <h1 class="confbook-text">{{'BOOKING_ID'|translate}}:</h1>
+               <div class="conf-divs">
+                  <h3>Payment</h3>
+                  <div class="conf-white">
+                     <ul class="credicard-detls">
+                        <li>
+                           <label class="mobl-dis">{{'CREDIT_CARD'|translate}}Credit Card{{stripeError}}</label>
+                           <input required name= "card_number"  ng-minlength="16" ng-model="ACC.taskPayment.card.number" ng-maxlength="16"  class="mobilenumb" placeholder="" type="text">
+                           <span style="color:red" ng-show="taskConfirmForm.card_number.$invalid && !taskConfirmForm.card_number.$pristine">Please Check Card Number</span>
+                        </li>
+                        <li>
+                           <div class="Experitaiton">
+                              <label>{{'EXPIRATION'|translate}}</label>
+                              <select required name="exp_month" ng-model="ACC.taskPayment.card.exp_month">
+                                 <option checked="checked" value="01">01</option>
+                                 <option value="02">02</option>
+                                 <option  value="03">03</option>
+                                 <option value="04">04</option>
+                                 <option value="05">05</option>
+                                 <option value="06">06</option>
+                                 <option value="07">07</option>
+                                 <option value="08">08</option>
+                                 <option value="09">09</option>
+                                 <option value="10">10</option>
+                                 <option value="11">11</option>
+                                 <option value="12">12</option>
+                              </select>
+                              <select required name ="exp_year"  ng-model="ACC.taskPayment.card.exp_year">
+                                <option value="2016">2016</option>
+                                <option value="2017">2017</option>
+                                <option value="2018">2018</option>
+                                <option value="2019">2019</option>
+                                <option value="2020">2020</option>
+                                <option value="2021">2021</option>
+                                <option value="2022">2022</option>
+                                <option value="2023">2023</option>
+                                <option value="2024">2024</option>
+                                <option value="2025">2025</option>
+                              </select>
+                           </div>
+                           <div class="Experitaiton">
+                              <label>{{'CVV_CODE'|translate}}</label>
+                              <input required name ="cvc" ng-maxlength="3"  type="text" ng-model="ACC.taskPayment.card.cvv">
+                           </div>
+                        </li>
+                        <span style="color:red" ng-show="taskConfirmForm.exp_month.$invalid && !taskConfirmForm.exp_month.$pristine"> Expiration Month is required.</span>
+						<span style="color:red" ng-bind="stripeError">{{stripeError}}</span>
+                        <span style="color:red" ng-show="taskConfirmForm.exp_year.$invalid && !taskConfirmForm.exp_year.$pristine"> Expiration Year is required.</span>
+                        <span style="color:red" ng-show="taskConfirmForm.cvc.$invalid && !taskConfirmForm.cvc.$pristine"> CVV Code is required.</span>
+                     </ul>
+                  </div>
+               </div>
+               <div>
+                  <div class="conf-divs">
+                    <h3>{{'RATE_YOUR_TASKER'|translate}}</h3>
+                    <div class="conf-white">
+                 <div class="form-group">
+                      <label for="line1">{{'RATE_YOUR_TASKER_FOR_THIS_TASK'|translate}} ? </label></br>
+                      <uib-rating  max="5" state-on="'fa fa-star text-orange text-lg'" state-off="'fa fa-star-o text-lg'" ng-model="ACC.taskPayment.rating"></uib-rating>
+                  </div>
+                  <div class="form-group">
+                      <label for="line1">{{'COMMENTS'|translate}}</label>
+                      <textarea type="text" class="form-control" ng-model="ACC.taskPayment.description"></textarea>
+                  </div>
+                </div>
+                </div>
+               </div>
+               <input class="bluebtn marginsds" value="{{'CONFIRM&BOOKING'|translate}}" ng-click="ACC.payment(taskConfirmForm.$valid,taskConfirmForm)" type="submit">
+            </div>
+         </div>
+      </div>
+   </form>
+</section>

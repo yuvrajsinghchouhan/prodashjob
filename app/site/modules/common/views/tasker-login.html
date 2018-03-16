@@ -1,0 +1,61 @@
+<div class="signup-page" >
+  <div style="background-image: url('{{rc.loginimage.image}}');" class="sinupimg-container"></div>
+
+<div class="sign-up-holder login-holder">
+  <div class="logo-container">
+<a ui-sref ="landing"><img src="{{rc.getsetting.logo}}"></a>
+  </div>
+
+    <form ng-submit="login()"  role="form" name="form" class="form-validation mt-20" method="post" novalidate>
+
+        <div class="form-group" ng-class="{ 'has-error' : form.username.$invalid && !form.username.$pristine, 'has-success' : form.username.$valid && !form.username.$pristine}">
+            <input type="username" autocomplete="remember==true?on:off" class="form-control underline-input" name="username" placeholder="{{'USERNAME' | translate}}" ng-model="username" required>
+            <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">{{'ENTER USER NAME'| translate}}</span>
+        </div>
+
+        <div class="form-group" ng-class="{ 'has-error' : form.password.$invalid && !form.password.$pristine, 'has-success' : form.password.$valid && !form.password.$pristine}">
+            <input type="password" autocomplete="remember==true?on:off" placeholder="Password" name="password" class="form-control underline-input" ng-model="password" required>
+            <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">{{'ENTER PASSWORD'| translate}}</span>
+        </div>
+
+        <!--<div ng-show="error" class="alert alert-danger">{{error}}</div>-->
+        <h3 ng-show="error" class="text-light text-greensea validerr">{{error | translate}}</h3>
+        <div class="form-group text-left mt-20">
+            <div class="form-actions">
+                <button type="submit" class="grn-btn blu-btn">{{'LOGIN' | translate}} </button>
+            </div>
+        </div>
+    </form>
+   <div class="frget-pwd arrange">
+            <a class="" ui-sref="forgotpwd">{{'FORGET_PASSWORD'| translate}}</a>
+        </div>
+         <div class="newsignup">
+           {{'DONT HAVE AN ACCOUNT'| translate}} <a class="" ui-sref="signup"><strong>{{'CLICK HERE'| translate}}</strong></a>
+        </div>
+		<!--<li class="sindtxt">
+                <span>Don't have an account? Creating one is quick and easy!  <br><br>
+                    <a href="/signup" class="grn-btn">Click Here</a>
+                </span>
+           </li>-->
+</div>
+</div>
+<script type="text/javascript">
+$(".dropdown-filter-full").click(function(){
+
+$(".filter-full").slideToggle();
+
+});
+</script>
+<style>
+     .newsignup{
+        float: left;
+    width: 100%;
+    text-align: left;
+    font-size: 13px;
+    margin: 10px 0px;
+    }
+     .arrange{
+            margin: 10px 0px !important;
+             font-size: 14px !important;
+    }
+</style>

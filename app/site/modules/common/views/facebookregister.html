@@ -1,0 +1,83 @@
+<div>
+  <div class="signup-page">
+  <div style="background-image: url('{{rc.bgimage.image}}');" class="sinupimg-container"></div>
+    <div class="sign-up-holder login-holder register-holder">
+      <div class="logo-container">
+        <a ui-sref="landing"><img src="{{rc.getsetting.logo}}"></a>
+      </div>
+      <form  class="profile-settings" name="registerForm" submit-validate novalidate>
+        <ul class="sign-btns">
+
+          <li>
+            <label>{{'PHONE_NUMBER'| translate}}</label>
+            <input style=" padding-left: 48px;" type="text" ng-model="FUC.UserDetails.phone" name="tel" id="tel" required ng-intl-tel-input>
+            <span class="validerr" ng-show="registerForm.tel.$error.required && !registerForm.tel.$pristine && registerForm.tel.$untouched">Phone Number is required.</span>
+            <span class="validerr" style="color:red" ng-show="registerForm.tel.$invalid && !registerForm.tel.$pristine && !registerForm.tel.$untouched">Phone Number is Incorrect.</span>
+          </li>
+          <li>
+            <label>{{'PASSWORD'| translate}}</label>
+            <input ng-model="FUC.UserDetails.pwd" name="pwd" ng-minlength="6" ng-maxlength="25" ng-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,12}$/" required type="password">
+            <span class="validerr" ng-show="registerForm.pwd.$error.required && !registerForm.pwd.$pristine">Password is required.</span>
+            <span class="validerr" style="color:red" ng-show="registerForm.pwd.$invalid && !registerForm.pwd.$pristine && !registerForm.pwd.$untouched">Password Must Contain Atleast One uppercase,One lower case,One Numeric digit.</span>
+            <span class="validerr" ng-show="registerForm.pwd.$error.minlength">Password must be minimum of 6 characters.</span>
+            <span class="validerr" ng-show="registerForm.pwd.$error.maxlength">Password must be maximum of 12 characters.</span>
+          </li>
+          <li>
+            <label>{{'CONFIRM_PASSWORD'| translate}}</label>
+            <input name="confirm_pwd" ng-model="FUC.UserDetails.confirm_pwd" type="password" required>
+            <span class="validerr" ng-show="registerForm.confirm_pwd.$error.required && !registerForm.confirm_pwd.$pristine">Confirm Password is required.</span>
+            <span class="validerr" ng-show=" FUC.UserDetails.pwd!='' && FUC.UserDetails.confirm_pwd!='' && FUC.UserDetails.confirm_pwd != FUC.UserDetails.pwd">Password and Confirm Password can be same.</span>
+          </li>
+
+          <li>
+            <label for="city">{{'CITY' | translate}}</label>
+            <input name="city" required type="text"  placeholder="{{'ENTER YOUR LOCATION'| translate}}" places-auto-complete size=80 ng-model="FUC.UserDetails.address.city" types="['address']"
+              on-place-changed="FUC.placeChanged()" />
+
+            <span class="validerr" ng-show="registerForm.city.$error.required && !registerForm.city.$pristine">City is required.</span>
+          </li>
+          <li>
+            <span ng-bind="FUC.Error"></span>
+            <button class="grn-btn blu-btn" ng-click="FUC.registerUser(registerForm.$valid,FUC.UserDetails)"><span>{{'SUBMIT' | translate}}</span></button>
+            <!--
+                <a ui-sref="registerTasker" class="grn-btn blu-btn"><span>Create Account</span></a>
+            -->
+          </li>
+          <li>
+            <small class="logtext">
+            {{'BY_SIGNING_UP_YOU_AGREE_TO_OUR'| translate}}
+            <a href="{{rc.site_url}}/page/termsandconditions">{{'TERMSOFUSE'| translate}}</a>
+            {{'AND'| translate}}
+            <a href="{{rc.site_url}}/page/privacypolicy">{{'PRIVACY_POLICY'| translate}}.</a>
+          </small>
+          </li>
+        </ul>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+  $(".dropdown-filter-full").click(function(){
+
+$(".filter-full").slideToggle();
+
+});
+
+</script>
+
+<style>
+.has-error .form-control, .has-error .form-control:focus {
+    border-color: #ff7b76;
+    box-shadow: none;
+}
+.has-error .control-label, .has-error .help-block {
+    color: #ff635c;
+}
+.help-block {
+    display: block;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+</style>

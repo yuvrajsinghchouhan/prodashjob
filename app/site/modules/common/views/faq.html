@@ -1,0 +1,40 @@
+<!-- <div class="faq-content">
+    <div class="container2">
+        <div class="faq-page">
+            <div class="faqHeader">{{'FAQ'| translate}}</div>
+            <div class="panel panel-default" ng-repeat="faq in FAC.data" >
+                <div class="panel-heading" >
+                    <h4 class="panel-title" >
+                        <a class="accordion-toggle collapsed" href="#" ng-click="one = !one" >{{faq.question}}
+                        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.isCustomHeaderOpen, 'glyphicon-chevron-right': !status.isCustomHeaderOpen}"></i>
+                        </a>
+                    </h4>
+                </div>
+                <div  ng-show="one" >
+                    <div class="panel-body">
+                            {{faq.answer}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
+
+
+
+<div class="faq-content">
+    <div class="container2">
+        <div class="faq-page">
+            <div class="faqHeader">{{'FAQ'| translate}}</div>
+                <uib-accordion close-others="oneAtATime"> 
+                    <div uib-accordion-group class="panel-default" heading="{{faq.question}}" ng-repeat="faq in FAC.data" >
+                    <div class="faq-cnt">
+                        {{faq.answer}}
+                    </div>
+                    </div>
+              </uib-accordion>
+       </div>
+    </div>
+</div>

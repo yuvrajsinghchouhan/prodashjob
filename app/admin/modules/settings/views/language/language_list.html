@@ -1,0 +1,30 @@
+<div class="page page-forms-common">
+    <!-- page header -->
+    <div class="pageheader">
+       <h2> {{'Menu.SETTINGS' | translate}} </h2>
+       <div class="page-bar">
+           <ul class="page-breadcrumb">
+               <li><a ui-sref="app.dashboard"><i class="fa fa-home"></i> {{main.title}}</a></li>
+               <li><a href="javascript:;"> {{'Menu.SETTINGS' | translate}} </a></li>
+               <li><a ui-sref="app.settings.languageSettings.list"> {{'SubMenu.LANGUAGE_SETTINGS' | translate}} </a></li>
+           </ul>
+       </div>
+   </div>
+    <div class="pagecontent">
+        <div class="row">
+            <div class="col-md-12">
+                <section class="tile" fullscreen="isFullscreen07">
+                    <div class="tile-header dvd dvd-btm">
+                        <h1 class="custom-font">List of <strong>Languages</strong></h1>
+                        <ul class="controls">
+                            <li><a ui-sref="app.settings.languageSettings.action({'action':'add'})"><i class="fa fa-plus mr-5"></i> New Language</a></li>
+                        </ul>
+                    </div>
+                    <custom-table data="LSLC.table" delete-call="LSLC.deletedData"></custom-table>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>

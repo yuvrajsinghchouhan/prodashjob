@@ -1,0 +1,571 @@
+/** Responsive CSS **/
+
+/* ============================= 1290px ====================== */
+
+@media (max-width: 1290px){
+
+.full-filter .price-filerts > li{width: 19%}
+
+.section-white .col-md-12.text-center{width: 98%}
+}
+
+/* ============================= 1124px ====================== */
+
+@media (max-width: 1124px){
+.container{width: 100%; padding:0px;}  
+.area-loop li a {
+    float: left;
+    width: 100%;
+}
+
+.step-cetion{display: inline-block; text-align: center;}
+.steps{
+  float: none;
+  display: inline-block;
+  margin-bottom: 30px;
+}
+
+.step-1::after{background: none}
+.step-2::after{background: none}
+.section-white .search-conraliner li.inpt-1 > input[type="text"]{
+ text-overflow: ellipsis;
+    width: 173px;
+     padding: 0 0 0 28px;
+}
+body{
+  overflow-x:hidden; 
+}
+
+.search-haeder .header{ position: static;}
+
+.top-ssearction-section{ position: static;}
+
+.middle-ssearction-section .col-md-5.padigs{display: none}
+.col-md-7.div-sectr{width: 100%;}
+
+.seach-filter-top-row{height: inherit;}
+
+.search-haeder{height: inherit;}
+}
+
+
+/* ============================= 1024px ====================== */
+
+@media (max-width: 1024px) {
+  
+.logo-container {
+  margin: 15px 10px 0;
+}
+.quickFixedheight {
+  padding: 10px;
+}
+.accounts .container2, .notificationpage .container2 {
+  max-width: 100%;
+  padding: 0px 15px;
+}
+.account .maintab > .tab-content {
+    width: 78%;
+}
+.account-view .admn-details {
+    width: 75%;
+}
+.st-pge {
+    float: none;
+    width: 98%;
+    background: #fff;
+    padding: 20px;
+    margin: 0px auto;
+    border-radius: 5px;
+    display: inherit;
+    clear: both;
+}
+.invite-frnds .btnholder a.invite-mail, .invite-frnds .btnholder a.invite-fb {
+  width: 20%;
+}
+.task-dtls .chat-list .chat-cnt .col-xs-push-10.chat-col .img-thumbnail {
+  margin-left: 5px;
+}
+.mob-tab-link {
+  display: none;
+}
+.paswdsection > li .form-control {
+  width: 55%;
+}
+/*.tab-content .lop-div-task ul.availblty li {
+  width: 98px;
+}*/
+.lop-div-task .availblty a {
+  height: 100px;
+  padding: 25px 0 10px;
+}
+.descrb {
+  font-size: 16px;
+}
+.email-notify p.help-block {
+  margin-left: 45px;
+}
+.task-dtls .col-right {
+    width: 45%;
+}
+}
+
+
+/* ============================= 991px ====================== */
+
+@media (max-width: 991px) {
+.section-white .col-md-12.text-center{
+  width: 100%;
+}
+
+.normal-fileter-section .col-md-2.pad0 {
+    float: left;
+    margin: 10px 0;
+    padding: 0 15px;
+    width: 100%;
+}
+.normal-fileter-section .col-md-2.right {
+    display: inline-block;
+    float: left;
+    text-align: center;
+    width: 100%;
+}
+
+.arena-submits {
+    float: none;
+    margin: 10px 0 0;
+}
+
+.top-midle-section.full-filter .price-filerts > li {
+    margin: 6px 1%;
+    width: 48%;
+}
+
+.col-md-5.padig-rigt {
+    display: inline-block;
+    float: none;
+    padding: 0;
+    width: 308px;
+}
+
+.detail-page .container{
+  display: inline-block;
+  text-align: center;;
+  width: 100%;
+}
+
+.product_detail {
+    float: left;
+    width: 100%;
+}
+
+.mnt-lop{width: 100%;}
+
+.str-loop {
+    display: inline-block;
+    float: none;
+    width: auto;
+}
+
+.deal-page-bottom{width: 100%;}
+.deal-list > li {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 10px 0 0;
+    text-align: center;
+}
+.col-sm-3.del-img {
+    display: inline-block;
+    float: none;
+}
+
+.col-sm-8.center-text-container {
+    border: medium none;
+    display: inline-block;
+    float: none;
+    height: inherit;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.col-md-3.deal-btn-container {
+    border: medium none;
+    height: inherit;
+    width: 100%;
+}
+.deal-btn-container > span{ margin: 10px 0;}
+}
+
+
+
+/* ============================= 768px ====================== */
+
+@media  (max-width: 768px){
+.logo-container > img {
+    width: 200px;
+}
+
+
+.logo-container {
+    float: left;
+    text-align: center;
+    width: 100%;
+}
+
+nav.navbar{width: 100%;}
+.nav.navbar-nav {
+    display: inline-block;
+    float: left;
+    text-align: center;
+    width: 100%;
+}
+
+body{padding: 0}
+
+.area-loop li{height: auto;   padding: 3px;}
+.nav.navbar-nav{
+    float: right;
+    width: auto;
+}
+
+
+
+}
+
+
+/* ============================= 767px for menu responsive====================== */
+
+@media (max-width: 767px){
+.navbar .nav > li{float: none;}
+  .navbar-header{display: inline-block; text-align: center; width: 100%;}
+
+  button.navbar-toggle {
+    border: 2px solid #00a8e7;
+    color: #706658;
+    display: inline-block;
+    float: none;
+    font-family: ralewaymedium;
+    font-size: 17px;
+    font-weight: normal;
+    padding: 3px 0 0 9px;
+    text-align: left;
+    width: 200px;
+   margin: 10px 0 20px;
+   background: url("../images/menu.png");
+     background-position: 97% center;
+    background-repeat: no-repeat;
+}
+
+.main-text.search-bar{width: 100%}
+.section-white .col-md-12.text-center {
+    float: left;
+    width: 100%;
+}
+
+.search-bar .mobile-display {
+    display: block ;
+}
+
+
+
+.section-white .search-conraliner li {
+    float: left;
+    width: 100%;
+    margin: 0 0 5px;
+}
+
+.section-white .search-conraliner li > input[type="text"]{
+
+margin:0; width:100%;
+}
+
+.section-white .search-conraliner li.inpt-1 > input[type="text"]{width: 100%;}
+.modal-body{float: left; width: 100%; padding: 0;}
+
+#success    .modal-backdrop.in {
+    opacity: 0.9;
+}
+
+.section-white .search-conraliner li > input[type="text"]{
+      height: 33px;
+          padding: 5px 0 0 6px;
+             background-image: none;
+}
+
+.section-white .search-conraliner li.inpt-1 > input[type="text"]{
+      height: 33px;
+          padding: 5px 0 0 6px;
+             background-image: none;
+}
+
+.section-white .nav-tabs > li > a , .section-white .nav-tabs > li.active > a, .section-white .nav-tabs > li.active > a:hover, .section-white .nav-tabs > li.active > a:focus{
+     font-size: 16px;
+    padding: 10px;
+
+}
+
+.section-white .nav-tabs > li.active > a, .section-white .nav-tabs > li.active > a:hover, .section-white .nav-tabs > li.active > a:focus{
+
+background:rgba(2, 155, 221, 0.53);
+}
+.modal-body button.close{
+      opacity: 1;
+      color: #fff;
+      font-weight: normal;
+}
+
+.modal-body .nav-tabs {
+    border-bottom: medium none;
+}
+
+.section-white .tab-content{  margin: 1px 0 0;}
+
+.section-white .inpt-4 > input[type="submit"]{width: 100%; margin: 0}
+
+.section-white .inpt-4 > input[type="submit"]{  padding: 4px 40px;}
+.nav.navbar-nav {
+    float: right;
+    width: 100%;
+    margin: 0;
+}
+
+
+.navbar .nav > li > a {
+    border-right: medium none;
+
+    padding: 7px 0;
+}
+
+.full-filter .open > .dropdown-menu{width: 100%; }
+
+
+
+
+}
+
+
+/* ============================= 736px ====================== */
+
+@media (max-width: 736px){
+
+
+
+}
+
+
+/* ============================= 667px ====================== */
+
+
+@media screen and (min-width: 667px) and (max-width: 735px){
+
+}
+
+/* ============================= 600px ====================== */
+
+
+@media screen and (max-width: 600px){
+.area-loop li a span{
+  font-size: 25px;
+}
+
+.footer-menu a {
+    padding: 0 4px;
+}
+
+.step-cetion {
+    float: left;
+    padding: 0 0 20px;}
+
+    .sho-result {
+    margin: 0 0 17px;
+    width: 100%;
+}
+
+.right-filtr {
+    float: left;
+}
+
+.aminites-section li{width: calc(50%);}
+
+}
+
+/* ============================= 568px ====================== */
+
+@media screen and (min-width: 568px) and (max-width: 599px){
+
+
+}
+
+/* ============================= 480px ====================== */
+
+
+@media screen and (min-width: 480px) and (max-width: 567px){
+
+}
+
+/* ============================= 414px ====================== */
+
+@media screen and (max-width: 414px) {
+  .area-loop li a span {
+    font-size: 16px;
+}
+
+.steps {
+    border-radius: 0;
+    border: none;
+    border-top: 1px solid #ccc;
+
+    display: inline-block;
+    height: 296px;
+    margin: 0;
+    padding: 30px 20px 0 21px;
+    text-align: center;
+    width: 100%;
+}
+
+.steps.step-1{border: none}
+.searct-sechs .search-text{width: 70%}
+.sbt-btn {width: 30%;}
+
+.section-white .tab-content{ padding: 0 10px;}
+.section-white .nav-tabs > li > a, .section-white .nav-tabs > li.active > a, .section-white .nav-tabs > li.active > a:hover, .section-white .nav-tabs > li.active > a:focus{font-size: 12px;}
+
+.top-midle-section.full-filter .price-filerts > li {
+    margin: 6px 0;
+    width: 100%;
+}
+
+.normal-fileter-section li input[type="text"] {
+
+    font-size: 12px;
+
+    text-overflow: ellipsis;
+    width: 100%;
+}
+.full-filter .open > .dropdown-menu {
+
+    width: 100%;
+}
+
+}
+
+/* ============================= 384px ====================== */
+
+
+@media (max-width: 384px){
+.col-md-5.padig-rigt{width: 100%;}
+
+}
+
+/* ============================= 375px ====================== */
+
+
+@media screen and (min-width: 375px) and (max-width: 383px){
+
+
+}
+/* ============================= 320px ====================== */
+
+
+@media screen and (min-width: 320px) and (max-width: 374px){
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/** Responsive CSS **/
+
+/* ============================= 1024px ====================== */
+
+@media screen and (min-width: 1024px) and (max-width: 1124px){
+}
+
+/* ============================= 768px ====================== */
+
+@media screen and (min-width: 768px) and (max-width: 1023px){
+
+}
+
+
+/* ============================= 736px ====================== */
+
+@media screen and (min-width: 736px) and (max-width: 767px){
+
+}
+
+
+/* ============================= 667px ====================== */
+
+
+@media screen and (min-width: 667px) and (max-width: 735px){
+
+}
+
+/* ============================= 600px ====================== */
+
+
+@media screen and (min-width: 600px) and (max-width: 666px){
+
+}
+
+/* ============================= 568px ====================== */
+
+@media screen and (min-width: 568px) and (max-width: 599px){
+
+
+}
+
+/* ============================= 480px ====================== */
+
+
+@media screen and (min-width: 480px) and (max-width: 567px){
+
+}
+
+/* ============================= 414px ====================== */
+
+@media screen and (min-width: 414px) and (max-width: 479px){
+
+}
+
+/* ============================= 384px ====================== */
+
+
+@media screen and (min-width: 384px) and (max-width: 413px){
+
+
+}
+
+/* ============================= 375px ====================== */
+
+
+@media screen and (min-width: 375px) and (max-width: 383px){
+
+
+}
+/* ============================= 320px ====================== */
+
+
+@media screen and (min-width: 320px) and (max-width: 374px){
+
+
+}

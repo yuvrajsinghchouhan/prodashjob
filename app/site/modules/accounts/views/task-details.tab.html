@@ -1,0 +1,29 @@
+<div ng-init="ACC.GetTaskList('assigned');" role="tabpanel" class="tab-pane" id="Transactions">
+    <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" dismiss-on-timeout="{{alertTimeout}}" close="closeAlert($index)">{{alert.msg}}</uib-alert>
+    <uib-tabset class="tabdetails" active="active">
+        <uib-tab index="1" active="tabOneActive" ng-click="ACC.taskCurrentPage= 1; ACC.GetTaskList('assigned')" heading="{{'ASSIGNED' | translate}}">
+            <ng-include src="'app/site/modules/accounts/views/task-details.sub.tab.html'"></ng-include>
+        </uib-tab>
+        <uib-tab index="2" active="tabTwoActive" ng-click="ACC.taskCurrentPage= 1; ACC.GetTaskList('ongoing')" heading="{{'ONGOING' | translate}}">
+            <ng-include src="'app/site/modules/accounts/views/task-details.sub.tab.html'"></ng-include>
+        </uib-tab>
+        <uib-tab index="3" active="tabThreeActive" ng-click="ACC.taskCurrentPage= 1; ACC.GetTaskList('completed')" heading="{{'COMPLETED' | translate}}">
+            <ng-include src="'app/site/modules/accounts/views/task-details.sub.tab.html'"></ng-include>
+        </uib-tab>
+        <uib-tab index="4" active="ACC.tabFourActive" ng-click="ACC.taskCurrentPage= 1; ACC.GetTaskList('cancelled')" heading="{{'CANCELLED' | translate}}">
+            <ng-include src="'app/site/modules/accounts/views/task-details.sub.tab.html'"></ng-include>
+        </uib-tab>
+        <!-- <uib-tab index="2" ng-click="ACC.taskListCurrentPage= 1; ACC.GetTaskList([6])" heading="Disputed">
+            <ng-include src="'app/site/modules/accounts/views/task-details.sub.tab.html'"></ng-include>
+        </uib-tab> -->
+         <!--<input type="text" class="inputClass form-control" ng-model="ACC.userTableSearch" ng-change="ACC.pageChange(ACC.userTableSearch)"
+                    placeholder="Search...">-->
+    </uib-tabset>
+    
+</div>
+<style>
+.inputClass{
+    width:100px !important;
+    float: right !important;
+}
+</style>

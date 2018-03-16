@@ -1,0 +1,32 @@
+<div class="availabilities-day-form adminweekmodal">
+    <div class="">
+        <div class="">
+            <div class="modal-header modal-header-success"><button class="close" type="button" ng-click="AAM.cancel()">x</button>
+                <h1 class="day-text">{{AAM.day}}</h1></div>
+            <div class="modal-body">
+                <ul class="radio-contr">
+                    <li>
+                        <input ng-model="AAM.working_day.hour.morning" ng-init="AAM.working_day.hour.morning = AAM.working_day.hour.morning || false"
+                            id="morning" class="u-hidden" type="checkbox" name="windowFields">
+                        <label class="switch" for="morning"></label>
+                        <label for="morning">Morning (8am - 12pm)</label>
+                    </li>
+                    <li>
+                        <input ng-model="AAM.working_day.hour.afternoon" ng-init="AAM.working_day.hour.afternoon = AAM.working_day.hour.afternoon || false"
+                            id="afternoon" class="u-hidden" type="checkbox" name="windowFields">
+                        <label class="switch" for="afternoon"></label>
+                        <label for="afternoon">Afternoon (12pm - 4pm)</label>
+                    </li>
+                    <li>
+                        <input ng-model="AAM.working_day.hour.evening" ng-init="AAM.working_day.hour.evening = AAM.working_day.hour.evening || false"
+                            id="evening" class="u-hidden" type="checkbox" name="windowFields">
+                        <label class="switch" for="evening"></label>
+                        <label for="evening">Evening (4pm - 8pm)</label>
+                    </li>
+                </ul>
+            </div>
+            <input type="hidden" ng-init="AAM.working_day.day = AAM.day" ng-model="AAM.working_day.day">
+            <div class="modal-footer"><button type="button" class="btn btn-default pull-left" ng-click="AAM.ok(AAM.working_day, AAM.index)">OK</button></div>
+        </div>
+    </div>
+</div>

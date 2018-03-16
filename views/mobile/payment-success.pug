@@ -1,0 +1,29 @@
+doctype transitional
+html(xmlns='http://www.w3.org/1999/xhtml')
+    head
+        meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        title= title+ '- Payment Successful'
+        link(rel='stylesheet', href=site_url+'app/mobile/styles/style.css', type='text/css', media='all')
+    body
+        section
+            .shipping_address
+                .main
+                    .app-content-box
+                        h1
+                            | Wallet Recharge Successful
+                            a.close_btn(href=base_url+'/wallet-recharge/pay-completed')
+                        .payment-success(style='padding: 20px 0;')
+                            img(src = image, alt='success', title='success')
+        style.
+            .payment-reference{
+                margin-bottom: 20px;
+                margin-top: 0;
+                text-align: center;
+            }
+               .app-content-box {
+                  text-align: center;
+                  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+           }
+
+

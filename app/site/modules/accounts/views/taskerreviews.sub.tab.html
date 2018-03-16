@@ -1,0 +1,171 @@
+<div ng-init="ACC.getreviewdetails();" role="tabpanel" class="tab-pane" id="Transactions" read-only="true">
+
+    <div ng-if="!ACC.getReview.length" class="emptyfie">
+        <span>{{'NOTHING_ADDED_IN_YOUR_TASK_LIST' | translate}} </span>
+
+    </div>
+    <ul ng-if="ACC.getReview.length > 0" class="tablesection">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>{{'BOOKING_ID' | translate}}</th>
+                        <th>{{'TASK' | translate}}</th>
+                        <th>{{'TASKER' | translate}}</th>
+                        <th>{{'DATE' | translate}}</th>
+                        <th>{{'ACTIONS' | translate}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="reviews in ACC.finalResult">
+                        <td>{{$index + 1}}</td>
+                        <td>{{reviews.task.booking_id}}</td>
+                        <td>{{reviews.task.booking_information.work_type}}</td>
+                        <td>{{reviews.tasker.name.first_name}}{{reviews.tasker.username}}</td>
+                        <td>{{reviews.createdAt |date}}</td>
+                        <td> <a href="javascript:void(0)" ng-click="ACC.reviewModal(reviews,reviews.task)" class="btn btn-secondary js-deactivate-trigger confrm conform"
+                                style="width:80px;">{{'VIEW' | translate}}</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </ul>
+
+    <div style="margin-top: 200px;margin-left: 300px;" ng-if="ACC.getReview.length > 0" class="pagination_inner clearfix">
+        <nav>
+            <uib-pagination max-size="5" items-per-page="ACC.reviewListitemsPerPage" ng-change="ACC.getreviewdetails()" total-items="ACC.reviewListtotalItem"
+                ng-model="ACC.reviewListCurrentPage" class="pagination pagination-lg" previous-text="&lsaquo;" next-text="&rsaquo;"
+                first-text="&laquo;" last-text="&raquo;"></uib-pagination>
+        </nav>
+    </div>
+
+    <style>
+        .nav > li > a {
+            border-right: 0px !important;
+        }
+
+        .nav > li.active > a {
+            border-right: 0px !important;
+        }
+
+        .nav-tabs > li {
+            padding: 5px 0;
+        }
+
+        .tabdetails .nav > li > a {
+            padding: 0px 10px;
+            font-size: 16px;
+        }
+
+        .slidetd .action-space {
+            background: #ffffff none repeat scroll 0 0;
+            width: auto;
+        }
+
+        .slidetd .action-space {
+            background: #ffffff none repeat scroll 0 0;
+            width: auto;
+        }
+
+        .action-space {
+            background: #efefef none repeat scroll 0 0;
+            padding: 9px 11px 0 0;
+        }
+
+        .action-space {
+            float: left;
+            text-align: left;
+            width: 100%;
+            background: #fff;
+            position: absolute;
+            right: 0;
+            text-align: left;
+            display: none;
+        }
+
+        .action-space {
+            background: #efefef none repeat scroll 0 0;
+            padding: 9px 11px 0 0;
+        }
+
+        .action-space {
+            float: left;
+            text-align: left;
+            width: 100%;
+            background: #fff;
+            position: absolute;
+            right: 6%;
+            text-align: left;
+            display: none;
+        }
+
+        ul.action-space.clickd li {
+            float: left;
+            padding: 0px 5px;
+        }
+
+        .action-space .confrm {
+            width: auto!important;
+        }
+
+        .confrm {
+            background: #14a89c;
+            color: #fff;
+            text-decoration: none;
+            padding: 3px 8px;
+            float: left;
+            width: 85px !important;
+            text-align: center;
+            clear: both;
+            margin: 0 0px 7px 0;
+            border-radius: 4px;
+            border: 1px solid transparent;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 6px 12px;
+            margin-bottom: 0;
+            font-size: 14px;
+            font-weight: normal;
+            line-height: 1.428571429;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            cursor: pointer;
+            background-image: none;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            -o-user-select: none;
+            user-select: none;
+        }
+
+        .emptyfie {
+            color: red;
+            font-size: 22px;
+            margin: 50px 0 0;
+            text-align: center;
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+        }
+
+        .emptyfie>span {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+        }
+
+        .fa {
+            display: inline-block;
+            font: normal normal normal 14px/1 FontAwesome;
+            font-size: inherit;
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+    </style>

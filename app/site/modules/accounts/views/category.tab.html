@@ -1,0 +1,20 @@
+<div role="tabpanel" class="tab-pane cat-tab" id="Transactions">
+    <div class="account-section">
+        <span>{{'CATEGORY' | translate}}</span>
+        <button type="button" class="btn btn-default" ng-click="ACC.categoryModal()">{{'ADD_CATEGORY' | translate}}</button>
+    </div>
+    <div ng-if="!ACC.usercategories.length" class="emptyfie">
+    <span>{{'NOTHING_ADDED_IN_THIS_LIST' | translate}}</span>
+    </div>
+    <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" dismiss-on-timeout="{{alertTimeout}}" close="closeAlert($index)">{{alert.msg}}</uib-alert>
+    <div class="admn-details" ng-repeat="category in ACC.usercategories">
+      <li>
+          <span class="verifyimg_new"></span>
+          <span ng-if="category.status == 1">{{category.childid.name}} <l style="color:green">({{'VERIFIED' | translate}})</l></span>&nbsp;&nbsp;
+          <span ng-if="category.status == 2">{{category.childid.name}} <l style="color:red">({{'NOT VERIFIED' | translate}})</l> </span>&nbsp;&nbsp;
+
+          <a href="#" ng-click="ACC.categoryModal(category.childid._id)" class="cat-edit">{{'EDIT' | translate}}</a>&nbsp;&nbsp;
+          <a href="#" ng-click="ACC.deletecategory(category.childid._id,category.childid.name)" class="cat-delete">{{'DELETE' | translate}}</a>
+      </li>
+    </div>
+</div>

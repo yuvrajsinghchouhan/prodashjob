@@ -1,0 +1,133 @@
+html
+  head
+    meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+    title #{site_title}
+  body(style='font-family: sans-serif; margin:0;padding:0;')
+    div(style='width:680px; margin:0 auto;border:1px solid #ccc;')
+      table(width='100%', style='margin:0;padding:0;border-spacing: 0;border:0;border-collapse: initial;')
+        tr(style='background:#484848;width:100%;')
+          td(style='width:50%;padding-left: 10px;padding-top: 10px;padding-right: 10px;padding-bottom: 10px;')
+            img(style='width:200px' src=logo)
+          td(style='text-align:right;width:50%;padding-left: 10px;padding-top: 10px;padding-right: 10px;padding-bottom: 10px;')
+        tr(style='background:#fff;width:100%;')
+          td(colspan='2', style='width:100%;padding-left: 10px;padding-top: 20px;padding-right: 10px;padding-bottom: 20px;text-align:center;')
+            br
+            br
+            p(style='color:#000;font-size:16px;margin:0;') TOTAL AMOUNT
+            h3(style='color:#f60;font-size:50px;margin:0;')  #{grand_total}
+        //tr(style='background:#fff;width:100%;')
+          td(style='width:50%;padding-left: 10px;padding-top: 10px;padding-right: 10px;padding-bottom: 20px;text-align:center;')
+            p(style='color:#000;font-size:12px;margin:0;') DECTOR MONEY DEDUCTED
+            span(style='color:#000;font-size:14px;margin:0;') 0
+          td(style='width:50%;padding-left: 10px;padding-top: 10px;padding-right: 10px;padding-bottom: 20px;text-align:center;')
+            p(style='color:#000;font-size:12px;margin:0;') CASH PAID
+            span(style='color:#000;font-size:14px;margin:0;') 269
+        tr(style='background:#f60;width:100%;')
+          td(colspan='2', style='width:100%;padding-left: 10px;padding-top: 12px;padding-right: 10px;padding-bottom: 12px;text-align:center;border-bottom:5px solid #ccc;')
+            h2(style='color:#fff;font-size:18px;margin:0;')  #{first_name} #{last_name}
+
+            span(style='color:#fff;font-size:15px;margin:0;') Thanks for using #{site_title}
+      table(cellspacing='10', style='width:100%;background:#fff;border-top: 1px solid #ddd;')
+        tr
+          th(colspan='2', width='48%', style='text-align:center; background:#fff;vertical-align:middle;')
+            h4(style='background:#f60;color:#fff;padding-top: 5px;padding-bottom: 5px;margin:0;') TASK DETAILS
+          th(colspan='2', width='48%', style='text-align:center; background:#fff;vertical-align:middle;')
+            h4(style='background:#f60;color:#fff;padding-top: 5px;padding-bottom: 5px;margin:0;') OTHER DETAILS
+        tr
+          td(style='font-size:14px;color:#333;')
+            | Category Name:
+          td(style='font-size:14px;color:#333;')
+            |  #{Category_Name}
+          td(style='font-size:14px;color:#333;')
+            | Tasker Earnings:
+          td(style='font-size:14px;color:#333;')
+            |  #{Tasker_Earnings}
+        tr
+          td(style='font-size:14px;color:#333;')
+            | User Name:
+          td(style='font-size:14px;color:#333;')
+            |  #{User_Name}
+          td(style='font-size:14px;color:#333;')
+            | Admin Fee:  (-)
+          td(style='font-size:14px;color:#333;')
+            |  #{admin_commission}
+        tr
+          td(style='font-size:14px;color:#333;')
+            | Task Address:
+          td(style='font-size:14px;color:#333;')
+            |  #{Task_Address}
+          td(style='font-size:14px;color:#333;')
+            | Miscellaneous Amount:(-)
+          td(style='font-size:14px;color:#333;')
+            |  #{extra_amount}
+        tr
+          td(style='font-size:14px;color:#333;')
+            | Total Hours:
+          td(style='font-size:14px;color:#333;')
+            |  #{Total_Hours}
+          td(style='font-size:14px;color:#333;')
+
+          td(style='font-size:14px;color:#333;')
+            | ________________
+
+        tr
+          td(style='font-size:14px;color:#333;')
+            | Per Hour
+          td(style='font-size:14px;color:#333;')
+            | #{perHour}
+            td(style='font-size:14px;color:#333;')
+              | Total:
+            td(style='font-size:14px;color:#333;')
+              |  #{grand_total}
+
+      table(cellspacing='10', style='width:100%;background:#fff;border-bottom:1px solid #ccc;padding-bottom:10px;')
+        tr
+          th(colspan='2', width='100%', style='text-align:center; background:#fff;vertical-align:middle;')
+            h4(style='background:#f60;color:#fff;padding-top: 5px;padding-bottom: 5px;margin:0;') BOOKING DETAILS
+        tr
+          td(style='font-size:14px;color:#333;')
+            | Booking Id
+          td(style='font-size:14px;color:#333;')
+            | #{booking_id}
+        tr
+          td(style='font-size:14px;color:#333;')
+            | Billing Address
+          td(style='font-size:14px;color:#333;width: 360px; word-break: keep-all;')
+            | #{Billing_Address}
+        tr
+          td(style='font-size:14px;color:#333;')
+            | Booking Date
+          td(style='font-size:14px;color:#333;')
+            | #{Booking_Date}
+        tr
+          td(style='font-size:14px;color:#333;')
+            | Job Completed Date
+          td(style='font-size:14px;color:#333;')
+            | #{Job_Completed_Date}
+        //tr
+          td(style='font-size:14px;color:#333;')
+            | Booking Email id
+          td(style='font-size:14px;color:#333;')
+            a(href='#', style='color: #15c;') john@gmail.com
+      table(style='width:100%;background:#fff;')
+        tr
+          td(style='width:100%;padding-left: 10px;padding-top: 10px;padding-right: 10px;padding-bottom: 10px;')
+            //p(style='font-size:12px;line-height:18px;color:#333;margin:0;margin-bottom:5px;')
+              | Minimun bill of $80 for the first 4 km and $10/km thereafter. Ride time at $1 per min after first 5 min. Includes waiting time during the trip.
+            //p(style='font-size:12px;line-height:18px;color:#333;margin:0;margin-bottom:5px;') Total fare is inclusive of all taxes. Toll and parking charges are extra.
+            //p(style='font-size:14px;line-height:18px;color:#333;margin:0;margin-bottom:5px;')
+              | We levy Peak Pricing charges when the demand is high, so that we can make more cabs available to you and continue to serve you efficiently.
+            p(style='font-size:12px;line-height:18px;color:#333;margin:0;margin-bottom:5px;')
+              | For further queries, please write to
+              a(href='#', style='color: #15c;') #{Email}
+            p(style='font-size:12px;line-height:18px;color:#333;margin:0;')
+              | This is an electronically generated invoice and does not require signature. All terms and conditions are as given on 
+              a(href='#', style='color: #15c;') #{email}
+      table(style='width:100%;background:#484848;text-align:center;')
+        tr
+          td(style='width:100%;padding-left: 10px;padding-top: 10px;padding-right: 10px;padding-bottom: 10px;')
+            //p(style='font-size:13px;line-height:18px;color:#fff;margin:0;margin-bottom:5px;') A wing Suntech Center,37-40 Sbhash Road, Chennai, India
+            p(style='font-size:13px;line-height:18px;color:#fff;margin:0;margin-bottom:5px;')
+
+              //a(href='#', style='color: #f60;') #{site_url}
+            h6(style='color:#f60;font-size:13px;margin:0;') © #{site_title}

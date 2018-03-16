@@ -1,0 +1,114 @@
+<section>
+  <div class="applyto-tasker apply3">
+    <div class="container2">
+      <div class="full-holder">
+        <h1 class="top-texts">{{'APPLY_TO_BE_A_TASKER' | translate}}</h1>
+        <div class="tasker-pannel">
+          <div class="tasker-head">
+            <span class="left-tile">{{'ADD_YOUR_AVAILABILITY' | translate}}</span>
+            <div class="right-progrs">
+              <span class="completion-text">{{'APPLCATIONS_COMPLETION' | translate}} 30%</span>
+              <div class="progressbar">
+                <span style="width:30%"></span>
+</div>
+</div>
+</div>
+<div ng-init="BTC.data.next='step7'" class="tasker-body">
+  <label class="sublin-hea tophln">{{'AVAILABILITY' | translate}}</label>
+  <span class="seldays">{{'SELECT_THE_DAYS_YOU_ARE_AVAILABLE_TO_WORK' | translate}}.</span>
+  <div class="lop-div-task">
+    <div class="botom-fuls">
+      <ul class="availblty">
+        <li>
+          <a href="javascript:void(0)" ng-click="BTC.availabilitiesModelOpen('',0)">
+            <label>{{'SUN' | translate}}</label>
+            <span ng-class="{'green':BTC.data.working_days[0].not_working != true,'red':BTC.data.working_days[0].not_working == true}">{{BTC.data.working_days[0].not_working == true ? 'NOT SELECTED':'SELECTED' | translate }}</span>
+          </a>
+        </li>
+        <li>
+          <a href="javascript:void(0)" ng-click="BTC.availabilitiesModelOpen('',1)">
+            <label>{{'MON' | translate}}</label>
+            <span ng-class="{'green':BTC.data.working_days[1].not_working != true,'red':BTC.data.working_days[1].not_working == true}">{{BTC.data.working_days[1].not_working == true ? 'NOT SELECTED':'SELECTED' | translate }}</span>
+          </a>
+        </li>
+        <li>
+          <a href="javascript:void(0)" ng-click="BTC.availabilitiesModelOpen('',2)">
+            <label>{{'TUE' | translate}}</label>
+            <span ng-class="{'green':BTC.data.working_days[2].not_working != true,'red':BTC.data.working_days[2].not_working == true}">{{BTC.data.working_days[2].not_working == true ? 'NOT SELECTED':'SELECTED' | translate }}</span>
+          </a>
+        </li>
+        <li>
+          <a href="javascript:void(0)" ng-click="BTC.availabilitiesModelOpen('',3)">
+            <label>{{'WED' | translate}}</label>
+            <span ng-class="{'green':BTC.data.working_days[3].not_working != true,'red':BTC.data.working_days[3].not_working == true}">{{BTC.data.working_days[3].not_working == true ? 'NOT SELECTED':'SELECTED' | translate }}</span>
+          </a>
+        </li>
+        <li>
+          <a href="javascript:void(0)" ng-click="BTC.availabilitiesModelOpen('',4)">
+            <label>{{'THUR' | translate}}</label>
+            <span ng-class="{'green':BTC.data.working_days[4].not_working != true,'red':BTC.data.working_days[4].not_working == true}">{{BTC.data.working_days[4].not_working == true ? 'NOT SELECTED':'SELECTED' | translate }}</span>
+          </a>
+        </li>
+        <li>
+          <a href="javascript:void(0)" ng-click="BTC.availabilitiesModelOpen('',5)">
+            <label>{{'FRI' | translate}}</label>
+            <span ng-class="{'green':BTC.data.working_days[5].not_working != true,'red':BTC.data.working_days[5].not_working == true}">{{BTC.data.working_days[5].not_working == true ? 'NOT SELECTED':'SELECTED' | translate }}</span>
+          </a>
+        </li>
+        <li>
+          <a href="javascript:void(0)" ng-click="BTC.availabilitiesModelOpen('',6)">
+            <label>{{'SAT' | translate}}</label>
+            <span ng-class="{'green':BTC.data.working_days[6].not_working != true,'red':BTC.data.working_days[6].not_working == true}">{{BTC.data.working_days[6].not_working == true ? 'NOT SELECTED':'SELECTED' | translate }}</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+
+  <div class="lop-div-task">
+    <ng-map id="foo" center="[{{BTC.data.location.lat}},{{BTC.data.location.lng}}]" zoom="8" mayTypeId="TERRAIN">
+      <shape id="circle" name="circle" centered="true" stroke-color='#FF0000' stroke-opacity="0.8" stroke-weight="2" center="[{{BTC.data.location.lat}},{{BTC.data.location.lng}}]"
+        radius="{{BTC.data.radius * 1000}}" on-radius_changed="BTC.mapToInput()" on-center_changed="BTC.mapToInput()" editable="true"></shape>
+    </ng-map>
+  </div>
+
+  <div class="lop-div-task">
+    <label class="sublin-hea tophln">{{'WORK_LOCATION' | translate}}</label>
+    <input name="taskerarea" required type="text" placeholder="{{'ENTER YOUR LOCATION'| translate}}" places-auto-complete size=80
+      placeholder="{{'Enter a location' | translate}}" ng-model="BTC.taskerareaaddress" types="['address']" on-place-changed="BTC.taskerareaChanged()"
+    />
+    <div class="msgclass">
+      <!--<span style="color:green" ng-if="BTC.dummyAddress=='1' "><h4>{{'ADDRESS IS VALID'|translate}}.</h4></span>
+            <span style="color:red" ng-if="BTC.dummyAddress=='0' "><h4>{{'PLEASE ENTER THE FULL ADDRESS'|translate}}</h4></span>-->
+    </div>
+  </div>
+
+
+  <div class="lop-div-task">
+    <label class="sublin-hea">{{'AVAILABILITY_RADIUS'|translate}}</label>
+    <div class="botom-fuls input-group mb-10">
+      <input name="taskerarea" required type="number" ng-model="BTC.data.radius" />
+      <span class="input-group-addon">KM</span>
+    </div>
+  </div>
+
+  <input class="blue-btn" value="{{'SUBMIT' | translate}}" type="submit" ng-if="BTC.taskerareaaddress && BTC.data.radius" ng-click="BTC.SubmitTaskerlocation(true)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<style>
+.green{
+  color:green !important;
+}
+.red{
+  color:red !important;
+}
+ .lop-div-task .msgclass{
+    margin-top:103px !important;
+  }
+</style>

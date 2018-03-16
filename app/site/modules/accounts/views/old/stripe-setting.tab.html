@@ -1,0 +1,90 @@
+<div role="tabpanel" class="tab-pane" id="Transactions">
+<div class="account-section">
+<span>{{'STRIPE_CONNECT' | translate}}</span>
+</div>
+<div ng-if = "!ACC.getStripe.stripe_connect.access_token" class="centertexts">
+ <a  href="{{ACC.stripConnectUrl}}" class="stripe-connect"><span>{{'CONNECT_WITH_STRIPE' | translate}}</span></a>
+<label class="fnt-text">{{'YOUR_STRIPE_ACCOUNT_WITH_OUR_WEBSITE' | translate}}</label>
+</div>
+<div ng-if="ACC.getStripe.stripe_connect.access_token">
+<label class="fnt-text" style="color:black;">{{'STRIPE_CONNECTED_SUCCESSFULLY' | translate}}</label>
+</div>
+
+
+
+
+ <ul ng-if = "ACC.stripeConnect == true" class="paswdsection">
+        <li>
+			<div class="form-group" >
+				<label>{{'STRIPE_PUBLISHABLE_KEY' | translate}}:</label>
+				<input type="text" ng-readonly="true" value={{ACC.getStripe.stripe_connect.stripe_publishable_key}} class="form-control" >
+
+			</div>
+        </li>
+        <li>
+			<div class="form-group" >
+					<label>{{'STRIPE_USER_ID' | translate}}:</label>
+					<input type="text" ng-readonly="true" value={{ACC.getStripe.stripe_connect.stripe_user_id}} class="form-control" >
+
+			</div>
+        </li>
+        <li>
+			<div class="form-group" >
+					<label>{{'ACCESS_TOKEN' | translate}}:</label>
+					<input type="text" ng-readonly="true" value={{ACC.getStripe.stripe_connect.access_token}} class="form-control" >
+
+			</div>
+        </li>
+		 <li>
+			<div class="form-group" >
+					<label>{{'REFRESH_TOKEN' | translate}}:</label>
+					<input type="text" ng-readonly="true" value={{ACC.getStripe.stripe_connect.refresh_token}} class="form-control" >
+
+			</div>
+        </li>
+        <div class="btnholder">
+            <input class="bluebtn" ng-click="ACC.updateStripeError()" value="{{'CLEAR' | translate}}" type="submit">
+        </div>
+    </ul>
+                                </div>
+
+<style>
+.stripe-connect {
+    display: inline-block;
+    margin-bottom: 1px;
+    background-image: -webkit-linear-gradient(#28a0e5,#015e94);
+    background-image: linear-gradient(#28a0e5,#015e94);
+    -webkit-font-smoothing: antialiased;
+    border: 0;
+    padding: 1px;
+    height: 30px;
+    text-decoration: none;
+    border-radius: 4px;
+    box-shadow: 0 1px 0 rgba(0,0,0,.2);
+    cursor: pointer;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    text-decoration: none!important;
+}
+.stripe-connect span {
+    display: block;
+    position: relative;
+    padding: 0 12px;
+    height: 30px;
+    background: #1275ff;
+    background-image: -webkit-linear-gradient(#7dc5ee,#008cdd 85%,#30a2e4);
+    background-image: linear-gradient(#7dc5ee,#008cdd 85%,#30a2e4);
+    font-size: 14px;
+    line-height: 30px;
+    color: #fff;
+    font-weight: 700;
+    font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+    text-shadow: 0 -1px 0 rgba(0,0,0,.2);
+    box-shadow: inset 0 1px 0 hsla(0,0%,100%,.25);
+    border-radius: 3px;
+}
+Inherited from a.stripe-connect
+
+</style>

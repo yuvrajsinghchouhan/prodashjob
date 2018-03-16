@@ -1,0 +1,31 @@
+extends layout
+
+block vars
+  - var title='Step 3'
+  - var description = 'Maidac Tasker Registration'
+
+block content
+ form(action='/mobile/provider/register/step4', method='post', enctype='multipart/form-data')
+  .applyto-tasker.apply6
+    .container2
+      .full-holder
+        //h1.top-texts Apply To Be A Tasker
+        h1.top-textsinput(class='backbutton',action='action', type='button', value='Back', onclick='history.go(-1);') Back | Apply To Be A Tasker
+        .tasker-pannel
+          .tasker-head
+          .tasker-body
+            p.pic-dec
+              share
+                | A photo from your neck up that will help you put your best foot forward with potential clients. A genuine smile goes a long way!
+            .btn-contee
+              .filetype-holdr
+                input#taskerimage.pic-up(type='file', name='userimage', accept="image/*")
+                span.uplor-pice Upload Photo
+          .left-pic
+             img#myImg(src=siteurl+'uploads/images/users/user.jpg',onchange=siteurl+userimage,style='height:auto')
+             img#loader(src=siteurl+'app/site/public/images/loader.gif',style='display:none')
+             .righ-side-pic
+                img#pageloader(src=siteurl+'app/site/public/images/loader.gif',style='display:none')
+          .righ-side-pic
+            input.blue-btn(value='Continue', type='submit',onClick="return imgsize();")
+         

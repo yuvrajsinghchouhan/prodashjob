@@ -1,0 +1,70 @@
+<div class="page page-tables-bootstrap">
+   <!-- page header -->
+   <div class="pageheader">
+      <h2>{{ 'Menu.QUESTIONMANAGEMENT' | translate }} </h2>
+      <div class="page-bar">
+         <ul class="page-breadcrumb">
+            <li>
+               <a ui-sref="app.dashboard"><i class="fa fa-home"></i> {{main.title}}</a>
+            </li>
+            <li>
+               <a ui-sref="app.tasker_management.question.viewsQuestion">{{'SubMenu.ALL_QUESTIONS' | translate}}</a>
+            </li>
+            <li>
+               <a ui-sref="app.tasker_management.question.add" href="#/app/add">{{ EDQC.breadcrumb | translate }}</a>
+            </li>
+         </ul>
+      </div>
+   </div>
+   <!-- /page header -->
+   <!-- page content -->
+   <div class="pagecontent">
+      <!-- row -->
+      <div class="row">
+         <!-- col -->
+         <div class="col-md-12">
+            <!-- tile -->
+            <section class="tile" >
+               <!-- tile header -->
+               <div class="tile-header dvd dvd-btm">
+                  <h1 class="custom-font"><strong>Question</strong> Edit</h1>
+               </div>
+               <!-- /tile header -->
+               <div class="tile-body" style="padding-bottom: 80px;">
+                  <form class="profile-settings" submit-validate enctype="multipart/form-data" name="questionForm"  novalidate>
+                     <div class="form-group" ng-class="{ 'has-error' : questionForm.questionName.$invalid && !questionForm.questionName.$pristine, 'has-success' : questionForm.questionName.$valid && !questionForm.questionName.$pristine}">
+                        <label for="questionName">Question</label>
+                        <input type="text" name="questionName" class="form-control"
+                           ng-model="EDQC.editQuestionData.question" id="questionName" on-blur-validation required>
+                        <p class="help-block">
+                           <span ng-show="questionForm.questionName.$invalid && !questionForm.questionName.$pristine">Question is required.</span>
+                        </p>
+                     </div>
+                     <div class="form-group" ng-class="{ 'has-error' : questionForm.publish.$invalid && !questionForm.publish.$pristine, 'has-success' : questionForm.publish.$valid && !questionForm.publish.$pristine}">
+                        <label for="publish">Status</label>
+                        <select id="publish" name="publish" ng-model="EDQC.editQuestionData.status" convert-to-number class="form-control mb-10" on-blur-validation required>
+                            <option value=''>Select the Status</option>
+                           <option value='1'>Publish</option>
+                           <option value='2'>Unpublish</option>
+                           <p class="help-block">
+                           <span ng-show="questionForm.publish.$invalid && !questionForm.publish.$pristine">status is required.</span>
+                        </p>
+                        </select>
+                     </div>
+
+                     <div class="form-group tcol">
+                        <button class="btn btn-success btn-ef btn-ef-5 btn-ef-5a" ng-click="EDQC.submit(questionForm.$valid);">
+                        <i class="fa fa-upload"></i> <span>Submit</span>
+                        </button>
+                     </div>
+                  </form>
+               </div>
+            </section>
+            <!-- /tile -->
+         </div>
+         <!-- /col -->
+      </div>
+      <!-- /row -->
+   </div>
+   <!-- /page content -->
+</div>

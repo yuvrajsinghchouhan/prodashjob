@@ -1,0 +1,57 @@
+  <div class="signup-page">
+  <div style="background-image: url('{{rc.loginimage.image}}');" class="sinupimg-container"></div>
+  <div class="sign-up-holder socila-holder" ng-if="!SOC.fbState">
+    <div class="logo-container">
+      <a ui-sref="landing"><img src="{{rc.getsetting.logo}}"></a>
+    </div>
+
+    <ul class="sign-btns">
+      <li>
+        <!--<button type="button" class="blue-btn vl-btn" ng-click="login()" style="width: 100%;">Facebook</button></li>
+      <li><a class="grn-btn red-btn" href="/auth/google" target="_self">Google</a></li>
+      <li><small class="opr-text">or</small></li>-->
+      <li><small class="logtext">{{'LOGIN_OR_SIGNUP_WITH_EMAIL' | translate}} </small></li>
+      <li class="half-pges"><a ui-sref="userlogin">{{'LOGIN' | translate}}</a>
+      <a ui-sref="register({type:'user'})" href="/register">{{'SIGN_UP' | translate}}</a></li>
+      <li><a class="grn-btn fb-btn" href="#" ng-click="facebookLogin()">{{'LOGIN_WITH_FACEBOOK'| translate}}</a></li>
+    </ul>
+    <ul class="sign-btns">
+      <li><small class="logtext">{{'BY_SIGNING_UP_YOU_AGREE_TO_OUR'| translate}}  <a href="{{rc.site_url}}/page/termsandconditions">{{'TERMSOFUSE'| translate}} </a> {{'AND'| translate}} <a href="{{rc.site_url}}/page/privacypolicy"> {{'PRIVACY_POLICY'| translate}}.</a> </small></li>
+    </ul>
+  </div>
+  <div class="sign-up-holder socila-holder" ng-if="SOC.fbState">
+    <div class="logo-container">
+      <a ui-sref="landing"><img src="app/site/public/images/logo2.png"></a>
+    </div>
+
+    <form ng-submit="login()" role="form" name="form" class="form-validation mt-20" method="post" novalidate>
+
+      <div class="form-group" ng-class="{ 'has-error' : form.username.$invalid && !form.username.$pristine, 'has-success' : form.username.$valid && !form.username.$pristine}">
+        <input type="username" autocomplete="remember==true?on:off" class="form-control underline-input" name="username" placeholder="User Name"
+          ng-model="username" required>
+        <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Username is required</span>
+      </div>
+
+      <div class="form-group" ng-class="{ 'has-error' : form.username.$invalid && !form.username.$pristine, 'has-success' : form.username.$valid && !form.username.$pristine}">
+        <input type="password" autocomplete="remember==true?on:off" placeholder="Password" name="password" class="form-control underline-input"
+          ng-model="password" required>
+        <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span>
+      </div>
+
+      <div class="form-group" ng-class="{ 'has-error' : form.username.$invalid && !form.username.$pristine, 'has-success' : form.username.$valid && !form.username.$pristine}">
+        <input type="password" autocomplete="remember==true?on:off" placeholder="Confirm Password" name="password" class="form-control underline-input"
+          ng-model="password" required>
+        <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span>
+      </div>
+
+
+      <h3 ng-show="error" class="text-light text-greensea">{{error}}</h3>
+      <div class="form-group text-left mt-20">
+        <div class="form-actions">
+          <button type="submit" ng-disabled="form.$invalid" class="grn-btn blu-btn">{{'LOGIN' | translate}}</button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>

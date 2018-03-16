@@ -1,0 +1,149 @@
+<div class="tile-widget">
+    <div class="row">
+        <div class="col-sm-12">
+            <ul class="tabletop-sub-list">
+                <li ng-if="CTC.filterDataArray" ng-repeat="(key,value) in CTC.temp.data" class="all" ng-click="CTC.filterData = key"><a href="javascript:;" class="current">{{CTC.temp.alias[key]}}<span class="count">({{value}})</span></a>                    |</li>
+            </ul>
+        </div>
+
+        <div class="col-sm-5">
+
+            <select class="input-sm form-control inline w-sm" ng-init="selectData = options[0]" ng-if="CTC.data.module != 'earnings'"
+                ng-model="CTC.selectAction">
+            <option value="">Bulk Action</option>
+            <option value="delete">Delete Selected</option>
+         </select>
+            <button class="btn btn-sm btn-default" ng-if="CTC.data.module != 'earnings'" ng-click="CTC.openDeleteModal(CTC.selectAction, CTC.data.data,CTC.data.delete)">Apply</button>
+            <div style="width: 33.33333333%; margin-top: 4px; " ng-if="CTC.data.layout[0].name == 'Subscriber'">
+                <select class="input-sm form-control inline w-sm" ng-if="CTC.data.layout[0].name == 'Subscriber'" ng-model="CTC.template">
+                <option value="">--Select Template--</option>
+                <option ng-repeat="email in CTC.data.SubscriberMail" value="{{email._id}}">{{email.name}}</option>
+              </select>
+                <button style="margin-left: 153px;  margin-top: -52px" ng-if="CTC.data.layout[0].name == 'Subscriber'" class="btn btn-sm btn-default "
+                    ng-click="CTC.sendbulkmail(CTC.selectAction,CTC.data.data,CTC.data.delete,CTC.template)">Send Mail</button>
+            </div>
+
+            <div style="width: 33.33333333%; margin-top: 4px;display: inline; " ng-if="CTC.data.layout[0].name == 'User'">
+                <button ng-if="CTC.data.layout[0].name == 'User'" class="btn btn-primary btn-ef btn-ef-7 btn-ef-7b mb-10" ng-click="CTC.sendmail(CTC.data.data,'user')"><i class="fa fa-envelope"></i>Send Mail</button>
+            </div>
+            <div style="width: 33.33333333%; margin-top: 4px; display: inline;" ng-if="CTC.data.layout[0].name == 'User'">
+                <button ng-if="CTC.data.layout[0].name == 'User'" class="btn btn-primary btn-ef btn-ef-7 btn-ef-7b mb-10" ng-click="CTC.sendnotification(CTC.data.data,'user')"><i class="fa fa-bell-o"></i>Send Notification</button>
+            </div>
+
+            <div style="width: 33.33333333%; margin-top: 4px;display: inline; " ng-if="CTC.data.layout[0].name == 'Tasker'">
+                <button ng-if="CTC.data.layout[0].name == 'Tasker'" class="btn btn-primary btn-ef btn-ef-7 btn-ef-7b mb-10" ng-click="CTC.sendmail(CTC.data.data,'tasker')"><i class="fa fa-envelope"></i>Send Mail</button>
+            </div>
+            <div style="width: 33.33333333%; margin-top: 4px;display: inline; " ng-if="CTC.data.layout[0].name == 'Tasker'">
+                <button ng-if="CTC.data.layout[0].name == 'Tasker'" class="btn btn-primary btn-ef btn-ef-7 btn-ef-7b mb-10" ng-click="CTC.sendnotification(CTC.data.data,'tasker')"><i class="fa fa-bell-o"></i>Send Notification</button>
+            </div>
+
+        </div>
+
+        <div class="col-sm-3"></div>
+        <div class="col-sm-4">
+            <div class="input-group pull-right" ng-if="CTC.data.search != 'hide'">
+                <input type="text" class="input-sm form-control" ng-model="CTC.userTableSearch" ng-change="CTC.pageChange(CTC.currentPage,CTC.entryLimit,CTC.userTableSearch)"
+                    placeholder="Search...">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="tile-body p-0">
+    <table class="table mb-0 listtable">
+        <thead>
+            <tr>
+                <th style="width:20px;">
+                    <label class="checkbox checkbox-custom-alt checkbox-custom-sm m-0">
+                    <input type="checkbox" ng-model="CTC.selectedAll" ng-change="CTC.selectAll(CTC.entryLimit,CTC.currentPage)" class="ng-valid ng-dirty ng-valid-parse ng-touched"
+                        aria-checked="false" aria-invalid="false" style=""><i></i>
+                        </label>
+                </th>
+                <th ng-if="CTC.data.search != 'hide'" ng-repeat="tableHead in CTC.data.layout" ng-click="CTC.order(tableHead.variable)">
+                    <span ng-if="tableHead.sort == 1">
+                  {{tableHead.name}}
+                  <span class="sort sorting" ng-show="CTC.predicate != tableHead.variable"></span>
+                    <span class="sort" ng-show="CTC.predicate == tableHead.variable" ng-class="{'sorting-asc':(CTC.reverse == 1 ), 'sorting-dec':(CTC.reverse == -1 ),'sorting':CTC.blur }"></span>
+                    </span>
+                    <span ng-if="tableHead.sort != 1">
+                  {{tableHead.name}}
+               </span>
+                </th>
+                <th ng-if="CTC.data.search == 'hide'" ng-repeat="tableHead in CTC.data.layout">
+                    <span ng-if="tableHead.sort == 1">
+                  {{tableHead.name}}
+                  <span class="sort sorting" ng-show="CTC.predicate != tableHead.variable"></span>
+                    <span class="sort" ng-show="CTC.predicate == tableHead.variable" ng-class="{'sorting-asc':(CTC.reverse == 1 ), 'sorting-dec':(CTC.reverse == -1 ),'sorting':CTC.blur }"></span>
+                    </span>
+                    <span ng-if="tableHead.sort != 1">
+                  {{tableHead.name}}
+               </span>
+                </th>
+
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr ng-repeat="user in CTC.data.data  |  exactFilter:CTC.filterKey:CTC.filterData" ng-init="parentIndex = $index" ng-if="(CTC.data.count > 0)">
+                <td>
+                    <label class="checkbox checkbox-custom-alt checkbox-custom-sm m-0">
+                        <input type="checkbox" ng-model="user.selected" ng-change="CTC.selectCheck(user)" class="ng-pristine ng-untouched ng-valid" aria-checked="false" aria-invalid="false"><i></i>
+                    </label>
+                </td>
+                <td ng-repeat="data in CTC.data.layout">
+                    <content-item content="user" options="CTC.data.delete" template="data.template" currentpage="CTC.currentPage" entrylimit="CTC.entryLimit"
+                        predicate="CTC.predicate" reverse="CTC.reverse" usertablesearch="CTC.userTableSearch"></content-item>
+                    <label ng-if="data.type=='language'" ng-click="CTC.data.delete.language.change(user._id)" ng-model="CTC.data.delete.language.default"
+                        btn-radio="'{{user._id}}'" uncheckable ng-mouseenter="hover = true" ng-mouseleave="hover = false">
+                    <i class="glyphicon ng-scope fa text-lg" ng-class="(user._id==CTC.data.delete.language.default || hover) ? 'text-orange fa-star' : 'fa-star-o'" ></i>
+                    </label>
+
+                    <label ng-if="data.type=='currency'" ng-click="CTC.data.delete.currency.change(user._id)" ng-model="CTC.data.delete.currency.default"
+                        btn-radio="'{{user._id}}'" uncheckable ng-mouseenter="hover = true" ng-mouseleave="hover = false">
+                    <i class="glyphicon ng-scope fa text-lg" ng-class="(user._id==CTC.data.delete.currency.default || hover) ? 'text-orange fa-star' : 'fa-star-o'" ></i>
+                </label>
+                </td>
+            </tr>
+            <tr ng-if="CTC.data.count <= 0">
+                <td colspan="100%" style="text-align: center; padding: 25px;"> No data available
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</div>
+<div class="tile-footer dvd dvd-top">
+    <div class="row">
+        <div class="col-sm-6 text-left">
+            <small class="text-muted" ng-if="CTC.data.count">Showing {{(CTC.currentPage-1)*CTC.entryLimit +1}} - {{(CTC.currentPage*CTC.entryLimit)<=CTC.data.count ? (CTC.currentPage*CTC.entryLimit) : CTC.data.count}} of {{CTC.data.count}} items</small>
+        </div>
+        <div class="col-sm-6">
+            <div class="showitems pull-right">
+                <span class="pull-left first">Show</span>
+                <select ng-model="CTC.entryLimit" ng-change="CTC.pageChange(CTC.currentPage,CTC.entryLimit)" class="input-sm form-control inline pull-left"
+                    ng-init="somethingHere = options[0]" ng-options="size for size in CTC.pageSizes">
+            </select>
+                <span class="pull-left last">entries</span>
+            </div>
+        </div>
+    </div>
+    <div class="row margintop-20">
+        <div class="col-sm-5 hidden-xs pull-left" ng-if="CTC.data.module == 'earnings'">
+        </div>
+
+        <div class="col-sm-5 hidden-xs pull-left" ng-if="CTC.data.module != 'earnings'">
+            <select class="input-sm form-control inline w-sm" ng-init="selectData = options[0]" ng-model="CTC.selectAction">
+            <option value="">Bulk Action</option>
+            <option value="delete">Delete Selected</option>
+         </select>
+            <button class="btn btn-sm btn-default" ng-click="CTC.openDeleteModal(CTC.selectAction, CTC.data.data,CTC.data.delete)">Apply</button>
+        </div>
+        <div class="col-sm-7 text-right">
+            <div class="pagination">
+                <pagination total-items="CTC.data.count" ng-change="CTC.pageChange(CTC.currentPage,CTC.entryLimit,CTC.userTableSearch)" ng-model="CTC.currentPage"
+                    max-size="CTC.maxPaginationSize" items-per-page="CTC.entryLimit" class="pagination-sm" boundary-links="true"
+                    rotate="false">
+                </pagination>
+            </div>
+        </div>
+    </div>
+</div>

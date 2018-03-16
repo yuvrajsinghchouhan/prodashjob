@@ -1,0 +1,82 @@
+
+
+/*38*/
+.signup-page {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    position: relative;
+	background:	#FC7800;
+	/*background:#2d2b29;*/
+}
+/*105*/
+.blue-btn:hover, .grn-btn:hover {
+    background-color:#FC7800;
+    color: #fff;
+    text-decoration: none;
+    margin-top: 10px;
+}
+/*2353*/
+.backbutton{
+    float: left;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    font-size: 20px;
+    background: #FC7800;
+    padding: 15px 10px;
+    color: #fff;
+    
+}
+
+/*1559*/
+.uplor-pice {
+    background:#FC7800;
+    border-radius: 3px;
+    color: #fff;
+    float: left;
+    font-size: 18px;
+    padding: 10px 23px;
+    width: 100%;
+    text-align: center;
+}
+/*1728*/
+.availabilities-day-form .modal-header {
+    background-color:#FC7800;
+}
+/*1876*/
+.availabilities-day-form input:checked + .switch {
+    background:#FC7800;  none repeat scroll 0 0;
+    
+}
+/*288*/
+
+.bluebtn {
+    background:#FC7800;
+    color: #fff;
+    padding: 11px 30px;
+    border: none;
+    border-radius: 3px;
+    font-family: proximanovaregular;
+    font-size: 20px;
+    border: 1px solid transparent;
+    text-transform: capitalize;
+	width:100%;
+}
+/*1776*/
+.panel-group .panel-heading a {
+  display: block;
+  background:#FC7800;
+  color: #ffffff;
+  padding: 15px;
+  text-decoration: none;
+  position: relative;
+  font-size: 17px;
+}
+
+/*1790*/
+.panel-group .panel-heading a.collapsedit{
+  background:#FC7800;
+  color: #fff;
+  font-size: 14px;
+}

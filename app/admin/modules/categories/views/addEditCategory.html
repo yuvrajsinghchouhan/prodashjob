@@ -1,0 +1,147 @@
+<div class="page page-tables-bootstrap">
+   <!-- page header -->
+   <div class="pageheader">
+       <h2>{{ 'Menu.CATEGORIES' | translate }} </h2>
+       <div class="page-bar">
+          <ul class="page-breadcrumb">
+             <li>
+                <a ui-sref="app.dashboard"><i class="fa fa-home"></i> {{main.title}}</a>
+             </li>
+             <li>
+                <a ui-sref="app.categories.list">{{ 'Menu.CATEGORIES' | translate }} List</a>
+             </li>
+             <li>
+                <a ui-sref="app.banner.editBanner" href="#/app/banner/edit-banner">{{ ECATC.breadcrumb | translate }}</a>
+             </li>
+          </ul>
+       </div>
+    </div>
+   <!-- /page header -->
+   <!-- page content -->
+   <div class="pagecontent">
+      <!-- row -->
+      <div class="row">
+         <!-- col -->
+         <div class="col-md-12">
+            <!-- tile -->
+            <section class="tile" >
+               <!-- tile header -->
+               <div class="tile-header dvd dvd-btm">
+                  <h1 class="custom-font"><strong>Add Main Category</strong></h1>
+               </div>
+               <!-- /tile header -->
+               <div class="tile-body" style="padding-bottom: 80px;">
+                  <form class="profile-settings" submit-validate enctype="multipart/form-data" name="categoryForm"  novalidate>
+
+                     <div class="form-group" ng-class="{ 'has-error' : categoryForm.CategoryName.$invalid && !categoryForm.CategoryName.$pristine, 'has-success' : categoryForm.CategoryName.$valid && !categoryForm.CategoryName.$pristine}">
+                        <label for="CategoryName">Category Name</label>
+                        <input type="text" name="CategoryName" class="form-control" ng-model="ECATC.editCategoryData.name" id="CategoryName" on-blur-validation required>
+                        <p class="help-block">
+                           <span ng-show="categoryForm.CategoryName.$invalid && !categoryForm.CategoryName.$pristine">Enter Category Name .</span>
+                        </p>
+                     </div>
+
+
+                     <div class="form-group" ng-class="{ 'has-error' : categoryForm.slug.$invalid && !categoryForm.slug.$pristine, 'has-success' : categoryForm.slug.$valid && !categoryForm.slug.$pristine}">
+                      <label for="slug">Page Slug: </label>
+         						      <p class="mb-10 custom-font">
+                            {{ECATC.editsettingData}}category/<span ng-show="!edit_billing_address">{{ECATC.editCategoryData.slug | slugify}}</span>
+         						        <input type="text" ng-show="edit_billing_address" name="slug" id="slug" class="" ng-model="ECATC.editCategoryData.slug" on-blur-validation required>
+         						        <a href="javascript:;" ng-click="edit_billing_address = !edit_billing_address" class="btn btn-default btn-rounded-20 btn-xs pull-right"><i class="fa fa-pencil"></i></a>
+                          </p>
+     						           <p class="help-block">
+                                <span ng-show="categoryForm.slug.$invalid && !categoryForm.slug.$pristine">Enter a Slug Value.</span>
+                           </p>
+                      </div>
+
+
+                     <div class="form-group" ng-class="{ 'has-error' : categoryForm.image.$invalid && !categoryForm.image.$pristine, 'has-success' : categoryForm.image.$valid && !categoryForm.image.$pristine}">
+                        <label class="control-label">Category Image</label>
+                        <input ui-jq="filestyle" type="file" ngf-select="temp=true" ng-model="ECATC.editCategoryData.image" name="image"
+                               ngf-max-size="1MB" ngf-pattern="'image/jpg,image/jpeg,image/gif'" ngf-model-invalid="errorFiles" class="filestyle" ui-options="{ buttonText: 'Select file', iconName: 'fa fa-inbox'}" id="image" ng-required="!ECATC.editCategoryData._id">
+                        <div class="form-group" ng-class="{ 'has-error' : categoryForm.image.$invalid && !categoryForm.image.$pristine, 'has-success' : categoryForm.image.$valid && !categoryForm.image.$pristine}">
+                           <span class="help-block">Allowed files: gif, png, jpg. Max file size 1Mb</span>
+                           <img ng-if="temp" height="150" ngf-src="ECATC.editCategoryData.image" >
+                           <img ng-if="!temp&&!ECATC.editCategoryData.image==''" height="150" ngf-src="ECATC.editCategoryData.image" >
+                        </div>
+                     </div>
+
+                      <div class="form-group" ng-class="{ 'has-error' : categoryForm.marker.$invalid && !categoryForm.marker.$pristine, 'has-success' : categoryForm.marker.$valid && !categoryForm.marker.$pristine}">
+                        <label class="control-label">Category Marker</label>
+                        <input ui-jq="filestyle" type="file" ngf-select="temp=true" ng-model="ECATC.editCategoryData.marker" name="marker"
+                               ngf-max-size="1MB" ngf-pattern="'image/jpg,image/jpeg,image/png,image/gif'" ngf-model-invalid="errorFiles" class="filestyle" ui-options="{ buttonText: 'Select file', iconName: 'fa fa-inbox'}" id="marker" ng-required="!ECATC.editCategoryData._id">
+                        <div class="form-group" ng-class="{ 'has-error' : categoryForm.marker.$invalid && !categoryForm.marker.$pristine, 'has-success' : categoryForm.marker.$valid && !categoryForm.marker.$pristine}">
+                           <span class="help-block">Allowed files: gif, png, jpg. Max file size 1Mb</span>
+                           <img ng-if="temp" height="100" ngf-src="ECATC.editCategoryData.marker" >
+                           <img ng-if="!temp&&!ECATC.editCategoryData.marker==''" height="100" ngf-src="ECATC.editCategoryData.marker" >
+                        </div>
+                     </div>
+
+                       <div class="form-group" ng-class="{ 'has-error' : categoryForm.icon.$invalid && !categoryForm.icon.$pristine, 'has-success' : categoryForm.icon.$valid && !categoryForm.icon.$pristine}">
+                        <label class="control-label">Category In-active Icon(Mobile app)</label>
+                        <input ui-jq="filestyle" type="file" ngf-select="temp=true" ng-model="ECATC.editCategoryData.icon" name="icon"
+                               ngf-max-size="1MB" ngf-pattern="'image/jpg,image/jpeg,image/png,image/gif'" ngf-model-invalid="errorFiles" class="filestyle" ui-options="{ buttonText: 'Select file', iconName: 'fa fa-inbox'}" id="icon" ng-required="!ECATC.editCategoryData._id">
+                        <div class="form-group" ng-class="{ 'has-error' : categoryForm.icon.$invalid && !categoryForm.icon.$pristine, 'has-success' : categoryForm.icon.$valid && !categoryForm.icon.$pristine}">
+                           <span class="help-block">Allowed files: gif, png, jpg. Max file size 1Mb</span>
+                           <img ng-if="temp" height="100" ngf-src="ECATC.editCategoryData.icon" >
+                           <img ng-if="!temp&&!ECATC.editCategoryData.icon==''" height="100" ngf-src="ECATC.editCategoryData.icon" >
+                        </div>
+                     </div>
+
+
+                     <div class="form-group" ng-class="{ 'has-error' : categoryForm.activeicon.$invalid && !categoryForm.activeicon.$pristine, 'has-success' : categoryForm.activeicon.$valid && !categoryForm.activeicon.$pristine}">
+                        <label class="control-label">Category Active Icon(Mobile app)</label>
+                        <input ui-jq="filestyle" type="file" ngf-select="temp=true" ng-model="ECATC.editCategoryData.activeicon" name="activeicon"
+                               ngf-max-size="1MB" ngf-pattern="'image/jpg,image/jpeg,image/png,image/gif'" ngf-model-invalid="errorFiles" class="filestyle" ui-options="{ buttonText: 'Select file', iconName: 'fa fa-inbox'}" id="activeicon" ng-required="!ECATC.editCategoryData._id">
+                        <div class="form-group" ng-class="{ 'has-error' : categoryForm.activeicon.$invalid && !categoryForm.activeicon.$pristine, 'has-success' : categoryForm.activeicon.$valid && !categoryForm.activeicon.$pristine}">
+                           <span class="help-block">Allowed files: gif, png, jpg. Max file size 1Mb</span>
+                           <img ng-if="temp" height="100" ngf-src="ECATC.editCategoryData.activeicon" >
+                           <img ng-if="!temp&&!ECATC.editCategoryData.activeicon==''" height="100" ngf-src="ECATC.editCategoryData.activeicon" >
+                        </div>
+                     </div>
+
+
+
+                     <div class="form-group" ng-class="{ 'has-error' : categoryForm.keyword.$invalid && !categoryForm.keyword.$pristine, 'has-success' : categoryForm.keyword.$valid && !categoryForm.keyword.$pristine}">
+                        <label for="keyword">Meta Keyword</label>
+                        <input type="text" name="keyword" class="form-control" ng-model="ECATC.editCategoryData.seo.keyword" id="keyword" on-blur-validation required>
+                        <p class="help-block">
+                           <span ng-show="categoryForm.keyword.$invalid && !categoryForm.keyword.$pristine"> Enter Meta Keyword.</span>
+                        </p>
+                     </div>
+
+                     <div class="form-group" ng-class="{ 'has-error' : categoryForm.title.$invalid && !categoryForm.title.$pristine, 'has-success' : categoryForm.title.$valid && !categoryForm.title.$pristine}">
+                        <label for="title">Meta Title</label>
+                        <input type="text" name="title" class="form-control" ng-model="ECATC.editCategoryData.seo.title" id="title" on-blur-validation required>
+                        <p class="help-block">
+                           <span ng-show="categoryForm.title.$invalid && !categoryForm.title.$pristine">Enetr Meta Title.</span>
+                        </p>
+                     </div>
+                     <div class="form-group" ng-class="{ 'has-error' : categoryForm.publish.$invalid && !categoryForm.publish.$pristine, 'has-success' : categoryForm.publish.$valid && !categoryForm.publish.$pristine}">
+                        <label for="publish">Status</label>
+                        <select id="publish" name="publish" ng-model="ECATC.editCategoryData.status" convert-to-number class="form-control mb-10" on-blur-validation required>
+                           <option value='1' selected="1">Publish</option>
+                           <option value='2'>UnPublish</option>
+                           <p class="help-block">
+                              <span ng-show="categoryForm.publish.$invalid && !categoryForm.publish.$pristine">status is required.</span>
+                           </p>
+                        </select>
+                     </div>
+
+                     <div class="form-group tcol">
+                        <button class="btn btn-success btn-ef btn-ef-5 btn-ef-5a" ng-disabled="ECATC.disbledValue" ng-click="ECATC.submit(categoryForm.$valid,ECATC.editCategoryData);">
+                        <i class="fa fa-upload"></i> <span>Submit</span>
+                        </button>
+                     </div>
+
+                  </form>
+               </div>
+            </section>
+            <!-- /tile -->
+         </div>
+         <!-- /col -->
+      </div>
+      <!-- /row -->
+   </div>
+   <!-- /page content -->
+</div>

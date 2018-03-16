@@ -1,0 +1,153 @@
+<div class="page page-forms-common">
+  <div class="pageheader">
+   <h2>{{ 'Menu.USERS' | translate }}</h2>
+   <div class="page-bar">
+       <ul class="page-breadcrumb">
+           <li><a ui-sref="app.dashboard"><i class="fa fa-home"></i> {{main.title}}</a></li>
+           <li><a ui-sref="app.admins.sub"><span>{{'SubMenu.SUB_ADMIN_LIST' | translate }}</span></a></li>
+           <li><a href="javascript:;">{{ROMC.action}} {{ ROMC.breadcrumb | translate }}</a></li>
+       </ul>
+   </div>
+</div>
+    <div class="pagecontent">
+        <div class="row">
+            <div class="col-md-12">
+                <section class="tile" fullscreen="isFullscreen04">
+                    <div class="tile-header dvd dvd-btm">
+                        <h1 class="custom-font"><strong>{{ROMC.action | uppercase }}</strong> Sub Admin</h1>
+                    </div>
+                    <div class="tile-body">
+                        <form class="form-horizontal" name="subadmin" role="form" submit-validate novalidate>
+                            <div class="form-group" ng-class="{ 'has-error' : subadmin.username.$invalid && !subadmin.username.$pristine, 'has-success' : subadmin.username.$valid && !subadmin.username.$pristine}">
+                                <label for="input01" class="col-sm-2 control-label">Username</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="username" id="username" class="form-control" ng-model="ROMC.editSubAdminData.username" on-blur-validation
+                                        required>
+                                    <p class="help-block">
+                                        <span ng-show="subadmin.username.$invalid && !subadmin.username.$pristine">Username is required.</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <hr class="line-dashed line-full" />
+                            <div class="form-group" ng-class="{ 'has-error' : subadmin.name.$invalid && !subadmin.name.$pristine, 'has-success' : subadmin.name.$valid && !subadmin.name.$pristine}">
+                                <label for="input01" class="col-sm-2 control-label">Name</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="name" id="name" class="form-control" ng-model="ROMC.editSubAdminData.name" on-blur-validation required>
+                                    <p class="help-block">
+                                        <span ng-show="subadmin.name.$invalid && !subadmin.name.$pristine">Name is required.</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <hr class="line-dashed line-full" />
+                            <div class="form-group" ng-class="{ 'has-error' : subadmin.email.$invalid && !subadmin.email.$pristine, 'has-success' : subadmin.email.$valid && !subadmin.email.$pristine}">
+                                <label for="input01" class="col-sm-2 control-label">Email</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="email" id="email" ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/" class="form-control" ng-model="ROMC.editSubAdminData.email" on-blur-validation required>
+                                    <p class="help-block">
+                                        <span ng-show="subadmin.email.$invalid && !subadmin.email.$pristine">Email is required.</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div ng-if="ROMC.action == 'Add'" >
+                            <hr class="line-dashed line-full" />
+                            <div class="form-group" ng-class="{ 'has-error' : subadmin.password.$invalid && !subadmin.password.$pristine, 'has-success' : subadmin.password.$valid && !subadmin.password.$pristine}" >
+                                <label for="input02" class="col-sm-2 control-label">Password</label>
+                                <div class="col-sm-10">
+                                    <input type="password" name="password" id="password" class="form-control" ng-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,12}$/" ng-minlength="6" ng-maxlength="12" ng-model="ROMC.editSubAdminData.password" on-blur-validation required>
+                                    <p class="help-block">
+                                        <span class="validerr" style="color:red" ng-show="subadmin.password.$error.required && !subadmin.password.$pristine">Password is required.</span>
+                                        <span class="validerr" style="color:red" ng-show="subadmin.password.$invalid && !subadmin.password.$pristine && subadmin.password.$error.pattern">Password Must Contain Atleast One uppercase,One lower case,One Numeric digit.</span>
+                                        <span class="validerr" style="color:red" ng-show="subadmin.password.$error.minlength">Password must be minimum of 6 characters.</span>
+                                        <span class="validerr" style="color:red" ng-show="subadmin.password.$error.maxlength">Password must be maximum of 12 characters.</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <hr class="line-dashed line-full" />
+                            <div class="form-group" ng-class="{ 'has-error' : subadmin.confirmpassword.$invalid && !subadmin.confirmpassword.$pristine, 'has-success' : subadmin.confirmpassword.$valid && !subadmin.confirmpassword.$pristine}">
+                                <label for="input02" class="col-sm-2 control-label">Confirm Password</label>
+                                <div class="col-sm-10">
+                                    <input type="password" name="confirmpassword" id="confirmpassword" class="form-control" ng-model="ROMC.editSubAdminData.confirmPassword"   ui-validate=" '$value==ROMC.editSubAdminData.password' " ui-validate-watch=" 'ROMC.editSubAdminData.password'"
+                                      on-blur-validation required>
+                                    <p class="help-block">
+                                      <span ng-show='subadmin.confirmpassword.$error.validator'>Passwords do not match!</span>
+                                    </p>
+                                </div>
+                              </div>
+                            </div>
+                            <!-- if Edit -->
+                            <div ng-if="ROMC.action == 'Edit'" >
+                            <hr class="line-dashed line-full" />
+                            <div class="form-group">
+                                <label for="input02" class="col-sm-2 control-label">Password</label>
+                                <div class="col-sm-10">
+                                    <input type="password" name="password" id="password" class="form-control" ng-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,12}$/" ng-minlength="6" ng-maxlength="12" ng-model="ROMC.editSubAdminData.password">
+                                <p class="help-block">
+                                         <span class="validerr" style="color:red" ng-show="subadmin.password.$error.required && !subadmin.password.$pristine">Password is required.</span>
+                                        <span class="validerr" style="color:red" ng-show="subadmin.password.$invalid && !subadmin.password.$pristine && subadmin.password.$error.pattern">Password Must Contain Atleast One uppercase,One lower case,One Numeric digit.</span>
+                                        <span class="validerr" style="color:red" ng-show="subadmin.password.$error.minlength">Password must be minimum of 6 characters.</span>
+                                        <span class="validerr" style="color:red" ng-show="subadmin.password.$error.maxlength">Password must be maximum of 12 characters.</span>
+                               </p>
+                                </div>
+                            </div>
+                            <hr class="line-dashed line-full" />
+                            <div class="form-group">
+                                <label for="input02" class="col-sm-2 control-label">Confirm Password</label>
+                                <div class="col-sm-10" ng-if="ROMC.editSubAdminData.password" >
+                                  <input type="password" name="confirmpassword" id="confirmpassword" class="form-control" ng-model="ROMC.editSubAdminData.confirmPassword"   ui-validate=" '$value==ROMC.editSubAdminData.password' " ui-validate-watch=" 'ROMC.editSubAdminData.password'"
+                                    on-blur-validation required>
+                                  <p class="help-block">
+                                    <span class ="validerr" ng-show='subadmin.confirmpassword.$error.validator'>Passwords do not match!</span>
+                                  </p>
+                              </div>
+                              <div class="col-sm-10" ng-if="!ROMC.editSubAdminData.password">
+                                <input type="password" name="confirmpassword" id="confirmpassword" class="form-control" ng-model="ROMC.editSubAdminData.confirmPassword"  >
+                              </div>
+                            </div>
+                            <!--End  -->
+                          </div>
+                            <hr class="line-dashed line-full" />
+
+                            <div style="padding-bottom: 15px; text-align: center;">
+                                <input type="checkbox" ng-model="ROMC.checkAll" ng-change="ROMC.selectAllRoles(ROMC.checkAll)"><i></i>                                Select All
+                            </div>
+
+                            <div class="table-responsive">
+                                <table class="table mb-0">
+                                    <thead>
+                                        <tr class="front bg-greensea">
+                                            <th>Management</th>
+                                            <th>View</th>
+                                            <th>Add</th>
+                                            <th>Edit</th>
+                                            <th>Delete</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="menu in ROMC.privileges">
+                                            <td>{{menu.name | translate  }}</td>
+                                            <td><input type="checkbox" ng-change="ROMC.mainMenuChange(menu,$index)" ng-model="menu.status.view"
+                                                    value="true"></td>
+                                            <td><input type="checkbox" ng-change="ROMC.mainMenuChange(menu,$index)" ng-model="menu.status.add"
+                                                    value="true"></td>
+                                            <td><input type="checkbox" ng-change="ROMC.mainMenuChange(menu,$index)" ng-model="menu.status.edit"
+                                                    value="true"></td>
+                                            <td><input type="checkbox" ng-change="ROMC.mainMenuChange(menu,$index)" ng-model="menu.status.delete"
+                                                    value="true"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <hr class="line-dashed line-full" />
+                            <div class="form-group">
+                                <div class="col-sm-4 col-sm-offset-2">
+                                    <a type="" href="/admin" class="btn btn-lightred">Cancel</a>
+                                    <button type="submit" class="btn btn-default" ng-click="ROMC.submitRoleManagerData(subadmin.$valid,ROMC)">Save changes</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>

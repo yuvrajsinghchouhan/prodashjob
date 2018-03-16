@@ -1,0 +1,36 @@
+<div class="signup-page" >
+  <div style="background-image: url('{{rc.bgimage.image}}');" class="sinupimg-container"></div>
+<div class="sign-up-holder login-holder">
+  <div class="logo-container">
+<a ui-sref ="landing"><img src="{{rc.getsetting.logo}}"></a>
+  </div>
+    <form ng-submit="login()"  role="form" name="forgetpasswordform" class="form-validation mt-20" method="post" novalidate>
+        <div class="form-group" ng-class="{ 'has-error' : forgetpasswordform.email.$invalid && !forgetpasswordform.email.$pristine, 'has-success' : forgetpasswordform.email.$valid && !forgetpasswordform.email.$pristine}">
+            <input type="password" autocomplete="remember==true?on:off" class="form-control underline-input" name="password" placeholder="{{'PASSWORD' | translate}}" ng-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,12}$/" ng-minlength="6" ng-maxlength="12" ng-model="PWMTC.password" on-blur-validation required>
+                 <span class="validerr" style="color:red" ng-show="forgetpasswordform.password.$error.required && !forgetpasswordform.password.$pristine">Password is required.</span>
+                 <span class="validerr" style="color:red" ng-show="forgetpasswordform.password.$invalid && !forgetpasswordform.password.$pristine && forgetpasswordform.password.$error.pattern">Password Must Contain Atleast One uppercase,One lower case,One Numeric digit.</span>
+                <span class="validerr" style="color:red" ng-show="forgetpasswordform.password.$error.minlength">Password must be minimum of 6 characters.</span>
+                <span class="validerr" style="color:red" ng-show="forgetpasswordform.password.pwd.$error.maxlength">Password must be maximum of 12 characters.</span>
+
+            <input type="password" autocomplete="remember==true?on:off" class="form-control underline-input" name="cpassword" placeholder="{{'COMFIRM_PASSWORD' | translate}}" ng-model="PWMTC.cpassword" on-blur-validation required>
+            <span ng-show="forgetpasswordform.cpassword.$dirty && forgetpasswordform.cpassword.$error.required" class="help-block">Conform Password is required</span>
+
+             <span class="validerr" style="color:red" ng-show="forgetpasswordform.email.$error.required && !forgetpasswordform.email.$pristine">Confirm Password is required.</span>
+                 <span class="validerr" style="color:red" ng-show="PWMTC.password!='' && PWMTC.cpassword!='' && PWMTC.cpassword != PWMTC.password">Password and Confirm Password can be same.</span>
+
+        </div>
+		<input class="borderbtn" ng-click="PWMTC.forgotpassmailtasker(forgetpasswordform.$valid,PWMTC.password,PWMTC.cpassword)" value="Submit" type="submit">
+    </form>
+
+
+
+
+</div>
+</div>
+<script type="text/javascript">
+$(".dropdown-filter-full").click(function(){
+
+$(".filter-full").slideToggle();
+
+});
+</script>

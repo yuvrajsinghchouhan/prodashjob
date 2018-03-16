@@ -1,0 +1,152 @@
+<script>
+
+function ShowDiv() {
+    document.getElementById("myDiv").style.display = "";
+	//document.getElementById("myButton").style.display = "none";
+
+}
+$('#myButton').click(function() {
+$('#myButton').hide();
+  $('#myDiv').toggle('slow', function() {
+    // Animation complete.
+  });
+});
+</script>
+<style>
+  .confirm_mod_al label
+  {
+    width: 25%;
+    float: left;;
+  }
+
+</style>
+
+<div class="modal-header">
+    <button type="button" class="close" ng-click="TPM.cancel()" data-dismiss="modal">×</button>
+    <h3 class="modal-title">{{'REQUEST_TO_PAY' | translate}}</h3>
+</div>
+
+  <form name="Detailsview" submit-validate role="form" novalidate>
+    <div class="modal-body confirm_mod_al">
+        <div class="confirm-tsk col-md-7">
+
+          <!--<div class="form-group">
+              <label for="line1">Booking Id</label>
+              <span>{{TPM.bookingid}}</span>
+          </div>
+
+          <div class="form-group">
+              <label for="line1">Task Name</label>
+              <span>{{TPM.taskname}}</span>
+          </div>
+          <div class="form-group">
+              <label for="line1">Hourly Rate</label>
+              <span>{{TPM.hourlyrate[0]. hour_rate}}</span>X<input type="text" placeholder="Hour(s) Worked" ng-change="TPM.totalhour1()" ng-model="TPM.totalhour" value=""  required/>
+          </div>
+-->
+          <div class="row">
+            <div class="col-md-6">
+              <Strong> {{'BOOKING_ID' | translate}}   </strong>
+            </div>
+            <div class="col-md-2">{{TPM.bookingid}}</div>
+          </div>
+          <br>
+
+          <div class="row">
+            <div class=" col-md-6">
+              <Strong>{{'TASK_NAME' | translate}}</strong>
+            </div>
+            <div class=" col-md-5">{{TPM.taskname}}</div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-md-6">
+              <Strong>{{'HOURLY_RATE' | translate}}</strong>
+            </div>
+            <div class="col-md-5">{{TPM.hourlyrate[0]. hour_rate}}</div>
+          </div>
+
+
+          <br>
+          <div class="row">
+            <div class="col-md-6">
+              <Strong>{{'WORKING_HOURS' | translate}}</strong>
+            </div>
+            <div class="col-md-2">
+              <input type="text" placeholder="Hour(s) Worked" ng-change="TPM.totalhour1()" ng-model="TPM.totalhour" value=""  allow-Only-Numbers required/>
+            </div>
+          </div>
+
+
+</div>
+<div class=" col-md-3">
+</div>
+<div class="imgview col-md-6">
+    <figure class="fighlds"><img ng-src="{{TPM.user.avatar}}" height="150"></figure>
+    <input id="avatar" class="avatar-file-input" type="file" name="avatar">
+   <Strong class="center">{{TPM.user.name.first_name}} {{TPM.user.name.last_name}} </Strong>
+</div>
+
+<div class=" col-md-12">
+  <br>
+  <div class="text-right">
+    <button ng-disabled=" !TPM.totalhour.length " class="btn btn-success " id="myButton" type="button" name="answer" >{{'NEXT' | translate}}</button>
+  </div>
+</div>
+</div>
+</form>
+
+<div  id="myDiv" style="display:none;" class="answer_list" >
+
+  <form name="passwordform" submit-validate role="form" novalidate>
+      <div class="modal-body confirm_mod_al">
+          <div class="confirm-tsk">
+
+
+
+  			<div class="form-group">
+                  <label for="line1">{{'SERVICE_TAX' | translate}}</label>
+                  <span ng-model="TPM.taxamount" ng-bind-html="TPM.taxamount"></span>
+              </div>
+
+              <div class="form-group">
+                  <label for="line1">{{'ADMIN_COMMISSION' | translate}}</label>
+                  <span ng-model="TPM.adminamount" name="commission" >{{TPM.adminamount | currency}}</span>
+              </div>
+
+  			 <div class="form-group">
+                  <label for="line1">{{'TOTAL' | translate}}</label>
+                  <span ng-model="TPM.grandtotal" ng-bind-html="TPM.grandtotal"></span>
+              </div>
+
+			  <div class="form-group">
+                  <label for="line1">{{'MINIMUM_HOURLY_RATE' | translate}}</label>
+                  <span ng-model="TPM.minimumamount" ng-bind-html="TPM.minimumamount"></span>
+              </div>
+
+
+
+              <div class="form-group">
+                  <label for="line1">{{'TASK_DESCRIPTION' | translate}}</label>
+                  <span ng-bind-html="TPM.taskdescription"></span>
+              </div>
+          </div>
+          <div class="col-lft-tsk">
+              <div class="note-cnt">
+                  <ul>
+                      <p>*{{'NOTE' | translate}}Note</p>
+                      <li>{{'FOR_1_HOUR' | translate}}For 1 hour,
+                      {{'THE_TASK_PRICE_IS_CALCULATED_ON_THE_BASIC_OF_MIMINUM_AMOUNT' | translate}}</li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+  </form>
+
+
+  <div class="modal-footer">
+      <button ng-disabled=" !TPM.totalhour.length "  class="btn btn-primary" type="button" ng-click="TPM.ok()">{{'OK' | translate}}</button>
+      <button class="btn btn-warning" type="button" ng-click="TPM.cancel()">{{'CANCEL' | translate}}</button>
+  </div>
+
+</div>

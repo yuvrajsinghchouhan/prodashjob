@@ -1,0 +1,113 @@
+<div>
+  <div class="signup-page">
+  <div style="background-image: url('{{rc.bgimage.image}}');" class="sinupimg-container"></div>
+    <div class="sign-up-holder login-holder register-holder">
+      <div class="logo-container">
+        <a ui-sref="landing"><img src="{{rc.getsetting.logo}}"></a>
+      </div>
+      <form ng-init="RTTC.UserDetails.next='step1'" class="profile-settings" name="registerForm" novalidate>
+        <ul class="sign-btns">
+          <li>
+            <label>{{'FIRST_NAME' | translate}} </label>
+            <input type="text" name="firstname" ng-minlength="2" ng-maxlength="25" ng-model="RTTC.UserDetails.firstname" required>
+            <p class="help-block">
+              <span ng-show="registerForm.firstname.$invalid && !registerForm.firstname.$pristine">{{'FIRST NAME IS REQUIRED' | translate}}.</span>
+              <span ng-show="registerForm.firstname.$error.minlength">First Name is too short.</span>
+              <span ng-show="registerForm.firstname.$error.maxlength">First Name is too long.</span>
+
+          </li>
+          <li>
+            <label>{{'LAST_NAME' | translate}}</label>
+            <input ng-model="RTTC.UserDetails.lastname"  name="lastname" type="text" required>
+            <p class="help-block">
+            <span ng-show="registerForm.lastname.$invalid && !registerForm.lastname.$pristine">Last Name is required.</span>
+          </p>
+          </li>
+          <li>
+            <label>{{'USER_NAME' | translate}}</label>
+            <input type="text" name="username" ng-minlength="4" ng-maxlength="25" ng-model="RTTC.UserDetails.username" required>
+            <span ng-show="registerForm.username.$invalid && !registerForm.username.$pristine">User Name is required.</span>
+            <span ng-show="registerForm.username.$error.minlength">User Name must be minimum of 6 characters.</span>
+            <span ng-show="registerForm.username.$error.maxlength">User Name must be maximum of 25 characters.</span>
+          </li>
+          <li>
+            <label>{{'EMAIL_ADDRESS'| translate}}</label>
+            <input ng-model="RTTC.UserDetails.email" ng-pattern="/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/" name="email"
+              required type="text">
+            <span ng-show="registerForm.email.$invalid && !registerForm.email.$pristine">Email is required.</span>
+            <span ng-show="!registerForm.email.$error.required && registerForm.email.$error.pattern">Invalid email.</span>
+          </li>
+          <li>
+            <label>{{'PHONE_NUMBER'| translate}}</label>
+            <input style=" padding-left: 48px;" type="text" ng-model="RTTC.UserDetails.phone" name="phone" required ng-intl-tel-input>
+            <span ng-show="registerForm.phone.$invalid && !registerForm.phone.$pristine">Phone Number is required.</span>
+          </li>
+          <li>
+            <label>{{'PASSWORD'| translate}}</label>
+            <input ng-model="RTTC.UserDetails.pwd" name="pwd" ng-minlength="6" ng-maxlength="25" required type="password">
+            <span style="color:red" ng-show="registerForm.pwd.$invalid && !registerForm.pwd.$pristine">Password is required.</span>
+            <span style="color:red" ng-show="registerForm.pwd.$error.minlength">Password must be minimum of 6 characters.</span>
+            <span style="color:red" ng-show="registerForm.pwd.$error.maxlength">Password must be maximum of 12 characters.</span>
+          </li>
+          <li>
+            <label>{{'CONFIRM_PASSWORD'| translate}}</label>
+            <input name="confirm_pwd" ng-model="RTTC.UserDetails.confirm_pwd" type="password" required>
+            <span style="color:red" ng-show="registerForm.confirm_pwd.$invalid && !registerForm.confirm_pwd.$pristine">Confirm Password is required.</span>
+            <span style="color:red" ng-show=" RTTC.UserDetails.pwd!='' && RTTC.UserDetails.confirm_pwd!='' && RTTC.UserDetails.confirm_pwd != RTTC.UserDetails.pwd">Password and Confirm Password can be same.</span>
+          </li>
+          <li>
+            <label for="city">{{CITY | translate}}</label>
+            <!--<input type="text" class="form-control" name="city"  gm-places-autocomplete ng-model="autocomplete"  required> -->
+
+
+            <input name="city" required type="text" placeholder="{{'ENTER YOUR LOCATION'| translate}}" places-auto-complete size=80 ng-model="RTTC.UserDetails.address.city" types="['address']"
+              on-place-changed="RTTC.placeChanged()" />
+
+            <span ng-show="registerForm.city.$invalid && !registerForm.city.$pristine">City is required.</span>
+          </li>
+          <li>
+            <span ng-bind="RTTC.Error"></span>
+            <button class="grn-btn blu-btn" ng-click="RTTC.SubmitTasker(registerForm.$valid,registerForm);"><span>{{'SUBMIT'| translate}}</span></button>
+            <!--
+           <a ui-sref="registerTasker" class="grn-btn blu-btn"><span>Create Account</span></a>
+		   -->
+          </li>
+          <li>
+
+            <small class="logtext">
+            {{'BY_SIGNING_UP_YOU_AGREE_TO_OUR'| translate}}
+            <a href="{{rc.site_url}}/page/termsandconditions">{{'TERMSOFUSE'| translate}}</a>
+            {{'AND'| translate}}
+            <a href="{{rc.site_url}}/page/privacypolicy">{{'PRIVACY_POLICY'| translate}}.</a>
+          </small>
+          </li>
+        </ul>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+  $(".dropdown-filter-full").click(function(){
+
+$(".filter-full").slideToggle();
+
+});
+
+</script>
+
+<style>
+.has-error .form-control, .has-error .form-control:focus {
+    border-color: #ff7b76;
+    box-shadow: none;
+}
+.has-error .control-label, .has-error .help-block {
+    color: #ff635c;
+}
+.help-block {
+    display: block;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+</style>

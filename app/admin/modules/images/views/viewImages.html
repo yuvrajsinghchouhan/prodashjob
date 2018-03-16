@@ -1,0 +1,206 @@
+<div class="page page-tables-bootstrap">
+    <div class="pageheader">
+        <h2>{{ 'Menu.APPEARANCE' | translate }} </h2>
+        <div class="page-bar">
+            <ul class="page-breadcrumb">
+                <li><a ui-sref="app.dashboard"><i class="fa fa-home"></i> {{main.title}}</a></li>
+                <li><a href="javascript:;">{{ 'Menu.APPEARANCE' | translate }}</a></li>
+                <li><a href="javascript:;">{{ 'SubMenu.APPEARANCE LIST' | translate }}</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="pagecontent">
+        <div class="row">
+            <div class="col-md-12">
+                <section class="tile">
+                    <div class="tile-body">
+                        <form class="profile-settings" submit-validate enctype="multipart/form-data" name="imagesForm" novalidate>
+
+                            <div class="form-group">
+                                <label class="control-label">Login</label>
+                                <input ui-jq="filestyle" id="loginpage" type="file" ngf-select="loginpage=true" ng-model="VIC.images.loginpage" name="loginpage"
+                                    ngf-pattern="'image/jpg,image/jpeg,videos/*,application/pdf'" ngf-max-size="1MB" ngf-model-invalid="errorFiles"
+                                    class="filestyle" ui-options="{ buttonText: 'Select file', iconName: 'fa fa-inbox'}" id="image">
+                                <span class="help-block">Allowed files: gif, png, jpg. Max file size 1Mb</span>
+                                <img class="img-sec" ng-if="loginpage" height="150" ngf-src="VIC.images.loginpage">
+                                <img class="img-sec" ng-if="!loginpage && !VIC.images.loginpage==''" height="150" ngf-src="VIC.images.loginpage">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Signup</label>
+                                <input ui-jq="filestyle" id="taskersignup" type="file" ngf-select="taskersignup=true" ng-model="VIC.images.taskersignup"
+                                    name="taskersignup" ngf-pattern="'image/jpg,image/jpeg,videos/*,application/pdf'" ngf-max-size="1MB"
+                                    ngf-model-invalid="errorFiles" class="filestyle" ui-options="{ buttonText: 'Select file', iconName: 'fa fa-inbox'}"
+                                    id="image">
+                                <span class="help-block">Allowed files: gif, png, jpg. Max file size 1Mb</span>
+                                <img class="img-sec" ng-if="taskersignup" height="150" ngf-src="VIC.images.taskersignup">
+                                <img class="img-sec" ng-if="!taskersignup&&!VIC.images.taskersignup==''" height="150" ngf-src="VIC.images.taskersignup">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Background </label>
+                                <input ui-jq="filestyle" id="image" type="file" ngf-select="backgroundimage=true" ng-model="VIC.images.backgroundimage" name="backgroundimage"
+                                    ngf-pattern="'image/jpg,image/jpeg,videos/*,application/pdf'" ngf-max-size="1MB" ngf-model-invalid="errorFiles"
+                                    class="filestyle" ui-options="{ buttonText: 'Select file', iconName: 'fa fa-inbox'}" id="image">
+                                <span class="help-block">Allowed files: gif, png, jpg. Max file size 1Mb</span>
+                                <img class="img-sec" ng-if="backgroundimage" height="150" ngf-src="VIC.images.backgroundimage">
+                                <img class="img-sec" ng-if="!backgroundimage && !VIC.images.backgroundimage==''" height="150" ngf-src="VIC.images.backgroundimage">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Tasker Profile </label>
+                                <input ui-jq="filestyle" id="taskerprofile" type="file" ngf-select="taskerprofile=true" ng-model="VIC.images.taskerprofile"
+                                    name="taskerprofile" ngf-pattern="'image/jpg,image/jpeg,videos/*,application/pdf'" ngf-max-size="1MB"
+                                    ngf-model-invalid="errorFiles" class="filestyle" ui-options="{ buttonText: 'Select file', iconName: 'fa fa-inbox'}"
+                                    id="image">
+                                <span class="help-block">Allowed files: gif, png, jpg. Max file size 1Mb</span>
+                                <img class="img-sec" ng-if="taskerprofile" height="150" ngf-src="VIC.images.taskerprofile">
+                                <img class="img-sec" ng-if="!taskerprofile && !VIC.images.taskerprofile==''" height="150" ngf-src="VIC.images.taskerprofile">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Admin Login</label>
+                                <input ui-jq="filestyle" id="adminlogin" type="file" ngf-select="adminlogin=true" ng-model="VIC.images.adminlogin" name="adminlogin"
+                                    ngf-pattern="'image/jpg,image/jpeg,videos/*,application/pdf'" ngf-max-size="1MB" ngf-model-invalid="errorFiles"
+                                    class="filestyle" ui-options="{ buttonText: 'Select file', iconName: 'fa fa-inbox'}" id="image">
+                                <span class="help-block">Allowed files: gif, png, jpg. Max file size 1Mb</span>
+                                <img class="img-sec" ng-if="adminlogin" height="150" ngf-src="VIC.images.adminlogin">
+                                <img class="img-sec" ng-if="!adminlogin && !VIC.images.adminlogin==''" height="150" ngf-src="VIC.images.adminlogin">
+                            </div>
+
+
+                            <div class="color-palete">
+                                <label class="control-label"> Color Changes</label>
+                                <ul class="nav-left">
+                                    <li class="dropdown divided-right settings" dropdown>
+
+                                        <ul class="" role="menu">
+                                            <li>
+                                                <ul class="color-schemes list-inline">
+                                                    <li class="title">Header Color:</li>
+                                                    <li>
+                                                        <a href="javascript:;" class="scheme-drank" ng-class="{'activeColor': (main.settings.navbarHeaderColor == 'scheme-default') }" ng-click="main.settings.navbarHeaderColor='scheme-default'; $event.stopPropagation()"></a>
+
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:;" class="scheme-black" ng-style="headertwo" ng-class="{'activeColor': (main.settings.navbarHeaderColor == 'scheme-black') }" ng-click="main.settings.navbarHeaderColor='scheme-black'; $event.stopPropagation()"></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:;" class="scheme-greensea" ng-style="headerthree" ng-class="{'activeColor': (main.settings.navbarHeaderColor == 'scheme-greensea') }" ng-click="main.settings.navbarHeaderColor='scheme-greensea'; $event.stopPropagation()"></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:;" class="scheme-cyan" ng-style="headerfour" ng-class="{'activeColor': (main.settings.navbarHeaderColor == 'scheme-cyan') }" ng-click="main.settings.navbarHeaderColor='scheme-cyan'; $event.stopPropagation()"></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:;" class="scheme-lightred" ng-style="headerfive" ng-class="{'activeColor': (main.settings.navbarHeaderColor == 'scheme-lightred') }" ng-click="main.settings.navbarHeaderColor='scheme-lightred'; $event.stopPropagation()"></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:;" class="scheme-light" ng-style="headersix" ng-class="{'activeColor': (main.settings.navbarHeaderColor == 'scheme-light') }" ng-click="main.settings.navbarHeaderColor='scheme-light'; $event.stopPropagation()"></a>
+                                                    </li><br>
+                                                    <li class="title">Branding Color:</li>
+                                                    <li>
+                                                        <a href="javascript:;" class="scheme-drank" ng-class="{'activeColor': (main.settings.brandingColor == 'scheme-default') }" ng-click="main.settings.brandingColor='scheme-default'; $event.stopPropagation()"></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:;" class="scheme-black" ng-class="{'activeColor': (main.settings.brandingColor == 'scheme-black') }" ng-click="main.settings.brandingColor='scheme-black'; $event.stopPropagation()"></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:;" class="scheme-greensea" ng-class="{'activeColor': (main.settings.brandingColor == 'scheme-greensea') }" ng-click="main.settings.brandingColor='scheme-greensea'; $event.stopPropagation()"></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:;" class="scheme-cyan" ng-class="{'activeColor': (main.settings.brandingColor == 'scheme-cyan') }" ng-click="main.settings.brandingColor='scheme-cyan'; $event.stopPropagation()"></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:;" class="scheme-lightred" ng-class="{'activeColor': (main.settings.brandingColor == 'scheme-lightred') }" ng-click="main.settings.brandingColor='scheme-lightred'; $event.stopPropagation()"></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:;" class="scheme-light" ng-class="{'activeColor': (main.settings.brandingColor == 'scheme-light') }" ng-click="main.settings.brandingColor='scheme-light'; $event.stopPropagation()"></a>
+                                                    </li><br>
+                                                    <li class="title">Sidebar Color:</li>
+                                                    <li>
+                                                        <a href="javascript:;" class="scheme-drank" ng-class="{'activeColor': (main.settings.sidebarColor == 'scheme-default') }" ng-click="main.settings.sidebarColor='scheme-default'; $event.stopPropagation()"></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:;" class="scheme-black" ng-class="{'activeColor': (main.settings.sidebarColor == 'scheme-black') }" ng-click="main.settings.sidebarColor='scheme-black'; $event.stopPropagation()"></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:;" class="scheme-greensea" ng-class="{'activeColor': (main.settings.sidebarColor == 'scheme-greensea') }" ng-click="main.settings.sidebarColor='scheme-greensea'; $event.stopPropagation()"></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:;" class="scheme-cyan" ng-class="{'activeColor': (main.settings.sidebarColor == 'scheme-cyan') }" ng-click="main.settings.sidebarColor='scheme-cyan'; $event.stopPropagation()"></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:;" class="scheme-lightred" ng-class="{'activeColor': (main.settings.sidebarColor == 'scheme-lightred') }" ng-click="main.settings.sidebarColor='scheme-lightred'; $event.stopPropagation()"></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:;" class="scheme-light" ng-class="{'activeColor': (main.settings.sidebarColor == 'scheme-light') }" ng-click="main.settings.sidebarColor='scheme-light'; $event.stopPropagation()"></a>
+                                                    </li>
+                                                    <br>
+                                                    <li class="title">Active Color:</li>
+                                                    <li>
+                                                        <a href="javascript:;" class="scheme-drank" ng-class="{'activeColor': (main.settings.activeColor == 'drank-scheme-color') }" ng-click="main.settings.activeColor='drank-scheme-color'; $event.stopPropagation()"></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:;" class="scheme-black" ng-class="{'activeColor': (main.settings.activeColor == 'black-scheme-color') }" ng-click="main.settings.activeColor='black-scheme-color'; $event.stopPropagation()"></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:;" class="scheme-greensea" ng-class="{'activeColor': (main.settings.activeColor == 'default-scheme-color') }" ng-click="main.settings.activeColor='default-scheme-color'; $event.stopPropagation()"></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:;" class="scheme-cyan" ng-class="{'activeColor': (main.settings.activeColor == 'cyan-scheme-color') }" ng-click="main.settings.activeColor='cyan-scheme-color'; $event.stopPropagation()"></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:;" class="scheme-lightred" ng-class="{'activeColor': (main.settings.activeColor == 'lightred-scheme-color') }" ng-click="main.settings.activeColor='lightred-scheme-color'; $event.stopPropagation()"></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:;" class="scheme-light" ng-class="{'activeColor': (main.settings.activeColor == 'light-scheme-color') }" ng-click="main.settings.activeColor='light-scheme-color'; $event.stopPropagation()"></a>
+                                                    </li><br>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <div class="form-group ng-scope">
+                                                    <div class="row">
+                                                        <label class="col-md-4 control-label">Fixed header</label>
+                                                        <div class="col-md-8 control-label">
+                                                            <div class="onoffswitch lightred large" >
+                                                                <input  type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="fixed-header" ng-model="main.settings.headerFixed"
+                                                                 ng-change="VIC.fixedHeaderChange(main.settings.headerFixed)" >
+                                                                <label class="onoffswitch-label" for="fixed-header">
+                                                                    <span class="onoffswitch-inner"></span>
+                                                                    <span class="onoffswitch-switch"></span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="form-group ng-scope">
+                                                    <div class="row">
+                                                        <label class="col-md-4 control-label">Fixed aside</label>
+                                                        <div class="col-md-8 control-label">
+                                                            <div class="onoffswitch lightred large" >
+                                                              <!-- <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="fixed-aside" ng-model="main.settings.asideFixed"  ng-change="VIC.fixedasideChange(main.settings.headerFixed)"> -->
+                                                                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="fixed-aside"ng-model="main.settings.asideFixed"  ng-init="main.settings.asideFixed =main.settings.asideFixed || 0" ng-change="VIC.fixedasideChange(main.settings.asideFixed)">
+                                                                <label class="onoffswitch-label" for="fixed-aside">
+                                                        <span class="onoffswitch-inner"></span>
+                                                        <span class="onoffswitch-switch"></span>
+                                                    </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="form-group tcol">
+                                <button class="btn btn-success btn-ef btn-ef-5 btn-ef-5a" ng-click="VIC.submit(imagesForm.$valid,main.settings.navbarHeaderColor,main.settings.brandingColor,main.settings.sidebarColor,main.settings.activeColor,main.settings.headerFixed,main.settings.asideFixed);">
+                                    <i class="fa fa-upload"></i><span>Submit</span>
+                                </button>
+                            </div>
+                    </div>
+                    </form>
+            </div>
+            </section>
+        </div>
+    </div>
+</div>
+</div>

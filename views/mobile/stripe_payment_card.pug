@@ -1,0 +1,95 @@
+doctype transitional
+html(xmlns='http://www.w3.org/1999/xhtml')
+  head
+      meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+      meta(name='viewport', content='width=device-width, initial-scale=1.0')
+      title= 'Payment Credit Card'
+      link(rel='stylesheet', href=site_url+'app/mobile/styles/style.css', type='text/css', media='all')
+      script(type='text/javascript', src=site_url+'app/mobile/scripts/library/jquery-1.10.2.js')
+  body
+      section
+        .shipping_address
+          .main
+            .app-content-box
+              h1
+                | Complete Recharge
+                a.close_btn(href=base_url+'wallet-recharge/pay-cancel?mobileId='+transaction_id)
+              h2(style='margin-left:15px;')
+                | Your total charge is !{symbol} !{transaction.amount} 
+              span.payNote(style='margin-left:15px;')
+                b NOTE :
+                |  Your card information will be saved in stripe secure gateway for your later and faster transaction.
+              form#wallet_recharge_form(name='wallet_recharge_form', method='post',action=site_url+'mobile/app/payment/stripe-payment-process', autocomplete='off', onsubmit="return showLoader();")
+                input(type='hidden', value=transaction._id, name='transaction_id')
+                input(type='hidden', value=transaction.user, name='user_id')
+                input(type='hidden', value=transaction.task, name='task_id')
+                input(type='hidden', value=transaction.amount, name='total_amount')
+                ul
+                  li
+                    input#cardNumber.input-scroll-3(type='number', placeholder='Card number', name='card_number', maxlength="16", size='16')
+                  li
+                    label Expiration
+                    select#CCExpDay.input-scroll-2(name='exp_month')
+                      option(value='01', selected="selected")= '01'
+                      option(value='02' )= '02'
+                      option(value='03' )= '03'
+                      option(value='04' )= '04'
+                      option(value='05' )= '05'
+                      option(value='06' )= '06'
+                      option(value='07' )= '07'
+                      option(value='08' )= '08'
+                      option(value='09' )= '09'
+                      option(value='10' )= '10'
+                      option(value='11' )= '11'
+                      option(value='12' )= '12'
+                    select#CCExpMnth.input-scroll-2(name='exp_year')
+                        - for (var x = (new Date().getFullYear()); x < (new Date().getFullYear() + 30); x++)
+                          option(value=x)= x
+                  li
+                    input#creditCardIdentifier.input-scroll(type='number', placeholder='Security Code', name='cvc_number')
+                  li.last
+                    input#submit_btn.input-submit-btn(type='submit', value='Pay With Your Card', onclick='return validatecard();')
+                  li.last
+                    p#loading.input-loading(style='display:none;') This page redirect automatically, please wait...
+                  li.last
+                    img#payLoader(src=site_url+'app/mobile/images/small-loader.gif', style='display:none;')
+      script(type='text/javascript').
+        function validatecard(){
+        var cardNumber=document.getElementById("cardNumber").value.trim();
+        var CCExpDay=document.getElementById("CCExpDay").value.trim();
+        var CCExpMnth=document.getElementById("CCExpMnth").value.trim();
+        var creditCardIdentifier=document.getElementById("creditCardIdentifier").value.trim();
+        //var cardType=document.getElementById("cardType").value.trim();
+        document.getElementById("cardNumber").classList.remove("txt-error");
+        document.getElementById("CCExpDay").classList.remove("txt-error");
+        document.getElementById("CCExpMnth").classList.remove("txt-error");
+        document.getElementById("creditCardIdentifier").classList.remove("txt-error");
+        //document.getElementById("cardType").classList.remove("txt-error");
+        var status=0;
+        if(cardNumber=="" || isNaN(cardNumber)){
+        document.getElementById("cardNumber").classList.add("txt-error");
+        status++;
+        }
+        if(CCExpDay==""){
+        document.getElementById("CCExpDay").classList.add("txt-error");
+        status++;
+        }
+        if(CCExpMnth==""){
+        document.getElementById("CCExpMnth").classList.add("txt-error");
+        status++;
+        }
+        if(creditCardIdentifier==""){
+        document.getElementById("creditCardIdentifier").classList.add("txt-error");
+        status++;
+        }
+        if(status!=0){
+        return false;
+        }else{
+        document.getElementById("submit_btn").style.display = 'none';
+        document.getElementById("loading").style.display = 'block';
+        }
+        }
+      script.
+        function showLoader(){
+          $('#payLoader').css('display','block');
+        }

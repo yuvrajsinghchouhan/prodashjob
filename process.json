@@ -1,0 +1,15 @@
+{
+  "name": "alpha_christianpros_com",
+  "script": "./app.js",
+  "log_date_format": "YYYY-MM-DD HH:mm Z",
+  "error_file": "logs/error.log",
+  "out_file": "logs/output.log",
+  "watch": false,
+  "combine_logs": true,
+  "env": {
+    "NODE_ENV": "development"
+  },
+  "env_production": {
+    "NODE_ENV": "production"
+  }
+}

@@ -1,0 +1,223 @@
+<div class="tab-pane" ng-init="ACC.accountMode = false">
+    <div class="account-section">
+        <span>{{'ACCOUNT' | translate}}</span>
+        <a id="editaccount" class="btn btn-secondary btn-small" ng-click="ACC.accountMode = !ACC.accountMode; ACC.valueChange()">	{{ACC.accountMode == true ?'VIEW':'EDIT' | translate }}</a>
+    </div>
+    <div class="account-view" ng-show="!ACC.accountMode">
+        <div class="imgview">
+            <figure class="fighld">
+                <img ngf-src="ACC.user.avatar" height="150" err-src>
+                <!--<img style="max-width: 100% !important;" ng-if="visibleValue" class="img-circle" ngf-src="ACC.myCroppedImage">-->
+            </figure>
+            <span ng-if="ACC.user.username"><strong>{{ACC.user.username}}</strong></span>
+        </div>
+
+        <ul class="admn-details">
+            <li ng-if="ACC.user.name.first_name || ACC.user.name.last_name"><i class="fa fa-user"></i><span>{{ACC.user.name.first_name}} {{ACC.user.name.last_name}}</span></li>
+            <li ng-if="ACC.user.email"><i class="fa fa-envelope-o"></i>
+                <p style="margin-top:10px;margin-left: 51px;">{{ACC.user.email}}</p>
+</li>
+<li ng-if="ACC.user.phone"><i class="fa fa-mobile"></i><span ng-if="ACC.user.phone.code">{{ACC.user.phone.code}}</span>-<span>{{ACC.user.phone.number}}</span></li>
+<li ng-if="ACC.user.address">
+    <i class="fa fa-map-marker"></i>
+    <span class="address">
+                <span ng-if="ACC.user.address.line1">{{ACC.user.address.line1}}</span>
+    <span ng-if="ACC.user.address.line2">{{ACC.user.address.line2}}</span>
+    <span ng-if="ACC.user.address.city">{{ACC.user.address.city}}</span>
+    <span ng-if="ACC.user.address.state">{{ACC.user.address.state}}</span>
+    <span ng-if="ACC.user.address.country">{{ACC.user.address.country}}</span>
+    <span ng-if="ACC.user.address.zipcode">{{ACC.user.address.zipcode}}</span>
+    </span>
+</li>
+</ul>
+</div>
+<div class="account-edit" id="editaccountdiv" ng-show="ACC.accountMode">
+    <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" dismiss-on-timeout="{{alertTimeout}}" close="closeAlert($index)">{{alert.msg}}</uib-alert>
+    <form name="accountForm" submit-validate role="form" novalidate>
+        <div class="imgview">
+            <figure class="fighld">
+                <img ngf-src="ACC.user.avatar" height="150" ng-if="visibleValue == false">
+                <img style="max-width: 100% !important;" ng-if="visibleValue" class="img-circle" ngf-src="ACC.myCroppedImage">
+</figure>
+</div>
+
+<!--<div class="form-group">
+                                                <label class="control-label">Select Image</label>
+                                                <input ui-jq="filestyle" type="file" ngf-select="temp=true" ng-model="EDIC.editImagesData.image" name="image" ngf-pattern="'image/jpg,image/jpeg,videos/*,application/pdf'"
+                                                      ngf-max-size="1MB"  ngf-model-invalid="errorFiles" class="filestyle" ui-options="{ buttonText: 'Select file', iconName: 'fa fa-inbox'}"
+                                                      id="image">
+                                                <span class="help-block">Allowed files: gif, png, jpg. Max file size 1Mb</span>
+                                                <img ng-if="temp" height="150" ngf-src="EDIC.editImagesData.image">
+                                                <img ng-if="!temp&&!EDIC.editImagesData.image==''" height="150" ngf-src="EDIC.editImagesData.image">
+              </div>
+              <p class="help-block">
+                     <span ng-show="imagesForm.image.$invalid && !imagesForm.image.$pristine" style="color:red;">Image File is required.</span>
+             </p>-->
+
+
+<ul class="admn-Edit">
+    <li class="col-sm-6">
+        <div class="form-group" ng-class="{ 'has-error' : accountForm.fname.$invalid && !accountForm.fname.$pristine, 'has-success' : accountForm.fname.$valid && !accountForm.fname.$pristine}">
+            <label for="fname">{{'FIRST_NAME' | translate}} </label>
+            <input type="text" name="fname" id="fname" class="form-control" ng-pattern="/^[a-zA-Z ]*$/" ng-model="ACC.user.name.first_name"
+                on-blur-validation required>
+            <p class="help-block">
+                <span ng-show="accountForm.fname.$invalid && !accountForm.fname.$pristine">{{'Enter the first name' | translate}}</span>
+                <span class="validerr" ng-show="accountForm.fname.$error.pattern && !accountForm.fname.$untouched">{{'FIRST NAME ONLY ALLOW CHARACTERS' | translate}}</span>
+            </p>
+        </div>
+    </li>
+    <li class="col-sm-6">
+        <div class="form-group" ng-class="{ 'has-error' : accountForm.lname.$invalid && !accountForm.lname.$pristine, 'has-success' : accountForm.lname.$valid && !accountForm.lname.$pristine}">
+            <label for="lname">{{'LAST_NAME' | translate}}</label>
+            <input type="text" name="lname" id="lname" class="form-control" ng-pattern="/^[a-zA-Z ]*$/" ng-model="ACC.user.name.last_name"
+                on-blur-validation required>
+            <p class="help-block">
+                <span ng-show="accountForm.lname.$invalid && !accountForm.lname.$pristine">{{'Enter the last name' | translate}}</span>
+                <span class="validerr" ng-show="accountForm.lname.$error.pattern && !accountForm.lname.$untouched">{{'LAST NAME ONLY ALLOW CHARACTERS' | translate}}</span>
+            </p>
+        </div>
+    </li>
+    <li class="col-sm-12">
+        <div class="form-group" ng-init="isDisabled = true" ng-class="{ 'has-error' : accountForm.email.$invalid && !accountForm.email.$pristine, 'has-success' : accountForm.email.$valid && !accountForm.email.$pristine}">
+            <label for="email">{{'EMAIL'| translate}}</label>
+            <input type="email" name="email" id="email" class="form-control" ng-disabled={{isDisabled}} ng-model="ACC.user.email" on-blur-validation
+                required>
+            <p class="help-block">
+                <span ng-show="accountForm.email.$invalid && !accountForm.email.$pristine">{{'ENTER EMAIL' | translate}}</span>
+            </p>
+        </div>
+    </li>
+    <li class="col-sm-12">
+        <div class="form-group">
+            <label for="avatar">Avatar</label>
+            <label for="avatar-img"  class="avatar-img-up"><i class="fa fa-upload" aria-hidden="true"></i> Choose file</label>
+            <input id="avatar-img" ui-jq="filestyle" type="file" crop-img-change="handleFileSelect" ngf-change="fileupload($files, $event, $rejectedFiles);"
+                ngf-select="temp=true" ng-model="ACC.user.avatar" ngf-pattern="'image/jpg,image/jpeg,image/png,image/gif/*'"
+                name="avatar" class="form-control" accept="image/*" ngf-max-size="1MB" ngf-model-invalid="errorFiles" class="filestyle"
+                ui-options="{ buttonText: 'Select image', iconName: 'fa fa-file-image-o'}" id="avatar">
+            <span class="help-block">Allowed files: gif, png, jpg. Max file size 1Mb</span>
+        </div>
+        <!--- Croping -->
+        <div class="m-10 ml-10" ng-if="ACC.user.avatar" ng-hide="visibleValue">
+            <div class="p-10 bg-white b-a b-solid inline-block">
+                <img style="max-width: 100% !important; width: 150px; " ngf-src="ACC.user.avatar">
+</div>
+</div>
+<div class="tcol" ng-if="visibleValue">
+    <label for="avatar">Image Crop</label>
+    <div class="p-15">
+        <div class="row">
+            <div class="p-10 bg-white b-a b-solid " style="height:320px">
+<img-crop image="myImage" result-image="ACC.myCroppedImage" result-image-size="160" area-type="square"></img-crop>
+</div>
+</div>
+<div class="m-10" ng-show="visibleValue" style="margin-top:10px;">
+<div class="p-10 bg-white b-a b-solid inline-block">
+    <img ng-src="{{ACC.myCroppedImage}}" />
+</div>
+</div>
+</div>
+</div>
+<!--- Croping -->
+</li>
+<li class="col-sm-12">
+    <div class="form-group" ng-class="{ 'has-error' : accountForm.email.$invalid && !accountForm.email.$pristine, 'has-success' : accountForm.email.$valid && !accountForm.email.$pristine}">
+        <label for="email">{{'GENDER'| translate}}</label>
+        <select required name="gender" ng-model='ACC.user.gender'>
+                                            <option>{{'SELECT_A_GENDER' | translate}}</option>
+                                            <option value="male">{{'MALE' | translate}}</option>
+                                            <option value="female">{{'FEMALE' | translate}}</option>
+                                              <option value="none">{{'RATHER NOT SAY' | translate}}</option>
+                                        </select>
+        <span class="validerr" ng-show="becometaskerForm.gender.$invalid && !becometaskerForm.gender.$pristine">{{'SELECT GENDER' | translate }}.</span>
+</li>
+<li class="col-sm-12">
+    <div class="form-group" ng-class="{ 'has-error' : accountForm.phone.$invalid && !accountForm.phone.$pristine, 'has-success' : accountForm.phone.$valid && !accountForm.phone.$pristine}">
+        <label>{{'PHONE_NUMBER'| translate}}</label>
+        <input type="text" name="phone" id="phone" class="form-control" ng-model="ACC.user.phone" ng-intl-tel-input on-blur-validation
+            required>
+        <p class="help-block">
+            <span ng-show="accountForm.phone.$invalid && !accountForm.phone.$pristine">{{'ENTER VALID PHONE NUMBER' | translate}}</span>
+        </p>
+    </div>
+</li>
+<li class="col-sm-12">
+    <div class="form-group" ng-class="{ 'has-error' : accountForm.line1.$invalid && !accountForm.line1.$pristine, 'has-success' : accountForm.line1.$valid && !accountForm.line1.$pristine}">
+        <label for="line1">{{'ADDRESS_LINE_1'| translate}}</label>
+        <input type="text" name="line1" id="line1" class="form-control" placeholder="{{'ENTER YOUR LOCATION'| translate}}" required
+            type="text" places-auto-complete size=80 ng-model="ACC.user.address.line1" types="['address']" on-place-changed="ACC.placeChanged()"
+            on-blur-validation required>
+        <p class="help-block">
+            <span ng-show="accountForm.line1.$invalid && !accountForm.line1.$pristine">{{'ENTER THE VALID PLACE' | translate}}</span>
+        </p>
+    </div>
+</li>
+<li class="col-sm-12">
+    <div class="form-group">
+        <label for="line2">{{'ADDRESS_LINE_2'| translate}}</label>
+        <input type="text" name="line2" id="line2" class="form-control" ng-model="ACC.user.address.line2">
+        <!--<p class="help-block">
+                            <span ng-show="accountForm.line2.$invalid && !accountForm.line2.$pristine">Enter the vaild place</span>
+                        </p>-->
+    </div>
+</li>
+<li class="col-sm-12">
+    <div class="form-group" ng-class="{ 'has-error' : accountForm.city.$invalid && !accountForm.city.$pristine, 'has-success' : accountForm.city.$valid && !accountForm.city.$pristine}">
+        <label for="city">{{'CITY'| translate}}</label>
+        <input type="text" name="city" class="form-control" ng-model="ACC.user.address.city" on-blur-validation required/>
+        <p class="help-block">
+            <span ng-show="accountForm.city.$invalid && !accountForm.city.$pristine">{{'ENTER YOUR CITY' | translate}}</span>
+        </p>
+    </div>
+</li>
+
+<li class="col-sm-12">
+    <div class="form-group" ng-class="{ 'has-error' : accountForm.state.$invalid && !accountForm.state.$pristine, 'has-success' : accountForm.state.$valid && !accountForm.state.$pristine}">
+        <label for="state">{{'STATE/PROVICE'| translate}}</label>
+        <input type="text" name="state" id="state" class="form-control" ng-model="ACC.user.address.state" on-blur-validation required>
+        <p class="help-block">
+            <span ng-show="accountForm.state.$invalid && !accountForm.state.$pristine">{{'ENTER YOUR STATE' | translate}}</span>
+        </p>
+    </div>
+</li>
+<li class="col-sm-12">
+    <div class="form-group" ng-class="{ 'has-error' : accountForm.country.$invalid && !accountForm.country.$pristine, 'has-success' : accountForm.country.$valid && !accountForm.country.$pristine}">
+        <label for="country">{{'COUNTRY'|translate}}</label>
+        <input type="text" name="country" id="country" class="form-control" ng-model="ACC.user.address.country" on-blur-validation
+            required>
+        <p class="help-block">
+            <span ng-show="accountForm.country.$invalid && !accountForm.country.$pristine">{{'ENTER YOUR COUNTRY' | translate}}</span>
+        </p>
+    </div>
+</li>
+<li class="col-sm-12">
+    <div class="form-group" ng-class="{ 'has-error' : accountForm.zipcode.$invalid && !accountForm.zipcode.$pristine, 'has-success' : accountForm.zipcode.$valid && !accountForm.zipcode.$pristine}">
+        <label for="zipcode">{{'ZIPCODE'|translate}}</label>
+        <input type="text" name="zipcode" id="zipcode" class="form-control" ng-model="ACC.user.address.zipcode" on-blur-validation
+            required>
+        <p class="help-block">
+            <span ng-show="accountForm.zipcode.$invalid && !accountForm.zipcode.$pristine">{{'ENTER YOUR ZIPCODE NUMBER' | translate}}</span>
+        </p>
+    </div>
+</li>
+
+<!--      <li class="col-sm-12" ng-if="ACC.taskervariable.currentUser.user_type == 'user'">
+                    <div class="form-group">
+                        <label>{{'ABOUT'|translate}}</label>
+                         <textarea class="form-control" cols="60" rows="4" ng-model="ACC.user.about"></textarea>
+                    </div>
+                </li> -->
+
+<li class="col-sm-12">
+    <div class="btnholder">
+        <input class="borderbtn" ng-click="ACC.accountMode = !ACC.accountMode" value="{{'CANCEL' | translate}}" type="submit">
+        <input class="bluebtn savdedit" ng-click="ACC.saveTaskerAccount(accountForm.$valid)" value="{{'SAVE' | translate}}" type="submit"
+            ng-if="ACC.user.role=='tasker'">
+        <input class="bluebtn savdedit" ng-click="ACC.saveAccount(accountForm.$valid)" value=" {{'SAVE' | translate}}" type="submit"
+            ng-if="ACC.user.role=='user'">
+    </div>
+</li>
+</ul>
+</form>
+</div>

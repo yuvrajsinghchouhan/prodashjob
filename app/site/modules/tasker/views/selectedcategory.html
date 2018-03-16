@@ -1,0 +1,207 @@
+<ul class="talt-des actived col-md-9 ">
+
+      <li>
+        <form submit-validate novalidate name="becometaskerForm">
+            <div ng-click="BTC.flag=!BTC.flag" class="desb-top">
+                <span class="reds-tile">{{BTC.selectedcategory.name}}</span>
+                <span class="selectactive glyphicon glyphicon-ok" ng-if="BTC.selectedcategory.hour_rate">selected</span>
+
+               <!--  <label class="popl-skill"><i class="fa fa-star-o"></i></label> -->
+               <label class="popl-skill" style="margin-top: -36px;"> <a class="hirebtn" href="">{{'ADD SKILL'| translate}}</a></label>
+                <span ng-if="BTC.selectedcategory.hour_rate > 0" class="dolar20"> {{rc.DefaultCurrency[0].symbol}} {{(BTC.selectedcategory.hour_rate ) > 0 ? (BTC.selectedcategory.hour_rate ) :''}}<i style="cursor: pointer" class="fa fa-caret-down"></i></span>
+            </div>
+
+            <div class="desb-middle">
+                <span>{{BTC.selectedcategory.seo.description}}</span>
+            </div>
+
+            <div ng-if="BTC.flag" class="desb-botom-holdert-1 stylee" style="display: block;">
+                <div class="desb-botom">
+                    <div class="skil-expetn">
+                        <span clas="skilexpectasin">{{'QUICK_PITCH' | translate}}</span>
+                        <div class="hourel">
+                            <textarea style="width: 612px; height: 61px;" name="about" ng-maxlength="140" ng-model="BTC.selectedcategory.quick_pitch"></textarea>
+                          </div>
+                      <label style="margin-bottom: -192px;color:red" ng-show="becometaskerForm.about.$invalid && !becometaskerForm.about.$pristine">Quickpitch is required(Maximum 140 characters allowed)</label>
+                  </div>
+                </div>
+                <div class="desb-botom">
+                    <div class="skil-expetn">
+                        <span clas="skilexpectasin">{{'SET_HOURLY_RATE' | translate}}</span>
+                        <div class="hourel">
+                            <span> {{rc.DefaultCurrency[0].symbol}}</span>
+                           <!--  {{BTC.selectedcategory.hour_rate}} -->
+                            <input name="hourlyrate" required min="{{BTC.selectedcategory.commision* rc.DefaultCurrency[0].value}}" ng-model="BTC.selectedcategory.hour_rate" type="number" allow-only-numbers required>
+                            <label>{{'MINIMUM_HOURLY_RATE_IS' | translate}} {{rc.DefaultCurrency[0].symbol}}{{BTC.selectedcategory.commision* rc.DefaultCurrency[0].value | number:0}}  /hr</label>
+                            </br>
+                            <label style="clear: both; color:red" ng-show="becometaskerForm.hourlyrate.$error.min">{{'MINIMUM HOURLY RATE SHOULD BE'|translate}} {{rc.DefaultCurrency[0].symbol}}{{BTC.selectedcategory.commision* rc.DefaultCurrency[0].value | number:0}}  /hr.</label>
+                            </br>
+                            <label style="color:red" ng-show="becometaskerForm.hourlyrate.$error.required && !becometaskerForm.hourlyrate.$pristine">{{'HOURLY RATE IS REQUIRED'|translate}}.</label>
+                            </br>
+                            <!-- <label style="color:red" ng-show="becometaskerForm.hourlyrate.$invalid && !becometaskerForm.hourlyrate.$pristine && !becometaskerForm.hourlyrate.$error.min">{{'HOURLY RATE IS INCORRECT'|translate}}.</label> -->
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="desb-botom">
+                    <div class="skil-expetn">
+                        <span class="skilexpectasin">{{'LEVEL_OF_EXPERIENCE' | translate}}</span>
+                        <div class="hourel">
+                            <select class="levl-selc" name="experience" ng-model="BTC.selectedcategory.experience" required>
+                                <option value=''>{{'SELECT_YOUR_EXPERIENCE' | translate}}</option>
+                                <option ng-repeat="experience in BTC.experience" value="{{experience._id}}">{{experience.name}}</option>
+                            </select>
+                            <label style="color:red" ng-show="becometaskerForm.experience.$invalid && !becometaskerForm.experience.$pristine">{{'EXPERIENCE IS REQUIRED'|translate}}.</label>
+                        </div>
+                    </div>
+                </div>
+               <!--  <div class="desb-botom">
+                    <div class="skil-expetn">
+                        <span>Upload Experience Document</span>
+                        <input id="file-1" type="file" ngf-select ngf-change="fileDropped($files, $event, $rejectedFiles,BTC.selectedcategory._id);"
+                            class="col-md-4 form-control-no-width" style="margin-top: 8px;" ngf-multiple="true" ngf-allow-dir="false"
+                            ngf-accept="'*'" />
+                    </div>
+                </div> -->
+                <!--LEVL OF EXPERIENCE-->
+                <div class="btn-container">
+                    <input class="savebtn" ng-click="BTC.addskills(becometaskerForm.$valid)" value="{{'SAVE' | translate}}" type="submit">
+                </div>
+            </div>
+            <form>
+    </li>
+</ul>
+<style>
+    .desb-botom {
+        background-color: #f7f7f7;
+        border: 1px solid #ccc;
+        float: left;
+        margin: 20px 0 0;
+        padding: 20px;
+        width: 100%;
+    }
+
+    .skil-expetn {
+        float: left;
+        width: 100%;
+    }
+
+    .skil-expetn > span {
+        border-bottom: 1px solid #ccc;
+        float: left;
+        font-size: 16px;
+        padding: 0 0 6px;
+        width: 100%;
+    }
+
+    .nedskil {
+        float: left;
+        width: 100%;
+        padding: 0 0 0 30px;
+    }
+
+    .nedskil > li {
+        float: left;
+        list-style: outside none disc;
+        padding: 10px 0 10px 4px;
+        width: 100%;
+    }
+
+    .agersprm {
+        float: left;
+        padding: 14px 0 0;
+        width: 100%;
+    }
+
+    .hourel {
+        float: left;
+        margin: 18px 0 0;
+        width: 100%;
+    }
+
+    #categorydetails .hourel > textarea {
+        width: 100% !important;
+    }
+
+    .hourel span {
+        color: #7c7c7c;
+        float: left;
+        font-size: 24px;
+        margin: 0 6px 0 0;
+    }
+
+    .hourel input[type="text"] {
+        float: left;
+        width: 100px;
+        padding: 5px;
+    }
+
+    .hourel input[type="number"] {
+        float: left;
+        width: 100px;
+        padding: 5px;
+    }
+
+    .hourel label {
+        color: #606060;
+        float: left;
+        font-weight: normal;
+        margin: 5px 0 0 4px;
+    }
+
+    .applyto-tasker select {
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        color: #7c7c7c;
+        float: left;
+        font-family: proximanovaregular;
+        font-size: 17px;
+        padding: 7px 4px;
+        width: 100%;
+    }
+
+    .skil-expetn > span {
+        border-bottom: 1px solid #ccc;
+        float: left;
+        font-size: 16px;
+        padding: 0 0 6px;
+        width: 100%;
+    }
+
+    .skil-expetn > input[type="file"] {
+        display: block;
+        margin: 20px 0 0;
+    }
+
+    .btn-container {
+        float: left;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .btn-container input {
+        background-color: #1da3bf;
+        border: medium none;
+        border-radius: 3px;
+        color: #fff;
+        float: left;
+        font-size: 18px;
+        margin: 0 10px 0 0;
+        padding: 7px 20px;
+    }
+
+    .checkboxerr {
+        outline: 2px solid red;
+    }
+
+    .error-border {
+        border: 1px solid #e9714b !important;
+    }
+
+    .selectactive.glyphicon.glyphicon-ok.ng-scope {
+        color: green;
+        font-size: 20px;
+        padding: 0 0 0 136px;
+  }
+</style>

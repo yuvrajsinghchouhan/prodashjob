@@ -1,0 +1,83 @@
+<div class="page page-forms-common">
+   <!-- page header -->
+   <div class="pageheader">
+       <h2> {{'Menu.SETTINGS' | translate}} </h2>
+       <div class="page-bar">
+          <ul class="page-breadcrumb">
+             <li><a ui-sref="app.dashboard"><i class="fa fa-home"></i> {{main.title}}</a></li>
+ 		    <li><a ui-sref="app.settings.currencySettings.list"> {{'Menu.SETTINGS' | translate}} </a></li>
+         <li><a href="javascript:;">{{ CSAC.breadcrumb | translate }} </a></li>
+          </ul>
+       </div>
+    </div>
+   <!-- /page header -->
+   <!-- page content -->
+   <div class="pagecontent">
+      <!-- row -->
+      <div class="row">
+         <!-- col -->
+         <div class="col-md-12">
+            <!-- tile -->
+            <section class="tile" fullscreen="isFullscreen02">
+               <!-- tile header -->
+			   <form role="form" submit-validate enctype="multipart/form-data" name="currencyForm"  novalidate>
+               <div class="tile-header dvd dvd-btm">
+                  <h1 class="custom-font"><strong>Add</strong> Currency</h1>
+               </div>
+               <!-- /tile header -->
+               <!-- tile body -->
+               <div class="tile-body">
+
+                     <div class="form-group" ng-class="{ 'has-error' :currencyForm.name.$invalid && !currencyForm.name.$pristine, 'has-success' : currencyForm.name.$valid && !currencyForm.name.$pristine}">
+                        <label for="exampleInputEmail1">Currency Name</label>
+                        <input type="text" name="name" id="name" class="form-control" required="" ng-model="CSAC.currencyData.name" aria-required="true" aria-invalid="true" on-blur-validation required>
+                        <p class="help-block">
+                           <span ng-show="currencyForm.name.$invalid && !currencyForm.name.$pristine">Currency Name is required.</span>
+                        </p>
+                     </div>
+                     <div class="form-group" ng-class="{ 'has-error' :currencyForm.name.$invalid && !currencyForm.name.$pristine, 'has-success' : currencyForm.name.$valid && !currencyForm.name.$pristine}">
+                        <label for="exampleInputEmail1">Currency Code</label>
+                        <input type="text" name="name" id="name" class="form-control" required="" ng-model="CSAC.currencyData.code" aria-required="true" aria-invalid="true" on-blur-validation required>
+                        <p class="help-block">
+                           <span ng-show="currencyForm.name.$invalid && !currencyForm.name.$pristine">Currency code is required.</span>
+                        </p>
+                     </div>
+                     <div class="form-group" ng-class="{ 'has-error' :currencyForm.name.$invalid && !currencyForm.name.$pristine, 'has-success' : currencyForm.name.$valid && !currencyForm.name.$pristine}">
+                        <label for="exampleInputEmail1">Currency Symbol</label>
+                        <input type="text" name="name" id="name" class="form-control" required=""  ng-model="CSAC.currencyData.symbol" aria-required="true" aria-invalid="true" on-blur-validation required>
+                        <p class="help-block">
+                           <span ng-show="currencyForm.name.$invalid && !currencyForm.name.$pristine">Currency symbol is required.</span>
+                        </p>
+                     </div>
+                     <div class="form-group" ng-class="{ 'has-error' :currencyForm.name.$invalid && !currencyForm.name.$pristine, 'has-success' : currencyForm.name.$valid && !currencyForm.name.$pristine}">
+                        <label for="exampleInputEmail1">Currency Value</label>
+                        <input type="text" name="name" id="name" class="form-control" required="" ng-model="CSAC.currencyData.value" aria-required="true" aria-invalid="true" on-blur-validation required>
+                        <p class="help-block">
+                           <span ng-show="currencyForm.name.$invalid && !currencyForm.name.$pristine">Currency value is required.</span>
+                        </p>
+                     </div>
+					<div class="form-group" ng-class="{ 'has-error' :currencyForm.enable_disable.$invalid && !currencyForm.enable_disable.$pristine, 'has-success' : currencyForm.enable_disable.$valid && !currencyForm.enable_disable.$pristine}">
+                        <label for="paymentMode">Enable/Disable</label>
+                        <select id="paymentMode" name="enable_disable" ng-init="CSAC.currencyData.status=(CSAC.currencyData.status ? CSAC.currencyData.status : '1')"  convert-to-number ng-model="CSAC.currencyData.status" class="form-control mb-10" on-blur-validation required>
+                            <option value="1">Enable</option>
+                            <option value="2">Disable</option>
+                            <p class="help-block">
+                           <span ng-show="currencyForm.enable_disable.$invalid && !currencyForm.enable_disable.$pristine">enable/disable currency name</span>
+                        </p>
+                        </select>
+                    </div>
+               </div>
+			   <div class="tile-footer text-right bg-tr-black lter dvd dvd-top">
+					<button type="submit" class="btn btn-success btn-ef btn-ef-3 btn-ef-3c mb-10" ng-click="CSAC.submitCurrency(currencyForm.$valid,CSAC.currencyData)">Submit<i class="fa fa-arrow-right"></i></button>
+			   </div>
+				</form>
+               <!-- /tile body -->
+            </section>
+            <!-- /tile -->
+   </div>
+   <!-- /col -->
+</div>
+<!-- /row -->
+</div>
+<!-- /page content -->
+</div>

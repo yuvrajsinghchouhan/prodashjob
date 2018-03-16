@@ -1,0 +1,28 @@
+<form name="reason" submit-validate role="form"  novalidate>
+<div class="modal-header">
+    <button type="button" class="close" ng-click="TDIMI.cancel()" data-dismiss="modal">×</button>
+    <h3 class="modal-title">{{'CLEAR_TASK' | translate}}</h3>
+</div>
+
+<div class="modal-body">
+  <label class="control-label">{{'REASON_FOR_CANCELLATION' | translate}}</label>
+  <div ng-if="TDIMI.cancelreason" class="form-group" ng-repeat="adminreason in TDIMI.cancelreason">
+      <input type="radio" name="adminreason" id="adminreason"  ng-click="TDIMI.click(TDIMI.other)" value="{{adminreason.reason}}"  ng-model="TDIMI.reason" on-blur-validation required>
+      <label class="control-label">{{adminreason.reason}}</label>
+  </div>
+  <input type="radio" name="other" id="other"  value="" ng-click="TDIMI.otherclick(TDIMI.other)" ng-model="TDIMI.reason"  on-blur-validation required>
+  <label class="control-label">{{'OTHER' | translate}}</label>
+    <div ng-if="TDIMI.other == 1" class="form-group" ng-class="{'has-error' : reason.line1.$invalid && !reason.line1.$pristine, 'has-success' : reason.line1.$valid && !reason.line1.$pristine}">
+        <textarea type="text" name="line1" id="line1" ng-model="TDIMI.reason" class="form-control" required></textarea>
+        <p class="help-block">
+            <span ng-show="reason.line1.$invalid && !reason.line1.$pristine">{{'REASON' | translate}}</span>
+        </p>
+    </div>
+</div>
+
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="TDIMI.ok(TDIMI)">{{'OK' | translate}}</button>
+    <button class="btn btn-warning" type="button" ng-click="TDIMI.cancel()">{{'CANCEL' | translate}}</button>
+</div>
+
+</form>

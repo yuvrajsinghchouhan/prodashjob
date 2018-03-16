@@ -1,0 +1,10 @@
+<div ng-init="ACC.getreviewdetails();" role="tabpanel" class="tab-pane" id="Transactions" read-only="true">
+  <uib-tabset class="tabdetails" active="active">
+    <uib-tab index="0" ng-click="ACC.currentPage= 1; ACC.getreviewdetails(1)" heading="{{'REVIEWS_TO_YOU' | translate}}">
+      <ng-include src="'app/site/modules/accounts/views/reviews.sub.tab.html'"></ng-include>
+    </uib-tab>
+    <uib-tab index="1" ng-click="ACC.currentPage= 1; ACC.getuserreviewdetails(1)" heading="{{'REVIEWS_BY_YOU' | translate}}">
+      <ng-include src="'app/site/modules/accounts/views/reviews.sub.tab.html'"></ng-include>
+    </uib-tab>
+  </uib-tabset>
+</div>

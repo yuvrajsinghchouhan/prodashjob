@@ -1,0 +1,187 @@
+<div class="page page-tables-bootstrap">
+  <!-- page header -->
+  <div class="pageheader">
+    <h2>{{ 'SubMenu.SUB_CATEGORY' | translate }} </h2>
+    <div class="page-bar">
+      <ul class="page-breadcrumb">
+        <li>
+          <a ui-sref="app.dashboard"><i class="fa fa-home"></i> {{main.title}}</a>
+        </li>
+        <li>
+          <a ui-sref="app.categories.subcategorylist">{{'SubMenu.EDIT_SUBCATEGORYLIST' | translate }}</a>
+        </li>
+        <li>
+          <a ui-sref="app.banner.editBanner" href="#/app/banner/edit-banner">{{ ESCATC.breadcrumb | translate }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- /page header -->
+  <!-- page content -->
+  <div class="pagecontent">
+    <!-- row -->
+    <div class="row">
+      <!-- col -->
+      <div class="col-md-12">
+        <!-- tile -->
+        <section class="tile">
+          <!-- tile header -->
+          <div class="tile-header dvd dvd-btm">
+            <h1 class="custom-font"><strong>Sub Category</strong> Edit</h1>
+          </div>
+          <!-- /tile header -->
+          <div class="tile-body" style="padding-bottom: 80px;">
+<form class="profile-settings" submit-validate enctype="multipart/form-data" name="categoryForm" novalidate>
+
+  <div class="form-group" ng-class="{ 'has-error' : categoryForm.CategoryName.$invalid && !categoryForm.CategoryName.$pristine, 'has-success' : categoryForm.CategoryName.$valid && !categoryForm.CategoryName.$pristine}">
+    <label for="CategoryName">Sub Category Name</label>
+    <input type="text" name="CategoryName" class="form-control" ng-model="ESCATC.editCategoryData.name" id="CategoryName" on-blur-validation
+      required>
+    <p class="help-block">
+      <span ng-show="categoryForm.CategoryName.$invalid && !categoryForm.CategoryName.$pristine">Sub Category Name is required.</span>
+    </p>
+  </div>
+
+
+  <div class="form-group" ng-class="{ 'has-error' : categoryForm.slug.$invalid && !categoryForm.slug.$pristine, 'has-success' : categoryForm.slug.$valid && !categoryForm.slug.$pristine}">
+    <label for="slug">Page Slug: </label>
+    <p class="mb-10 custom-font">
+      {{ESCATC.editsettingData}}category/<span ng-show="!edit_billing_address">{{ESCATC.editCategoryData.slug | slugify}}</span>
+      <input type="text" ng-show="edit_billing_address" name="slug" id="slug" class="" ng-model="ESCATC.editCategoryData.slug"
+        on-blur-validation required>
+      <a href="javascript:;" ng-click="edit_billing_address = !edit_billing_address" class="btn btn-default btn-rounded-20 btn-xs pull-right"><i class="fa fa-pencil"></i></a>
+    </p>
+    <p class="help-block">
+      <span ng-show="categoryForm.slug.$invalid && !categoryForm.slug.$pristine">Slug is required.</span>
+    </p>
+  </div>
+
+  <div class="form-group" ng-class="{ 'has-error' : categoryForm.ParentList.$invalid && !categoryForm.ParentList.$pristine, 'has-success' : categoryForm.ParentList.$valid && !categoryForm.ParentList.$pristine}">
+    <label for="ParentList">Parent</label>
+    <select required id="ParentList" name="ParentList" ng-model="ESCATC.editCategoryData.parent" class="form-control mb-10">
+                              <option value="">(no parent)</option>
+                              <option required ng-repeat="mainpage in ESCATC.mainPagesList" ng-show="(mainpage._id!= ESCATC.editCategoryData._id)" value="{{mainpage._id}}">
+                                {{mainpage.name}}
+                                          </option>
+                           </select>
+    <p class="help-block">
+      <span ng-show="categoryForm.ParentList.$invalid && !categoryForm.ParentList.$pristine && categoryForm.ParentList.required">Parent category is required to add sub category.</span>
+    </p>
+  </div>
+
+  <!--<div class="form-group" ng-class="{ 'has-error' : categoryForm.description.$invalid && !categoryForm.description.$pristine, 'has-success' : categoryForm.description.$valid && !categoryForm.description.$pristine}">
+                        <label for="description">Description</label>
+                        <input type="text" name="description" class="form-control" ng-model="ESCATC.editCategoryData.description" id="description" on-blur-validation required>
+                        <p class="help-block">
+                           <span ng-show="categoryForm.description.$invalid && !categoryForm.description.$pristine">Description is required.</span>
+                        </p>
+                     </div>-->
+  <div class="form-group" ng-class="{ 'has-error' : categoryForm.image.$invalid && !categoryForm.image.$pristine, 'has-success' : categoryForm.image.$valid && !categoryForm.image.$pristine}">
+    <label class="control-label">Sub Category Image</label>
+    <input ui-jq="filestyle" type="file" ngf-select="temp=true" ng-model="ESCATC.editCategoryData.image" name="image" ngf-max-size="1MB"
+      ngf-pattern="'image/jpg,image/jpeg,videos/*,application/pdf'" ngf-model-invalid="errorFiles" class="filestyle" ui-options="{ buttonText: 'Select file', iconName: 'fa fa-inbox'}"
+      id="image" ng-required="!ESCATC.editCategoryData._id">
+    <div class="form-group" ng-class="{ 'has-error' : categoryForm.image.$invalid && !categoryForm.image.$pristine, 'has-success' : categoryForm.image.$valid && !categoryForm.image.$pristine}">
+      <span class="help-block">Allowed files: gif, png, jpg. Max file size 1Mb</span>
+      <img ng-if="temp" height="150" ngf-src="ESCATC.editCategoryData.image">
+      <img ng-if="!temp&&!ESCATC.editCategoryData.image==''" height="150" ngf-src="ESCATC.editCategoryData.image">
+    </div>
+  </div>
+
+
+  <div class="form-group" ng-class="{ 'has-error' : categoryForm.icon.$invalid && !categoryForm.icon.$pristine, 'has-success' : categoryForm.icon.$valid && !categoryForm.icon.$pristine}">
+    <label class="control-label">Sub Category In-active Icon(Mobile app)</label>
+    <input ui-jq="filestyle" type="file" ngf-select="temp=true" ng-model="ESCATC.editCategoryData.icon" name="icon" ngf-max-size="1MB"
+      ngf-pattern="'image/jpg,image/jpeg,image/png'" ngf-model-invalid="errorFiles" class="filestyle" ui-options="{ buttonText: 'Select file', iconName: 'fa fa-inbox'}"
+      id="icon" ng-required="!ESCATC.editCategoryData._id">
+    <div class="form-group" ng-class="{ 'has-error' : categoryForm.icon.$invalid && !categoryForm.icon.$pristine, 'has-success' : categoryForm.icon.$valid && !categoryForm.icon.$pristine}">
+      <span class="help-block">Allowed files: gif, png, jpg. Max file size 1Mb</span>
+      <img ng-if="temp" height="150" ngf-src="ESCATC.editCategoryData.icon">
+      <img ng-if="!temp&&!ESCATC.editCategoryData.icon==''" height="150" ngf-src="ESCATC.editCategoryData.icon">
+    </div>
+  </div>
+
+
+  <div class="form-group" ng-class="{ 'has-error' : categoryForm.activeicon.$invalid && !categoryForm.activeicon.$pristine, 'has-success' : categoryForm.activeicon.$valid && !categoryForm.activeicon.$pristine}">
+    <label class="control-label">Sub Category Active Icon(Mobile app)</label>
+    <input ui-jq="filestyle" type="file" ngf-select="temp=true" ng-model="ESCATC.editCategoryData.activeicon" name="activeicon" ngf-max-size="1MB"
+      ngf-pattern="'image/jpg,image/jpeg,image/png'" ngf-model-invalid="errorFiles" class="filestyle" ui-options="{ buttonText: 'Select file', iconName: 'fa fa-inbox'}"
+      id="activeicon" ng-required="!ESCATC.editCategoryData._id">
+    <div class="form-group" ng-class="{ 'has-error' : categoryForm.activeicon.$invalid && !categoryForm.activeicon.$pristine, 'has-success' : categoryForm.activeicon.$valid && !categoryForm.activeicon.$pristine}">
+      <span class="help-block">Allowed files: gif, png, jpg. Max file size 1Mb</span>
+      <img ng-if="temp" height="150" ngf-src="ESCATC.editCategoryData.activeicon">
+      <img ng-if="!temp&&!ESCATC.editCategoryData.activeicon==''" height="150" ngf-src="ESCATC.editCategoryData.activeicon">
+    </div>
+  </div>
+
+
+  <div class="form-group" ng-class="{ 'has-error' : categoryForm.keyword.$invalid && !categoryForm.keyword.$pristine, 'has-success' : categoryForm.keyword.$valid && !categoryForm.keyword.$pristine}">
+    <label for="keyword">Meta Keyword</label>
+    <input type="text" name="keyword" class="form-control" ng-model="ESCATC.editCategoryData.seo.keyword" id="keyword" on-blur-validation
+      required>
+    <p class="help-block">
+      <span ng-show="categoryForm.keyword.$invalid && !categoryForm.keyword.$pristine">Meta Keyword is required.</span>
+    </p>
+  </div>
+  <div class="form-group" ng-class="{ 'has-error' : categoryForm.title.$invalid && !categoryForm.title.$pristine, 'has-success' : categoryForm.title.$valid && !categoryForm.title.$pristine}">
+    <label for="title">Meta Title</label>
+    <input type="text" name="title" class="form-control" ng-model="ESCATC.editCategoryData.seo.title" id="title" on-blur-validation
+      required>
+    <p class="help-block">
+      <span ng-show="categoryForm.title.$invalid && !categoryForm.title.$pristine">Meta Title is required.</span>
+    </p>
+  </div>
+
+
+  <div class="form-group" ng-class="{ 'has-error' : categoryForm.commision.$invalid && !categoryForm.commision.$pristine, 'has-success' : categoryForm.commision.$valid && !categoryForm.commision.$pristine}">
+    <label for="commision">Minimum Hourly Rate</label>
+    <input type="number" min="1" name="commision" class="form-control" ng-model="ESCATC.editCategoryData.commision" id="commision"
+      ng-minlength="1" ng-maxlength="4" on-blur-validation required>
+    <p class="help-block">
+      <span ng-show="categoryForm.commision.$error.required && categoryForm.commision.$invalid && !categoryForm.commision.$pristine">Minimum Amount is required.</span>
+      <span style="color:red" ng-show="categoryForm.commision.$error.min">Minimum legth is required.</span>
+<!--<span ng-show="categoryForm.commision.$error.maxlength && !categoryForm.commision.$pristine">Minimum Amount exceed the Maximum length</span> -->
+</p>
+</div>
+
+<div class="form-group" ng-class="{ 'has-error' : categoryForm.admincommision.$invalid && !categoryForm.admincommision.$pristine, 'has-success' : categoryForm.admincommision.$valid && !categoryForm.admincommision.$pristine}">
+  <label for="admincommision">Admin Commission</label>
+  <input type="number" min="1" name="admincommision" class="form-control" ng-model="ESCATC.editCategoryData.admincommision"
+    id="admincommision" ng-minlength="1" ng-maxlength="4" on-blur-validation required>
+  <p class="help-block">
+    <span ng-show="categoryForm.admincommision.$error.required && categoryForm.admincommision.$invalid && !categoryForm.admincommision.$pristine">Minimum Commission is required.</span>
+    <span style="color:red" ng-show="categoryForm.admincommision.$error.min">Minimum length is required.</span>
+<!--<span ng-show="categoryForm.commision.$error.maxlength && !categoryForm.commision.$pristine">Minimum Amount exceed the Maximum length</span> -->
+</p>
+</div>
+
+
+<div class="form-group" ng-class="{ 'has-error' : categoryForm.publish.$invalid && !categoryForm.publish.$pristine, 'has-success' : categoryForm.publish.$valid && !categoryForm.publish.$pristine}">
+  <label for="publish">Status</label>
+  <select id="publish" name="publish" ng-model="ESCATC.editCategoryData.status" convert-to-number class="form-control mb-10"
+    on-blur-validation required>
+                           <option value='1' selected="1">Publish</option>
+                           <option value='2'>UnPublish</option>
+                           <p class="help-block">
+                              <span ng-show="categoryForm.publish.$invalid && !categoryForm.publish.$pristine">status is required.</span>
+                           </p>
+                        </select>
+</div>
+
+<div class="form-group tcol">
+  <button class="btn btn-success btn-ef btn-ef-5 btn-ef-5a" ng-disabled="ESCATC.disbledValue" ng-click="ESCATC.submit(categoryForm.$valid,ESCATC.editCategoryData);">
+                        <i class="fa fa-upload"></i> <span>Submit</span>
+                        </button>
+</div>
+
+</form>
+</div>
+</section>
+<!-- /tile -->
+</div>
+<!-- /col -->
+</div>
+<!-- /row -->
+</div>
+<!-- /page content -->
+</div>

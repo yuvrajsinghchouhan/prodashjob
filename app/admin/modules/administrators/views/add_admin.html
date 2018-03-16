@@ -1,0 +1,117 @@
+<div class="page page-forms-common">
+  <div class="pageheader">
+    <h2>{{ 'Menu.ADMINISTRATORS' | translate}}</h2>
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a ui-sref="app.dashboard"><i class="fa fa-home"></i> {{main.title}}</a>
+            </li>
+            <li>
+              <a ui-sref="app.admins.list">{{'SubMenu.ADMIN_LIST' | translate}}</a>
+            </li>
+            <li>
+                 <a  ui-sref="app.users.addNewUser">{{ADAC.action | capitalize}} {{ ADAC.breadcrumb | translate }}</a>
+
+            </li>
+        </ul>
+    </div>
+</div>
+  <div class="pagecontent">
+      <!-- row -->
+      <div class="row">
+
+         <div class="col-md-1">
+          </div>
+
+          <div class="col-md-">
+              <form name="adminEditForm" submit-validate role="form" enctype="multipart/form-data" novalidate>
+                  <!-- tile -->
+                  <section class="tile" fullscreen="isFullscreen01">
+                      <div class="tile-body">
+                          <div class="wrap-reset">
+                              <div class="row">
+                                  <div class="form-group col-md-12 legend">
+                                      <h4><strong>Personal</strong> Settings</h4>
+                                      <p>Your personal account settings</p>
+                                  </div>
+                              </div>
+                              <div class="form-group" ng-class="{ 'has-error' : adminEditForm.username.$invalid && !adminEditForm.username.$pristine, 'has-success' : adminEditForm.username.$valid && !adminEditForm.username.$pristine}">
+                                  <label for="input01" class="col-sm-2 control-label">Username</label>
+                                  <div class="col-sm-10">
+                                      <input type="text" name="username" id="username" class="form-control" ng-model="ADAC.editAdminData.username" on-blur-validation
+                                          required>
+                                      <p class="help-block">
+                                          <span ng-show="adminEditForm.username.$invalid && !adminEditForm.username.$pristine">Username is required.</span>
+                                      </p>
+                                  </div>
+                              </div>
+                              <hr class="line-dashed line-full" />
+                              <div class="form-group" ng-class="{ 'has-error' : adminEditForm.name.$invalid && !adminEditForm.name.$pristine, 'has-success' : adminEditForm.name.$valid && !adminEditForm.name.$pristine}">
+                                  <label for="input01" class="col-sm-2 control-label">Name</label>
+                                  <div class="col-sm-10">
+                                      <input type="text" name="name" id="name" class="form-control" ng-model="ADAC.editAdminData.name" on-blur-validation required>
+                                      <p class="help-block">
+                                          <span ng-show="adminEditForm.name.$invalid && !adminEditForm.name.$pristine">Name is required.</span>
+                                      </p>
+                                  </div>
+                              </div>
+                            <!--  <div class="row">-->
+                                <hr class="line-dashed line-full" />
+                                <div class="form-group" ng-class="{ 'has-error' : adminEditForm.email.$invalid && !adminEditForm.email.$pristine, 'has-success' : adminEditForm.email.$valid && !adminEditForm.email.$pristine}">
+                                    <label for="input01" class="col-sm-2 control-label">Email</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="email" id="email" class="form-control" ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/" ng-model="ADAC.editAdminData.email" on-blur-validation required>
+                                        <p class="help-block">
+                                            <span ng-show="adminEditForm.email.$invalid && !adminEditForm.email.$pristine">Email is required.</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            <!--</div>-->
+                             <div class="row">
+                                  <div class="form-group col-md-12 legend">
+                                      <h4><strong>Security</strong> Settings</h4>
+                                      <p>Secure your account</p>
+                                  </div>
+                              </div>
+
+
+                              <div class="row" >
+                                  <div class="form-group col-md-6" ng-class="{ 'has-error' : adminEditForm.password.$invalid && !adminEditForm.password.$pristine, 'has-success' : adminEditForm.password.$valid && !adminEditForm.password.$pristine}">
+                                      <label for="password">Password</label>
+                                      <input type="password" name="password" id="password" class="form-control" ng-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,12}$/" ng-minlength="6" ng-maxlength="12" ng-model="ADAC.editAdminData.password" on-blur-validation
+                                          required>
+                                      <p class="help-block">
+                                          <span class="validerr" style="color:red" ng-show="adminEditForm.password.$error.required && !adminEditForm.password.$pristine">Password is required.</span>
+                                        <span class="validerr" style="color:red" ng-show="adminEditForm.password.$invalid && !adminEditForm.password.$pristine && adminEditForm.password.$error.pattern">Password Must Contain Atleast One uppercase,One lower case,One Numeric digit.</span>
+                                        <span class="validerr" style="color:red" ng-show="adminEditForm.password.$error.minlength">Password must be minimum of 6 characters.</span>
+                                        <span class="validerr" style="color:red" ng-show="adminEditForm.password.$error.maxlength">Password must be maximum of 12 characters.</span>
+                                      </p>
+                                  </div>
+                                  <div class="form-group col-md-6" ng-class="{ 'has-error' : adminEditForm.confirm_password.$invalid && !adminEditForm.confirm_password.$pristine, 'has-success' : adminEditForm.confirm_password.$valid && !adminEditForm.confirm_password.$pristine}">
+                                      <label for="s">Password Confirmation</label>
+                                      <input type="password" name="confirm_password" id="confirm_password" class="form-control" ng-model="ADAC.editAdminData.password_confirm" ui-validate=" '$value==ADAC.editAdminData.password' " ui-validate-watch=" 'ADAC.editAdminData.password'"
+                                        on-blur-validation required>
+                                      <p class="help-block">
+                                        <span class="validerr" ng-show='adminEditForm.confirm_password.$error.validator'>Passwords do not match!</span>
+                                      </p>
+                                  </div>
+                              </div>
+
+                          <!-- /tile body -->
+                          <!-- tile footer -->
+                          <div class="tile-footer text-right bg-tr-black lter dvd dvd-top">
+                              <!-- SUBMIT BUTTON -->
+                              <button class="btn btn-success btn-ef btn-ef-3 btn-ef-3c mb-10" ng-click="ADAC.submitUserEditData(adminEditForm.$valid,ADAC.editAdminData)">Submit<i class="fa fa-arrow-right"></i></button>
+                          </div>
+                          <!-- /tile footer -->
+                  </section>
+                  <!-- /tile -->
+              </form>
+              </div>
+              <!-- /col -->
+          </div>
+          <!-- /row -->
+      </div>
+      <!-- /page content -->
+  </div>
+</div>

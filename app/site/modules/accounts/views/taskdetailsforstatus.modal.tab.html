@@ -1,0 +1,169 @@
+<div class="availabilities-day-form adminweekmodal viw-dtls-modal" id="viewdetails">
+    <div class="">
+        <div class="">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" ng-click="TDVSMI.ok()">×</button>
+                <h1 class="day-text">{{'VIEW_TASK_DETAILS' | translate}}</h1>
+            </div>
+            <div class="modal-body">
+                <form method="post" action="savenewrate" id="addnewrate">
+
+                    <ul class="view-detail-pop">
+                        <li ng-if="TDVSMI.TaskDetails.tasker.avatar">
+                            <div class="logo-container prof-image" id="taskerimage"><img id="theImg" class="img-circle" ng-src="{{TDVSMI.TaskDetails.tasker.avatar}}"></div>
+                        </li>
+                        <div class="text-danger" align="center">
+                            <h3 ng-if="TDVSMI.TaskDetails.usertaskcancellationreason"> {{'TASK_CANCELLED' | translate}} </h3>
+                        </div>
+
+                        <li ng-if="TDVSMI.TaskDetails._id">
+                            <label class="col-md-5">{{'BOOKING_ID' | translate}}:</label>
+                            <p class="col-md-5" value="" readonly="">{{TDVSMI.TaskDetails.booking_id}}</p>
+                        </li>
+                        <!--<li ng-if="TDVSMI.TaskDetails.tasker.name">
+                            <label class="col-md-5">{{'TASKER_NAME' | translate}}:</label>
+                            <p  class="col-md-5" value="" readonly="">{{TDVSMI.TaskDetails.tasker.name.first_name}} {{TDVSMI.TaskDetails.tasker.name.last_name}}</p>
+                        </li>-->
+                        <li ng-if="TDVSMI.TaskDetails.tasker.username">
+                            <label class="col-md-5">{{'TASKER_NAME' | translate}}:</label>
+                            <p class="col-md-5" value="" readonly="">{{TDVSMI.TaskDetails.tasker.name.first_name}}({{TDVSMI.TaskDetails.tasker.username}})</p>
+                        </li>
+                        <li ng-if="TDVSMI.TaskDetails.tasker.email">
+                            <label class="col-md-5">{{'TASKER_EMAIL' | translate}}:</label>
+                            <p class="col-md-5" value="" readonly="">{{TDVSMI.TaskDetails.tasker.email}}</p>
+                        </li>
+                        <li ng-if="TDVSMI.TaskDetails.category.name">
+                            <label class="col-md-5">{{'CATEGORY' | translate}}:</label>
+                            <p class="col-md-5" value="" readonly="">{{TDVSMI.TaskDetails.category.name}}</p>
+                        </li>
+                        <li ng-if="TDVSMI.TaskDetails.history.booking_date">
+                            <label class="col-md-5">{{'BOOKING DATE' | translate}}:</label>
+                            <p class="col-md-5" value="" readonly="">{{TDVSMI.TaskDetails.history.booking_date | date:'medium'}}</p>
+                        </li>
+                        <li ng-if="TDVSMI.TaskDetails.booking_information.booking_date">
+                            <label class="col-md-5">{{'TASK_START_DATE' | translate}}:</label>
+                            <p class="col-md-5" value="" readonly="">{{TDVSMI.TaskDetails.booking_information.booking_date | date:'medium' }}</p>
+                        </li>
+                        <li ng-if="TDVSMI.TaskDetails.history.job_started_time">
+                            <label class="col-md-5">{{'TASK_STARTED_AT' | translate}}:</label>
+                            <p class="col-md-5" value="" readonly="">{{TDVSMI.TaskDetails.history.job_started_time | date:'medium' }}</p>
+                        </li>
+                        <li ng-if="TDVSMI.TaskDetails.history.job_completed_time">
+                            <label class="col-md-5">{{'TASK_COMPLETED_AT' | translate}}:</label>
+                            <p class="col-md-5" value="" readonly="">{{TDVSMI.TaskDetails.history.job_completed_time | date:'medium'}}</p>
+                        </li>
+                        <li ng-if="TDVSMI.TaskDetails.invoice.worked_hours_human">
+                            <label class="col-md-5">{{'HOURS_WORKRD' | translate}}:</label>
+                            <p class="col-md-5" value="" readonly="">{{TDVSMI.TaskDetails.invoice.worked_hours_human}}</p>
+                        </li>
+                        <li ng-if="TDVSMI.TaskDetails.hourly_rate">
+                            <label class="col-md-5">{{'HOURLY_RATE' | translate}}:</label>
+                            <p class="col-md-5" value="" readonly="">{{TDVSMI.defaultcurrency[0].symbol}}{{TDVSMI.TaskDetails.hourly_rate * TDVSMI.defaultcurrency[0].value
+                                | number:2}}
+                            </p>
+                        </li>
+                        <li ng-if="TDVSMI.TaskDetails.invoice.amount.minimum_cost">
+                            <label class="col-md-5">{{'MINIMUM_HOURLY_RATE' | translate}}:</label>
+                            <p class="col-md-5" value="" readonly="">{{TDVSMI.defaultcurrency[0].symbol}}{{TDVSMI.TaskDetails.invoice.amount.minimum_cost * TDVSMI.defaultcurrency[0].value
+                                | number:2}}
+                            </p>
+                        </li>
+                         <li ng-if="TDVSMI.TaskDetails.invoice.amount.extra_amount">
+                            <label class="col-md-5">{{'MISCELLANEOUS_AMOUMT' | translate}}:</label>
+                            <p class="col-md-5" value="" readonly="">{{TDVSMI.defaultcurrency[0].symbol}}{{TDVSMI.TaskDetails.invoice.amount.extra_amount * TDVSMI.defaultcurrency[0].value
+                                | number:2}}
+                            </p>
+                        </li>
+                           <li ng-if="TDVSMI.TaskDetails.invoice.amount.service_tax">
+                            <label class="col-md-5">{{'SERVICE_TAX' | translate}}:</label>
+                            <p class="col-md-5" value="" readonly="">{{TDVSMI.defaultcurrency[0].symbol}}{{TDVSMI.TaskDetails.invoice.amount.service_tax * TDVSMI.defaultcurrency[0].value
+                                | number:2}}
+                            </p>
+                        </li>
+
+                        <li ng-if="TDVSMI.TaskDetails.invoice.amount.coupon">
+                            <label class="col-md-5">{{'COUPON_DISCOUNT'|translate }}:</label>
+                            <p class="col-md-6" value="" readonly="">{{TDVSMI.defaultcurrency[0].symbol}}{{TDVSMI.TaskDetails.invoice.amount.coupon | number:2}}</p>
+                        </li>
+
+                        <li ng-if="TDVSMI.TaskDetails.invoice.amount.grand_total">
+                            <label class="col-md-5">{{'TOTAL_AMOUNT' | translate}}:</label>
+
+                            <p class="col-md-5" value="" readonly="" ng-if="(TDVSMI.TaskDetails.status == 6 || TDVSMI.TaskDetails.status == 7) && (TDVSMI.TaskDetails.invoice.amount.balance_amount== 0)">{{TDVSMI.defaultcurrency[0].symbol}} {{TDVSMI.TaskDetails.invoice.amount.grand_total * TDVSMI.defaultcurrency[0].value
+                                | number:2}}</p>
+                            <p class="col-md-5" value="" readonly="" ng-if="(TDVSMI.TaskDetails.status == 6 || TDVSMI.TaskDetails.status == 7) && (TDVSMI.TaskDetails.invoice.amount.balance_amount != 0) && !TDVSMI.TaskDetails.invoice.amount.coupon">{{TDVSMI.defaultcurrency[0].symbol}} {{TDVSMI.TaskDetails.invoice.amount.balance_amount * TDVSMI.defaultcurrency[0].value
+                                | number:2}}</p>
+                            <p class="col-md-5" value="" readonly="" ng-if="(TDVSMI.TaskDetails.status == 6 || TDVSMI.TaskDetails.status == 7) && (TDVSMI.TaskDetails.invoice.amount.balance_amount != 0) && TDVSMI.TaskDetails.invoice.amount.coupon">{{TDVSMI.defaultcurrency[0].symbol}} {{ (TDVSMI.TaskDetails.invoice.amount.balance_amount * TDVSMI.defaultcurrency[0].value)-TDVSMI.TaskDetails.invoice.amount.coupon | number:2}}</p>
+
+                        </li>
+                        <li ng-if="TDVSMI.taskdescription">
+                            <label class="col-md-5">{{'TASK_DESCRIPTION' | translate}}:</label>
+                            <p class="col-md-5" value="" readonly="" ng-bind-html="TDVSMI.taskdescription"></p>
+
+                        </li>
+
+                        <li ng-if="TDVSMI.TaskDetails.usertaskcancellationreason">
+                            <label class="col-md-5">{{'REASON_FOR_TASK_CANCELLATION' | translate}}:</label>
+                            <p class="col-md-5" value="" readonly="">{{TDVSMI.TaskDetails.usertaskcancellationreason}}</p>
+                        </li>
+                        <li>
+                            <label class="col-md-5">{{'BILLING ADDRESS' | translate}}:</label>
+                            <p class="col-md-5" style="word-break: break-all;"> {{TDVSMI.TaskDetails.billing_address.line1}}
+<span ng-if="TDVSMI.TaskDetails.billing_address.line2">{{TDVSMI.TaskDetails.billing_address.line2}},<br> </span>
+<span ng-if="TDVSMI.TaskDetails.billing_address.city">{{TDVSMI.TaskDetails.billing_address.city}},<br> </span>
+<span ng-if="TDVSMI.TaskDetails.billing_address.state">{{TDVSMI.TaskDetails.billing_address.state}},<br> </span>
+<span ng-if="TDVSMI.TaskDetails.billing_address.country">{{TDVSMI.TaskDetails.billing_address.country}},<br> </span>
+<span ng-if="TDVSMI.TaskDetails.billing_address.zipcode">{{TDVSMI.TaskDetails.billing_address.zipcode}}</span></p>
+</li>
+
+
+</ul>
+</form>
+</div>
+<!-- /.modal-content -->
+<div class="modal-footer">
+    <button type="button" ui-sref="account" ng-click="TDVSMI.ok()" class="bluebtn" data-dismiss="modal">{{'CANCEL' | translate}}</button>
+</div>
+</div>
+<!-- /.modal-content -->
+</div>
+<!-- /.modal-dialog -->
+</div>
+
+<style>
+    /*.availabilities-day-form .modal-header {
+   background-color: #545454;
+}*/
+
+    #viewdetails .modal-body {
+        float: left;
+        text-align: left;
+        width: 100%;
+        background: #fff;
+    }
+
+    #viewdetails .modal-body {
+        float: left;
+        text-align: left;
+        width: 100%;
+        background: #fff;
+    }
+
+    #viewdetails .view-detail-pop>li label {
+        font-weight: normal;
+    }
+
+    #viewdetails .view-detail-pop input {
+        padding: 5px;
+    }
+
+    .modal-body {
+        position: relative;
+        padding: 20px;
+    }
+
+    #viewdetails .logo-container#taskerimage img.img-circle {
+        width: 100px;
+        height: 100px;
+    }
+</style>

@@ -1,0 +1,20 @@
+<div class="page page-core page-login">
+    <div class="text-center">
+      <a href="\admin"> <img style="width:300px "src="{{rc.logo}}"></a>
+      <!-- <h3 class="text-light text-white">QUICK RABBIT</h3> -->
+    </div>
+    <div class="container w-420 p-15 bg-white mt-40 text-center">
+        <h2 class="text-light text-greensea">Forgot Password</h2>
+        <form ng-submit="login()"  role="form" name="form" class="form-validation mt-20" method="post" novalidate>
+            <div class="form-group">
+                <input type="email" autocomplete="remember==true?on:off" class="form-control underline-input" name="username" placeholder="User Mail" ng-model="AFC.username" required>
+                <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Mail id is required</span>
+            <div class="form-group text-left mt-20">
+                <div class="form-actions">
+                    <button type="submit"  ng-disabled="form.$invalid"  class="btn btn-greensea b-0 br-2 mr-5" ng-click="AFC.forgotpass(form.$valid,AFC.username)">Submit</button>
+                </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,101 @@
+<section class="section-white land-slide">
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <uib-carousel interval="MAC.myInterval">
+                <uib-slide ng-repeat="slide in MAC.banner" active="slide.active">
+                    <img ng-src="{{slide.image}}" style="margin:auto;">
+<div class="carousel-caption">
+    <p><strong>{{slide.description}}</strong></p>
+</div>
+</uib-slide>
+</uib-carousel>
+</div>
+
+</div>
+<div class="forms-holer home">
+    <div class="container">
+        <div class="main-text search-bar">
+            <form name="searchform" class="frm-fields" submit-validate role="form" novalidate>
+                <div class="col-md-5 srch-box cat-lists" ng-class="{ 'has-error' : searchform.searchfield.$invalid && !searchform.searchfield.$pristine, 'has-success' : searchform.searchfield.$valid && !searchform.searchfield.$pristine}">
+                    <ui-select name="parent" ng-model="searchData.parent" theme="selectize" on-select="MAC.getsubcategory(searchData.parent._id)"
+                        class="form-control" title="Choose a Category">
+                        <ui-select-match placeholder="{{'CHOOSE A CATEGORY' | translate}}">{{$select.selected.name}}</ui-select-match>
+                        <ui-select-choices repeat="item in MAC.data.response[4].Category | filter: $select.search">
+                            <div ng-bind-html="item.name | highlight: $select.search"></div>
+                        </ui-select-choices>
+                    </ui-select>
+                </div>
+                <div class="col-md-5 srch-box sec-hlp">
+                    <ui-select name="child" ng-model="searchData.child" theme="selectize" class="form-control" title="Choose a Subcategory">
+                        <ui-select-match placeholder="{{'CHOOSE A SUBCATEGORY' | translate}}">{{$select.selected.name}}</ui-select-match>
+                        <ui-select-choices repeat="item1 in MAC.subcategorydata | filter: $select.search">
+                            <div ng-bind-html="item1.name | highlight: $select.search"></div>
+                        </ui-select-choices>
+                    </ui-select>
+                </div>
+                <div class="col-md-2 srch-box">
+                    <button type="submit" ng-click="search(searchData)">{{'SEARCH' | translate}}<i class="fa fa-search" aria-hidden="true"></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</section>
+
+<section>
+    <div class="how-it-works-section">
+        <div class="container">
+            <span class="totp-tile">{{'HOW' | translate}} {{MAC.data.response[2].Settings.settings.site_title}} {{'WORKS' | translate}}</span>
+
+            <ul class="how-itsworks">
+                <li class="col-md-4" ng-repeat="postheader in MAC.postheader">
+                    <div class="worksteps-holder">
+                        <figure><img src="{{postheader.image}}"></figure>
+                        <span class="sml-titl">{{postheader.title}}</span>
+                        <p class="descrb">{{postheader.description}}</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="hirecontainer">
+        <div class="container">
+            <!--<span class="top-text-til">{{'HIRE FOR A RANGE' | translate}}</span>-->
+            <span class="top-text-til">{{'POPULAR CATEGORY' | translate}}</span>
+            <ul class="hireloop">
+                <li class="col-md-4" ng-repeat="categoryinfo in MAC.data.response[0].ActiveCategory">
+                    <div class="prodt-container">
+                        <a ui-sref="category({slug:categoryinfo.slug})" href="category({slug:categoryinfo.slug})">
+                            <figure>
+                                <div afkl-lazy-image="{{categoryinfo.image}}" class="afkl-lazy-wrapper" lazyerr></div>
+                                <div class="mask"></div>
+                            </figure>
+                            <figcaption>
+                                <h4 class="futer-text">{{categoryinfo.name}}</h4>
+                            </figcaption>
+                        </a>
+
+                    </div>
+                </li>
+                <button ng-if="MAC.data.response[4].Category.length>9" class="btn btn-success btn-ef btn-ef-3 btn-ef-3c mb-10" ui-sref="morecategories({slug:MAC.data.response[0].ActiveCategory.length})">More Categories</button>
+            </ul>
+        </div>
+    </div>
+</section>
+<section class="email-notify">
+    <div class="hirecontainer">
+        <div class="container">
+            <form name="subscriptionForm" submit-validate role="form" enctype="multipart/form-data" novalidate>
+                <div class="form-group" ng-class="{ 'has-error' : subscriptionForm.email.$invalid && !subscriptionForm.email.$pristine, 'has-success' : subscriptionForm.email.$valid && !subscriptionForm.email.$pristine}">
+                    <label for="email">{{'SUBSCRIPTION' | translate}}</label>
+                    <input type="email" name="email" id="email" class="form-control" ng-model="MAC.email" placeholder="{{'EMAIL ADDRESS '| translate}}"
+                        required>
+                    <button class="btn btn-success btn-ef btn-ef-3 btn-ef-3c mb-10" ng-click="MAC.subscription(subscriptionForm,MAC.email)">{{'SUBSCRIBE' | translate}}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

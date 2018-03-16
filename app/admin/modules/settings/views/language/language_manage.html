@@ -1,0 +1,107 @@
+<div class="page page-forms-common">
+    <div class="pageheader">
+        <h2> {{'SubMenu.LANGUAGE_SETTINGS' | translate}} </h2>
+        <div class="page-bar">
+            <ul class="page-breadcrumb">
+                <li><a ui-sref="app.dashboard"><i class="fa fa-home"></i> {{main.title}}</a></li>
+                <li><a ui-sref="app.settings.languageSettings.list"> {{'SubMenu.LANGUAGE_SETTINGS' | translate}} </a></li>
+                <li><a href="javascript:;"> {{'SubMenu.LANGUAGE_SETTINGS' | translate}} Manager </a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="pagecontent">
+        <div class="row">
+            <div class="col-md-12">
+                <section class="tile" fullscreen="isFullscreen07">
+                    <div class="tile-header dvd dvd-btm">
+                        <h1 class="custom-font">Manage <strong>Language</strong></h1>
+                    </div>
+                    <!--<div class="tile-widget">
+                        <div class="row">
+                            <div class="col-sm-12">
+                            </div>
+                            <div class="col-sm-5">
+                                <select class="input-sm form-control inline w-sm">
+                                    <option value="0" ng-checked="true">Bulk action</option>
+                                    <option value="1">Delete selected</option>
+                                   </select>
+                                <button class="btn btn-sm btn-default" ng-click="LSLC.openUsersDeleteModal('',LSLC.getProductList,'multiple')">Apply</button>
+                            </div>
+                            <div class="col-sm-3"></div>
+                            <div class="col-sm-4">
+                                <div class="input-group pull-right">
+                                     <input type="text" class="input-sm form-control" ng-model="LSLC.productTableSearch" placeholder="Search...">
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+                    <div class="tile-body p-0">
+                        <div class="table-responsive lng-fixed">
+                            <table class="table mb-0 listtable">
+                                <thead>
+                                    <tr>
+                                        <th ng-click="LSLC.order('product_name')">Language Name
+                                            <span class="sort" ng-show="LSLC.predicate != 'product_name'" ng-blur="LSLC.blur=false;" ng-class="{'sorting':LSLC.blur }"></span>
+                                            <span class="sort" ng-show="LSLC.predicate === 'product_name'" ng-class="{'sorting-asc':(LSLC.reverse == false ), 'sorting-dec':(LSLC.reverse == true ),'sorting':LSLC.blur }"></span>
+                                        </th>
+                                        <th ng-click="LSLC.order('price')">Language Code
+                                            <span class="sort " ng-show="LSLC.predicate != 'price'" ng-blur="LSLC.blur=false;" ng-class="{'sorting':LSLC.blur }"></span>
+                                            <span class="sort " ng-show="LSLC.predicate === 'price'" ng-class="{'sorting-asc':(LSLC.reverse == false ), 'sorting-dec':(LSLC.reverse == true ),'sorting':LSLC.blur }"></span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="(key, value) in LSMC.translationKey">
+                                        <td>{{key}}</td>
+                                        <td>
+                                            <div class="form-group">
+                                                <input type="text" name="name" id="name" class="form-control" required="" ng-model="LSMC.translationValue[key]" aria-required="true"
+                                                    aria-invalid="true">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <form>
+                        <div class="tile-footer dvd dvd-top">
+                            <button type="submit" ng-click="LSMC.submitlanguageData()" class="btn btn-rounded btn-success btn-sm">Submit</button>
+                        </div>
+                    </form>
+                    <div class="tile-footer dvd dvd-top">
+                        <div class="row">
+                            <div class="col-sm-6 text-left">
+                                <small class="text-muted">Showing {{(LSMC.currentPage-1)*LSMC.entryLimit +1}} - {{(LSMC.currentPage*LSMC.entryLimit)<=LSMC.data.count ? (LSMC.currentPage*LSMC.entryLimit) : LSMC.data.count}} of {{LSMC.data.count}} items</small>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="showitems pull-right">
+                                    <span class="pull-left first">Show</span>
+                                    <select ng-model="LSMC.entryLimit" ng-change="LSMC.pageChange(LSMC.currentPage,LSMC.entryLimit)" class="input-sm form-control inline pull-left"
+                                        ng-init="somethingHere = options[0]" ng-options="size for size in LSMC.pageSizes">
+                                    </select>
+                                    <span class="pull-left last">entries</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row margintop-20">
+                            <div class="col-sm-5 hidden-xs pull-left">
+
+                            </div>
+                            <div class="col-sm-7 text-right">
+                                <div class="pagination">
+                                    <pagination total-items="LSMC.data.count" ng-change="LSMC.pageChange(LSMC.currentPage,LSMC.entryLimit)" ng-model="LSMC.currentPage"
+                                        max-size="LSMC.maxPaginationSize" items-per-page="LSMC.entryLimit" class="pagination-sm"
+                                        boundary-links="true" rotate="false">
+                                    </pagination>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>

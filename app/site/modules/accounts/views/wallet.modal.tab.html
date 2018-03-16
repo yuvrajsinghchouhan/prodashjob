@@ -1,0 +1,100 @@
+
+
+
+ <div class="wallet-model">
+       <div class="modal-header">
+           <h3 class="modal-title">{{'PAYMENT'|translate }}</h3>
+            <button type="button" class="close" ng-click="WRM.cancel()" data-dismiss="modal">×</button>
+       </div>
+       <div class="modal-body">
+         <form name="walletRechargeForm" submit-validate novalidate>
+           <div ng-class="{ 'has-error' : walletRechargeForm.card_number.$invalid && !walletRechargeForm.card_number.$pristine, 'has-success' : walletRechargeForm.card_number.$valid && !walletRechargeForm.card_number.$pristine}">
+
+                    <ul class="credicard-detls">
+                       <li>
+                          <label class="mobl-dis">{{'CREDIT_CARD'|translate }}{{stripeError}}</label>
+                          <input required name= "card_number"  ng-minlength="16" ng-model="WRM.walletrecharge.card.number" ng-maxlength="16"  class="mobilenumb" placeholder="" type="text" numbers-Only>
+                          <span style="color:red" ng-show="walletRechargeForm.card_number.$invalid && !walletRechargeForm.card_number.$pristine">{{'PLEASE CHECK CARD NUMBER'|translate }}</span>
+                       </li>
+                       <li>
+                          <div class="Experitaiton" >
+                             <label>{{'EXPIRATION'|translate }}</label>
+                             <select required name="exp_month" ng-model="WRM.walletrecharge.card.exp_month">
+                                  <option value="">{{'SELECT THE MONTH'|translate }}</option>
+                                <option checked="checked" value="01">01</option>
+                                <option value="02">02</option>
+                                <option  value="03">03</option>
+                                <option value="04">04</option>
+                                <option value="05">05</option>
+                                <option value="06">06</option>
+                                <option value="07">07</option>
+                                <option value="08">08</option>
+                                <option value="09">09</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                             </select>
+                             <select required name ="exp_year"  ng-model="WRM.walletrecharge.card.exp_year">
+                                 <option value="">{{'SELECT THE YEAR'|translate }}</option>
+                               <option value="2017">2017</option>
+                               <option value="2018">2018</option>
+                               <option value="2019">2019</option>
+                               <option value="2020">2020</option>
+                               <option value="2021">2021</option>
+                               <option value="2022">2022</option>
+                               <option value="2023">2023</option>
+                               <option value="2024">2024</option>
+                               <option value="2025">2025</option>
+                                <option value="2026">2026</option>
+                             </select>
+                          </div>
+                          <div class="Experitaiton">
+                             <label>{{'CVV_CODE'|translate }}</label>
+                             <input required name ="cvc" ng-maxlength="3"  type="text" ng-model="WRM.walletrecharge.card.cvv" class="cvvbox" numbers-Only>
+                          </div>
+                       </li>
+                       <span style="color:red" ng-show="walletRechargeForm.exp_month.$invalid && !walletRechargeForm.exp_month.$pristine"> Expiration Month is required.</span>
+                       <span style="color:red" ng-bind="stripeError">{{stripeError}}</span>
+                       <span style="color:red" ng-show="walletRechargeForm.exp_year.$invalid && !walletRechargeForm.exp_year.$pristine"> Expiration Year is required.</span>
+                       <span style="color:red" ng-show="walletRechargeForm.cvc.$invalid && !walletRechargeForm.cvc.$pristine"> CVV Code is required.</span>
+                    </ul>
+                 </div>
+           </form>
+       </div>
+       <div class="modal-footer">
+          <button class="btn btn-primary" type="button" ng-click="WRM.ok(walletRechargeForm.$valid)">{{'OK'|translate }}</button>
+          <button class="btn btn-warning" type="button" ng-click="WRM.cancel()">{{'CANCEL'|translate }}</button>
+       </div>
+</div>
+
+
+<!--<div class="wallet-model">
+       <div class="modal-header">
+           <h3 class="modal-title">{{'PAYMENT'|translate }}</h3>
+            <button type="button" class="close" ng-click="WRM.cancel()" data-dismiss="modal">×</button>
+       </div>
+       <div class="modal-body">
+         <form name="walletRechargeForm" submit-validate no-validate >
+               <div class="conf-white">
+                    <ul class="credicard-detls">
+                       <li>
+                          <label class="mobl-dis">Payer Name</label>
+                          <input required name="payername"   ng-model="WRM.walletrecharge.card.payername"   class="mobilenumb" placeholder="" type="text">
+                       </li>
+                       <li>
+                          <label class="mobl-dis">Payer Email</label>
+                          <input required name="payeremail"   ng-model="WRM.walletrecharge.card.payeremail"   class="mobilenumb" placeholder="" type="text">
+                       </li>
+                       <li>
+                          <label class="mobl-dis">Payer Phone</label>
+                          <input required name="payerphone"   ng-model="WRM.walletrecharge.card.payerphone"  class="mobilenumb" placeholder="" type="text">
+                       </li>
+                    </ul>
+                 </div>
+             <div class="modal-footer">
+                <button class="btn btn-primary" type="submit" ng-click="WRM.ok()">{{'OK'|translate }}</button>
+                <button class="btn btn-warning" type="button" ng-click="WRM.cancel()">{{'CANCEL'|translate }}</button>
+             </div>
+         </form>
+     </div>
+</div> -->

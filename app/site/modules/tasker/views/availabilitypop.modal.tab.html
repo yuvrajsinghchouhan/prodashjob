@@ -1,0 +1,32 @@
+<div class="availabilities-day-form adminweekmodal" >
+	<div class="">
+		<div class="">
+			<div class="modal-header modal-header-success">
+				<button class="close" type="button" ng-click="cancel()">×</button>
+				<h1 class="day-text">  {{WorkingDays.day | translate}}</h1>
+			</div>
+			<div class="modal-body">
+				<ul class="radio-contr">
+					<li>
+						<input ng-model ="WorkingDays.hour.morning" id="morning" class="u-hidden" type="checkbox" value="morning" name="windowFields">
+							<label class="switch" for="morning"></label>
+							<label for="morning"> {{days[0].Morning | translate}} (8am - 12pm)</label>
+						</li>
+						<li>
+							<input ng-model ="WorkingDays.hour.afternoon" id="evenig" class="u-hidden" type="checkbox" value="morning" name="windowFields">
+								<label class="switch" for="evenig"></label>
+								<label for="evenig"> {{days[0].afternoon | translate}} (12pm - 4pm)</label>
+							</li>
+							<li>
+								<input id="afternoon" ng-model ="WorkingDays.hour.evening" class="u-hidden" type="checkbox" value="morning" name="windowFields">
+									<label class="switch" for="afternoon"></label>
+									<label for="afternoon">{{days[0].evening | translate}} (4pm - 8pm)</label>
+								</li>
+							</ul>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default pull-left" ng-click="ok()" >{{days[0].Save | translate}} </button>
+						</div>
+					</div>
+				</div>
+			</div>'

@@ -1,0 +1,28 @@
+<div class="page page-tables-bootstrap">
+      <!-- page header -->
+      <div class="pageheader">
+            <h2>{{ 'Menu.EMAILTEMPLATE' | translate }} </h2>
+            <div class="page-bar">
+                  <ul class="page-breadcrumb">
+                        <li><a ui-sref="app.dashboard"><i class="fa fa-home"></i> {{main.title}}</a></li>
+                        <li><a href="javascript:;">{{ 'Menu.EMAILTEMPLATE' | translate }}</a></li>
+                        <li><a ui-sref="app.orders.list">{{ 'SubMenu.EMAILTEMPLATE_LIST' | translate }}</a></li>
+                  </ul>
+            </div>
+      </div>
+      <!-- /page header -->
+      <!-- page content -->
+      <div class="pagecontent">
+            <div class="row">
+                  <div class="col-md-12">
+                        <section class="tile" fullscreen="isFullscreen07">
+                              <div class="tile-header dvd dvd-btm">
+                                    <h1 class="custom-font"><strong>Email-Template</strong> List</h1>
+                              </div>
+                              <custom-table data="ETL.table" delete-call="ETL.deletedData"></custom-table>
+                        </section>
+                  </div>
+            </div>
+      </div>
+      <!-- /page content -->
+</div>

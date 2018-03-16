@@ -1,0 +1,616 @@
+<div class="page page-tables-bootstrap">
+
+  <div class="pageheader">
+  <h2>{{ 'Menu.TASKS' | translate }} </h2>
+  <div class="page-bar">
+    <ul class="page-breadcrumb">
+      <li>
+        <a ui-sref="app.dashboard"><i class="fa fa-home"></i> {{main.title}}</a>
+      </li>
+      <li>
+        <a ui-sref="app.tasks.viewsTasks">{{ 'SubMenu.TASKS_LIST' | translate}}</a>
+      </li>
+      <li>
+        <a>{{ 'SubMenu.EDIT_TASKS' | translate }}</a>
+      </li>
+    </ul>
+  </div>
+</div>
+  <!-- page content -->
+
+  <div class="pagecontent">
+    <div class="add-nav">
+      <div class="nav-heading">
+        <h3>Task Details : <strong class="text-greensea">{{EDTTC.editTasksData.booking_id}}</strong></h3>
+      </div>
+      <tabset>
+        <tab heading="Details">
+          <div class="row">
+            <div class="col-md-12">
+              <section class="col-md-12 tile time-simple">
+                <div class="tile-body">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <p class="text-default lt" ng-if="EDTTC.editTasksData.user[0].updatedAt ">Created: {{EDTTC.editTasksData.user[0].updatedAt |date :'medium'}}</p>
+                      <p class="text-uppercase text-strong mt-40 mb-0 custom-font">Status</p>
+                      <h3 class="text-uppercase text-success mt-0 mb-20">
+                        <div ng-if="EDTTC.editTasksData.status==0">
+                          Deleted
+                        </div>
+                        <div ng-if="EDTTC.editTasksData.status==1">
+                          Onprogress
+                        </div>
+                        <div ng-if="EDTTC.editTasksData.status==2">
+                          Accepted
+                        </div>
+                        <div ng-if="EDTTC.editTasksData.status==3">
+                          StartOff
+                        </div>
+                        <div ng-if="EDTTC.editTasksData.status==4">
+                          Arrived
+                        </div>
+                        <div ng-if="EDTTC.editTasksData.status==5">
+                          StartJob
+                        </div>
+                        <div ng-if="EDTTC.editTasksData.status==6">
+                          Payment Pending
+                        </div>
+                        <div ng-if="EDTTC.editTasksData.status==7">
+                          Completed
+                        </div>
+                        <div ng-if="EDTTC.editTasksData.status==8">
+                          Cancelled
+                        </div>
+                        <div ng-if="EDTTC.editTasksData.status==9">
+                          Dispute
+                        </div>
+                        <div ng-if="EDTTC.editTasksData.status==10">
+                          Search
+                        </div>
+                      </h3>
+                    </div>
+                    <!-- /col -->
+
+                    <!-- col -->
+                    <div class="custo-detail col-md-6">
+                      <p class="text-uppercase text-strong mb-10 custom-font">Customer</p>
+                      <ul class="list-unstyled text-default lt mb-20 customer-detail">
+                        <li ng-if="EDTTC.editTasksData.user[0].username"><strong class="inline-block w-xs customer-detail">Name:</strong>{{EDTTC.editTasksData.user[0].username}}
+                        </li>
+                        <li ng-if="EDTTC.editTasksData.billing_address.state"><strong class="inline-block w-xs customer-detail">State:</strong>{{EDTTC.editTasksData.billing_address.state}}</li>
+                        <li ng-if="EDTTC.editTasksData.user[0].phone.number"><strong class="inline-block w-xs customer-detail">Phone:</strong>{{EDTTC.editTasksData.user[0].phone.code}} - {{EDTTC.editTasksData.user[0].phone.number}}</li>
+                        <li ng-if="EDTTC.editTasksData.user[0].email"><strong class="inline-block w-xs customer-detail">Email:</strong>
+                          <a href="javascript:;" ng-bind="EDTTC.editTasksData.user[0].email"></a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <section class="grouping tile tile-simple">
+                <div class="tile-body">
+                  <div class="wrap-reset">
+
+                  <div class="user-tasker col-md-12">
+                  <div class="col-md-6">
+                    <div class="user admin-bg-color" ng-if="EDTTC.editTasksData.user[0]">
+                      <div class="row">
+                        <div class="form-group col-md-12 legend user-detail">
+                        <i class="fa fa-users" name="users"></i>
+                          <h4><strong>User</strong> Details</h4>
+                        </div>
+                      </div>
+
+                      <div class="box-height">
+                      <div class="row user-detail" ng-if="EDTTC.editTasksData.user[0].username">
+                        <div class="col-xs-8 col-sm-4">
+                          <Strong>    Username</Strong>
+                        </div>
+                        <div class="col-xs-4 col-sm-8">{{EDTTC.editTasksData.user[0].username}} </div>
+                      </div>
+
+                      <div class="row user-detail" ng-if="EDTTC.editTasksData.user[0].email">
+                        <div class="col-xs-8 col-sm-4">
+                          <Strong>  Email  </strong>
+                        </div>
+                        <div class="col-xs-4 col-sm-8" >{{EDTTC.editTasksData.user[0].email}}</div>
+                      </div>
+
+                      <div class="row user-detail" ng-if="EDTTC.editTasksData.user[0].phone.code" ng-if="EDTTC.editTasksData.user[0].phone.number">
+                        <div class="col-xs-8 col-sm-4">
+                          <Strong>  Phone </strong>
+                        </div>
+                        <div class="col-xs-4 col-sm-8">{{EDTTC.editTasksData.user[0].phone.code}} - {{EDTTC.editTasksData.user[0].phone.number}}</div>
+                      </div>
+
+                      <div class="row user-detail" ng-if="EDTTC.editTasksData.user[0].address.line1">
+                        <div class="col-xs-8 col-sm-4">
+                          <Strong>  Address 1 </strong>
+                        </div>
+                        <div class="col-xs-4 col-sm-8">{{EDTTC.editTasksData.user[0].address.line1}}</div>
+                      </div>
+
+                      <div class="row user-detail" ng-if="EDTTC.editTasksData.user[0].address.line2">
+                        <div class="col-xs-8 col-sm-4">
+                          <Strong>  Address 2 </strong>
+                        </div>
+                        <div class="col-xs-4 col-sm-8">{{EDTTC.editTasksData.user[0].address.line2}}</div>
+                      </div>
+
+                      <div class="row user-detail" ng-if="EDTTC.editTasksData.user[0].address.city">
+                        <div class="col-xs-8 col-sm-4">
+                          <Strong>  City </strong>
+                        </div>
+                        <div class="col-xs-4 col-sm-8">{{EDTTC.editTasksData.user[0].address.city}}</div>
+                      </div>
+
+                      <div class="row user-detail" ng-if="EDTTC.editTasksData.user[0].address.state">
+                        <div class="col-xs-8 col-sm-4">
+                          <Strong>  State </strong>
+                        </div>
+                        <div class="col-xs-4 col-sm-8">{{EDTTC.editTasksData.user[0].address.state}}</div>
+                      </div>
+
+                      <div class="row user-detail" ng-if="EDTTC.editTasksData.user[0].address.country">
+                        <div class="col-xs-8 col-sm-4">
+                          <Strong>  Country </strong>
+                        </div>
+                        <div class="col-xs-4 col-sm-8">{{EDTTC.editTasksData.user[0].address.country}}</div>
+                      </div>
+
+                      <div class="row user-detail" ng-if="EDTTC.editTasksData.user[0].address.zipcode">
+                        <div class="col-xs-8 col-sm-4">
+                          <Strong>  Zipcode </strong>
+                        </div>
+                        <div class="col-xs-4 col-sm-8">{{EDTTC.editTasksData.user[0].address.zipcode}}</div>
+                      </div>
+                    </div>
+                    </div>
+                    </Strong>
+                    </div>
+
+                    <div class="col-md-6">
+                    <div class="user admin-bg-color" ng-if="EDTTC.editTasksData.tasker[0]">
+                      <div class="row">
+                        <div class="form-group col-md-12 legend tasker-detail">
+                        <i class="fa fa-users" name="users"></i>
+                          <h4><strong>Tasker</strong> Details</h4>
+                        </div>
+                      </div>
+
+                      <div class="box-height">
+                      <div class="row tasker-detail" ng-if="EDTTC.editTasksData.tasker[0].username">
+                        <div class="col-xs-8 col-sm-4">
+                          <Strong>  Username </strong>
+                        </div>
+                        <div class="col-xs-4 col-sm-8">{{EDTTC.editTasksData.tasker[0].username}}</div>
+                      </div>
+                      <div class="row tasker-detail" ng-if="EDTTC.editTasksData.tasker[0].email">
+                        <div class="col-xs-8 col-sm-4">
+                          <Strong>  Email </strong>
+                        </div>
+                        <div class="col-xs-4 col-sm-8">{{EDTTC.editTasksData.tasker[0].email}}</div>
+                      </div>
+                      <div class="row tasker-detail" ng-if="EDTTC.editTasksData.tasker[0].phone_no">
+                        <div class="col-xs-8 col-sm-4">
+                          <Strong>  phone </strong>
+                        </div>
+                        <div class="col-xs-4 col-sm-8">{{EDTTC.editTasksData.tasker[0].phone_no}}</div>
+                      </div>
+                      <div class="row tasker-detail" ng-if="EDTTC.editTasksData.tasker[0].address.line1">
+                        <div class="col-xs-8 col-sm-4">
+                          <Strong>  Address 1 </strong>
+                        </div>
+                        <div class="col-xs-4 col-sm-8">
+                          <span style="float: left;">{{EDTTC.uaddressone}}</span>
+                          <span style="float: left; clear:both;">{{EDTTC.uaddresstwo}}</span>
+                        </div>
+                      </div>
+                      <div class="row tasker-detail" ng-if="EDTTC.editTasksData.tasker[0].address.line2">
+                        <div class="col-xs-8 col-sm-4">
+                          <Strong>  Address 2 </strong>
+                        </div>
+                        <div class="col-xs-4 col-sm-8">{{EDTTC.editTasksData.tasker[0].address.line2}}</div>
+                      </div>
+                      <div class="row tasker-detail" ng-if="EDTTC.editTasksData.tasker[0].address.city">
+                        <div class="col-xs-8 col-sm-4">
+                          <Strong>  City </strong>
+                        </div>
+                        <div class="col-xs-4 col-sm-8">{{EDTTC.editTasksData.tasker[0].address.city}}</div>
+                      </div>
+                      <div class="row tasker-detail" ng-if="EDTTC.editTasksData.tasker[0].address.state">
+                        <div class="col-xs-8 col-sm-4">
+                          <Strong>  State </strong>
+                        </div>
+                        <div class="col-xs-4 col-sm-8">{{EDTTC.editTasksData.tasker[0].address.state}}</div>
+                      </div>
+                      <div class="row tasker-detail" ng-if="EDTTC.editTasksData.tasker[0].address.country">
+                        <div class="col-xs-8 col-sm-4">
+                          <Strong>  Country  </strong>
+                        </div>
+                        <div class="col-xs-4 col-sm-8">{{EDTTC.editTasksData.tasker[0].address.country}}</div>
+                      </div>
+                      <div class="row tasker-detail" ng-if="EDTTC.editTasksData.tasker[0].address.zipcode">
+                        <div class="col-xs-8 col-sm-4">
+                          <Strong>  Zipcode </strong>
+                        </div>
+                        <div class="col-xs-4 col-sm-8">{{EDTTC.editTasksData.tasker[0].address.zipcode}}</div>
+                      </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    <div class="task-pay col-md-12">
+                    <div class=" col-md-6">
+                    <div class="task admin-bg-color">
+                    <div class="row">
+                      <div class="form-group col-md-12 legend task-detail">
+                      <i class="fa fa-briefcase" name="briefcase"></i>
+                        <h4><strong>Task</strong> Details</h4>
+                      </div>
+                    </div>
+                    <div class="box-height">
+                    <div class="row task-detail" ng-if="EDTTC.editTasksData.category[0].name">
+                      <div class="col-xs-8 col-sm-4">
+                        <Strong>  Category </strong>
+                      </div>
+                      <div class="col-xs-4 col-sm-8">{{EDTTC.editTasksData.category[0].name}}</div>
+                    </div>
+
+                    <div class="row task-detail" ng-if="EDTTC.editTasksData.task_date">
+                      <div class="col-xs-8 col-sm-4">
+                        <Strong>  Task Date </strong>
+                      </div>
+                      <div class="col-xs-4 col-sm-8">{{EDTTC.editTasksData.task_date | clock : date }}</div>
+                    </div>
+
+                    <div class="row task-detail" ng-if="EDTTC.editTasksData.task_description">
+                      <div class="col-xs-8 col-sm-4">
+                        <Strong>  Task Description </strong>
+                      </div>
+                      <div class="col-xs-4 col-sm-8">{{EDTTC.editTasksData.task_description}}</div>
+                    </div>
+
+                    <div class="row task-detail" ng-if="EDTTC.editTasksData.task_hour">
+                      <div class="col-xs-8 col-sm-4">
+                        <Strong>  Task Hour Mode</strong>
+                      </div>
+                      <div class="col-xs-4 col-sm-8" style="text-transform: capitalize;">{{EDTTC.editTasksData.task_hour}}</div>
+                    </div>
+                    <div class="row task-detail" ng-if="EDTTC.editTasksData.billing_address.line1">
+                      <div class="col-xs-8 col-sm-4">
+                        <Strong>  Address Line1 </strong>
+                      </div>
+                      <div class="col-xs-4 col-sm-8">
+                        <span style="float: left;">{{EDTTC.addressone}}</span>
+                        <span style="float: left; clear:both;">{{EDTTC.addresstwo}}</span>
+                      </div>
+                    </div>
+                    <div class="row task-detail" ng-if="EDTTC.editTasksData.billing_address.line2">
+                      <div class="col-xs-8 col-sm-4">
+                        <Strong>  Address Line2 </strong>
+                      </div>
+                      <div class="col-xs-4 col-sm-8">{{EDTTC.editTasksData.billing_address.line2}}</div>
+                    </div>
+                    <div class="row task-detail" ng-if="EDTTC.editTasksData.billing_address.city">
+                      <div class="col-xs-8 col-sm-4">
+                        <Strong>  City </strong>
+
+                      </div>
+                      <div class="col-xs-4 col-sm-8">{{EDTTC.editTasksData.billing_address.city}}</div>
+                    </div>
+                    <div class="row task-detail" ng-if="EDTTC.editTasksData.billing_address.state">
+                      <div class="col-xs-8 col-sm-4">
+                        <Strong>  State </strong>
+                      </div>
+                      <div class="col-xs-4 col-sm-8">{{EDTTC.editTasksData.billing_address.state}}</div>
+                    </div>
+                    <div class="row task-detail" ng-if="EDTTC.editTasksData.billing_address.country">
+                      <div class="col-xs-8 col-sm-4">
+                        <Strong>  Country </strong>
+                      </div>
+                      <div class="col-xs-4 col-sm-8">{{EDTTC.editTasksData.billing_address.country}}</div>
+                    </div>
+                    <div class="row task-detail" ng-if="EDTTC.editTasksData.billing_address.zipcode">
+                      <div class="col-xs-8 col-sm-4">
+                        <Strong>  Zipcode </strong>
+                      </div>
+                      <div class="col-xs-4 col-sm-8">{{EDTTC.editTasksData.billing_address.zipcode}}</div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+
+                    <div class="col-md-6">
+                    <div class="admin-bg-color">
+                    <div class="row">
+                      <div class="form-group col-md-12 legend payment-detail">
+                      <i class="fa fa-credit-card" name="credit-card"></i>
+                        <h4><strong>Payment</strong> Details</h4>
+                      </div>
+                    </div>
+
+
+                    <div class="box-height">
+                    <div class="row payment-detail" ng-if="EDTTC.editTasksData.invoice.amount.task_cost">
+                      <div class="col-xs-8 col-sm-4">
+                        <Strong>  Amount </strong>
+                      </div>
+                      <div class="col-xs-4 col-sm-8">{{EDTTC.symbol}} {{EDTTC.editTasksData.invoice.amount.task_cost| money : currency }}</div>
+                    </div>
+
+                    <div class="row payment-detail" ng-if="EDTTC.editTasksData.invoice.amount.admin_commission">
+                      <div class="col-xs-8 col-sm-4">
+                        <Strong>  Admin Commission </strong>
+                      </div>
+                      <div class="col-xs-4 col-sm-8">{{EDTTC.editTasksData.invoice.amount.admin_commission| money : currency }}</div>
+                    </div>
+                    <div class="row payment-detail" ng-if="EDTTC.editTasksData.invoice.amount.service_tax">
+                      <div class="col-xs-8 col-sm-4">
+                        <Strong>  Service Tax </strong>
+                      </div>
+                      <div class="col-xs-4 col-sm-8">{{EDTTC.editTasksData.invoice.amount.service_tax| money : currency }}</div>
+                    </div>
+                    <div class="row payment-detail" ng-if="EDTTC.editTasksData.invoice.amount.extra_amount">
+                      <div class="col-xs-8 col-sm-4">
+                        <Strong>  Material Amount </strong>
+                      </div>
+                      <div class="col-xs-4 col-sm-8">{{EDTTC.editTasksData.invoice.amount.extra_amount| money : currency }}</div>
+                    </div>
+
+
+                    <div class="row payment-detail" ng-if="EDTTC.editTasksData.invoice.amount.total">
+                      <div class="col-xs-8 col-sm-4">
+                        <Strong>  Total </strong>
+                      </div>
+                      <div class="col-xs-4 col-sm-8">{{EDTTC.editTasksData.invoice.amount.total| money : currency }}</div>
+                    </div>
+
+                    <div class="row payment-detail" ng-if="EDTTC.editTasksData.invoice.amount.grand_total">
+                      <div class="col-xs-8 col-sm-4">
+                        <Strong> Grand Total </strong>
+                      </div>
+                      <div class="col-xs-4 col-sm-8">{{EDTTC.editTasksData.invoice.amount.grand_total| money : currency }}</div>
+                    </div>
+                    <div class="row payment-detail" ng-if="EDTTC.editTasksData.invoice.amount.coupon">
+                      <div class="col-xs-8 col-sm-4">
+                        <Strong> Coupon  Amount</strong>
+                      </div>
+                      <div class="col-xs-4 col-sm-8">{{EDTTC.symbol}} {{EDTTC.editTasksData.invoice.amount.coupon| money : currency  }}</div>
+                    </div>
+
+                    <div class="row payment-detail" ng-if="EDTTC.editTasksData.invoice.worked_hours">
+                      <div class="col-xs-8 col-sm-4">
+                        <Strong> Worked Hours </strong>
+                      </div>
+                      <div class="col-xs-4 col-sm-8">{{EDTTC.editTasksData.invoice.worked_hours }} hour</div>
+                    </div>
+                  </div>
+                  </div>
+                  </div>
+                  </div>
+                  </div>
+              </section>
+
+
+
+              </div>
+              <!-- /col -->
+            </div>
+            <!-- /row -->
+
+
+
+        </tab>
+        <tab heading="Invoices" ng-if="EDTTC.editTasksData.status == 7" class="invoice-tab">
+
+          <!-- row -->
+          <div class="row">
+            <!-- col -->
+            <div class="col-md-12">
+
+
+              <!-- tile -->
+              <section class="tile time-simple">
+
+
+                <!-- tile body -->
+                <div class="tile-body">
+
+
+                  <!-- row -->
+                  <div class="row">
+
+                    <!-- col -->
+                    <div class="col-md-4 invoice-text">
+                      <p class="text-default lt" ng-if="EDTTC.editTasksData.user[0].updatedAt ">Created: {{EDTTC.editTasksData.user[0].updatedAt |date :'medium'}}</p>
+                      <p class="text-uppercase text-strong mt-40 mb-0 custom-font">Status</p>
+
+                      <h3 class="status-text text-uppercase text-success mt-0 mb-20">
+                        <div ng-if="EDTTC.editTasksData.status==0">
+                          Deleted
+                        </div>
+                        <div ng-if="EDTTC.editTasksData.status==1">
+                          Onprogress
+                        </div>
+                        <div ng-if="EDTTC.editTasksData.status==2">
+                          Accepted
+                        </div>
+                        <div ng-if="EDTTC.editTasksData.status==3">
+                          StartOff
+                        </div>
+                        <div ng-if="EDTTC.editTasksData.status==4">
+                          Arrived
+                        </div>
+                        <div ng-if="EDTTC.editTasksData.status==5">
+                          StartJob
+                        </div>
+                        <div ng-if="EDTTC.editTasksData.status==6">
+                          Payment Pending
+                        </div>
+                        <div ng-if="EDTTC.editTasksData.status==7">
+                          Completed
+                        </div>
+                        <div ng-if="EDTTC.editTasksData.status==8">
+                          Cancelled
+                        </div>
+                        <div ng-if="EDTTC.editTasksData.status==9">
+                          Dispute
+                        </div>
+                        <div ng-if="EDTTC.editTasksData.status==10">
+                          Search
+                        </div>
+                      </h3>
+                    </div>
+                    <!-- /col -->
+
+                    <!-- col -->
+                    <div class="col-md-4 invoice-text">
+                      <h6 class="text-uppercase text-strong mb-10 custom-font">Customer</h6>
+                      <ul class="list-unstyled text-default lt mb-20">
+                        <li ng-if="EDTTC.editTasksData.user[0].username"><strong class="inline-block w-xs customer-detail">Name:</strong>{{EDTTC.editTasksData.user[0].username}}</li>
+                        <li ng-if="EDTTC.editTasksData.billing_address.city"><strong class="inline-block w-xs customer-detail">City:</strong>{{EDTTC.editTasksData.billing_address.city}}</li>
+                        <li ng-if="EDTTC.editTasksData.user[0].phone.number"><strong class="inline-block w-xs customer-detail">Phone:</strong>{{EDTTC.editTasksData.user[0].phone.code}} - {{EDTTC.editTasksData.user[0].phone.number}}</li>
+                        <li ng-if="EDTTC.editTasksData.user[0].email"><strong class="inline-block w-xs customer-detail">Email:</strong>
+                          <a href="javascript:;" ng-bind="EDTTC.editTasksData.user[0].email"></a>
+                        </li>
+
+                      </ul>
+                    </div>
+                    <div class="col-md-4 invoice-text">
+                      <h6 class="text-uppercase text-strong mb-10 custom-font">Tasker Details</h6>
+                      <ul class="list-unstyled text-default lt mb-20">
+                        <li ng-if="EDTTC.editTasksData.tasker[0].username"><strong class="inline-block w-xs tasker-detail">Name:</strong>{{EDTTC.editTasksData.tasker[0].username}}</li>
+                        <li ng-if="EDTTC.editTasksData.tasker[0].address.city"><strong class="inline-block w-xs tasker-detail">City:</strong>{{EDTTC.editTasksData.tasker[0].address.city}}</li>
+                        <li ng-if="EDTTC.editTasksData.tasker[0].phone"><strong class="inline-block w-xs tasker-detail">Phone:</strong>{{EDTTC.editTasksData.tasker[0].phone.code}} - {{EDTTC.editTasksData.tasker[0].phone.number}}</li>
+                        <li ng-if="EDTTC.editTasksData.tasker[0].email"><strong class="inline-block w-xs tasker-detail">Email:</strong>
+                          <a href="javascript:;" ng-bind="EDTTC.editTasksData.tasker[0].email"></a>
+                        </li>
+
+                      </ul>
+                    </div>
+                    <!-- /col -->
+
+                  </div>
+                  <!-- /row -->
+
+                  <!-- row -->
+                  <div class="row b-t pt-20 invoice-text">
+
+                    <!-- col -->
+                    <div class="col-md-4 b-r">
+                      <h6 class="text-uppercase text-strong mb-10 custom-font">Order Details</h6>
+                      <ul class="list-unstyled text-default lt mb-20">
+                        <li class="order-detail"><strong class="inline-block w-xs customer-detail">ID:</strong> <a href="javascript:;">{{EDTTC.editTasksData.booking_id}}</a></li>
+                        <li class="order-detail"><strong class="inline-block w-xs customer-detail">Date:</strong>{{EDTTC.editTasksData.user[0].updatedAt |date :'medium'}}</li>
+                        <li class="order-detail"><strong class="inline-block w-xs customer-detail">User Name:</strong>{{EDTTC.editTasksData.user[0].name.first_name}} {{EDTTC.editTasksData.user[0].name.last_name}}</li>
+                        <li class="order-detail"><strong class="inline-block w-xs customer-detail">User State:</strong>{{EDTTC.editTasksData.billing_address.state}}</li>
+                      </ul>
+                    </div>
+                    <!-- /col -->
+
+                    <!-- col -->
+                    <div class="col-md-4 b-r invoice-text">
+                      <h6 class="text-uppercase text-strong mb-10 custom-font">
+                        Billing Address
+                        <!-- <a href="javascript:;" class="btn btn-default btn-rounded-20 btn-xs pull-right"><i class="fa fa-pencil"></i></a> -->
+                      </h6>
+
+                      <!-- col -->
+                      <div class="col-md-4 billing-detail">
+                        <div class="list-unstyled text-default lt mb-20">
+                          <p class="billing-detail">{{EDTTC.editTasksData.user[0].name.first_name}} {{EDTTC.editTasksData.user[0].name.last_name}}</p>
+                          <p class="billing-detail">{{EDTTC.editTasksData.billing_address.line1}}, {{EDTTC.editTasksData.billing_address.line2}}
+                          {{EDTTC.editTasksData.billing_address.city}},
+                          <p class="billing-detail"> {{EDTTC.editTasksData.billing_address.state}} -
+                          {{EDTTC.editTasksData.billing_address.zipcode}}</p>
+                        </div>
+                      </div>
+                      <!-- /col -->
+
+                    </div>
+
+
+                    <!-- col -->
+                    <div class="col-md-3 invoice-text">
+                      <h6 class="text-uppercase text-strong mb-10 custom-font">Task Details</h6>
+                      <ul class="list-unstyled text-default lt mb-20">
+                         <li><strong class="inline-block w-xs customer-detail"> Category:</strong> {{EDTTC.editTasksData.maincategory[0].name}}</li>
+                        <li><strong class="inline-block w-xs customer-detail">Sub Category:</strong> {{EDTTC.editTasksData.category.name}}</li>
+                        <!-- <li><strong>Payment:</strong> {{EDTTC.getTransaction.type}}</li> -->
+                      </ul>
+                    </div>
+                    <!-- /col -->
+
+                  </div>
+                  <!-- /row -->
+
+
+                </div>
+                <!-- /tile body -->
+
+              </section>
+              <!-- /tile -->
+
+
+              <!-- tile -->
+              <section class="tile tile-simple">
+
+                <!-- tile body -->
+                <div class="tile-body p-0">
+
+                  <div class="table-responsive">
+                    <table class="table table-hover table-striped invoice-text">
+                      <thead>
+                        <tr>
+                          <th>Transaction ID</th>
+                          <th>Date </th>
+                          <th>Payment Type </th>
+                          <!-- <th>Status</th> -->
+                          <th>Amount</th>
+                          <!-- <th style="width: 260px">Actions</th> -->
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr ng-repeat=" data in EDTTC.getTransaction ">
+                          <td><a href="javascript:;">{{data._id}}</a></td>
+                          <td>{{data.updatedAt |date :'short'}}</td>
+                          <td> {{data.task.payment_type}}</td>
+                          <!-- <td><span ng-if="EDTTC.editTasksData.status==7" class="label label-success">Paid</span></td> -->
+                          <td>{{ data.amount| money : currency }}</td>
+                          <!-- <td>
+                            <a href="javascript:;" class="btn btn-xs btn-default"><i class="fa fa-search"></i> View</a>
+                            <a href="javascript:;" class="btn btn-xs btn-primary"><i class="fa fa-envelope"></i> Send</a>
+                            <a href="javascript:;" class="btn btn-xs btn-lightred"><i class="fa fa-times"></i> Delete</a>
+                          </td> -->
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                </div>
+                <!-- /tile body -->
+
+              </section>
+              <!-- /tile -->
+
+
+            </div>
+            <!-- /col -->
+          </div>
+          <!-- /row -->
+
+
+
+
+        </tab>
+
+
+
+
+
+
+      </tabset>
+      </div>
+    </div>
+  </div>

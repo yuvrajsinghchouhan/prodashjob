@@ -1,0 +1,70 @@
+
+
+<div class="signup-page mob-bx">
+
+
+  <div style="background-image: url('{{rc.bgimage.image}}');" class="sinupimg-container"></div>
+
+<div class="sign-up-holder login-holder ">
+
+
+
+
+  <div class="logo-container">
+    <a ui-sref="landing"><img src="{{rc.getsetting.logo}}"></a>
+  </div>
+  <uib-accordion>
+      <lable uib-accordion-group heading ="Activte Your Account" >
+        <div class="form-group" ng-class="{ 'has-error' : Otpform.otp.$invalid && !Otpform.otp.$pristine, 'has-success' : Otpform.otp.$valid && !Otpform.otp.$pristine}">
+          <input type="text" class="form-control underline-input" name="otp" placeholder="{{'OTP' | translate}}"
+            ng-model="OTPC.otp" required>
+          <span ng-show="Otpform.otp.$dirty && Otpform.otp.$error.required" class="help-block">otp is required</span>
+        </div>
+        <div class="frget-pwd arrange">
+          <a style="float:left" href="#" ng-click="OTPC.resendotp()">{{'RESEND OTP'| translate}}</a>
+          <a class="" ui-sref="login">{{'GO TO LOGIN' | translate}}</a>
+        </div>
+
+        <input class="borderbtn" ng-click="OTPC.otpsignup(Otpform.$valid,OTPC.otp)" value="{{'SUBMIT' | translate}}"
+          type="submit">
+
+      </lable>
+       <lable uib-accordion-group heading="Active Your Deactivate Account">
+         <form  ng-submit="login()" role="form" name="Otpmobileform" class="form-validation mt-20" method="post" novalidate>
+           <div class="form-group" ng-class="{ 'has-error' : Otpmobileform.mobile.$invalid && !Otpmobileform.mobile.$pristine, 'has-success' : Otpmobileform.mobile.$valid && !Otpmobileform.mobile.$pristine}">
+             <input type="tel" class="form-control underline-input" name="mobile" placeholder="{{'Enter Mobile Number' | translate}}"
+               ng-model="OTPC.mobile" required>
+             <span ng-show="Otpmobileform.mobile.$dirty && Otpmobileform.mobile.$error.required" class="help-block">Enter Mobile number</span>
+           </div>
+
+           <input class="borderbtn"  ng-click="OTPC.mobileverified(Otpmobileform.$valid,OTPC.mobile)" value="{{'SUBMIT' | translate}}"
+             type="submit">
+         </form>
+
+
+
+         <form ng-if="OTPC.otpstatus == true" ng-submit="login()" role="form" name="Otpform" class="form-validation mt-20" method="post" novalidate>
+           <div class="form-group" ng-class="{ 'has-error' : Otpform.otp.$invalid && !Otpform.otp.$pristine, 'has-success' : Otpform.otp.$valid && !Otpform.otp.$pristine}">
+             <input type="text" class="form-control underline-input" name="otp" placeholder="{{'OTP' | translate}}"
+               ng-model="OTPC.otp" required>
+             <span ng-show="Otpform.otp.$dirty && Otpform.otp.$error.required" class="help-block">otp is required</span>
+           </div>
+           <div class="frget-pwd arrange">
+             <a style="float:left" href="#" ng-click="OTPC.resendotp()">{{'RESEND OTP'| translate}}</a>
+             <a class="" ui-sref="login">{{'GO TO LOGIN' | translate}}</a>
+           </div>
+           <input class="borderbtn" ng-click="OTPC.otpsignin(Otpform.$valid,OTPC.otp)" value="{{'SUBMIT' | translate}}"
+             type="submit">
+         </form>
+      </lable>
+    </uib-accordion>
+
+</div>
+</div>
+<script type="text/javascript">
+  $(".dropdown-filter-full").click(function () {
+
+    $(".filter-full").slideToggle();
+
+  });
+</script>

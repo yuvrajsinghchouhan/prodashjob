@@ -1,0 +1,139 @@
+<div class="page page-tables-bootstrap">
+    <!-- page header -->
+    <div class="pageheader">
+        <h2>{{ 'Menu.PAGES' | translate }} </h2>
+        <div class="page-bar">
+            <ul class="page-breadcrumb">
+                <li>
+                    <a ui-sref="app.dashboard"><i class="fa fa-home"></i> {{main.title}}</a>
+                </li>
+                <li>
+                    <a ui-sref="app.pages.list">{{ 'SubMenu.ALL_PAGES' | translate }}</a>
+                </li>
+                <li>
+                    <a ui-sref="app.tables.bootstrap">{{ EDPC.breadcrumb | translate }}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="pagecontent">
+        <form name="pageForm" submit-validate role="form" novalidate>
+            <div class="row">
+                <div class="col-md-8">
+                    <section class="tile" fullscreen="isFullscreen02">
+                        <div class="tile-body">
+                            <div class="form-group" ng-class="{ 'has-error' : pageForm.name.$invalid && !pageForm.name.$pristine, 'has-success' : pageForm.name.$valid && !pageForm.name.$pristine}">
+                                <label for="name">Page Name: </label>
+                                <input type="text" name="name" id="name" class="form-control" ng-model="EDPC.editPageData.name" on-blur-validation required>
+                                <p class="help-block">
+                                    <span ng-show="pageForm.name.$invalid && !pageForm.name.$pristine">Page Name is required.</span>
+                                </p>
+                            </div>
+                            <div class="form-group" ng-class="{ 'has-error' : pageForm.slug.$invalid && !pageForm.slug.$pristine, 'has-success' : pageForm.slug.$valid && !pageForm.slug.$pristine}">
+                                <label for="slug">Page Slug: </label>
+                                <p class="mb-10 custom-font">
+                                    {{EDPC.editsettingData }}page/<span ng-show="!edit_billing_address">{{EDPC.editPageData.slug | slugify}}</span>
+                                    <input type="text" ng-show="edit_billing_address" name="slug" id="slug" class="" ng-model="EDPC.editPageData.slug" on-blur-validation
+                                        required>
+                                    <a href="javascript:;" ng-click="edit_billing_address = !edit_billing_address" class="btn btn-default btn-rounded-20 btn-xs pull-right"><i class="fa fa-pencil"></i></a>
+                                </p>
+                                <p class="help-block">
+                                    <span ng-show="pageForm.slug.$invalid && !pageForm.slug.$pristine">Page Slug is required.</span>
+                                </p>
+                            </div>
+
+                            <div class="form-group" ng-class="{ 'has-error' : pageForm.description.$invalid && !pageForm.description.$pristine, 'has-success' : pageForm.description.$valid && !pageForm.description.$pristine}">
+                                <label for="description">Page Content: </label>
+                                <textarea ui-tinymce="tinymceOptions" name="description" id="description" ng-model="EDPC.editPageData.description"></textarea>
+                            </div>
+                            <!--
+                            <div class="form-group" ng-class="{ 'has-error' : pageForm.description.$invalid && !pageForm.description.$pristine, 'has-success' : pageForm.description.$valid && !pageForm.description.$pristine}">
+                                <label for="customCss">Custom Styles/Scripts</label>
+                                <textarea class="form-control" rows="7" name="customCss" id="customCss" ng-model="EDPC.editPageData.css_script" placeholder="Copy and Paste your Custom Styles/Scripts Code Here"
+                                    aria-multiline="true" aria-required="true" aria-invalid="true" required></textarea>
+                                <p class="help-block">
+                                    <span ng-show="pageForm.customCss.$invalid && !pageForm.customCss.$pristine">Custom Styles/Scripts is required.</span>
+                                </p>
+                            </div>
+                            -->
+                        </div>
+                    </section>
+                    <section class="tile" fullscreen="isFullscreen02">
+                        <div class="tile-header dvd dvd-btm">
+                            <h1 class="custom-font"><strong>SEO</strong> Details</h1>
+                        </div>
+                        <div class="tile-body">
+                            <div class="form-group" ng-class="{ 'has-error' : pageForm.pageTitle.$invalid && !pageForm.pageTitle.$pristine, 'has-success' : pageForm.pageTitle.$valid && !pageForm.pageTitle.$pristine}">
+                                <label for="pageTitle">Page Title: </label>
+                                <input type="text" name="pageTitle" id="pageTitle" class="form-control" ng-model="EDPC.editPageData.seo.title" on-blur-validation
+                                    required>
+                                <p class="help-block">
+                                    <span ng-show="pageForm.pageTitle.$invalid && !pageForm.pageTitle.$pristine">Page Title is required.</span>
+                                </p>
+                            </div>
+                            <div class="form-group" ng-class="{ 'has-error' : pageForm.pageTitle.$invalid && !pageForm.pageTitle.$pristine, 'has-success' : pageForm.pageTitle.$valid && !pageForm.pageTitle.$pristine}">
+                                <label for="focusKeyword">Focus Keyword: </label>
+                                <input type="text" name="focusKeyword" id="focusKeyword" class="form-control" ng-model="EDPC.editPageData.seo.keyword" on-blur-validation
+                                    required>
+                                <p class="help-block">
+                                    <span ng-show="pageForm.focusKeyword.$invalid && !pageForm.focusKeyword.$pristine">Focus Keyword is required.</span>
+                                </p>
+                            </div>
+                            <div class="form-group" ng-class="{ 'has-error' : pageForm.pageTitle.$invalid && !pageForm.pageTitle.$pristine, 'has-success' : pageForm.pageTitle.$valid && !pageForm.pageTitle.$pristine}">
+                                <label for="description">Description: </label>
+                                <textarea class="form-control" rows="7" name="description" id="description" ng-model="EDPC.editPageData.seo.description"
+                                    placeholder="Copy and Paste your Description Here" aria-multiline="true" aria-required="true"
+                                    aria-invalid="true" on-blur-validation required></textarea>
+                                <p class="help-block">
+                                    <span ng-show="pageForm.description.$invalid && !pageForm.description.$pristine">Description required.</span>
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="col-md-4">
+                    <!--
+                    <section class="tile" fullscreen="isFullscreen02">
+                        <div class="tile-header dvd dvd-btm">
+                            <h1 class="custom-font">Page Attributes</h1>
+                        </div>
+                        <div class="tile-body">
+                     <div class="form-group">
+                        <label for="ParentList">Parent</label>
+                        <select id="ParentList" name="ParentList" ng-model="EDPC.editPageData.parent" class="form-control mb-10">
+                          <option value="">(no parent)</option>
+                          <option value="Information"> Information</option>
+                          <option value="Company">Company</option>
+                           <!-- <option ng-repeat="mainpage in EDPC.mainPagesList" ng-show="(mainpage._id!= EDPC.editPageData._id)" value="{{mainpage._id}}">
+                           {{mainpage.name}}
+						   </option>
+                        </select>
+                     </div>
+                  </div>
+                    </section>
+                    -->
+                    <section class="tile" fullscreen="isFullscreen02">
+                        <div class="tile-header dvd dvd-btm">
+                            <h1 class="custom-font">Publish</h1>
+                        </div>
+                        <div class="tile-body">
+                            <div class="form-group" ng-class="{ 'has-error' : pageForm.publish.$invalid && !pageForm.publish.$pristine, 'has-success' : pageForm.publish.$valid && !pageForm.publish.$pristine}">
+                                <label for="publish">Status</label>
+                                <select id="publish" name="publish" ng-init="EDPC.editPageData.status=(EDPC.editPageData.status ? EDPC.editPageData.status : '1')"
+                                    ng-model="EDPC.editPageData.status" convert-to-number class="form-control mb-10" on-blur-validation
+                                    required>
+                                     <option value="1">Publish</option>
+                                     <option value="2">Unpublish</option>
+                           <p class="help-block">
+                           <span ng-show="pageForm.publish.$invalid && !pageForm.publish.$pristine">status is required.</span>
+                        </p>
+                        </select>
+                            </div>
+                            <button class="btn btn-success btn-ef btn-ef-3 btn-ef-3c mb-10" ng-click="EDPC.submitEditPageData(pageForm.$valid,EDPC.editPageData)">{{(EDPC.editPageData.status == 1) ? 'Publish' : 'Unpublish'}}<i class="fa fa-arrow-right"></i></button>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

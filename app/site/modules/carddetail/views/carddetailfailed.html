@@ -1,0 +1,27 @@
+
+	<div class="pay-status">
+		<div class="container2">
+			 <div class="payment-stus">
+			 	<!-- success -->
+			 	<!-- <div class="success-stus">
+			 		<div class="checkmark-circle">
+					  	<div class="background"></div>
+					  	<div class="checkmark draw"></div>
+					</div>
+					<span>Payment Completed</span>
+					<a class="blue-btn btn-bck" ui-sref="account">Go To Account Page</a>
+				</div> -->
+				<!-- success -->
+				<!-- failure -->
+				<div class="success-stus fail-stus">
+			 		<div class="checkmark-circle fail-ico">
+					  	<div class="background"></div>
+					  	<div class="checkmark draw fail-ic"></div>
+					</div>
+					<span>{{'PAYMENT_FAILED'|translate}}</span>
+					<a class="blue-btn btn-bck" href="carddeatil/{{PPDC.taskid}}">{{'GO_TO_PAYMENT_PAGE'|translate}}</a>
+				</div>
+				<!-- failure -->
+	    	</div>
+		</div>
+	</div>

@@ -1,0 +1,34 @@
+@font-face {
+  font-family: 'ralewaybold';
+  src: url('../fonts/Raleway-Bold-webfont.eot');
+  src: url('../fonts/Raleway-Bold-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/Raleway-Bold-webfont.woff2') format('woff2'), url('../fonts/Raleway-Bold-webfont.woff') format('woff'), url('../fonts/Raleway-Bold-webfont.ttf') format('truetype'), url('../fonts/Raleway-Bold-webfont.svg#ralewaybold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'RalewayMedium';
+  src: url('../fonts/raleway-medium.eot');
+  src: url('../fonts/raleway-medium.eot') format('embedded-opentype'), url('../fonts/raleway-medium.woff2') format('woff2'), url('../fonts/raleway-medium.woff') format('woff'), url('../fonts/raleway-medium.ttf') format('truetype'), url('../fonts/raleway-medium.svg#RalewayMedium') format('svg');
+}
+@font-face {
+  font-family: 'OpenSansBold';
+  src: url('../fonts/opensans-bold.eot');
+  src: url('../fonts/opensans-bold.eot') format('embedded-opentype'), url('../fonts/opensans-bold.woff2') format('woff2'), url('../fonts/opensans-bold.woff') format('woff'), url('../fonts/opensans-bold.ttf') format('truetype'), url('../fonts/opensans-bold.svg#OpenSansBold') format('svg');
+}
+@font-face {
+  font-family: 'OpenSansRegular';
+  src: url('../fonts/opensans-regular.eot');
+  src: url('../fonts/opensans-regular.eot') format('embedded-opentype'), url('../fonts/opensans-regular.woff2') format('woff2'), url('../fonts/opensans-regular.woff') format('woff'), url('../fonts/opensans-regular.ttf') format('truetype'), url('../fonts/opensans-regular.svg#OpenSansRegular') format('svg');
+}
+@font-face {
+  font-family: 'OpenSansSemibold';
+  src: url('../fonts/opensans-semibold.eot');
+  src: url('../fonts/opensans-semibold.eot') format('embedded-opentype'), url('../fonts/opensans-semibold.woff2') format('woff2'), url('../fonts/opensans-semibold.woff') format('woff'), url('../fonts/opensans-semibold.ttf') format('truetype'), url('../fonts/opensans-semibold.svg#OpenSansSemibold') format('svg');
+}
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('../fonts/fontawesome-webfont.eot?v=4.3.0');
+  src: url('../fonts/fontawesome-webfont.eot?#iefix&v=4.3.0') format('embedded-opentype'), url('../fonts/fontawesome-webfont.woff2?v=4.3.0') format('woff2'), url('../fonts/fontawesome-webfont.woff?v=4.3.0') format('woff'), url('../fonts/fontawesome-webfont.ttf?v=4.3.0') format('truetype'), url('../fonts/fontawesome-webfont.svg?v=4.3.0#fontawesomeregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}

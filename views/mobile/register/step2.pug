@@ -1,0 +1,49 @@
+
+
+extends layout
+
+block vars
+  - var title='Step 2'
+  - var description = 'Maidac Tasker Registration'
+block content
+  form(action='/mobile/provider/register/step3', method='post', name="basicinfo" ,id="step2")
+    .applyto-tasker.apply1
+      .container2
+        .full-holder
+          input#accountsuccess(type='hidden', name='accountsuccess', value='')
+          //h1.top-texts Apply To Be A Tasker
+          h1.top-textsinput(class='backbutton',action='action', type='button', value='Back', onclick='window.history.back()') Back | Apply To Be A Tasker
+          .tasker-pannel
+            .tasker-head
+            .tasker-body
+              .lop-div-task.dobcal
+                span.topedtext  Birthdate
+                span.topedtext Age must be above 18
+                ul.list-inline.dop-flds
+                  li 
+                  input#example4.example(type='hidden')
+                
+                   
+              .lop-div-task
+                span.topedtext Where Do You Live?
+                .botom-fuls
+                  ul.wher-live.list-inline
+                    li
+                      label Street Address
+                      input#autocomplete(type='text', name='address', onfocus="geolocate()",  placeholder='Enter Your Street Address', value="" required)
+                    li
+                      label House/Apartment No
+                      input#unitnumber(type='text', name='unitnumber', value='', placeholder='Enter Your House/Apartment Number')
+                    li
+                      label Zip code
+                      input#postal_code.field(type='text', name='zipcode', value='', placeholder='Enter Your zipcode')
+                    li
+                      input#submit_btn.grn-btn.blu-btn(type='submit', value='Continue',onclick='return dob()')
+
+    script(type='text/javascript', src=siteurl+'app/mobile/register/js/autofill.js')
+    script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDFmED2h9eocAvN_PHhYrNaZdFTWpX7UZY&libraries=places&callback=initAutocomplete", async="", defer="")
+    
+                
+                     
+                       
+    

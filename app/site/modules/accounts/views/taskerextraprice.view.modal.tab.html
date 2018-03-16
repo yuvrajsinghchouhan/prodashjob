@@ -1,0 +1,43 @@
+<form name="extraForm" submit-validate role="form" novalidate>
+ <div class="wallet-model">
+       <div class="modal-header">
+           <h3 class="modal-title">{{'MISCELLANEOUS DETAILS'|translate}}</h3>
+            <button type="button" class="close" ng-click="TEVMI.cancel()" data-dismiss="modal">×</button>
+       </div>
+    <div class="modal-body">
+			<div class="add-matrl-btn">
+				<p class="imp-note">{{'NOTE'| translate}} :{{'CLICK ON ADD MATERIAL BELOW TO ADD MISCELLANEOUS CHARGES YOU SPEND'|translate}}</p>
+						<div class="addmatrl-title">
+							<input type="checkbox" id="material" name="material" ng-model="TEVMI.addmaterial" ng-checked="material.form == 'A'" />
+              <label for="material">{{'ADD MATERIAL'| translate}} </label>
+              <label style="float:right "for="material">Total Item {{TEVMI.choices.length}}</label>
+            </div>
+            <div class="miscel-detl form-group" ng-show="TEVMI.addmaterial">
+              <fieldset  data-ng-repeat="choice in TEVMI.choices">
+                <input type="text" ng-model="TEVMI.newchoice.name[$index]" placeholder="Tool Name" required style="height:33px">
+                <span class="input-group-addon">{{TEVMI.defaultcurrency[0].symbol}}</span>
+                <input type="text" ng-change="TEVMI.calculateChoice()" ng-model="TEVMI.newchoice.value[$index]" placeholder="Tool Rent" allow-only-numbers required style="height:33px">
+                <button class="remove" ng-show="$last" ng-click="TEVMI.removeChoice($index)">X</button>
+              </fieldset>
+            <button class="addfields" ng-click="TEVMI.addNewChoice()">{{'ADD FIELDS'| translate}}</button>
+            <label style="float:right" for="material" >{{TEVMI.total}}</label>
+            <label style="float:right" for="material" >Total Miscellaneous  Amount:</label>
+            </div>
+        </div>
+        <div class="modal-footer">
+				<button ng-if="addmaterial" ng-disabled="!TEVMI.newchoice.name || !TEVMI.newchoice.value" class="btn btn-primary" type="button" ng-click="TEVMI.ok(TEVMI)">{{'OK'|translate }}</button>
+				<button  ng-if="!addmaterial" class="btn btn-primary" type="button" ng-click="TEVMI.ok(TEVMI,extraForm.$valid)">{{'OK'|translate }}</button>
+        <button class="btn btn-warning" type="button" ng-click="TEVMI.cancel()">{{'CANCEL'|translate }}</button>
+			</div>
+		</div>
+	</div>
+  </form>
+<style>
+.input-group {
+    position: relative;
+    <!-- display: table; -->
+    width: 212px;
+    border-collapse: separate;
+    padding: 13px 0 0 5px;
+}
+</style>

@@ -1,0 +1,23 @@
+<form name="Userreview">
+<div class="modal-header">
+    <h3 class="modal-title">{{'REVIEW'|translate }}</h3>
+</div>
+<div class="modal-body"  ng-class="{ 'has-error' : Userreview.$invalid && !Userreview.$pristine, 'has-success' : Userreview.$valid && !Userreview.$pristine}">
+   <div class="form-group">
+        <label for="line1">{{'RATE_YOUR_TASKER_FOR_THIS_TASK'|translate }} ? </label></br>
+        <uib-rating name="rating" ng-model="ARM.review.rating" max="5" state-on="'fa fa-star text-orange text-lg'" state-off="'fa fa-star-o text-lg'"  on-blur-validation required ></uib-rating>
+        <label  ng-show="Userreview.rating.$invalid && !Userreview.rating.$pristine">rating is required.</label>
+    </div>
+    <div class="form-group" >
+        <label for="line1">{{'COMMENTS'|translate }}</label>
+        <textarea type="text" class="form-control" ng-model="ARM.review.comments" ng-maxlength="200" name="comment"   on-blur-validation required ></textarea>
+        <p ng-show="Userreview.comment.$invalid && !Userreview.comment.$pristine" class="help-block">Rating & Comments is required and should not be more than 200 characters</p>
+		
+    </div>
+</div>
+
+<div class="modal-footer">
+ <button class="btn btn-primary" type="button" ng-disabled="Userreview.comment.$invalid ||Userreview.comment.$dirty && Userreview.rating.$invalid " ng-click="ARM.ok()">{{'OK'|translate }}</button>
+    <button class="btn btn-warning" type="button" ng-click="ARM.cancel()">{{'CANCEL'|translate }}</button>
+</div>
+</form>

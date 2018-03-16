@@ -1,0 +1,97 @@
+<div class="page page-forms-common">
+    <div class="pageheader">
+        <h2>{{ 'Menu.SETTINGS' | translate }}</span></h2>
+        <div class="page-bar">
+            <ul class="page-breadcrumb">
+                <li><a ui-sref="app.dashboard"><i class="fa fa-home"></i> {{main.title}}</a></li>
+                <li><a ui-sref="app.settings.SocialNetworksSettings">{{'Menu.SETTINGS'|translate}}</a></li>
+                <li> {{'SubMenu.SOCIAL_NETWORKS_SETTINGS'|translate}} </li>
+            </ul>
+        </div>
+    </div>
+    <div class="pagecontent">
+        <div class="row">
+            <div class="col-md-12">
+                <section class="tile" fullscreen="isFullscreen02">
+                    <div class="tile-body">
+                        <form role="form">
+                            <h4 class="custom-font text-strong">Social Networks URL/Links</h4>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Facebook</label>
+                                <input type="text" name="name" id="name" class="form-control" ng-model="SNSC.SocialNetworksSettings.link.facebook" required=""
+                                    aria-required="true" aria-invalid="true">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Twitter</label>
+                                <input type="text" name="name" id="name" class="form-control" ng-model="SNSC.SocialNetworksSettings.link.twitter" required=""
+                                    aria-required="true" aria-invalid="true">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Google Plus</label>
+                                <input type="text" name="name" id="name" class="form-control" ng-model="SNSC.SocialNetworksSettings.link.google_plus" required=""
+                                    aria-required="true" aria-invalid="true">
+                            </div>
+                            <!-- 
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Pinterest</label>
+                                <input type="text" name="name" id="name" class="form-control" ng-model="SNSC.SocialNetworksSettings.link.pinterest" required=""
+                                    aria-required="true" aria-invalid="true">
+                            </div>
+                           <hr class="line-dashed line-full">
+                            <h4 class="custom-font text-strong">Facebook API</h4>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Application ID</label>
+                                <input type="text" name="name" id="name" class="form-control" ng-model="SNSC.SocialNetworksSettings.facebook_api.application_id"
+                                    required="" aria-required="true" aria-invalid="true">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Application Secret</label>
+                                <input type="text" name="name" id="name" class="form-control" ng-model="SNSC.SocialNetworksSettings.facebook_api.application_secret"
+                                    required="" aria-required="true" aria-invalid="true">
+                            </div>-->
+
+
+                            <!--
+                            <hr class="line-dashed line-full">
+                            <h4 class="custom-font text-strong">Google API</h4>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Client ID</label>
+                                <input type="text" name="name" id="name" class="form-control" ng-model="SNSC.SocialNetworksSettings.google_api.client_id"
+                                    required="" aria-required="true" aria-invalid="true">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Secret Key</label>
+                                <input type="text" name="name" id="name" class="form-control" ng-model="SNSC.SocialNetworksSettings.google_api.secret_key"
+                                    required="" aria-required="true" aria-invalid="true">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Developer Key</label>
+                                <input type="text" name="name" id="name" class="form-control" ng-model="SNSC.SocialNetworksSettings.google_api.developer_key"
+                                    required="" aria-required="true" aria-invalid="true">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Callback</label>
+                                <input type="text" name="name" id="name" class="form-control" ng-model="SNSC.SocialNetworksSettings.google_api.callback"
+                                    required="" aria-required="true" aria-invalid="true">
+                            </div>
+                            <hr class="line-dashed line-full">
+                            <h4 class="custom-font text-strong">Twitter API</h4>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Consumer Key</label>
+                                <input type="text" name="name" id="name" class="form-control" ng-model="SNSC.SocialNetworksSettings.twitter_api.consumer_key"
+                                    required="" aria-required="true" aria-invalid="true">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Secret Key</label>
+                                <input type="text" name="name" id="name" class="form-control" ng-model="SNSC.SocialNetworksSettings.twitter_api.secret_key"
+                                    required="" aria-required="true" aria-invalid="true">
+                            </div>
+                            -->
+                            <button type="submit" ng-click="SNSC.saveSocialNetworksSettings(SNSC.SocialNetworksSettings)" class="btn btn-rounded btn-success btn-sm">Submit</button>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>

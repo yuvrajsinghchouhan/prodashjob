@@ -1,0 +1,182 @@
+<div class="page page-tables-bootstrap">
+
+  <!-- page header -->
+  <div class="pageheader">
+    <h2>{{ 'Menu.REVIEWS' | translate }} </h2>
+    <div class="page-bar">
+      <ul class="page-breadcrumb">
+        <li>
+          <a ui-sref="app.dashboard"><i class="fa fa-home"></i> {{main.title}}</a>
+        </li>
+        <li>
+          <a ui-sref="app.reviews.list">{{ 'SubMenu.ALL_REVIEWS' | translate }}</a>
+        </li>
+        <li>
+          <a href="javascript:;">Edit {{ 'Menu.REVIEWS' | translate }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- /page header -->
+  <!-- page content -->
+
+
+  <div class="pagecontent">
+    <!-- nav -->
+    <tabset>
+      <div class="row">
+        <div class="col-md-12">
+          <section class="tile time-simple">
+            <div class="tile-body">
+              <div class="row">
+                <div class="col-md-3">
+                  <p class="text-uppercase text-strong mt-40 mb-0 custom-font">TASK</p>
+                  <h3 class="text-uppercase text-info mt-0 mb-20">
+                    <div ng-disabled="true" ng-if="EDRC.editReviewData.rating">
+                      {{EDRC.editReviewData.task.booking_information.work_type}}
+                    </div>
+                  </h3>
+                </div>
+                <div class="col-md-3">
+                  <p class="text-uppercase text-strong mt-40 mb-0 custom-font">Booking ID </p>
+                  <h3 class="text-uppercase text-danger mt-0 mb-20">
+                    {{EDRC.editReviewData.task.booking_id}}
+                  </h3>
+                </div>
+                <div class="col-md-3">
+                  <p class="text-uppercase text-strong mt-40 mb-0 custom-font">RATING</p>
+                  <h3 class="text-uppercase text-warning mt-0 mb-20">
+                    <div ng-disabled="true" ng-if="EDRC.editReviewData.rating">
+                      <rating ng-model="EDRC.editReviewData.rating" max="5">
+                      </rating>
+                    </div>
+                  </h3>
+                </div>
+                <div class="col-md-3">
+
+                  <p class="text-uppercase text-strong mt-40 mb-0 custom-font">Status</p>
+                  <h3 class="text-uppercase text-success mt-0 mb-20">
+                    <div ng-if="EDRC.editReviewData.task.status==0">
+                      Deleted
+                    </div>
+                    <div ng-if="EDRC.editReviewData.task.status==1">
+                      Onprogress
+                    </div>
+                    <div ng-if="EDRC.editReviewData.task.status==2">
+                      Accepted
+                    </div>
+                    <div ng-if="EDRC.editReviewData.task.status==3">
+                      StartOff
+                    </div>
+                    <div ng-if="EDRC.editReviewData.task.status==4">
+                      Arrived
+                    </div>
+                    <div ng-if="EDRC.editReviewData.task.status==5">
+                      StartJob
+                    </div>
+                    <div ng-if="EDRC.editReviewData.task.status==6">
+                      Completed
+                    </div>
+                    <div ng-if="EDRC.editReviewData.task.status==7">
+                      Completed
+                    </div>
+                    <div ng-if="EDRC.editReviewData.task.status==8">
+                      Cancelled
+                    </div>
+                    <div ng-if="EDRC.editReviewData.task.status==9">
+                      Dispute
+                    </div>
+                    <div ng-if="EDRC.editReviewData.task.status==10">
+                      Search
+                    </div>
+                  </h3>
+                </div>
+                <!-- /col -->
+
+
+                <!-- col -->
+                <div class="col-md-6">
+                  <p class="text-uppercase text-strong mb-10 custom-font">Customer</p>
+                  <ul class="list-unstyled text-default lt mb-20">
+                    <li ng-if="EDRC.editReviewData.user.name.first_name" ng-if="EDRC.editReviewData.user.name.last_name"><strong class="inline-block w-xs">Name:</strong>{{EDRC.editReviewData.user.name.first_name}} {{EDRC.editReviewData.user.name.last_name}}
+                    </li>
+                    <li ng-if="EDRC.editReviewData.user[0].phone.number"><strong class="inline-block w-xs">Phone:</strong>{{EDRC.editReviewData.user[0].phone.code}} - {{EDRC.editReviewData.user[0].phone.number}}</li>
+                    <li ng-if="EDRC.editReviewData.user.email"><strong class="inline-block w-xs">Email:</strong>{{EDRC.editReviewData.user.email}}
+                      <a href="javascript:;" ng-bind="EDRC.editReviewData.user[0].email"></a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-md-6">
+                  <p class="text-uppercase text-strong mb-10 custom-font">TASKER</p>
+                  <ul class="list-unstyled text-default lt mb-20">
+                    <li ng-if="EDRC.editReviewData.tasker.name.first_name" ng-if="EDRC.editReviewData.tasker.name.last_name"><strong class="inline-block w-xs">Name:</strong>{{EDRC.editReviewData.tasker.name.first_name}} {{EDRC.editReviewData.tasker.name.last_name}}
+                    </li>
+                    <li ng-if="EDRC.editReviewData.user[0].phone.number"><strong class="inline-block w-xs">Phone:</strong>{{EDRC.editReviewData.user[0].phone.code}} - {{EDRC.editReviewData.user[0].phone.number}}</li>
+                    <li ng-if="EDRC.editReviewData.user.email"><strong class="inline-block w-xs">Email:</strong>{{EDRC.editReviewData.user.email}}
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+
+        </div>
+        <!-- /col -->
+      </div>
+    </tabset>
+    <div class="add-nav">
+      <div class="row">
+        <div class="col-md-12">
+          <section class="tile tile-simple">
+            <div class="tile-body">
+              <div class="wrap-reset">
+                <div class="row">
+                  <div class="form-group col-md-12 legend">
+                    <h4><strong>Review</strong> Details</h4>
+                    <p></p>
+                  </div>
+                </div>
+                <form name="reviewForm" novalidate>
+                  <div class="row" ng-if="EDRC.editReviewData.createdAt">
+                    <div class="col-xs-8 col-sm-4" ng-model="EDRC.editReviewData">
+                      <Strong> Date </strong>
+                    </div>
+                    <div class="col-xs-4 col-sm-8">{{EDRC.editReviewData.createdAt |date}}</div>
+                  </div>
+                  <br>
+                  <div class="row" ng-if="EDRC.editReviewData.createdAt">
+                    <div class="col-xs-8 col-sm-4" ng-model="EDRC.editReviewData">
+                      <Strong> Reviewed By </strong>
+                    </div>
+                    <div class="col-xs-4 col-sm-8">{{EDRC.editReviewData.type | uppercase}}</div>
+                  </div>
+                  <br>
+                  <div class="row">
+                    <div class="col-xs-8 col-sm-4">
+                      <Strong> Comments </strong>
+                    </div>
+                    <div class="col-xs-4 col-sm-8">
+                      <textarea class="form-control" rows="3" style="width: 400px; height: 150px;" cols="50" ng-model="EDRC.editReviewData.comments" ></textarea>
+</div>
+</div>
+<br>
+<div class="form-group tcol">
+  <p align="center">
+    <button class="btn btn-success btn-ef btn-ef-5 btn-ef-5a" ng-click="EDRC.submit(reviewForm.$valid);">
+                        <i class="fa fa-upload"></i> <span>Save</span>
+                </button>
+    <button class="btn btn-success btn-ef btn-ef-5 btn-ef-5a" ui-sref="app.reviews.list">
+                        <i class="fa fa-arrow-left"></i> <span>Back</span>
+                </button>
+
+  </p>
+</div>
+</form>
+</div>
+</section>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>

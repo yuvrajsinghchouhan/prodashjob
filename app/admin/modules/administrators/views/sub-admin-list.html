@@ -1,0 +1,56 @@
+<div class="page page-tables-bootstrap">
+    <!-- page header -->
+    <div class="pageheader">
+     <h2>{{'Menu.ADMINISTRATORS' | translate}} </h2>
+     <div class="page-bar">
+         <ul class="page-breadcrumb">
+             <li>
+                 <a ui-sref="app.dashboard"><i class="fa fa-home"></i> {{main.title}}</a>
+             </li>
+             <li>
+                 <a href="javascript:;">{{'Menu.ADMINISTRATORS' | translate}}</a>
+             </li>
+             <li>
+                 <a ui-sref="app.users.usersList">{{'SubMenu.SUB_ADMIN_LIST' | translate}}</a>
+             </li>
+         </ul>
+     </div>
+ </div>
+    <!-- /page header -->
+
+
+
+    <!-- page content -->
+    <div class="pagecontent">
+
+        <!-- row -->
+        <div class="row">
+            <!-- col -->
+            <div class="col-md-12">
+                <section class="tile" fullscreen="isFullscreen07">
+
+                    <!-- tile header -->
+                    <div class="tile-header dvd dvd-btm">
+                        <h1 class="custom-font"><strong>Sub Admin's</strong> List</h1>
+                        <ul class="controls" ng-if="SALC.permission.add !=false">
+                           <li ><a ui-sref="app.admins.subadd()"><i class="fa fa-plus mr-5"></i>Add Sub-Admin</a></li>
+                        </ul>
+                    </div>
+                    <!-- <div custom-table data="USLC.adminUsersList"  datalength="USLC.dataValue" filter-data="USLC.tableFilter"
+                          table-headers="USLC.tableInit" current-pages = "USLC.usersReload" delete-call="USLC.userReload()" delete-url="USLC.userDeleteCall"
+                         table-actions="USLC.editData" delete-model="USLC.openUsersDeleteModal"></div> -->
+                    <!--<custom-table data="USLC.adminUsersList" count="USLC.count" current-pages="USLC.usersReload" filter-data="USLC.tableFilter" layout="USLC.layout" delete-call="USLC.usersReload()" datalength="USLC.dataValue"></custom-table>-->
+                    <custom-table data="SALC.table" delete-call="SALC.deletedData"></custom-table>
+
+                </section>
+            </div>
+            <!-- /col -->
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /page content -->
+
+
+
+
+</div>

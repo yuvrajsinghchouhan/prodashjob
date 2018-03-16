@@ -1,0 +1,30 @@
+<div class="signup-page" >
+  <div style="background-image: url('{{rc.bgimage.image}}');" class="sinupimg-container"></div>
+<div class="sign-up-holder login-holder">
+  <div class="logo-container">
+<a ui-sref ="landing"><img src="{{rc.getsetting.logo}}"></a>
+<!-- <label>Emergency Contact Verification</label> -->
+  </div>
+    <form ng-submit="login()"  role="form" name="forgetpasswordform" class="form-validation mt-20" method="post" novalidate>
+        <div class="form-group" ng-class="{ 'has-error' : forgetpasswordform.email.$invalid && !forgetpasswordform.email.$pristine, 'has-success' : forgetpasswordform.email.$valid && !forgetpasswordform.email.$pristine}">
+<!-- <label>Email  :
+            <input type="checkbox" autocomplete="remember==true?on:off"  name="password" placeholder="Password" ng-model="EMRG.password" required>
+            <span ng-show="forgetpasswordform.email.$dirty && forgetpasswordform.email.$error.required" class="help-block">Password is required</span><br>
+</label><br/>
+<label>Mobile :
+            <input type="checkbox" autocomplete="remember==true?on:off"  name="cpassword" placeholder="Conform Password" ng-model="EMRG.cpassword" required>
+            <span ng-show="forgetpasswordform.email.$dirty && forgetpasswordform.email.$error.required" class="help-block">Conform Password is required</span>
+</label><br/> -->
+<input type="text" autocomplete="remember==true?on:off" class="form-control underline-input" name="code" placeholder="Mobile Verification code" ng-model="EMRG.code" required>
+<span ng-show="forgetpasswordform.email.$dirty && forgetpasswordform.email.$error.required" class="help-block">Conform Password is required</span>        </div>
+		<input class="borderbtn" ng-click="EMRG.verifyemergencycontact(forgetpasswordform.$valid,EMRG.code)" value="Submit" type="submit">
+    </form>
+</div>
+</div>
+<script type="text/javascript">
+$(".dropdown-filter-full").click(function(){
+
+$(".filter-full").slideToggle();
+
+});
+</script>

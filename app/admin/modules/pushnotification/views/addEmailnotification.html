@@ -1,0 +1,118 @@
+<div class="page page-tables-bootstrap">
+  <div class="pageheader">
+      <h2>{{ 'Menu.PUSHNOTIFICATION' | translate  }} </h2>
+      <div class="page-bar">
+          <ul class="page-breadcrumb">
+              <li> <a ui-sref="app.dashboard"><i class="fa fa-home"></i> {{main.title}}</a></li>
+              <li><a ui-sref="app.pushnotifications.templates">{{ 'SubMenu.PUSHNOTIFICATION-TEMPLATES' | translate  }}</a></li>
+              <li><a href="#">{{ NELC.breadcrumb | translate }}</a></li>
+          </ul>
+      </div>
+  </div>
+
+    <div class="pagecontent">
+        <div class="row">
+            <div class="col-md-12">
+                <section class="tile">
+                    <div class="tile-body">
+                        <form class="profile-settings" submit-validate name="emailtemplate" novalidate>
+                          <div class="form-group" ng-class="{ 'has-error' : emailtemplate.notificationtype.$invalid && !emailtemplate.notificationtype.$pristine, 'has-success' : emailtemplate.notificationtype.$valid && !emailtemplate.notificationtype.$pristine}">
+                            <label for="notificationtype">Notification Type</label>
+                            <select ng-change="NELC.onchangenotification(NELC.templateData.notificationtype)" id="notificationtype" name="notificationtype" ng-model="NELC.templateData.notificationtype" class="form-control mb-10"
+                              on-blur-validation required>
+                                     <option value="">Please select</option>
+                                      <option value='email'>Email</option>
+                                      <option value='message'>Message</option>
+                                      <p class="help-block">
+                                      <span ng-show="emailtemplate.notificationtype.$invalid && !emailtemplate.notificationtype.$pristine">Notification type is required.</span>
+                                   </p>
+                              </select>
+                           </div>
+
+                           <div ng-if="NELC.templateData.notificationtype == 'email'">
+                            <div class="form-group" ng-class="{ 'has-error' : emailtemplate.name.$invalid && !emailtemplate.name.$pristine || emailtemplate.name.$invalid && submitted, 'has-success' : emailtemplate.name.$valid && !emailtemplate.name.$pristine || emailtemplate.name.$valid && submitted}">
+                                <label for="name">Template Title</label>
+                                <input type="text" name="name" class="form-control" ng-model="NELC.templateData.name" id="name" on-blur-validation required>
+                                <p class="help-block">
+                                    <span ng-show="emailtemplate.name.$invalid && !emailtemplate.name.$pristine || emailtemplate.name.$invalid && submitted">Template Name is required.</span>
+                                </p>
+                             </div>
+
+                            <div class="form-group" ng-class="{ 'has-error' : emailtemplate.emailsubject.$invalid && !emailtemplate.emailsubject.$pristine || emailtemplate.emailsubject.$invalid && submitted, 'has-success' : emailtemplate.emailsubject.$valid && !emailtemplate.emailsubject.$pristine || emailtemplate.emailsubject.$valid && submitted}">
+                                <label for="emailsubject">Email Subject</label>
+                                <input type="text" name="emailsubject" class="form-control" ng-model="NELC.templateData.subject" on-blur-validation
+                                    id="emailsubject" required>
+                                <p class="help-block">
+                                    <span ng-show="emailtemplate.emailsubject.$invalid && !emailtemplate.emailsubject.$pristine || emailtemplate.emailsubject.$invalid && submitted">Email Subject is required.</span>
+                                </p>
+                            </div>
+
+							              <div class="form-group" ng-class="{ 'has-error' : emailtemplate.sendername.$invalid && !emailtemplate.sendername.$pristine || emailtemplate.sendername.$invalid && submitted, 'has-success' : emailtemplate.sendername.$valid && !emailtemplate.sendername.$pristine || emailtemplate.sendername.$valid && submitted}">
+                                <label for="sendername">Sender Name</label>
+                                <input type="text" name="sendername" class="form-control" ng-model="NELC.templateData.sender_name" on-blur-validation id="sendername"
+                                    required>
+                                <p class="help-block">
+                                    <span ng-show="emailtemplate.sendername.$invalid && !emailtemplate.sendername.$pristine || emailtemplate.sendername.$invalid && submitted">Sender Name is required.</span>
+                                </p>
+                            </div>
+
+                            <div class="form-group" ng-class="{ 'has-error' : emailtemplate.senderemail.$invalid && !emailtemplate.senderemail.$pristine || emailtemplate.senderemail.$invalid && submitted, 'has-success' : emailtemplate.senderemail.$valid && !emailtemplate.senderemail.$pristine || emailtemplate.senderemail.$valid && submitted}">
+                                <label for="senderemail">Sender Email Address</label>
+                                <input type="text" name="senderemail" class="form-control" ng-model="NELC.templateData.sender_email" on-blur-validation id="senderemail"
+                                    required>
+                                <p class="help-block">
+                                    <span ng-show="emailtemplate.senderemail.$invalid && !emailtemplate.senderemail.$pristine || emailtemplate.senderemail.$invalid && submitted">Sender Email Address is required.</span>
+                                </p>
+                            </div>
+
+                            <div class="form-group" ng-class="{ 'has-error' : emailtemplate.emailcontent.$invalid && !emailtemplate.emailcontent.$pristine || emailtemplate.emailcontent.$invalid && submitted, 'has-success' : emailtemplate.emailcontent.$valid && !emailtemplate.emailcontent.$pristine || emailtemplate.emailcontent.$valid && submitted}">
+                                <label for="emailcontent">Email Content</label>
+                                <textarea name="emailcontent" required ui-tinymce="tinymceOptions" ng-model="NELC.templateData.content" on-blur-validation></textarea>
+                                <p class="help-block">
+                                    <span ng-show="emailtemplate.emailcontent.$invalid && !emailtemplate.emailcontent.$pristine || emailtemplate.emailcontent.$invalid && submitted">Email Content is required.</span>
+                                </p>
+                            </div>
+                            </div>
+
+
+                          <div ng-if="NELC.templateData.notificationtype == 'message'">
+
+                            <div class="form-group" ng-class="{ 'has-error' : emailtemplate.messagetitle.$invalid && !emailtemplate.messagetitle.$pristine || emailtemplate.messagetitle.$invalid && submitted, 'has-success' : emailtemplate.messagetitle.$valid && !emailtemplate.messagetitle.$pristine || emailtemplate.messagetitle.$valid && submitted}">
+                                <label for="messagetitle">Message Title</label>
+                                <input type="text" name="messagetitle" class="form-control" ng-model="NELC.templateData.name" id="messagetitle" on-blur-validation required>
+                                <p class="help-block">
+                                    <span ng-show="emailtemplate.messagetitle.$invalid && !emailtemplate.messagetitle.$pristine || emailtemplate.messagetitle.$invalid && submitted">Message Name is required.</span>
+                                </p>
+                            </div>
+
+
+                            <div class="form-group" ng-class="{ 'has-error' : emailtemplate.messagesubject.$invalid && !emailtemplate.messagesubject.$pristine || emailtemplate.messagesubject.$invalid && submitted, 'has-success' : emailtemplate.messagesubject.$valid && !emailtemplate.messagesubject.$pristine || emailtemplate.messagesubject.$valid && submitted}">
+                                <label for="messagesubject">Message Subject</label>
+                                <input type="text" name="messagesubject" class="form-control" ng-model="NELC.templateData.subject" on-blur-validation
+                                    id="messagesubject" required>
+                                <p class="help-block">
+                                    <span ng-show="emailtemplate.messagesubject.$invalid && !emailtemplate.messagesubject.$pristine || emailtemplate.messagesubject.$invalid && submitted">Message Subject is required.</span>
+                                </p>
+                            </div>
+
+                            <div class="form-group" ng-class="{ 'has-error' : emailtemplate.messagecontent.$invalid && !emailtemplate.messagecontent.$pristine || emailtemplate.messagecontent.$invalid && submitted, 'has-success' : emailtemplate.messagecontent.$valid && !emailtemplate.messagecontent.$pristine || emailtemplate.messagecontent.$valid && submitted}">
+                                <label for="messagecontent">Message Content</label>
+                                <textarea id="message" class="form-control ng-pristine ng-invalid ng-invalid-required has-visited ng-touched" rows="7"  placeholder="Type your message" name="messagecontent"  required ng-model="NELC.templateData.content" on-blur-validation></textarea>
+                                <!-- <textarea name="messagecontent"  required ng-model="NELC.templateData.content" on-blur-validation></textarea> -->
+                                <p class="help-block">
+                                    <span ng-show="emailtemplate.messagecontent.$invalid && !emailtemplate.messagecontent.$pristine || emailtemplate.messagecontent.$invalid && submitted">Message Content is required.</span>
+                                </p>
+                            </div>
+                          </div>
+
+                            <div class="tile-footer text-right bg-tr-black lter dvd dvd-top">
+                                <button class="btn btn-success btn-ef btn-ef-3 btn-ef-3c mb-10" ng-click="NELC.submitTemplateEditData(emailtemplate.$valid,NELC.templateData)">Submit<i class="fa fa-arrow-right"></i></button>
+                            </div>
+
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>

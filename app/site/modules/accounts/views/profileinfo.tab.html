@@ -1,0 +1,20 @@
+<div role="tabpanel" class="tab-pane" id="profileinfo">
+  <div class="account-section">
+    <span>{{'PROFILE' | translate}}</span>
+  </div>
+  <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" dismiss-on-timeout="{{alertTimeout}}" close="closeAlert($index)">{{alert.msg}}</uib-alert>
+  <div class="lop-div-task" ng-repeat="profileinfo in ACC.getQuestion">
+    <span class="topedtext">{{profileinfo.question}}</span>
+    <div class="botom-fuls">
+      <ul class="radio-live">
+        <li>
+          <textarea rows="4" cols="90" style="resize:vertical;" ng-model="ACC.profileDetails[profileinfo._id]" required></textarea>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="btnholder ">
+    <input class="borderbtn" value="{{'CANCEL' | translate}}" type="submit">
+    <input class="bluebtn savdedit" ng-click="ACC.saveProfile(profileDetails)" value="{{'SAVE' | translate}}" type="submit">
+  </div>
+</div>

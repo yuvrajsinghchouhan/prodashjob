@@ -1,0 +1,108 @@
+<section>
+  <div class="dashboard dashboardtop hirestep1">
+    <div class="container2">
+      <!--
+      <div class="left-sideimg">
+        <figure><img ng-src="{{TAC.taskbaseinfo.SubCategoryInfo.image}}" err-src></figure>
+      </div>
+      -->
+      <div class="rightcntne">
+        <h4>{{'FIND_A_TASKER_FOR' | translate}} {{ TAC.taskbaseinfo.SubCategoryInfo.name}} <a href="#" ng-click="TAC.changeCategory()"> {{'CHANGE'| translate}}</a></h4>
+        <span class="basedtext">{{'BASED_ON_THE_DETAILS_ENTERED_BELOW' | translate}} .</span>
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+  <style>
+    #edit_tasklocation {
+      margin: 0 8px;
+    }
+    #edit_tasklocation {
+      background: #414042;
+      border-radius: 3px;
+      color: #fff;
+      font-size: 12px;
+      padding: 3px 11px;
+    }
+  </style>
+  <form name="taskbaseinfo" submit-validate novalidate>
+    <div class="hirestep1 ">
+      <div class="container2">
+        <div class="task-spcd">
+          <span class="tas-list"> {{'YOUR_TASK_LOCATION' | translate}} <span ng-if ="TAC.loctionflag == true"  ng-click ="TAC.loctionflag = false;TAC.taskbaseinfo.address.line1 = '';" id="edit_tasklocation" style="cursor: pointer;">Edit</span>
+          <!-- <i ng-if="TAC.availability == 1" class="fa fa-check"></i> -->
+          </span>
+          <div class="borm-detlsectio">
+            <i ng-if="TAC.loctionflag == true" class="fa fa-map-marker"></i>
+            <span ng-if="TAC.loctionflag == true">{{TAC.taskbaseinfo.address.line1}}</span>
+            <label ng-if="TAC.availability == 1" class="cont-tex "><i ng-if="TAC.availability == 1" class="fa fa-check " style="font-size: 23px; margin-right: 10px"></i>{{'GOOD_NEWS' | translate}} {{rc.title}} {{'IS_AVAILABLE_IN_YOUR_AREA' | translate}}</label>
+            <label style="color:red" ng-if="TAC.availability == 0" class="cont-tex"><i ng-if="TAC.availability != 1" class="fa fa-times  " style="font-size: 23px; margin-right: 10px"></i>{{'we don't have any Taskers in your area for this category yet' | translate}}</label>
+          </div>
+          <div class="task-spcd col-sm-12">
+            <div class="selectadd col-sm-4">
+              <a class="btn icon-btn " href="#" ng-click="TAC.Editaddress($index)">
+                <span class="fa fa-plus add-icon" style="font-size:36px"></span>
+                <span class="add-txt">  {{'ADD_ADDRESS' | translate}}</span>
+              </a>
+            </div>
+            <div ng-init="TAC.placeChanged()">
+              <div ng-if="TAC.addressList" ng-repeat="address in TAC.addressList" class="selectadd col-sm-4">
+                <div class="shipping-address">
+                  <div class="seleted-addr">
+                    <input type="radio" ng-model="TAC.filter.address" ng-change="TAC.placeChanged()" ng-value="address._id" name="selectaddress"
+                      title="Select Address " data-toggle="tooltip" data-placement="top" tooltip class="addr-selc">
+                    <div class="check">
+                      <div class="inside"></div>
+                    </div>
+                  </div>
+                  <!-- <a href="javascript:void(0)" title="">Select  address</a> -->
+                  <p ng-if="address.status == 3" class="sel-addr cur-addr"><button type="button" ng-click="TAC.addressStatus(address._id)" class="btn btn-rounded-20 btn-default btn-sm mr-5"
+                      style="width:30px;" title="Default Address " data-toggle="tooltip" data-placement="top" tooltip><i class="fa fa-check"></i></button><span>{{'DEFAULT_ADDRESS' | translate}}</span></p>
+                  <p ng-if="address.status == 1" class="sel-addr"><button type="button" ng-click="TAC.addressStatus(address._id)" class="btn btn-rounded-20 btn-default btn-sm mr-5"
+                      style="width:30px;" title="Change to Preferred Address " data-toggle="tooltip" data-placement="top" tooltip><i class="fa fa-check "></i></button><span>{{'MAKE_AS_DEFAULT_ADDRESS' | translate}}</span></p>
+                  <div class="setPriority">
+                    <!-- <a href="javascript:void(0)" title="">Set as preferred address</a> -->
+
+                    <p class="ng-binding"><strong>{{'STREET_ADDRESS' | translate}}</strong>:<span ng-if="address.line1"> {{address.line1}}</span> <span ng-if="address.street"> ,{{address.street}}</span><span ng-if="address.landmark"> ,{{address.landmark}}</span></p>
+                    <p ng-if="address.locality" class="ng-binding"><strong>{{'CITY' | translate}}</strong>: {{address.locality}}</h2>
+                    <p ng-if="address.city" class="ng-binding"><strong>{{'CITY' | translate}}</strong>: {{address.city}}</h2>
+
+                      <p class="ng-binding"><strong>{{'STATE' | translate}}</strong>: {{address.state}}</p>
+                      <p class="ng-binding"><strong>{{'ZIPCODE' | translate}}</strong>: {{address.zipcode}}</p>
+                  </div>
+                  <a href="javascript:void(0)" title="" class="edit_address button_se" ng-click="TAC.Editaddress($index)">
+                    <i class="fa fa-edit"></i> {{'EDIT' | translate}}
+                  </a>
+                  <a href="javascript:void(0)" class="button_se" ng-click="TAC.deleteaddress($index)" title="">
+                    <i class="fa fa-trash"></i> {{'DELETE' | translate}}
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="task-spcd ">
+            <span class="tas-list"> {{'TELL_US_ABOUT_YOUR_TASK' | translate}}</span>
+            <div class="hidnig">
+              <textarea name="about" placeholder="{{'ADDITIONAL_INSTRUCTION_TO_TASKER' | translate}}." required ng-model="TAC.filter.about"></textarea>
+              <span style="color:red" ng-show="taskbaseinfo.about.$invalid && !taskbaseinfo.about.$pristine">{{'TASK DETAILS IS REQUIRED'|translate}}.</span>
+              <div class="btn-holder">
+                <input class="bluebtn" ng-click="TAC.SearchTasker(TAC.availability,taskbaseinfo.$valid)" value="{{'CONTINUE' | translate }}" type="submit">
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </form>
+</section>
+<script type="text/javascript">
+  $(document).ready(function(){
+  $(".seleted-addr").click(function(){
+      $(".selectadd").toggleClass("selec");
+      alert("sdf");
+  });
+});
+
+</script>

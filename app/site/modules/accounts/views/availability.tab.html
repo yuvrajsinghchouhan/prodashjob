@@ -1,0 +1,73 @@
+<div role="tabpanel" class="tab-pane" id="Transactions">
+    <div class="account-section">
+        <span>{{'AVAILABILITY' | translate}}</span>
+    </div>
+    <div class="availability">
+        <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" dismiss-on-timeout="{{alertTimeout}}" close="closeAlert($index)">{{alert.msg}}</uib-alert>
+        <label class="sublin-hea">{{'YOUR_AVAILABILITY' | translate}}</label>
+        <div class="lop-div-task">
+            <div class="botom-fuls">
+                <ul class="availblty">
+                    <li ng-repeat="day in ACC.availability.days">
+                        <a href="javascript:void($index)" ng-click="ACC.availabilityModal($index)">
+                            <label>{{day | translate}}</label>
+                            <span>
+						<span class="green" style="color:green" ng-if="((ACC.workingDays[$index].hour.morning == true) || (ACC.workingDays[$index].hour.afternoon == true) || (ACC.workingDays[$index].hour.evening
+== true )) "> {{((ACC.workingDays[$index].hour.morning == true) || (ACC.workingDays[$index].hour.afternoon == true) || (ACC.workingDays[$index].hour.evening
+== true )) ? 'SELECTED' : 'NOT_WORKING' | translate }}</span>
+
+<span class="red" style="color:red" ng-if="!((ACC.workingDays[$index].hour.morning == true) || (ACC.workingDays[$index].hour.afternoon == true) || (ACC.workingDays[$index].hour.evening
+== true )) "> {{((ACC.workingDays[$index].hour.morning == true) || (ACC.workingDays[$index].hour.afternoon == true) || (ACC.workingDays[$index].hour.evening
+== true )) ? 'SELECTED' : 'NOT_WORKING' | translate}}</span>
+</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="lop-div-task">
+    <ng-map id="foo" center="[{{ACC.user.location.lat}},{{ACC.user.location.lng}}]" zoom="8" mayTypeId="TERRAIN">
+        <shape id="circle" name="circle" centered="true" stroke-color='#FF0000' stroke-opacity="0.8" stroke-weight="2" center="[{{ACC.user.location.lat}},{{ACC.user.location.lng}}]"
+            radius="{{ACC.user.radius * 1000}}" on-radius_changed="ACC.mapToInput()" on-center_changed="ACC.mapToInput()" editable="true"></shape>
+    </ng-map>
+</div>
+
+<div class="lop-div-task">
+    <label class="sublin-hea">{{'AVAILABILITY_LOCATION' | translate}}</label>
+    <div class="botom-fuls">
+        <input name="taskerarea" required type="text"  placeholder="{{'ENTER YOUR LOCATION'| translate}}" places-auto-complete size=80 ng-model="ACC.taskerareaaddress" types="['address']"
+            on-place-changed="ACC.taskerareaChanged()" />
+        <!--<span style="color:green" ng-if="ACC.dummyAddress=='1' "><h4>Address is valid.</h4></span>
+            <span style="color:red" ng-if="ACC.dummyAddress=='0' "><h4>Please Enter the Full Address</h4></span>-->
+    </div>
+</div>
+
+<div class="lop-div-task">
+    <label class="sublin-hea">{{'AVAILABILITY_RADIUS' | translate}}</label>
+    <div class="botom-fuls">
+        <!-- <input name="taskerarea" required type="text"  ng-model="ACC.user.radius" /> -->
+        <div class="input-group mb-10">
+            <input class="form-control" name="taskerarea" required type="text" ng-model="ACC.user.radius" />
+            <span class="input-group-addon">KM</span>
+        </div>
+
+    </div>
+</div>
+<!-- 		<div>
+		<label class="sublin-hea">Availability radius By</label>
+			<select type="text" style=" width:350px" name="distanceby" id="distanceby" class="form-control" ng-model="ACC.user.radiusby" required>
+                                                <option value="km" selected>Km</option>
+                                                <option value="mile" >Miles</option>
+             </select>
+        </div> -->
+<input class="blue-btn" value="{{'SUBMIT' | translate}}" type="submit" ng-if="ACC.user.radius" ng-click="ACC.saveAvailability(true)">
+</div>
+</div>
+<style>
+    .green{
+        color:green!important;
+    }
+    .red{
+        color:red!important;
+    }
+    </style>

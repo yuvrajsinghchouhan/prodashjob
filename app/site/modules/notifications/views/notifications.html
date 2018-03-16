@@ -1,0 +1,53 @@
+<section class="quickFixedheight">
+    <div class="notificationpage">
+        <div class="container2">
+            <div class="acc-head">
+                <h1 class="top-texts acc-tle">{{'NOTIFICATIONS'|translate}}</h1>
+            </div>
+            <!-- <div class="faq-content"> -->
+            <!-- <div class="faqHeader">{{'NOTIFICATIONS'|translate}}</div> -->
+            <div class="contains">
+                <div class="faq-page" style="background: inherit;">
+                    <div class="panel panel-default" ng-repeat="notification in NC.notifications">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a href="javascript:void(0)" class="accordion-toggle collapsed" href="#" ng-click="one = !one">
+                                    <span ng-if="notification.rawdata[0].action != 'admin_notification'">{{notification.task[0][0].booking_information.service_type}} - {{notification.task[0][0].booking_id}} </span>
+                                    <span ng-if="notification.rawdata[0].action == 'admin_notification'"> {{notification.rawdata[0].key0}}</span>
+                                </a>
+                                <a href="javascript:void(0)" class="accordion-toggle collapsed" href="#" ng-click="one = !one">
+                                    <!--<span ng-if="notification.rawdata[0].action == 'admin_notification'"> Other Notifications </span>-->
+                                    <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.isCustomHeaderOpen, 'glyphicon-chevron-right': !status.isCustomHeaderOpen}"></i>
+                                </a>
+                            </h4>
+                        </div>
+                        <div ng-show="one">
+                            <div class="panel-body">
+                                <ul ng-repeat="messages in notification.rawdata">
+                                    <a href="/notifyaccount/{{notification.task[0][0].status}}" style="font-weight: bold;text-decoration: none;">{{messages.message}}
+              <span ng-init="task = (messages.action == 'payment_paid') ? messages.key1 : messages.key0; "></span>
+              <span style="color: #F88204; font-weight: bold;"></span>
+            <span> - {{ notification.createdAt[$index] | clock : date}}</span>
+            </a>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bs-example" ng-if="!NC.notifications[0]">
+                        <h4>{{'NO NOTIFICATIONS AVAILABLE'|translate}}...!!</h4>
+                    </div>
+
+                </div>
+                <div ng-if="NC.totalItems > NC.itemsPerPage" class="pagination_inner clearfix">
+                    <nav>
+                        <uib-pagination max-size="3" items-per-page="NC.itemsPerPage" ng-change="NC.getnotification()" total-items="NC.totalItems"
+                            ng-model="NC.currentPage" class="pagination pagination-lg" previous-text="&lsaquo;" next-text="&rsaquo;"
+                            first-text="&laquo;" last-text="&raquo;" style="display: inline-flex">
+                        </uib-pagination>
+                    </nav>
+                </div>
+            </div>
+            <!-- </div> -->
+        </div>
+    </div>
+</section>

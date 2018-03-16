@@ -1,0 +1,72 @@
+<div class="modal-header">
+    <h3 class="modal-title">{{'ADD_CATEGORY' | translate}}</h3>
+</div>
+
+<div class="modal-body">
+      <form  name="registerForm" novalidate>
+
+
+        <ul>
+          <li>
+            <label> {{'FIRST_NAME' | translate}} </label>
+            <input type="text" name="firstname" ng-model="RCM.UserDetails.firstname" required>
+            <p class="help-block">
+              <span ng-show="registerForm.firstname.$invalid && !registerForm.firstname.$pristine"> First Name is required.</span>
+              <span ng-show="registerform.firstname.$error.minlength">First Name must be minimum of 6 characters.</span>
+              <span ng-show="registerform.firstname.$error.maxlength">First Name must be maximum of 25 characters.</span>
+            </p>
+          </li>
+          <li>
+            <label> {{'LAST_NAME' | translate}}</label>
+            <input ng-model="RCM.UserDetails.lastname" required name="lastname" type="text">
+            <span ng-show="registerForm.lastname.$invalid && !registerForm.lastname.$pristine">Last Name is required.</span>
+          </li>
+          <li>
+            <label> {{'USER_NAME' | translate}}</label>
+            <input type="text" name="username"  ng-model="RCM.UserDetails.username" required>
+            <span ng-show="registerForm.username.$invalid && !registerForm.username.$pristine">User Name is required.</span>
+            <span ng-show="registerform.username.$error.minlength">User Name must be minimum of 6 characters.</span>
+            <span ng-show="registerform.username.$error.maxlength">User Name must be maximum of 25 characters.</span>
+          </li>
+          <li>
+            <label> {{'EMAIL_ADDRESS' | translate}}</label>
+            <input ng-model="RCM.UserDetails.email" ng-pattern="/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/" name="email"
+              required type="text">
+            <span ng-show="registerForm.email.$invalid && !registerForm.email.$pristine">Email is required.</span>
+            <span ng-show="!registerform.email.$error.required && registerform.email.$error.pattern">Invalid email.</span>
+          </li>
+          <li>
+            <label> {{'PHONE_NUMBER' | translate}}</label>
+            <input style=" padding-left: 48px;" type="text" ng-model="RCM.UserDetails.phone" name="phone" required ng-intl-tel-input>
+            <span ng-show="registerForm.phone.$invalid && !registerForm.phone.$pristine">Phone Number is required.</span>
+          </li>
+          <li>
+            <label> {{'PASSWORD' | translate}}</label>
+            <input ng-model="RCM.UserDetails.pwd" name="pwd" ng-minlength="6" ng-maxlength="25" required type="password">
+            <span style="color:red" ng-show="registerform.pwd.$invalid && !registerform.pwd.$pristine">Password is required.</span>
+            <span style="color:red" ng-show="registerform.pwd.$error.minlength">Password must be minimum of 6 characters.</span>
+            <span style="color:red" ng-show="registerform.pwd.$error.maxlength">Password must be maximum of 12 characters.</span>
+          </li>
+          <li>
+            <label> {{'CONFIRM_PASSWORD' | translate}}</label>
+            <input name="confirm_pwd" ng-model="RCM.UserDetails.confirm_pwd" type="password" required>
+            <span style="color:red" ng-show="registerform.confirm_pwd.$invalid && !registerform.confirm_pwd.$pristine">Confirm Password is required.</span>
+            <span style="color:red" ng-show=" RCM.UserDetails.pwd!='' && RCM.UserDetails.confirm_pwd!='' && RCM.UserDetails.confirm_pwd != RCM.UserDetails.pwd">Password and Confirm Password can be same.</span>
+          </li>
+          <li>
+            <label for="city">{{'CITY' | translate}}</label>
+            <input name="city" required type="text" placeholder="{{'ENTER YOUR LOCATION'| translate}}" places-auto-complete size=80 ng-model="RCM.UserDetails.address.city" types="['address']"
+              on-place-changed="RCM.placeChanged()" />
+            <span ng-show="registerform.city.$invalid && !registerform.city.$pristine">City is required.</span>
+          </li>
+
+          <li>
+            <small class="logtext">{{'BY_SIGNING_UP_YOU_AGREE_TO_OUR' | translate}}<a href="#">{{'TERMSOFUSE' | translate}}</a>{{'AND' | translate}}<a href="#">{{'PRIVACY_POLICY' | translate}}.</a></small>
+          </li>
+          <li>
+            <span ng-bind="RCM.Error"></span>
+            <button class="grn-btn blu-btn" ng-click="RCM.registerUser(registerForm.$valid,registerForm);"><span>{{'CREATE_ACCOUNT' | translate}}</span></button>
+          </li>
+        </ul>
+      </form>
+    </div>

@@ -1,0 +1,2227 @@
+/** Responsive CSS **/
+
+/* ============================= 1024px ====================== */
+
+@media (max-width: 1024px) {
+
+}
+
+/* ============================= Max 1024px ====================== */
+
+@media (max-width: 1024px) {
+
+.home .search-bar .frm-fields {
+    width: 75%;
+}
+.steps {
+    padding: 10px;
+}
+.section-white.land-slide .carousel {
+    height: auto;
+}
+.section-white .carousel {
+    height: 350px;
+}
+.section-white .carousel-inner img {
+    min-height: 350px;
+}
+/*pk*/
+.hirestp2holder .col-sm-4:nth-child(2) .hirestp-radio.availabilities-day-form, .hirestp2holder .col-sm-4:nth-child(3) .hirestp-radio.availabilities-day-form {
+    margin: 0px;
+}
+.hirestp2holder .col-sm-4:nth-child(3) .hirestp-radio.availabilities-day-form {
+    padding: 0px;
+}
+
+.apply3 .lop-div-task .availblty a {
+   /* height: 120px;*/
+}
+.mke-pay .hirestp3holder {
+    /*width: 99%;*/
+}
+.logo-container {
+    margin: 6px 10px 0;
+}
+.mke-pay .conf-divs {
+    width: 100%;
+    min-height: inherit;
+}
+#viewdetails .logo-container#taskerimage img.img-circle {
+    max-height: inherit;
+}
+.carousel-caption {
+    font-size: 35px;
+}
+.leftartr-img > figure img {
+    height: 100%;
+}
+/*cal-date*/
+.lop-div-task ul.availblty li, .tab-content .lop-div-task ul.availblty li {
+    position: relative;
+        width: 90px;
+    height: 50px;
+}
+.lop-div-task .availblty a {
+    height: 100%;
+    padding: 15px 0 10px;
+    border-radius:0;
+    background: #fff;
+}
+span.green, span.red {
+    position: absolute;
+    border: 5px solid #0bb700;
+    top: 0px;
+    z-index: 9;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    text-indent: -9999px;
+}
+span.red {
+    border: 5px solid #bfbfbf;
+}
+/*cal-date*/
+
+.profi-content .hire-liip .col-md-9.legncont, .profi-content .hire-liip .col-md-3{
+    padding: 0px 30px;
+}
+.profi-content .tab-content .tab-content h4 {
+    padding: 0px 30px;
+    margin:0px;
+    font-size: 18px;
+}
+.profi-content .tab-content {
+    padding: 10px 0px;
+    float: left;
+    width: 100%;
+}
+.profi-content .tab-content:nth-child(odd) {
+    float: left;
+    width: 100%;
+    background: #efefef;
+}
+.profi-content .hire-liip > li {
+    padding: 0;
+    line-height: 25px;
+}
+.profi-content  .legncont h2 {
+    font-size: 18px;
+    margin: 3px 0px;
+}
+.profi-content .legncont p {
+    margin: 0;
+}
+.profi-content .tab-content .tab-content {
+    float: left;
+    clear: both;
+    padding: 0px;
+    width: 100%;
+}
+.bnk-acinfo .form-group label {
+    width: 40%;
+}
+.erroe-pge .error-content .error-img {
+    margin: 20px auto;
+    width: 100%;
+}
+.erroe-pge .error-content .error-img img{
+    width: 100%;
+}
+.erroe-pge .images-lom img{
+    width: 100%!important;
+}
+.post_step_last {
+        float: left;
+    width: 100%;
+   background-size: cover;
+}
+.cont-holder {
+    background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0;
+    float: left;
+    width: 100%;
+    height: 100%;   
+}
+.stp2-container .container2 {
+    max-width: 98%;
+}
+.fix-to-top {
+    position: inherit;
+}
+.hstp2-cnt {
+    width: 33%;
+}
+.hire-stp2 span.hur-amt {
+    display: block;
+}
+}
+
+/* ============================= 768px ====================== */
+
+@media  screen and (min-width: 768px) and (max-width: 1023px) {
+.forms-holer {
+  bottom: 0;
+}
+.bold-text {
+  font-size: 40px;
+  line-height: 25px;
+}
+.lighref-text {
+  font-size: 20px;
+}
+.logo-container > img {
+    width: 160px;
+}
+nav.navbar {
+  padding: 25px 0 0;
+}
+
+.home .search-bar .frm-fields {
+    width: 90%;
+}
+.home .search-bar .srch-box {
+    width: 40%;
+}
+.home .search-bar .srch-box:last-child {
+    width: 20%;
+}
+.hireloop > li {
+    width: 50%;
+}
+.email-notify .form-group {
+    width: 70%;
+}
+.footer .col-md-3 {
+    width: 50%;
+    margin: 10px 0px;
+}
+ul.how-itsworks li {
+    width: 33%;
+}
+header{
+    float: left;
+    width: 100%;
+}
+header .home {
+    position: inherit;
+    padding: 0px;
+}
+.land-slide  {
+    float: left;
+    width: 100%;
+}
+.mob-view .mob-logo {
+    padding: 0px;
+    width: 30%;
+}
+.mob-view .mob-logo .logo-container {
+    margin: 15px 5px 0;
+}
+.mob-logo .logo-container > img{
+    width: 250px;
+}
+.mob-view .mob-toggle {
+    width: 70%;
+    padding: 0px;
+    float: right;
+}
+.mob-view .mob-toggle div#navbar {
+    display: none!important;
+}
+.mob-view .mob-toggle .navbar-toggle {
+    display: block;
+    margin: 0px;
+    padding: 12px 15px;
+    outline: none;
+    cursor: pointer;
+}
+.mob-view .mob-toggle .navbar-toggle label {
+    margin: 5px 0px 0px;
+}
+.mob-view .mob-toggle nav.navbar {
+    padding: 0;
+}
+.mob-view .mob-toggle .navbar-header {
+    float: right;
+    width: 100%;
+}
+.mob-view .mob-toggle .navbar-toggle label i {
+    font-size: 20px;
+    cursor: pointer;
+    color: #f60
+}
+.mob-view .mob-toggle .navbar-toggle:hover label i {
+    color: #f50;
+}
+
+
+
+
+.account .maintab > ul.nav{
+    width: 100%;
+    border: none;
+}
+.account .maintab > ul.nav > li {
+    width: 49%;
+    margin:2px;
+}
+.account .maintab > ul.nav > li > a {
+    border: 1px solid #ddd!important;
+}
+.account .maintab > .tab-content {
+    width: 100%;
+}
+
+.selectadd {
+    width: 48%;
+    margin: 5px;
+}
+.top-text-til {
+    font-size: 30px;
+}
+.dashboard.dashboardtop {
+    padding: 20px 10px 0px;
+}
+.rightcntne h1 {
+    font-size: 22px;
+}
+.dash-srch {
+    position: relative;
+}
+.dash-srch .new_search{
+    top: 10px;
+    left: 10px;
+}
+.hirestp2holder {
+    text-align: center;
+}
+.hirestp2holder .col-sm-4 {
+    width: 32%;
+    margin: 0px auto;
+    padding: 0px;
+    float: none;
+    display: inline-block;
+}
+.hirestp2holder .hirestp-radio.availabilities-day-form {
+    padding: 0;
+    margin: 0;
+}
+.dateside {
+    width: 80%;
+}
+.notaster {
+    font-size: 18px;
+}
+.table-responsive {
+    width: 100%;
+    overflow: hidden;
+    overflow-x: auto;
+}
+table.table {
+    width: 1000px;
+}
+.money-head {
+    text-align: center;
+    width: 100%;
+}
+.faq-page {
+    padding: 0px 20px;
+}
+.righ-side-pic {
+    width: 100%;
+}
+.tasker-body .left-pic {
+    float: none;
+    display: inherit;
+    margin: 10px auto;
+}
+.tasker-body .catagory-body ul.nav {
+    width: 100%;
+    border: none;
+}
+.populr-skills .tab-content {
+    width: 100%;
+    margin: 10px 0px;
+}
+.tasker-body .catagory-body .nav-tabs>li>a {
+    border-radius: 0px;
+    border-right: 0;
+    border-bottom: none;
+}
+.nav-tabs > li.active {
+    border-bottom: none;
+}
+.tasker-body .catagory-body .nav-tabs > li {
+    padding: 0px 0;
+    width: 49%;
+    border: 1px solid #ddd;
+    margin: 3px;
+}
+.tasker-body li .popl-skill a {
+    border-bottom: 1px solid #1da3bf;
+}
+.tasker-body .catagory-body .talt-des {
+    border: none;
+}
+.task-dtls .col-left, .task-dtls .col-right {
+    float: none;
+    width: 100%;
+    margin-right: 10px;
+    margin: 10px auto;
+}
+.hirestep-2 .hire2bottom label{
+    margin: 0px auto;
+    width: 90%;
+    float: none;
+    display: inherit;
+    text-align: center;
+}
+
+.logo-container img, .sign-up-holder .logo-container img {
+    max-height: inherit;
+    min-height: inherit;
+        width: 50%;
+}
+.acc-head .onoffswitch {
+    width: 50%!important;
+    margin: 30px 0px!important;
+}
+.onoffswitch h1 {
+    width: 70%;
+    text-align: right;
+}
+
+}
+
+/* ============================= Max 768px ====================== */
+
+@media  screen and (max-width: 768px) {
+.forms-holer {
+  bottom: 0;
+}
+.bold-text {
+  font-size: 40px;
+  line-height: 25px;
+}
+.lighref-text {
+  font-size: 20px;
+}
+.logo-container > img {
+    width: 160px;
+}
+nav.navbar {
+  padding: 25px 0 0;
+}
+.header {
+    z-index: 9;
+}
+
+
+.home .search-bar .frm-fields {
+    width: 90%;
+}
+.home .search-bar .srch-box {
+    width: 40%;
+}
+.home .search-bar .srch-box:last-child {
+    width: 20%;
+}
+.hireloop > li {
+    width: 50%;
+}
+.email-notify .form-group {
+    width: 70%;
+}
+.footer .col-md-3 {
+    width: 50%;
+    margin: 10px 0px;
+}
+ul.how-itsworks li {
+    width: 33%;
+}
+header{
+    float: left;
+    width: 100%;
+}
+header .home {
+    position: inherit;
+    padding: 0px;
+}
+.land-slide  {
+    float: left;
+    width: 100%;
+}
+.mob-view .mob-logo {
+    padding: 0px;
+    width: 30%;
+}
+.mob-view .mob-logo .logo-container {
+    margin: 10px 0 0;
+}
+.mob-logo .logo-container > img{
+    width: 160px;
+}
+.mob-view .mob-toggle {
+    width: 70%;
+    padding: 0px;
+    float: right;
+}
+.mob-view .mob-toggle div#navbar {
+    display: none!important;
+}
+.mob-view .mob-toggle .navbar-toggle {
+    display: block;
+    margin: 0px;
+    padding: 12px 15px;
+    outline: none;
+    cursor: pointer;
+}
+.mob-view .mob-toggle .navbar-toggle label {
+    margin: 5px 0px 0px;
+}
+.mob-view .mob-toggle nav.navbar {
+    padding: 0;
+}
+.mob-view .mob-toggle .navbar-header {
+    float: right;
+    width: 100%;
+}
+.mob-view .mob-toggle .navbar-toggle label i {
+    font-size: 20px;
+    cursor: pointer;
+    color: #f60
+}
+.mob-view .mob-toggle .navbar-toggle:hover label i {
+    color: #f50;
+}
+
+
+
+
+.account .maintab > ul.nav{
+    width: 100%;
+    border: none;
+}
+.account .maintab > ul.nav > li {
+    width: 49%;
+    margin:2px;
+}
+.account .maintab > ul.nav > li > a {
+    border: 1px solid #ddd!important;
+}
+.account .maintab > .tab-content {
+    width: 100%;
+}
+
+.selectadd {
+    width: 48%;
+    margin: 5px;
+}
+.top-text-til {
+    font-size: 30px;
+}
+.dashboard.dashboardtop {
+    padding: 20px 10px 0px;
+}
+.rightcntne h1 {
+    font-size: 22px;
+}
+.dash-srch {
+    position: relative;
+}
+.dash-srch .new_search{
+    top: 10px;
+    left: 10px;
+}
+.hirestp2holder {
+    text-align: center;
+}
+.hirestp2holder .col-sm-4 {
+    width: 32%;
+    margin: 0px auto;
+    padding: 0px;
+    float: none;
+    display: inline-block;
+}
+.hirestp2holder .hirestp-radio.availabilities-day-form {
+    padding: 0;
+    margin: 0;
+}
+.dateside {
+    width: 80%;
+    float: left;
+}
+.notaster {
+    font-size: 18px;
+}
+.table-responsive {
+    width: 100%;
+    overflow: hidden;
+    overflow-x: auto;
+}
+table.table {
+    width: 1000px;
+}
+.money-head {
+    text-align: center;
+    width: 100%;
+}
+.faq-page {
+    padding: 0px 20px;
+}
+.righ-side-pic {
+    width: 100%;
+}
+.tasker-body .left-pic {
+    float: none;
+    display: inherit;
+    margin: 10px auto;
+}
+.tasker-body .catagory-body ul.nav {
+    width: 100%;
+    border: none;
+}
+.populr-skills .tab-content {
+    width: 100%;
+    margin: 10px 0px;
+}
+.tasker-body .catagory-body .nav-tabs>li>a {
+    border-radius: 0px;
+    border-right: 0;
+    border-bottom: none;
+}
+.nav-tabs > li.active {
+    border-bottom: none;
+}
+.tasker-body .catagory-body .nav-tabs > li {
+    padding: 0px 0;
+    width: 49%;
+    border: 1px solid #ddd;
+    margin: 3px;
+}
+.tasker-body li .popl-skill a {
+    border-bottom: 1px solid #1da3bf;
+}
+.tasker-body .catagory-body .talt-des {
+    border: none;
+}
+.task-dtls .col-left, .task-dtls .col-right {
+    float: none;
+    width: 100%;
+    margin-right: 10px;
+    margin: 10px auto;
+}
+.hirestep-2 .hire2bottom label{
+    margin: 0px auto;
+    width: 90%;
+    float: none;
+    display: inherit;
+    text-align: center;
+}
+
+.hirecontainer {
+    padding: 20px 0 20px;
+}
+.st-pge {
+    padding: 0px 20px;
+    float: left;
+    width: 100%;
+}
+.st-pge h2 {
+    font-size: 18px;
+}
+.applyto-tasker {
+    padding: 0px 10px;
+}
+.account .maintab > .tab-content {
+    border-left: 0;
+}
+
+.generlinf .col-md-6 {
+    width: 50%;
+}
+.generlinf .col-md-6:first-child {
+    padding: 0px;
+}
+.generlinf .col-md-6 .hirebtn {
+    margin: 10px 0 0;
+}
+.tabinnertext .col-md-12{
+    width: 100%;
+}
+.hire-liip .col-md-9.legncont {
+    width: 80%;
+}
+.hire-liip .col-md-9.legncont h2 {
+    margin:0px;
+}
+.aboutpage {
+    padding: 0px 20px;
+}
+.txt-rit {
+    text-align: center;
+}
+ul.availblty li {
+    width: calc(100%/7);
+}
+.applyto-tasker .chat-post input[type="text"] {
+    width: 92%;
+}
+.task-dtls .chat-post button.input-group-addon {
+    float: right;
+}
+
+/*pk*/
+.mob-view .mob-logo .logo-container {
+    margin: 15px 5px 0;
+}
+.mob-logo .logo-container > img {
+    width: 250px;
+}
+.mob-view .mob-toggle .navbar-toggle {
+  background: transparent;
+}
+.email-notify p.help-block {
+    margin-left: 40px;
+}
+.product-list li {
+  width: 48%;
+}
+.hirestp2holder .col-sm-4 {
+    padding: 0px;
+}
+.hirestp2holder .hirestp-radio.availabilities-day-form {
+    padding: 0px 5px;
+    margin: 0px 5px;
+}
+
+.priceSlider {
+    padding: 0px 5px;
+}
+.task-dtls {
+    position: relative;
+}
+.back_buut {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    margin: 10px!important;
+    border-radius: 50%!important;
+    width: 50px;
+    height: 50px;
+    padding: 14px 0px;
+}
+.account .maintab > ul.nav > li {
+    width: 49%;
+    margin: 5px 3px;
+}
+.paswdsection > li .form-control {
+    width: 65%;
+}
+.invite-frnds .btnholder a.invite-mail, .invite-frnds .btnholder a.invite-fb {
+    width: 25%;
+}
+.mny-pay .col-md-12 {
+    width: 100%;
+}
+.wltamtsection .btnholder {
+    width: 60%;
+}
+.task-dtls .col-left, .task-dtls .col-right {
+    float: left;
+}
+.img-cption {
+    font-size: 25px;
+    top: 30%;
+}
+.prodt-container figure {
+    height: auto;
+}
+.prodt-container .futer-text, .cat-list .prodt-container .futer-text a {
+    font-size: 18px;
+}
+/*tasker*/
+.cat-tab .admn-details span {
+    width: 65%;
+}
+.cat-tab .admn-details {
+    margin: 0px 0px;
+    padding: 5px;
+}
+.cat-tab  .admn-details > li {
+    margin: 3px 0;
+    text-align: right;
+}
+.cat-tab .admn-details span {
+    float: left;
+    width: 70%;
+    text-align: left;
+}
+/*.tab-content .lop-div-task ul.availblty li {
+    width: calc(100%/7);
+    margin: 0px;
+    padding: 5px;
+}
+.lop-div-task .availblty a {
+    height: 90px;
+}*/
+.lop-div-task .availblty a > label, .lop-div-task .availblty a > span {
+    font-size: 12px;
+}
+.onoffswitch {
+     width: 100%!important;
+    margin: 5px 0px !important;
+}
+.cal-holde.ng-scope {
+    width: 30%!important;
+}
+.apply3 .lop-div-task ul.availblty {
+    display: inline-block;
+    text-align: center;
+}
+.apply3 .lop-div-task ul.availblty li {
+        display: inline-block;
+        float: none;
+}
+
+.logo-container img, .sign-up-holder .logo-container img {
+    max-height: inherit;
+    min-height: inherit;
+      width: 50%;
+}
+.mke-pay .conf-divs {
+        margin: 10px 0px;
+}
+
+.acc-head .onoffswitch {
+    width: 50%!important;
+    margin: 30px 0px!important;
+}
+.onoffswitch h1 {
+    width: 70%;
+    text-align: right;
+}
+.carousel-caption {
+    top: 30%;
+    font-size: 25px;
+}
+
+.cal-holde.hre2-cal.ng-scope {
+    width: 98%!important;
+}
+.bnk-acinfo .form-group label {
+    width: 100%;
+}
+.bnk-acinfo .btnholder {
+    margin: 10px 0px;
+    float: left;
+}
+.mob-view .mob-toggle .navbar-toggle {
+    padding: 10px 10px;
+}
+.mob-view .mob-toggle .navbar-toggle label {
+    margin: 0;
+}
+.mob-view .mob-toggle .navbar-toggle label i {
+    font-size: 30px;
+}
+
+.tasker-body .catagory-body .tab-content .tab-pane.active span.no-category {
+    margin-left: 0px!important;
+    float: left;
+    width: 100%;
+    font-size: 15px!important;
+}
+.tasker-body .catagory-body .tab-content .tab-pane li a{
+    background: #158aa2;
+    margin-bottom: 2px;
+    color: #fff;
+}
+.add-addr-pop .form-group.col-md-6.mb-0 {
+    width: 50%;
+}
+.modal-body {
+    padding: 10px 10px 0px;
+}
+.hstp2-cnt {
+    width: 100%;
+}
+.stp2-container .container2 .col-md-8.pull-right {
+    width: 100%;
+    padding: 0px;
+}
+.cal-holde.hre2-cal.ng-scope {
+    width: 100%!important;
+}
+.hire-stp2 .hirestp2holder h2 {
+    text-align: left;
+}
+.stp2-container .modbtn {
+    float: right;
+    text-indent: -130px;
+    overflow: hidden;
+    width: 30px;
+    margin: 0px 0px;
+    text-align: center;
+    background: #ddd;
+    padding: 5px;
+    border-radius: 50%;
+}
+.stp2-container .dashboard.dashboardtop {
+    padding: 10px 0px 5px;
+    margin: 0;
+}
+.stp2-container span.glyphicon.glyphicon-pencil {
+    text-indent: 5px;
+}
+.hstp2-cnt {
+    margin: 0px 0px 20px;
+}
+}
+
+/* ============================= 767px ====================== */
+
+@media (max-width: 767px){
+.forms-holer {
+  margin:0px auto;
+  background: rgba(64, 56, 50, 0.34);
+  position: inherit;
+  bottom: 0px;
+  padding: 10px 0px;
+}
+.bold-text {
+  font-size: 40px;
+  line-height: inherit;
+  margin-bottom: 0;
+}
+.baner-forms {
+      margin: 10px 0px;
+}
+input.banser {
+  width: 100%;
+}
+.header .col-sm-10 {
+    float: right;
+}
+button.navbar-toggle {
+  padding: 5px;
+  text-align: center;
+  font-size: 15px;
+  width: auto;
+  border: 0;
+  color: #fff;
+  float: right;
+  margin: 0px;
+}
+button.navbar-toggle label {
+  margin-bottom: 0;
+}
+/*button.navbar-toggle:hover {
+    background: #fff;
+    color: #00964B;
+}*/
+div#navbar {
+    background: #fff;
+    text-align: right;
+}
+.navbar .nav > li > a {
+    font-size: 15px;
+    text-align: right;
+    line-height: 20px;
+    padding: 4px 0px;
+    color:#00964B;
+}
+.top-texts {
+    float: left;
+    width: 100%;
+    margin: 30px 0;
+    padding: 0px 10px;
+}
+.day-list li {
+    float: left;
+       margin: 0 10px 10px 0;
+    width: 30%;
+}
+.wher-live li label {
+    float: left;
+    /*font-family: proximanovaregular;*/
+    width: 100%;
+    font-size: 17px;
+    font-weight: normal;
+    padding: 6px 0 0;
+}
+.wher-live {
+    float: left;
+    width: 100%;
+}
+.applyto-tasker .wher-live input[type="text"] {
+    float: left;
+    width: 100%;
+    font-size: 15px;
+}
+.applyto-tasker select {
+       font-size: 15px;
+}
+.applyto-tasker input[type="number"] {
+    font-size: 15px;
+    padding: 5px 4px;
+}
+.availblty a {
+    border-right: 1px solid #ccc;
+    float: left;
+    padding: 16px 0;
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+}
+ul.availblty li {
+    float: left;
+    width: calc(100%/7);
+}
+.availblty a > span {
+    font-size: 11px;
+}
+.availabilities-day-form .modal-footer
+{
+    padding: 10px 20px 10px;
+     margin-top: 0px;
+    text-align: right;
+    border-top: 1px solid #e5e5e5;
+    float: left;
+    width: 100%;
+    background: #fff;
+}
+.availabilities-day-form .modal-body {
+    float: left;
+    width: 100%;
+    padding:10px 0px;
+    background: #fff;
+}
+.filetype-holdr {
+    position: relative;
+    float: left;
+    width: 100%;
+}
+.righ-side-pic {
+    float: left;
+    width: 100%;
+}
+.pic-dec {
+    font-size: 13px;
+    line-height: 20px;
+    text-align: justify;
+}
+.left-pic img {
+    width: 100%;
+    height: 100%;
+}
+.tasker-body ul.nav {
+    width: 100% !important;
+    float: left !important;
+}
+.populr-skills .tab-content {
+    width: 100%;
+    float: left;
+	margin:10px 0px;
+}
+.talt-des {
+    float: left;
+    width: 100%;
+    border-left: 0px solid #ccc;
+    margin: 0 0 0 -1px;
+	padding:0px;
+}
+.talt-des li {
+    float: left;
+    width: 100%;
+    border-bottom: 1px solid #e9e9e9;
+    padding: 10px 0px;
+}
+
+
+
+.section-white .carousel-inner img {
+    min-height: 250px;
+    max-height: 250px;
+}
+.section-white .carousel , .carousel-control{
+    height: 250px;
+}
+.home .search-bar .frm-fields {
+    width: 95%;
+    border-radius: 0;
+}
+/*.home .search-bar .srch-box:last-child {
+    border: none;
+}*/
+.section-white .forms-holer.home {
+    background:#fc7800;
+}
+.totp-tile {
+    font-size: 35px;
+}
+.section-white .carousel-indicators {
+    bottom: 0;
+}
+.how-it-works-section {
+        padding: 20px 0 20px;
+}
+ul.how-itsworks li {
+    width: 100%;
+    margin: 10px 0px;
+}
+.top-text-til {
+    font-size: 20px;
+    padding: 0px 10px
+}
+.hirecontainer {
+    padding: 20px 0px;
+}
+.home .search-bar .srch-box {
+    width: 100%;
+    margin: 0px auto;
+    float: none;
+}
+.home .search-bar .srch-box button {
+    width: 100%;
+    text-align: center;
+    float: none;
+    border-radius: 5px;
+    display: inline-block;
+    margin: 0px auto;
+}
+.home .search-bar .srch-box:last-child {
+       width: 100%;
+    float: none;
+    display: inline-block;
+    /*z-index: 1;*/
+}
+.home .search-bar .srch-box {
+    border-left: 0;
+      /*  z-index: 9;*/
+}
+.account-view .admn-details {
+    width: 95%;
+}
+.account-view .imgview , .account-edit .imgview{
+    width: 100%;
+}
+.account-edit .admn-Edit, .account-edit .admn-Edit > li {
+    width: 100%;
+}
+
+.current-balance .cur-bal {
+    width: 60%;
+}
+.hirestep1 .task-spcd {
+    padding: 5px;
+}
+.hirestep-2 .hire2bottom .notaster {
+    font-size: 15px;
+}
+.cont-tex {
+    font-size: 12px;
+    text-align: center;
+    width: 100%;
+    margin: 10px 0px;
+}
+ul.product-list .col-sm-3 {
+    float: none;
+}
+ul.product-list .col-sm-9 {
+    text-align: center;
+    width: 100%;
+    margin: 10px auto;
+}
+ ul.product-list .fiodure-cente figure {
+    border: 5px solid #ddd;
+}
+.search-bar .srch-box .form-control {
+    position: relative;
+}
+.ui-select-dropdown.select2-drop.select2-with-searchbox {
+    position: absolute;
+    z-index: 9999;
+}
+.generlinf .col-md-6 {
+    width: 100%;
+    padding: 0px;
+}
+.generlinf .col-md-6 .hirebtn {
+    margin: 10px auto;
+    float: none!important;
+}
+.hire-liip .col-md-9.legncont {
+    width: 100%;
+}
+.applyto-tasker .chat-post input[type="text"] {
+    width: 89%;
+}
+.task-dtls .chat-post button.input-group-addon {
+    float: right;
+}
+.tasker-body .catagory-body .nav-tabs > li {
+    width: 48%;
+}
+.new_login_category {
+    position: absolute;
+    top: 8px;
+    right: 30px;
+    font-size: 20px;
+    color:#bab6b6;
+}
+.search-bar .selectize-dropdown-content .ui-select-choices-group {
+	z-index: 99;
+    position: absolute;
+    background: #fff;
+    width: 100%;
+}
+
+
+/*pk*/
+
+.applyto-tasker .chat-post input[type="text"] {
+    width: 85%;
+}
+.account .maintab > ul.nav > li {
+    width: 49%;
+    margin: 5px 2px;
+}
+.wltamtsection .btnholder {
+    width: 100%;
+}
+.invite-frnds .btnholder a.invite-mail, .invite-frnds .btnholder a.invite-fb {
+    width: 35%;
+}
+.wal-mbal, .wall-balrgt{
+    width: 100%;
+}
+.wal-mbal {
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+}
+.wltamtsection .btnholder input {
+    width: 50%;
+}
+.task-dtls .chat_def h1, .col-right h1 {
+    padding: 0;
+}
+.img-cption{
+    font-size: 20px;
+}
+.prodt-container figure {
+    height: auto;
+}
+.prodt-container .futer-text, .cat-list .prodt-container .futer-text a {
+    font-size: 18px;
+}
+.bold-text {
+    font-size: 20px;
+}
+.paswdsection > li .form-control {
+    width: 85%;
+}
+.notificationpage .faq-page ul a {
+    font-size: 13px;
+}
+.notificationpage {
+    float: left;
+    width: 100%;
+}
+
+.top-texts {
+    font-size: 25px;
+    padding: 0px;
+        margin: 10px 0px;
+}
+/*tasker*/
+.email-notify .form-group {
+    width: 80%;
+}
+.lop-div-task ul.availblty {
+    text-align: center;
+}
+.tab-content .lop-div-task ul.availblty li {
+    /*width: 24%;
+    margin: 0px;*/
+    padding: 4px;
+    display: inline-block;
+    text-align: center;
+    float: none;
+}
+/*.lop-div-task .availblty a {
+    height: 100px;
+}*/
+.cont-us .logo-container, .cont-us .sign-up-holder{
+    width: 100%;
+}
+.cal-holde.ng-scope {
+    width: 41%!important;
+}
+.reds-tile {
+    width: 100%;
+        margin: 5px 0px;
+}
+.selectactive.glyphicon.glyphicon-ok.ng-scope {
+    padding: 0px 20px;
+    float: right;
+}
+.popl-skill {
+        padding: 2px 0px;
+}
+.cl-rgt-dtls {
+    float: none;
+    display: inherit;
+    margin: 10px auto;
+}
+.col-lft-dtls {
+    float: left;
+    width: 100%;
+}
+.dopayment .credicard-detls li {
+    width: 100%;
+}
+.mke-pay .conf-divs {
+    min-height: auto;
+}
+.acc-head .onoffswitch {
+    width: 50%!important;
+    margin: 10px 0px!important;
+}
+.onoffswitch h1 {
+    width: 50%;
+}
+.carousel-caption {
+    top: 22%;
+    font-size: 20px;
+    height: auto;
+}
+.hire-stp2 .col-sm-12.pad0 {
+    width: 100%;
+}
+.hire-stp2 .ico-amt {
+    width: 50%;
+    margin: 0px auto 10px;
+    float: none;
+}
+.hire-stp2 .tatrnear > li figure {
+    float: none;
+    width: 100%;
+}
+.hire-stp2 .tasker-dtl-info {
+    float: right;
+    width: 100%;
+}
+.hire-stp2 .tsker-rte {
+    float: right;
+}
+.stp2-container .find-txt {
+    max-width: 90%;
+    width: 90%;
+}
+}
+
+/* ============================= 414px ====================== */
+@media  screen and (max-width: 414px) {
+.sign-up-holder {
+    width: 100%;
+    margin: 10px 0 0;
+    padding: 20px 20px;
+}
+.blue-btn, .grn-btn {
+    background-color: #1da3bf;
+    border: 1px solid #1da3bf;
+    border-radius: 3px;
+    color: white;
+    font-family: proximanovaregular;
+    font-size: 16px;
+    padding: 11px 30px;
+    text-transform: capitalize;
+    float: none !important;
+    display: block;
+    margin: 0px auto;
+    text-align: center;
+    width: 100% !important;
+}
+}
+
+/* ============================= 320px ====================== */
+
+@media screen and (min-width: 320px) and (max-width: 567px){
+.logo-container > img {
+  width: auto;
+}
+.header .col-sm-2{
+  float: none;
+  width: 100%;
+}
+.header .col-sm-10{
+  width: 100%;
+  float: right;
+}
+.navbar .nav > li > a {
+  padding: 5px 0px;
+}
+.header {
+  z-index: 9;
+  width: 100%;
+  position: inherit;
+  background: #00964B
+}
+.section-white {
+  clear: both;
+}
+div#navbar {
+  position: absolute;
+  z-index: 999;
+  width: 100%;
+}
+
+.sign-up-holder
+{
+width:90%;
+    margin: 10px 0 0;
+    padding: 20px 20px;
+}
+
+.tasker-head .left-tile
+{
+width:100%;
+float:left;
+}
+
+.tasker-head .right-progrs
+{
+width:100%;
+float:none;
+}
+.top-texts {
+    float: left;
+    width: 100%;
+    margin: 20px 0px;
+    text-align: center;
+    font-size: 26px;
+}
+.header-original .container .col-sm-2
+{
+width:100%;
+}
+.day-list li {
+    float: left;
+    margin: 10px 18px 0 0;
+    width: 100%;
+}
+.wher-live {
+    float: left;
+    width: 100%;
+}
+.wher-live li label {
+    float: left;
+    font-family: proximanovaregular;
+    width: 100%;
+    font-size: 17px;
+    font-weight: normal;
+    padding: 6px 0 0;
+}
+.applyto-tasker .wher-live input[type="text"] {
+    float: left;
+    width: 100%;
+}
+/* .blue-btn:hover, .grn-btn:hover {
+    background-color: #158aa2;
+    float: none;
+    display: block;
+    margin: 0px auto;
+    text-align: center;
+    width: 50%;
+} */
+.blue-btn, .grn-btn {
+    background-color: #1da3bf;
+    border: 1px solid #1da3bf;
+    border-radius: 3px;
+    color: white;
+    font-family: proximanovaregular;
+    font-size: 16px;
+    padding: 8px 30px;
+    text-transform: capitalize;
+    float: none !important;
+    display: block;
+    margin: 0px auto;
+    text-align: center;
+    width: 100% !important;
+}
+ul.availblty li {
+    float: left;
+    width: 50%;
+}
+.availblty a {
+    border-right: 1px solid #ccc;
+    float: left;
+    padding: 16px 0;
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+}
+.availabilities-day-form .modal-footer
+{
+    padding: 10px 10px 10px;
+     margin-top: 0px;
+    text-align: right;
+    border-top: 1px solid #e5e5e5;
+    float: left;
+    width: 100%;
+    background: #fff;
+}
+.availabilities-day-form .modal-body {
+    float: left;
+    width: 100%;
+    padding:10px 5px;
+    background: #fff;
+}
+.left-pic {
+    border: 1px solid #ccc;
+    float: none;
+    height: 160px;
+    margin: 0px auto 15px;
+    overflow: hidden;
+    width: 160px;
+    display: block;
+}
+.righ-side-pic {
+    float: left;
+    width: 100%;
+    text-align: justify;
+}
+.left-pic img {
+    width: 100%;
+    height: 100%;
+}
+.tasker-body ul.nav {
+    width: 100%;
+    float: left;
+}
+.populr-skills .tab-content {
+    width: 100%;
+    float: left;
+}
+.catagory-body {
+    float: left;
+    width: 100%;
+    margin: 10px 0px;
+}
+.tasker-body ul.nav {
+    width: 100% !important;
+    float: left;
+}
+.talt-des {
+    float: left;
+    width: 100%;
+   border-left: 0px;
+    margin: 0 0 0 -1px;
+	padding:0px;
+}
+.talt-des li {
+    float: left;
+    width: 100%;
+    border-bottom: 1px solid #e9e9e9;
+    padding: 10px 0px;
+}
+
+.section-white .carousel
+{
+height:240px;
+}
+.section-white .carousel-inner img {
+    width: 100%;
+    height: 100%;
+}
+.carousel-inner {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    height: 100%;
+}
+.home .search-bar .frm-fields {
+    margin: 0px auto;
+    width: 100%;
+    display: inline-block;
+    background: #fff;
+    border-radius: 0px;
+    padding: 5px;
+}
+.home .search-bar .srch-box {
+    border-left: 0px;
+    width: 100%;
+}
+.email-notify .btn-success {
+    padding: 6px 10px;
+    background: #FC7800;
+    border: 1px solid #FC7800;
+    float: left;
+    width: 35%;
+    margin-left: 10px;
+}
+.email-notify input#email {
+    display: inline-block;
+    width: 60%;
+    float: left;
+}
+.email-notify .form-group {
+    width: 100%;
+    margin: 0px auto;
+    padding: 0 10px;
+}
+.footer .container .col-md-3 span.info, .footer .container .col-md-3 .info-link li {
+    text-align: center;
+}
+.footer .info-link.socilico li span {
+    display: none;
+}
+.footer .info-link.socilico li {
+    width: auto;
+	float:none;
+	display: inline-block;
+}
+.footer .info-link.socilico {
+    margin: 0px auto;
+    display: inline-block;
+    float: none;
+    text-align: center;
+    width: auto;
+}
+.footer .container .col-md-3 {
+    min-height: inherit;
+    width: 100%;
+    text-align: center;
+}
+
+.ui-select-dropdown.select2-drop.select2-with-searchbox {
+    background: #e8e8e8;
+    line-height: 30px;
+    padding: 5px;
+    width: 100%;
+    border: 1px solid #ddd;
+    opacity: inherit!important;
+    z-index: 9999;
+    position: absolute;
+}
+.account .maintab > ul.nav > li {
+    display: inline-block;
+    float: left;
+    margin: 6px 8px;
+    width: 43%;
+    border: 1px solid #dadada;
+	padding:0px;
+}
+.account .maintab > ul.nav {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+.account-view{
+    padding: 10px;
+}
+.account .maintab > .tab-content {
+    border-left: 1px solid #ccc;
+    float: left;
+    margin: 0 0 0 -1px;
+    padding: 8px;
+    width: 100%;
+}
+.account-view .admn-details {
+    margin-left: 0px;
+    background: #e6e6e6;
+    width: 100%;
+    padding: 5px;
+}
+.admn-details .address {
+    float: left;
+    width: 70%;
+}
+.admn-details .address span
+{
+width:auto;
+}
+
+.imgview {
+    width: 150px;
+    text-align: center;
+    float: none;
+    margin: 0px auto;
+    display: block;
+}
+.paswdsection {
+    float: left;
+    width: 100%;
+}
+.current-balance .cur-bal {
+    width: 100%;
+    display: inline-block;
+}
+.product-list li {
+    -webkit-box-shadow: 0 2px 2px 0 rgba(50, 58, 59, 0.15);
+    box-shadow: 0 2px 2px 0 rgba(50, 58, 59, 0.15);
+    margin: 10px 0;
+    background: #fff;
+    padding: 18px 0;
+    text-align: center;
+}
+
+
+
+
+.section-white .carousel-inner img, .section-white .carousel, .section-white .carousel, .carousel-control {
+    min-height: 160px;
+    max-height: 160px;
+}
+.home .search-bar .frm-fields {
+    width: 90%;
+}
+.totp-tile {
+    font-size: 25px;
+}
+.sml-titl {
+    font-size: 22px;
+}
+.hireloop > li {
+    width: 100%;
+}
+.email-notify input#email {
+    width: 100%;
+    margin: 5px 0px;
+}
+.email-notify .btn-success {
+    width: 100%;
+    margin-left: 0;
+}
+.email-notify label {
+    font-size: 16px;
+    margin: 0px 0px 15px
+}
+.prodt-container .futer-text {
+    font-size: 20px;
+}
+.sign-btns li > a {
+    font-size: 18px;
+    width: 100% !important;
+    padding: 8px 30px;
+}
+.sign-up-holder .logo-container img {
+    width: 200px;
+}
+.sign-up-holder input.borderbtn {
+    width: 100%;
+    padding: 5px;
+}
+.sign-btns li.half-pges a {
+    margin: 5px 0px;
+}
+.account .maintab > ul.nav > li {
+    margin: 2px;
+    width: 48%;
+    border: none;
+}
+.account-view .admn-details > li {
+    margin: 0px 0 5px;
+}
+
+
+.mob-logo .logo-container > img {
+    width: 150px;
+    margin: 0px 5px;
+}
+.bold-text {
+    font-size: 18px;
+}
+.lighref-text {
+    font-size: 13px;
+    width: 80%;
+}
+.email-notify p.help-block {
+    float: left;
+    margin: 5px 0px;
+}
+.tasker-body .catagory-body .nav-tabs > li {
+    width: 98%;
+}
+.splcontainer p {
+        font-size: 16px;
+}
+.images-lom {
+    margin: 40px 0px;
+}
+.post_step_last {
+    min-height: 400px;
+}
+.selectadd {
+    width: 97%
+}
+.rightcntne {
+    width: 100%;
+}
+
+.new_login_category {
+    position: absolute;
+    top: 8px;
+    right: 30px;
+    font-size: 20px;
+    color:#bab6b6;
+}
+.search-bar .selectize-dropdown-content {
+    width: 100%;
+    background: #fff;
+}
+.search-bar .selectize-dropdown-content .ui-select-choices-group {
+	z-index: 99;
+    position: absolute;
+    background: #fff;
+    width: 100%;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+}
+
+/*pk*/
+.img-cption {
+    font-size: 13px;
+    top: 35%;
+}
+.product-list li {
+    width: 100%;
+}
+.mob-view .mob-toggle {
+    width: auto;
+}
+.mob-view .mob-logo .logo-container {
+    margin: 18px 5px 0;
+}
+.accounts .container2, .notificationpage .container2 {
+    padding: 0;
+}
+.applyto-tasker {
+    padding: 0 5px;
+}
+.task-dtls .chat_def span {
+    background: #f7f7f7;
+    width: 100%;
+}
+.task-dtls .chat_def span:after {
+    float: none;
+}
+.applyto-tasker .chat-post input[type="text"] {
+    width: 75%;
+}
+.faq-page {
+    padding: 0px 10px;
+}
+.notificationpage  .faq-page ul {
+    float: left;
+    width: 100%;
+}
+.notificationpage .faq-page ul a span {
+    float: left;
+    width: 100%;
+}
+.bs-example {
+    padding: 5px;
+}
+.top-texts {
+    text-align: left;
+}
+.paswdsection > li .form-control {
+    width: 100%;
+}
+.wltamtsection .btnholder input {
+    width: 100%;
+}
+.invite-frnds .btnholder a.invite-mail, .invite-frnds .btnholder a.invite-fb {
+    float: none;
+    width: 95%;
+    margin: 10px auto;
+    display: inline-block;
+    text-align: center;
+}
+.invite-frnds .btnholder span {
+    float: none;
+    text-align: center;
+    width: 35%;
+    margin: 0px auto;
+    display: inline-block;
+}
+.tabdetails .nav > li{
+        width: 48%;
+}
+.account .maintab > .tab-content {
+    border-left: 0;
+}
+.wallet-model .credicard-detls .Experitaiton {
+    width: 100% !important;
+}
+.wallet-model .Experitaiton select {
+    width: 48%;
+    margin: 0px 2px;
+}
+.task-dtls .chat-list .img-thumbnail {
+    height: 50px;
+    margin-right: 3px;
+}
+
+
+/*model*/
+.modal-title {
+    font-size: 15px;
+}
+.modal-body {
+    padding: 10px 10px 0px;
+}
+.modal-header, .modal-body, .modal-footer, .modal-content {
+    float: left;
+    width: 100%;
+}
+.panel-title {
+    font-size: 12px;
+}
+.cal-holde.ng-scope {
+    width: 100%!important;
+}
+.day-list li {
+     width: 100%!important;
+}
+.btn-sm {
+    padding: 5px 7px;
+}
+.apply6 .tasker-head .top-tile {
+    width: 100%!important;
+}
+.mke-pay .hirestp3holder {
+    padding: 5px;
+}
+.conf-divs.tsk-dtls label, .conf-divs.tsk-dtls p {
+    width: 100%;
+}
+.cl-rgt-dtls {
+    text-align: center;
+        width: 100%;
+}
+.dopayment .Experitaiton select {
+        padding-left: 20px;
+    background-size: 13px;
+    background-position: 5px;
+}
+.notificationpage .panel-default>.panel-heading .panel-title {
+    font-size: 13px;
+}
+/*.tab-content .lop-div-task ul.availblty li {
+    width: 120px;
+}*/
+.acc-head h1.acc-tle {
+    float: left;
+    width: 60%;
+    margin: 25px 0px;
+}
+.acc-head .onoffswitch {
+    width: 40%!important;
+    margin: 10px 0px!important;
+}
+.onoffswitch h1 {
+    width: 85%;
+    font-size: 13px;
+}
+.carousel-caption {
+    top: 15%;
+    font-size: 15px;
+    height: auto;
+}
+/*.lop-div-task ul.availblty li {
+    width: 115px;
+}*/
+/*popup*/
+#viewdetails .view-detail-pop>li label {
+    width: 100%;
+    padding: 5px;
+    background: #f7f7f7;
+    font-weight: bold!important;
+}
+#viewdetails .view-detail-pop>li p{
+    padding: 0px 5px 0px;
+    clear: both;
+}
+
+
+.trx-dsply table.log-hdr td {
+    width: 100%;
+    float: left;
+    text-align: center!important;
+}
+.trx-dsply table.log-hdr td:nth-child(2) {
+    padding: 0px 0px 5px!important;
+}
+.trx-dsply table.amt-dsply td, .trx-dsply table.bok-id td {
+    width: 100%;
+    float: left;
+    padding: 5px 0px 0px!important;
+    text-align: center;
+}
+.trx-dsply table.wrk-dtls .dtls-info, .trx-dsply table.wrk-dtls .amt-info {
+    width: 100%;
+    float: left;
+    padding: 0px;
+}
+.trx-dsply table.wrk-dtls .dtls-info td {
+    float: left;
+    width: 100%;
+    height: auto;
+    padding: 5px;
+}
+.trx-dsply table.wrk-dtls .dtls-info td:nth-child(odd) {
+    background: #f7f7f7;
+    font-weight: bold;
+}
+.trx-dsply table.wrk-dtls .amt-info {
+    background: #f7f7f7;
+    padding: 5px!important;
+}
+.trx-dsply .spt-ftr img {
+    margin-left: 10px!important;
+}
+.trx-dsply .fa-file-pdf-o {
+    padding-right: 10px;
+    font-size: 13px!important;
+}
+/*popup*/
+.mob-bx .sign-up-holder {
+    margin-top: 40%;
+}
+.hstp2-filter .col-sm-4 {
+    width: 100%;
+    padding: 0px 10px;
+}
+.hstp2-filter .hirestp-radio.availabilities-day-form{
+    border-left: 0;
+    padding: 0px;
+}
+.hstp2-filter .cal-holde.hre2-cal.ng-scope {
+    width: 100%!important;
+}
+.hirestep-2 .hire2bottom label {
+    font-size: 14px;
+}
+.col-lft-dtls label {
+    background: #f7f7f7;
+    padding: 5px;
+}
+.conf-divs.tsk-dtls p {
+    padding: 5px;
+    margin: 0px;
+}
+.conf-divs.tsk-dtls .col-lft-dtls .form-group {
+    float: left;
+    width: 100%;
+    margin: 0px 0px 2px;
+}
+.conf-divs.tsk-dtls .col-lft-dtls .form-group:last-child {
+    display: none;
+}
+.section-white .forms-holer {
+    bottom: 110px;
+}
+
+.profil-flow {
+    display: inherit;
+}
+.profil-flow > li {
+    float: left;
+    width: 100%;
+    padding: 10px 0px;
+}
+.profilepage-top .text-fil {
+        margin: 0px 0 25px;
+            font-size: 20px;
+}
+.bdr-lin {
+    border: 1px solid #827676;
+    border-left: 0px solid;
+    border-right: 0px solid;
+}
+.profil-flow > li > i {
+    margin: 0px 0px 10px;
+    float: left;
+    width: 100%;
+}
+.profilepage-top {
+    background-size: cover;
+}
+.profile-pages .profle-container  .nav-tabs > li{
+    float: left;
+    width: 100%;
+    padding: 5px 0px;
+    border-bottom: 1px solid #ddd;
+}
+.profile-pages .profle-container  .nav-tabs > li a{
+    border:0px;
+    font-size: 16px;
+    padding: 5px 10px;
+}
+.profile-pages .brdlinr {
+    border-top: 0;
+}
+.profile-pages .nav-tabs {
+    border-bottom: 0px solid #ddd;
+}
+.profile-pages .nav-tabs > li.active {
+    background: #d2f3e2;
+}
+.profi-content .hire-liip .col-md-9.legncont, .profi-content .hire-liip .col-md-3{
+    padding: 0px 10px;
+}
+.profi-content .tab-content .tab-content h4 {
+    padding: 0px 10px;
+}
+.cont-tex {
+    word-wrap: break-word;
+    padding: 0px 10px;
+}
+.hourel  label:last-child{
+    margin-right: 0px!important;
+}
+.modal-body h3{
+    font-size: 15px;
+}
+.righ-side-pic .form-group {
+    text-align: center;
+}
+.availabilities-day-form .modal-body {
+    padding: 10px 10px 0px;
+}
+
+ul.tablesection.ng-scope i.fa.fa-pencil-square-o.actionclick {
+    display: none;
+}
+.slidetd ul.action-space {
+    display: inline-block!important;
+    background: transparent;
+    width: auto;
+    position: inherit;
+    padding: 0px;
+    border: 0px;
+    float: none;
+}
+.slidetd ul.action-space li {
+    float: left;
+    margin: 0px 5px;
+    clear: inherit;
+    padding: 0;
+}
+.add-addr-pop .form-group.col-md-6.mb-0 {
+    width: 100%;
+}
+#viewdetails .view-detail-pop>li .col-md-6 {
+        padding: 0px 5px 0px;
+    clear: both;
+}
+.post_step_last {
+        float: left;
+    width: 100%;
+   background-size: cover;
+}
+.cont-holder {
+    background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0;
+    float: left;
+    width: 100%;
+    height: 100%;
+}
+.erroe-pge .error-content h1 {
+    font-size: 25px;
+ }
+    .erroe-pge .error-content p {
+    width: 100%;
+    margin: 0px auto;
+    font-size: 13px;
+}
+.chk-bx label{
+  width: 92%;
+display: inline-block;
+vertical-align: middle;
+padding: 0px;
+    font-size: 12px;
+}
+.chk-bx input[type="checkbox"] {
+  margin: 0px;
+}
+
+.cat-add-pop .col-sm-12{
+  width: 100%;
+}
+.mob-actions{
+    width: 240px;
+    float: left;
+}
+.stp2-container .find-txt {
+    font-size: 15px;
+}
+.hire-stp2 .ico-amt {
+    width: 220px;
+}
+.media--figure {
+    float: none;
+    width: 80px;
+    margin: 0px auto;
+    text-align: center;
+}
+.media--content {
+    width: 100%;
+}
+.rew-cnt {
+    background: #f7f7f7;
+    padding: 5px;
+}
+.hire-stp2 .tsker-rte {
+    width: 100%;
+    text-align: center;
+    background: #f60;
+    padding: 5px;
+}
+.hire-stp2 .tsker-ifo {
+    text-align: left;
+    padding: 0px;
+    max-width: 100%;
+    width: 100%;
+}
+.hire-stp2 .tsker-rte a.tsk-amt {
+    color: #fff;
+}
+.srch-title span {
+    display: none;
+}
+.choose-tasker .btn2-tex {
+    font-size: 14px;
+}
+.hire-stp2 .tatrnear > li figure{
+        position: relative;
+}
+.mob-options {
+    display: block;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.77);
+}
+.mob-options ul {
+    float: left;
+    width: 100%;
+}
+.mob-options ul li {
+    float: left;
+    width: 33%;
+    padding: 10px;
+    color: #fff;
+}
+.mob-options ul li a{
+    color: #fff;
+}
+.hire-stp2 .tskr-vew, .hire-stp2 span.hur-amt{
+    display: none;
+}
+.hire-stp2 .hire2bottom .tatrnear > li:hover span.hur-amt {
+    display: none;
+}
+.name-tile {
+    font-size: 20px;
+}
+}

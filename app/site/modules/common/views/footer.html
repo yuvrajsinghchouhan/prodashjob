@@ -1,0 +1,33 @@
+<footer data-ng-hide="$state.includes('becometasker.step0')">
+    <div class="footer">
+        <div class="container">
+            <div class="col-md-3">
+                <span class="info" ng-bind-html="rc.widgets.footer_widgets_1"></span>
+            </div>
+            <div class="col-md-3">
+                <span class="info" ng-bind-html="rc.widgets.footer_widgets_2"></span>
+            </div>
+            <div class="col-md-3">
+                <span class="info"></span>
+                <span class="info">{{'FOLLOW US' | translate}}</span>
+                <ul class="info-link socilico">
+                    <li><a href={{rc.socialNetworks.link.facebook}}><i class="fa fa-facebook"></i><span>{{'FACEBOOK' | translate}}</span></a></li>
+                    <li><a href={{rc.socialNetworks.link.twitter}}><i class="fa fa-twitter"></i><span>{{'TWITTER' | translate}}</span></a></li>
+                    <li><a href={{rc.socialNetworks.link.google_plus}}><i class="fa fa-google-plus"></i><span>{{'GOOGLE_PLUS' | translate}}</span></a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <select class="lang" ng-model="rc.DefaultLanguage" ng-change="rc.setDefaultLanguage(rc.DefaultLanguage)">
+                  <option value="">--{{'SELECT' | translate}} --</option>
+                  <option ng-repeat="language in rc.language" ng-selected="rc.DefaultLanguage == language.name" value="{{language.name}}" ng-model="rc.DefaultLanguage">{{language.name}}</option>
+              </select>
+            </div>
+            <div class="col-md-3">
+                <select class="currency lang" ng-model="rc.DefaultCurrency[0].name" ng-change="rc.setDefaultCurrency(rc.DefaultCurrency[0].name)">
+                  <option value="">--{{'SELECT' | translate}} --</option>
+                  <option  ng-repeat="currency in rc.Currency" ng-selected="rc.DefaultCurrency[0].name == currency.name" value="{{currency.name}}" ng-model="rc.DefaultCurrency[0].name" >{{currency.code}}</option>
+              </select>
+            </div>
+        </div>
+    </div>
+</footer>

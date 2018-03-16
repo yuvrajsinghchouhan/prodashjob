@@ -1,0 +1,92 @@
+
+<div class="modal-header">
+            <h3 class="modal-title">Add Address</h3>
+</div>
+ <div class="modal-body add-addr">
+  <div class="sub-ATAount clearfix new_address  second" ng-class="ATA.dropdownarrow">
+    <div class="contain">
+      <!-- <form name="shippingAddressForm" role="form"  enctype="multipart/form-data" class="form-horizontal" submit-validate novalidate> -->
+      <form name="shippingAddressForm" submit-validate ng-submit="ATA.ok(shippingAddressForm.$valid)" role="form" novalidate>
+
+            <div class="row">
+              <span class="tas-list">
+                <label class="col-md-4">location </label>
+                </div>
+                      <div class="row">
+                <div class="form-group col-md-12" ng-class="{ 'has-error' : shippingAddressForm.line1.$invalid && !shippingAddressForm.line1.$pristine, 'has-success' : shippingAddressForm.line1.$valid && !shippingAddressForm.line1.$pristine}">
+               
+                <input name="line1"   class="form-control" type="text" places-auto-complete size=80 ng-model="ATA.editaddressdata.line1" types="['address']"
+                on-place-changed="ATA.placeChanged()"  on-blur-validation required />
+                 <p class="help-block">
+                    <span ng-show="shippingAddressForm.line1.$invalid && !shippingAddressForm.line1.$pristine">Location is required.</span>
+                  </p>
+              </div>
+               </span>
+            </div>
+
+          <!-- tile -->
+          <section class="tile" fullscreen="isFullscreen02">
+            <!-- tile body -->
+            <div class="tile-body">
+              <div class="row">
+                <div class="form-group col-md-6 mb-0" ng-class="{ 'has-error' : shippingAddressForm.address_line2.$invalid && !shippingAddressForm.address_line2.$pristine, 'has-success' : shippingAddressForm.address_line2.$valid && !shippingAddressForm.address_line2.$pristine}">
+                  <label for="Street">Street </label>
+                  <input type="text" ng-model="ATA.editaddressdata.street" name="address_line2" placeholder="Street"  class="form-control" on-blur-validation required>
+                  <p class="help-block">
+                    <span ng-show="shippingAddressForm.address_line2.$invalid && !shippingAddressForm.address_line2.$pristine">Street is required.</span>
+                  </p>
+                </div>
+                  <div class="form-group col-md-6 mb-0">
+                  <label for="Landmark">Landmark </label>
+                  <input type="text" name="Landmark" id="Landmark" class="form-control" ng-model="ATA.editaddressdata.landmark" placeholder="Landmark">
+                  <!--<p class="help-block">
+                    <span ng-show="shippingAddressForm.Landmark.$invalid && !shippingAddressForm.Landmark.$pristine">Landmark is required.</span>
+                  </p>-->
+                </div>
+              </div>
+                <div class="row">
+                <div class="form-group col-md-6 mb-0" ng-class="{ 'has-error' : shippingAddressForm.City.$invalid && !shippingAddressForm.City.$pristine, 'has-success' : shippingAddressForm.City.$valid && !shippingAddressForm.City.$pristine}">
+                  <label for="City">City </label>
+                  <input type="text" name="City" id="City" class="form-control" ng-model="ATA.editaddressdata.city" placeholder="City" on-blur-validation required>
+                  <p class="help-block">
+                    <span ng-show="shippingAddressForm.City.$invalid && !shippingAddressForm.City.$pristine">City is required.</span>
+                  </p>
+                </div>
+                <div class="form-group col-md-6 mb-0" ng-class="{ 'has-error' : shippingAddressForm.State.$invalid && !shippingAddressForm.State.$pristine, 'has-success' : shippingAddressForm.State.$valid && !shippingAddressForm.State.$pristine}">
+                  <label for="State">State </label>
+                  <input type="text" name="State" id="State" class="form-control" ng-model="ATA.editaddressdata.state"  placeholder="State / Province / Region" on-blur-validation required>
+                  <p class="help-block">
+                    <span ng-show="shippingAddressForm.State.$invalid && !shippingAddressForm.State.$pristine">State is required.</span>
+                  </p>
+                </div>
+                </div>
+                <div class="row">
+                <div class="form-group col-md-6 mb-0" ng-class="{ 'has-error' : shippingAddressForm.Country.$invalid && !shippingAddressForm.Country.$pristine, 'has-success' : shippingAddressForm.Country.$valid && !shippingAddressForm.Country.$pristine}">
+                  <label for="Country">Country </label>
+                  <input type="text" name="Country" id="Country" class="form-control" ng-model="ATA.editaddressdata.country"  placeholder="country / Province / Region" on-blur-validation required>
+                  <p class="help-block">
+                    <span ng-show="shippingAddressForm.Country.$invalid && !shippingAddressForm.Country.$pristine">Country is required.</span>
+                  </p>
+                </div>
+                 <div class="form-group col-md-6 mb-0" ng-class="{ 'has-error' : shippingAddressForm.zip_code.$invalid && !shippingAddressForm.zip_code.$pristine, 'has-success' : shippingAddressForm.zip_code.$valid && !shippingAddressForm.zip_code.$pristine}">
+                  <label for="zip_code"> Zip code</label>
+                  <input type="text" ng-model="ATA.editaddressdata.zipcode"  class="form-control"  id="zip_code" name="zip_code" placeholder="Zip / Postal Code" on-blur-validation required>
+                  <p class="help-block">
+                    <span ng-show="shippingAddressForm.zip_code.$invalid && !shippingAddressForm.zip_code.$pristine">Zipcode is required.</span>
+                  </p>
+                </div>
+                </div>
+            </div>
+
+            <div class="tile-footer text-right bg-tr-black lter dvd dvd-top">
+              <!-- SUBMIT BUTTON -->
+              <button type="submit" class="btn btn-primary">OK</button>
+                <button class="btn btn-warning" type="button" ng-click="ATA.cancel()">Cancel</button>
+            </div>
+            <!-- /tile footer -->
+          </section>
+          <!-- /tile -->
+        </form>
+      </div>
+  </div>
+ </div>

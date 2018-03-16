@@ -1,0 +1,150 @@
+html
+  head
+    meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+    title Handy For All - Installation
+    style.
+      body{
+      margin:0;
+      padding:0;
+      background:#f2f2f2;
+      background: rgba(0, 0, 0, 0) linear-gradient(to right bottom, #DEEBF9, #a7a9ac) no-repeat scroll 0 0;
+      }
+      .main
+      {
+      width:980px;
+      margin:0 auto;
+      }
+      form{
+        width: 600px;
+        margin: 0 auto;
+      }
+      .install_form
+      {
+      float:left;
+      width:100%;
+      }
+      .form_box{
+      -webkit-border-radius:5px;
+      -moz-border-radius:5px;
+      border-radius:5px;
+      padding:40px 25px;
+      background:rgba(0, 0, 0, 0.10);
+      border:1px solid 1px solid rgba(51, 51, 51, 0.11);
+      margin-bottom: 10px;
+      float: left;
+      width:100%;
+      }
+      .form_field
+      {
+      display: inline-block;
+      margin: 0 0 20px;
+      text-align: center;
+      float: left;
+      width: 600px;
+      }
+      .form_field label
+      {
+      font-size:16px;
+      font-family: 'gibson-regular';
+      width:300px;
+      display:inline-block;
+      float: left;
+      text-align: left;
+      /*margin-left: 15%;*/
+      line-height:33px;
+      text-transform: uppercase;
+      }
+      .instal_text
+      {
+      border: 1px solid #DFDFDF;
+      border-radius: 3px 3px 3px 3px;
+      font-family: sans-serif;
+      font-size: 15px;
+      line-height: 20px;
+      padding:5px 2px;
+      width:300px;
+      display:inline-block;
+      float: left;
+      margin-bottom: 0px;
+      }
+      .instal_text:hover{
+      box-shadow:2px 1px 8px 2px #e9e9e6 inset;
+      -moz-box-shadow:2px 1px 8px 2px #e9e9e6 inset;
+      -webkit-box-shadow:2px 1px 8px 2px #e9e9e6 inset;
+      }
+      .instal_btn
+      {
+      display:inline-block;
+      width:150px;
+      border-radius:4px;
+      background:rgb(0, 161, 179);
+      color:#FFF;
+      font-family: 'gibson-regular';
+      border:none;
+      padding:10px 0;
+      cursor:pointer;
+      font-size:14px;
+      font-weight:bold;
+      letter-spacing:1px;
+      }
+      .instal_btn:hover
+      {
+      color:#FFF;
+      background:rgb(244, 138, 22);
+      }
+
+     .example select.invalid {
+      color: #E9403C;
+      }
+      .error{
+      padding-left: 5px;
+      color:red
+      }
+      .form_field label.error{
+        font-size: 14px;
+        text-align: right;
+        width: 98%;
+        text-transform: none;
+      }
+
+  body(style='margin:0; padding:0; background-image:url(app/installation/bg.jpg); background-size:cover;')
+    .main
+      div(style='text-align:center; width:980px;border-radius: 5px; margin:15px 0 20px 0;margin-bottom: 0px; height: 83px;')
+        a(href='#', style='margin:10px 0 0;')
+          img( style='margin: 15px 0 0 0px ' src='app/installation/logo.png' )
+      .main
+        .install_form
+          .form_box
+            form(action='/configure',method='post', name="install", id="install")
+              .form_field
+                label Site Url
+                input.instal_text.site_url(type='text', name='site_url', placeholder="Example : https://www.zoplay.com/", required)
+              .form_field
+                label DB Host Name
+                input.instal_text.host_name(type='text', value='localhost', name='host_name', placeholder="Example : localhost", required)
+              .form_field
+                label DB Port Number
+                input.instal_text.port_number(type='text', name='port_number', placeholder="Example : 27017", value='27017', required)
+              .form_field
+                label Database Name
+                input.instal_text.db_name(type='text', name='db_name', placeholder="Example : handyforall", required)
+              .form_field
+                label Website Name
+                input.instal_text.site_name(type='text', name='site_name', placeholder="Example : Handy For All", required)
+              .form_field
+                label Website Port
+                input.instal_text.site_port(type='text', name='site_port', placeholder="Example : 3002", value='3002', required)
+              .form_field
+                label  Admin Name
+                input.instal_text.user_name(type='text', name='admin_name', placeholder="Example : handy")
+              .form_field
+                label  Admin Email
+                input.instal_text.admin_email(type='text', name='admin_email', placeholder="Example : admin@example.com")
+              .form_field
+                label Admin Password
+                input.instal_text.admin_password(type='text', name='admin_password', placeholder="Example : 12345")
+              .form_field
+                input.instal_btn(type='submit', value='SUBMIT')
+              script(type='text/javascript', src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js")
+              script(type='text/javascript', src='/app/installation/jquery.validate.min.js')
+              script(type='text/javascript', src='/app/installation/custom.js')

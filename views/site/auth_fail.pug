@@ -1,0 +1,18 @@
+html(lang='en')
+  head
+    title Single Page Application Authentication - Auth Success
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+  body
+    script(type='text/javascript').
+      if (window.opener) {
+        window.opener.focus();
+        var data={};
+        if('#{err}') {
+          data.err =  JSON.stringify('#{err}');
+        }
+        if (window.opener.app && window.opener.app.failauthState) {
+          window.opener.app.failauthState(data);
+        }
+      }
+      window.close();

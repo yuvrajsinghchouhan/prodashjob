@@ -1,0 +1,61 @@
+<div class="modal-header">
+    <h3 class="modal-title">Edit {{'CATEGORY' | translate}}</h3>
+</div>
+
+<div class="modal-body">
+    <form class="form-horizontal col-sm-12">
+        <div class="form-group">
+                <label class="control-label">{{'CATEGORY_NAME' | translate}}</label>
+                <input type="text" name="category" value="{{ECM.selectedCategorys[0].name}}" >
+        </div>
+
+            <div class="form-group">
+                <label class="control-label">Skills Expectations</label>
+                <div class="skill" ng-repeat="skill in ECM.selectedTaskSkills[0].category.skills">
+                <label>
+                  <input type="checkbox" checklist-model="ECM.skills" checklist-value="skill"> {{skill.tags}}
+                </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">{{'QUICK_PITCH' | translate}}</label>
+                <textarea class="form-control" rows="3">{{ECM.selectedTaskSkills[0].quick_pitch}}</textarea>
+            </div>
+
+            <div class="form-group">
+                <label>
+                    <input type="checkbox"> {{'I_WILL_EMBODY_THE_TASKFIXER_PLEDGE_IN_DOING_THESE_TASKS' | translate}}
+                </label>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">{{'SET_HOURLY_RATE' | translate}} ({{'MINIMUM_HOURLY_RATE_IS' | translate}} $10)</label>
+                <label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" ng-model="ECM.selectedTaskSkills[0].hour_rate" value="">
+                </label>
+            </div>
+
+        <div class="form-group">
+            <label class="control-label">{{'LEVEL_OF_EXPERIENCE' | translate}}</label>
+            <select class="form-control" ng-model="experience">
+                <option value=''>{{'SELECT_YOUR_EXPERIENCE' | translate}}</option>
+                <option ng-repeat="experience in ECM.experiences" value="{{experience}}">{{experience}} year experience</option>
+            </select>
+        </div>
+
+      <!--    <div class="form-group">
+              <label class="control-label">Upload Experience Document</label>
+              <input ui-jq="filestyle" type="file" ngf-select="temp=true" ng-model="ACC.user.avatar" name="avatar" accept="image/*" ngf-max-size="10MB"
+                  ngf-model-invalid="errorFiles" class="filestyle" ui-options="{ buttonText: 'Find file', iconName: 'fa fa-inbox'}"
+                  id="avatar">
+              <span class="help-block">Allowed files: gif, png, jpg. Max file size 1Mb</span>
+              <label for="avatar" class="uplor-pice">Upload Document</label>
+          </div>-->
+
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ECM.ok()">{{'OK' | translate}}</button>
+    <button class="btn btn-warning" type="button" ng-click="ECM.cancel()">{{'CANCEL' | translate}}</button>
+</div>

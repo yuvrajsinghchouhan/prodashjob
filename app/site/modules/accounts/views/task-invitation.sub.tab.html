@@ -1,0 +1,224 @@
+<ul ng-if="ACC.taskInvitation.length > 0" class="tablesection">
+    <div class="table-responsive">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>{{'BOOKING_ID' | translate}}</th>
+                        <th>{{'CATEGORY' | translate}}</th>
+                        <th>{{'ADDRESS' | translate}}</th>
+                        <th>{{'USER_NAME' | translate}}</th>
+                        <th ng-if="ACC.taskInvitation[0].status == 6 || ACC.taskInvitation[0].status == 7">{{'TOTAL_AMOUNT' | translate}}</th>
+                        <th ng-if="ACC.taskInvitation[0].status == 1 || ACC.taskInvitation[0].status == 2 || ACC.taskInvitation[0].status  == 8 || ACC.taskInvitation[0].status == 3 || ACC.taskInvitation[0].status == 4 || ACC.taskInvitation[0].status == 5">{{'STATUS' | translate}}</th>
+                        <th>{{'ACTIONS' | translate}}</th>
+						<th ng-if="ACC.taskInvitation[0].status == 6 || ACC.taskInvitation[0].status == 7">{{'PAYMENT_STATUS' | translate}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="taskDetails in ACC.taskInvitation" class="row-tbl">
+                        <td>{{ACC.taskitemsPerPage * (ACC.CurrentPage - 1)+$index+1}}</td>
+                        <td>{{taskDetails.booking_id}}</td>
+                        <td>{{taskDetails.category.name}}</td>
+                        <td><span ng-if="taskDetails.task_address.line1">{{taskDetails.task_address.line1}},</span><span ng-if="taskDetails.task_address.line2">{{taskDetails.task_address.line2}},</span><span ng-if="taskDetails.task_address.city">{{taskDetails.task_address.city}},</span><span ng-if="taskDetails.task_address.state">{{taskDetails.task_address.state}},</span><span ng-if="taskDetails.task_address.zipcode">{{taskDetails.task_address.zipcode}}</span></td>
+                        <td>{{taskDetails.user.name.first_name}}({{taskDetails.user.username}})</td>
+                        <td ng-if="ACC.taskInvitation[0].status == 6 || ACC.taskInvitation[0].status == 7">{{rc.DefaultCurrency[0].symbol}}{{(taskDetails.invoice.amount.grand_total - taskDetails.invoice.amount.service_tax) * rc.DefaultCurrency[0].value | number:2}}</td>
+                    <td ng-if="ACC.taskInvitation[0].status == 1 || ACC.taskInvitation[0].status == 2 || ACC.taskInvitation[0].status  == 8 || ACC.taskInvitation[0].status == 3 || ACC.taskInvitation[0].status == 4 || ACC.taskInvitation[0].status == 5">
+						<li ng-if="taskDetails.status == 1">
+						 <div> <label style="color:red">{{'PENDING' | translate}}</label></div>
+						 </li>
+						<li ng-if="taskDetails.status == 2">
+                        <div> <label style="color:green">{{'ACCEPTED' | translate}}</label></div>
+						</li>
+						<li ng-if="taskDetails.status == 3">
+                        <div> <label style="color:orange">{{'START_OFF' | translate}}</label></div>
+						</li>
+						<li ng-if="taskDetails.status == 4">
+                        <div> <label style="color:orange">{{'ARRIVED' | translate}}</label></div>
+						</li>
+						<li ng-if="taskDetails.status == 5">
+                        <div> <label style="color:orange">{{'TASK_STARTED' | translate}}</label></div>
+						</li>
+						<li ng-if="taskDetails.status == 8">
+                        <div> <label style="color:red">{{'TASK_CANCELLED' | translate}}</label></div>
+                    </li>
+					</td>
+                        <td  class="slidetd mob-actions tsk-action">
+                           <!--<a task-action href="" uib-dropdown-toggle> <i  class="fa fa-pencil-square-o actionclick"></i></a>-->
+                            <ul >
+                                <li ng-if="taskDetails.status == 1 || taskDetails.status == 2 || taskDetails.status == 3 || taskDetails.status == 4 || taskDetails.status == 5 || taskDetails.status == 8"> <a ng-click="ACC.TaskInviteViewModal($index)" href="javascript:void(0)" class="btn btn-secondary js-deactivate-trigger confrm conform" style="width:80px; width: 100% !important; padding: 0 12px;margin-bottom: 7px;">{{'VIEW' | translate}}</a></li>
+                                <li ng-if="taskDetails.status == 1"> <a ng-click="ACC.ignoreTask(taskDetails._id,8)" class="btn btn-secondary js-deactivate-trigger confrm conform"
+                                        style="padding: 0 12px; margin-bottom: 7px; width:100%!important;">{{'REJECT' | translate}} </a></li>
+                                <li ng-if="taskDetails.status == 1"> <a ng-click="ACC.taskerconfirmtask(taskDetails._id,2)" class="btn btn-secondary js-deactivate-trigger confrm conform"
+                                        style="width:80px; padding: 0 12px; margin-bottom: 7px;width:100%!important;">{{'CONFIRM' | translate}} </a></li>
+                                         <li ng-if="taskDetails.status == 1 || taskDetails.status == 2 || taskDetails.status == 3 || taskDetails.status == 4 || taskDetails.status == 5 || taskDetails.status == 8 || taskDetails.status == 7 || taskDetails.status == 6"><a ui-sref="chat({ task: taskDetails._id,user:taskDetails.user._id,tasker: taskDetails.tasker})" class="btn btn-secondary js-deactivate-trigger confrm conform"
+                                    style="width:80px;  margin-bottom: 7px;width:100%!important;">{{'CHAT' | translate}} </a></li>
+                								<li ng-if="taskDetails.status == 2"><a ng-click="ACC.updatetaskstatus(taskDetails._id,3,ACC.currentPage)" class="btn btn-secondary js-deactivate-trigger confrm conform"
+                                                    style=" padding: 0 12px; margin-bottom: 7px;width:100%!important;"> {{'START_OFF' | translate}}</a></li>
+                								 <li ng-if="taskDetails.status ==3" ng-click="ACC.updatetaskstatus(taskDetails._id,4,ACC.currentPage)" class="btn btn-secondary js-deactivate-trigger confrm conform"
+                                                    style=" padding: 0 12px; margin-bottom: 7px;width:100%!important;">{{'ARRIVED' | translate}} </li>
+                								<li ng-if="taskDetails.status ==4" ng-click="ACC.updatetaskstatus(taskDetails._id,5,ACC.currentPage)" class="btn btn-secondary js-deactivate-trigger confrm conform"
+                                                    style=" padding: 0 12px; margin-bottom: 7px; width:100%!important;"> {{'START_JOB' | translate}}</li>
+                								<li ng-if="taskDetails.status == 5" ng-disabled="taskDetails.status == 7" ng-click="ACC.TaskerextrapriceModal(taskDetails._id,6,1)" class="btn btn-secondary js-deactivate-trigger confrm conform" style=" padding: 0 12px; width:100%!important;">{{'COMPLETE' | translate}}</li>
+                								<li ng-if="taskDetails.status == 6 || taskDetails.status == 7" ng-disabled="taskDetails.taskrating[0].rating > 0 && (taskDetails.taskrating[0].type == 'tasker' || taskDetails.taskrating[1].type == 'tasker') " ng-click="ACC.TaskReviewModal($index)" class="btn btn-secondary js-deactivate-trigger confrm conform" style="padding: 0 12px; margin-bottom: 7px;width:100%!important;">{{'REVIEW USER' | translate}}</li>
+                								 <li ng-if="taskDetails.status == 6 || taskDetails.status == 7" href="javascript:void(0)" ng-click="ACC.TaskInviteViewModal($index)" class="btn btn-secondary js-deactivate-trigger confrm conform"
+                                style="padding: 0 12px; margin-bottom: 7px;width:100%!important;">{{'VIEW' | translate}}</li>
+								<li ng-if="taskDetails.status ==6" ng-click="ACC.updatetaskstatus(taskDetails._id,6)" class="btn btn-secondary js-deactivate-trigger confrm conform"
+    style="width:80px; width: 100% !important; padding: 0 12px;margin-bottom: 7px;"> {{'REQUEST_PAYMENT' | translate}}</li>
+
+<li ng-if="cashOption == 1 && taskDetails.status ==6" ng-click="ACC.updatetaskstatuscash(taskDetails._id,7)" class="btn btn-secondary js-deactivate-trigger confrm conform"
+    style="width:80px; width: 100% !important; padding: 0 12px;margin-bottom: 7px;"> {{'CASH_RECEIVED' | translate}}</li>
+                            </ul>
+                        </td>
+						                  <td ng-if="taskDetails.status == 6" style="color:red" ;="">{{'PENDING' | translate}}</td>
+                              <td ng-if="taskDetails.status == 7" style="color:green" ;="">{{'COMPLETED' | translate}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+</ul>
+<div style="margin-top: 200px;margin-left: 300px;" ng-if="ACC.taskInvitation.length > 0" class="pagination_inner clearfix">
+    <nav>
+        <uib-pagination max-size="5" items-per-page="ACC.taskitemsPerPage" ng-change="ACC.getTaskDetailsByStaus(ACC.taskInvitation[0].status,ACC.currentPage)"
+            total-items="ACC.tasktotalItem" ng-model="ACC.currentPage" class="pagination pagination-lg" previous-text="&lsaquo;"
+            next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></uib-pagination>
+    </nav>
+</div>
+<div ng-if="ACC.taskInvitation.length == 0" style="display:none" record-response="ACC.getTaskDetailsByStausResponse" no-record
+    num-records="ACC.taskInvitation.length">
+    <ul class="tablesection">
+        <div class="emptyfie"><i class="fa fa-file-o"></i><span>{{'YOU HAVE NO'| translate}} {{ACC.currentStatus | translate}} {{'TASKS'|translate}} </span></div>
+    </ul>
+</div>
+<style>
+    .nav > li > a {
+        border-right: 0px !important;
+    }
+
+    .nav > li.active > a {
+        border-right: 0px !important;
+    }
+
+    .nav-tabs > li {
+        padding: 5px 0;
+    }
+
+    .tabdetails .nav > li > a {
+        padding: 0px 10px;
+        font-size: 16px;
+    }
+
+    .slidetd .action-space {
+        background: #ffffff none repeat scroll 0 0;
+        width: auto;
+    }
+
+    .slidetd .action-space {
+        background: #ffffff none repeat scroll 0 0;
+        width: auto;
+    }
+
+    .action-space {
+        background: #efefef none repeat scroll 0 0;
+        padding: 9px 11px 0 0;
+    }
+
+    .action-space {
+        float: left;
+        text-align: left;
+        width: 100%;
+        background: #fff;
+        position: absolute;
+        right: 0;
+        text-align: left;
+        display: none;
+    }
+
+    .action-space {
+        background: #efefef none repeat scroll 0 0;
+        padding: 9px 11px 0 0;
+    }
+
+    .action-space {
+        float: left;
+        text-align: left;
+        width: 100%;
+        background: #fff;
+        position: absolute;
+        right: 6%;
+        text-align: left;
+        display: none;
+    }
+
+    ul.action-space.clickd li {
+        float: left;
+        padding: 0px 5px;
+    }
+
+    .action-space .confrm {
+        width: auto!important;
+    }
+
+    .confrm {
+        background: #14a89c;
+        color: #fff;
+        text-decoration: none;
+        padding: 3px 8px;
+        float: left;
+        width: 100% !important;
+        text-align: center;
+        clear: both;
+        margin: 0 0px 7px 0;
+        border-radius: 4px;
+        border: 1px solid transparent;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 6px 12px;
+        margin-bottom: 0;
+        font-size: 14px;
+        font-weight: normal;
+        line-height: 1.428571429;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        cursor: pointer;
+        background-image: none;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        -o-user-select: none;
+        user-select: none;
+    }
+
+    .emptyfie {
+        color: red;
+        font-size: 22px;
+        margin: 50px 0 0;
+        text-align: center;
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+    }
+
+    .emptyfie>span {
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+    }
+
+    .fa {
+        display: inline-block;
+        font: normal normal normal 14px/1 FontAwesome;
+        font-size: inherit;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+	.tsk-action a {
+		width:100%;
+	}
+</style>

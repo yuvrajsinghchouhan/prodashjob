@@ -1,0 +1,33 @@
+<div class="page page-tables-bootstrap">
+  <div class="pageheader">
+      <h2>{{ 'Menu.CANCELLATION' | translate }} </h2>
+      <div class="page-bar">
+          <ul class="page-breadcrumb">
+              <li>
+                  <a ui-sref="app.dashboard"><i class="fa fa-home"></i> {{main.title}}</a>
+              </li>
+              <li>
+                  <a href="javascript:;">{{ 'Menu.CANCELLATION' | translate }}</a>
+              </li>
+              <li>
+                  <a href="javascript:;">{{'SubMenu.LIST_CANCELLATION' | translate }}</a>
+              </li>
+          </ul>
+      </div>
+  </div>
+    <div class="pagecontent">
+        <div class="row">
+            <div class="col-md-12">
+                <section class="tile list-task" fullscreen="isFullscreen07">
+                    <div class="tile-header dvd dvd-btm">
+                        <h1 class="custom-font"><strong>Cancellation</strong> List</h1>
+                      <ul class="controls">
+                         <li><a ng-if="CAL.permission.add != false" ui-sref="app.cancellation.edit()" class="front bg-slategray"><i class="fa fa-plus mr-5"></i>Add Cancellation Reason</a></li>
+                      </ul>
+                    </div>
+                    <custom-table data="CAL.table" delete-call="CAL.deletedData"></custom-table>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>

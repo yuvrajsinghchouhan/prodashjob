@@ -1,0 +1,73 @@
+<div class="page page-tables-bootstrap">
+  <div class="pageheader">
+       <h2>{{ 'Menu.REVIEWS' | translate }} </h2>
+       <div class="page-bar">
+           <ul class="page-breadcrumb">
+               <li><a ui-sref="app.dashboard"><i class="fa fa-home"></i> {{main.title}}</a></li>
+               <li><a href="javascript:;">{{ 'Menu.REVIEWS' | translate }}</a></li>
+               <li><a ui-sref="app.giftCards.giftCardsList" href="#/app/giftCards/gift-cards-list">{{ 'SubMenu.ALL_REVIEWS' | translate }}</a></li>
+           </ul>
+       </div>
+   </div>
+    <div class="pagecontent">
+                  <div class="row">
+            <div class="feature-box-container col-lg-4 col-sm-6 col-sm-12">
+                <div class="card" ng-click="VRC.statusPass('all',10,0)">
+                    <div class="front bg-greensea">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <i class="fa fa-star-half-o fa-4x"></i>
+                            </div>
+                            <div class="col-xs-8">
+                                <p class="text-elg text-strong mb-0">{{VRC.allValue || 0}}</p>
+                                <span>All Reviews</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="feature-box-container col-lg-4 col-sm-6 col-sm-12">
+                <div class="card" ng-click="VRC.statusPass('user',10,0)">
+                    <div class="front bg-lightred">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <i class="fa fa fa-users fa-4x"></i>
+                            </div>
+                            <div class="col-xs-8">
+                                <p class="text-elg text-strong mb-0">{{VRC.userValue || 0}}</p>
+                                <span>Review By Users</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="feature-box-container col-lg-4 col-sm-6 col-sm-12">
+                <div class="card" ng-click="VRC.statusPass('tasker',10,0)">
+                    <div class="front bg-blue">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <i class="fa fa fa-users fa-4x"></i>
+                            </div>
+                            <div class="col-xs-8">
+                                <p class="text-elg text-strong mb-0">{{VRC.taskerValue || 0}}</p>
+                                <span>Review By Taskers</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <section class="tile" fullscreen="isFullscreen07">
+                    <div class="tile-header dvd dvd-btm">
+                        <h1 class="custom-font"><strong>Reviews</strong> List</h1>
+                    </div>
+                    <custom-table data="VRC.table" delete-call="VRC.deletedData"></custom-table>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>

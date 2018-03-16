@@ -1,0 +1,17 @@
+<div class="modal-header">
+    <button type="button" class="close" ng-click="DNM.cancel()" data-dismiss="modal">×</button>
+    <h3 class="modal-title">{{'CONFIRM_THE_TASK' | translate}}</h3>
+</div>
+
+
+<div class="modal-body">
+    <div class="form-group">
+        <label for="line1">{{'ARE_YOU_SURE_WANT_TO_DISUPUTE' | translate}}? </label></br>
+        <!-- <uib-rating ng-model="TRM.review.rating" max="5" state-on="'fa fa-star text-orange text-lg'" state-off="'fa fa-star-o text-lg'"></uib-rating> -->
+    </div>
+</div>
+
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="DNM.ok()">{{'OK' | translate}}</button>
+    <button class="btn btn-warning" type="button" ng-click="DNM.cancel()">{{'CANCEL' | translate}}</button>
+</div>
