@@ -2,7 +2,7 @@
     "port": "8080",
     "mongodb": {
         "host": "bwl3qctilj4ypo7-mongodb.services.clever-cloud.com",
-        "port": "8080",
+        "port": "27017",
         "database": "bwl3qctilj4ypo7"
     },
     "directory": {
