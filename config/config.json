@@ -5,7 +5,7 @@
         "port": "27017",
         "user": "ullz0quqftozbjm",
         "password": "v0mrnnfMrLoAJ2zqLfCE",
-        "url": "mongodb://ullz0quqftozbjm:v0mrnnfMrLoAJ2zqLfCE@bxdug7fgf6smial-mongodb.services.clever-cloud.com:27017/bxdug7fgf6smial"
+        "url": "mongodb://ullz0quqftozbjm:v0mrnnfMrLoAJ2zqLfCE@bxdug7fgf6smial-mongodb.services.clever-cloud.com:27017/bxdug7fgf6smial",
         "database": "bxdug7fgf6smial"
     },
     "directory": {
