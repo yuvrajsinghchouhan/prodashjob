@@ -124,8 +124,8 @@ app.get('/test', function (req, res) {
 
 /** HTTP Server Instance */
 try {
-    server.listen(3001, function () {
-        console.log('Server turned on with mode on port ', 3001);
+    server.listen(8080, function () {
+        console.log('Server turned on with mode on port ', 8080);
     });
 } catch (ex) {
     console.log(ex);
