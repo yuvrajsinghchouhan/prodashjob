@@ -113,7 +113,7 @@ gulp.task('site-production', function () {
 // Site Task
 
 gulp.task("mongo", function (cb) {
-	var mongodump = 'mongodump --host ' + siteConfig.mongodb.host + ' --port '+ siteConfig.mongodb.port + '--username' + siteconfig.mongodb.username +  '--password' + siteconfig.mongodb.password +' --db ' + siteConfig.mongodb.database + ' --out db';
+	var mongodump = 'mongodump --host ' + siteConfig.mongodb.host + ' --port '+ siteConfig.mongodb.port + '--username' + siteConfig.mongodb.username +  '--password' + siteConfig.mongodb.password +' --db ' + siteConfig.mongodb.database + ' --out db';
 	var copy = 'xcopy /Y db\\' + siteConfig.mongodb.database + '\\*.* db';
 	var remove = 'rmdir /s/q db\\' + siteConfig.mongodb.database;
 
@@ -153,7 +153,7 @@ gulp.task("setupfile", function (cb) {
 
 gulp.task("flush", function () {
 	var collections = ['users', 'tasker', 'task', 'notifications', 'messages', 'transaction', 'billing', 'paid', 'newsletter_subscriber', 'contact', 'review_options'];
-	MongoClient.connect('mongodb://' + siteConfig.mongodb.host + ':' + siteConfig.mongodb.port +  ':' + siteConfig.mongodb.username + ':' + siteConfig.mongodb.password + '/' + siteConfig.mongodb.database, function (err, db) {
+	MongoClient.connect('mongodb://' + siteConfig.mongodb.username + ':' + siteConfig.mongodb.password + ':' siteConfig.mongodb.host + ':' + siteConfig.mongodb.port  + '/' + siteConfig.mongodb.database, function (err, db) {
 		for (var i = 0; i < collections.length; i++) {
 			db.collection(collections[i]).remove({});
 		}
