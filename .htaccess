@@ -1,6 +1,6 @@
 RewriteEngine On
-RewriteRule ^$ 0.0.0.0:8080/ [P,L]
+RewriteRule ^$ 0.0.0.0:80/ [P,L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ 0.0.0.0:8080/$1 [P,L]
+RewriteRule ^(.*)$ 0.0.0.0:80/$1 [P,L]
 Options -Indexes
