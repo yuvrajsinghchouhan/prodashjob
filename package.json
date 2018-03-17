@@ -2,8 +2,7 @@
   "name": "prodashjob",
   "version": "1.0.0",
   "description": "Quick Rabbit",
-  "author": "Casperon",
-  "license": "ISC",
+  
   "scripts": {
     "start": "node app.js",
     "test": "mocha"
