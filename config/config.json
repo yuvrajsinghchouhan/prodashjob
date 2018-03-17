@@ -1,5 +1,5 @@
 {
-    "port": "8080",
+    "port": "3003",
     "mongodb": {
         "host": "bxdug7fgf6smial-mongodb.services.clever-cloud.com",
         "port": "27017",
