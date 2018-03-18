@@ -21,10 +21,10 @@ CONFIG.USER_PROFILE_IMAGE = 'uploads/images/users/';
 CONFIG.CATEGORY_DEFAULT_IMAGE = 'uploads/default/category.jpg';
 CONFIG.MARKER_DEFAULT_IMAGE = 'uploads/default/marker.jpg';
 
-CONFIG.SECRET_KEY = 'c8b3a5ee-f779-49e6-9192-584ed602b41a';
+CONFIG.SECRET_KEY = '';
 
 CONFIG.GCM_KEY = '';
-CONFIG.GOOGLE_MAP_API_KEY = 'AIzaSyBdQiMiJA7oYVNgV9XIor4s9VUDi9keEAo';
+CONFIG.GOOGLE_MAP_API_KEY = '';
 
 // Notifications
 CONFIG.NOTIFICATION = {};
@@ -61,9 +61,9 @@ CONFIG.NOTIFICATION.HIRED_JOB = 'Hired job';
 
 CONFIG.SOCIAL_NETWORKS = {
     'facebookAuth': {
-        'clientID': '1589589941346013',
+        'clientID': '',
         'clientSecret': 'ed67fd31ae628fde866bae1b6f71604e',
-        'callbackURL': 'http://maidac.casperon.co/auth/facebook/callback'
+        'callbackURL': ''
       
     },
 };
