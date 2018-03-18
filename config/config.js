@@ -62,7 +62,7 @@ CONFIG.NOTIFICATION.HIRED_JOB = 'Hired job';
 CONFIG.SOCIAL_NETWORKS = {
     'facebookAuth': {
         'clientID': '',
-        'clientSecret': 'ed67fd31ae628fde866bae1b6f71604e',
+        'clientSecret': '',
         'callbackURL': ''
       
     },
