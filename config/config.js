@@ -5,7 +5,7 @@ var config = JSON.parse(fs.readFileSync(path.join(__dirname, "/config.json"), 'u
 
 var CONFIG = {};
 
-CONFIG.ENV = (process.env.NODE_ENV || '8080');
+CONFIG.ENV = (process.env.NODE_ENV || '3003');
 CONFIG.PORT = (process.env.VCAP_APP_PORT || config.port);
 CONFIG.DB_URL = 'mongodb://' + config.mongodb.username + ':' + config.mongodb.password + '@' + config.mongodb.host + ':' + config.mongodb.port  +  '/' + config.mongodb.database;
 CONFIG.MOBILE_API = true; // true & false
@@ -58,13 +58,7 @@ CONFIG.NOTIFICATION.HIRED_JOB = 'Hired job';
 // Notifications Ends
 
 
-CONFIG.APNS = {};
-CONFIG.APNS.MODE = true; // Production = true or Development = false
-CONFIG.APNS.BUNDLE_ID_USER = 'com.casperon.quickrabitUser';
-CONFIG.APNS.BUNDLE_ID_TASKER = 'com.casperon.quickrabbitpartner';
-CONFIG.APNS.CERT_TASKER = path.join(__dirname, "/apns/dev/handypartnerdist.pem");
-CONFIG.APNS.CERT_USER = path.join(__dirname, "/apns/dev/handyuserDist.pem");
-CONFIG.APNS.KEY = path.join(__dirname, "/apns/dev/handyuserdistkey.pem");
+
 
 CONFIG.SOCIAL_NETWORKS = {
     'facebookAuth': {
