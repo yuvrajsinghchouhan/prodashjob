@@ -1,7 +1,8 @@
 "use strict";
 
 /** Dependency Injection */
-var express = require('express') // $ npm install express
+var  application_root = __dirname
+    ,express = require('express') // $ npm install express
     , path = require('path') // Node In-Build Module
     , bodyParser = require('body-parser') // $ npm install body-parser
     , session = require('express-session') // $ npm install express-session
@@ -38,7 +39,7 @@ app.use('/app', express.static(path.join(__dirname, '/app'), { maxAge: 7 * 86400
 app.use('/uploads', express.static(path.join(__dirname, '/uploads'), { maxAge: 7 * 86400000 }));
 app.set('view engine', 'pug');
 app.locals.pretty = false;
-app.set('views', './views');
+app.set('views', '/views');
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -74,6 +75,9 @@ require('./routes')(app, passport, io);
 require('./sockets')(io);
 require('./cron');
 /** /Dependency Mapping*/
+
+//Start server
+var port = 8080;
 
 /** HTTP Server Instance */
 try {
