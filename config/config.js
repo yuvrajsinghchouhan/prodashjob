@@ -5,7 +5,7 @@ var config = JSON.parse(fs.readFileSync(path.join(__dirname, "/config.json"), 'u
 
 var CONFIG = {};
 
-CONFIG.ENV = (process.env.NODE_ENV || '3003');
+CONFIG.ENV = (process.env.NODE_ENV || '8080');
 CONFIG.PORT = (process.env.VCAP_APP_PORT || config.port);
 CONFIG.DB_URL = 'mongodb://' + config.mongodb.username + ':' + config.mongodb.password + '@' + config.mongodb.host + ':' + config.mongodb.port  +  '/' + config.mongodb.database;
 CONFIG.MOBILE_API = true; // true & false
