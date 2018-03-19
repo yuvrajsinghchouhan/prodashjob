@@ -62,9 +62,9 @@ CONFIG.NOTIFICATION.HIRED_JOB = 'Hired job';
 
 CONFIG.SOCIAL_NETWORKS = {
     'facebookAuth': {
-        'clientID': '319675695222608',
-        'clientSecret': '0786d994b8f47fcacae0c0a2463faa7c',
-        'callbackURL': 'http://xtrajob.cleverapps.io//auth/facebook/callback'
+        'clientID': '',
+        'clientSecret': '',
+        'callbackURL': ''
       
     },
 };
