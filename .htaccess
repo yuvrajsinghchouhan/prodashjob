@@ -1,6 +1,6 @@
 RewriteEngine On
-RewriteRule ^$ http://127.0.0.1:3003/ [P,L]
+RewriteRule ^$ http://0.0.0.0:8080/ [P,L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ http://127.0.0.1:3003/$1 [P,L]
+RewriteRule ^(.*)$ http://0.0.0.0:8080/$1 [P,L]
 Options -Indexes
