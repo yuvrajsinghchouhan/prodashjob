@@ -5,7 +5,7 @@ var config = JSON.parse(fs.readFileSync(path.join(__dirname, "/config.json"), 'u
 
 var CONFIG = {};
 
-CONFIG.ENV = (process.env.NODE_ENV || 'development');
+CONFIG.ENV = (process.env.NODE_ENV || '8080');
 CONFIG.PORT = (process.env.VCAP_APP_PORT || config.port);
 CONFIG.DB_URL = 'mongodb://' + config.mongodb.username + ':' + config.mongodb.password + '@' + config.mongodb.host + ':' + config.mongodb.port  +  '/' + config.mongodb.database;
 CONFIG.MOBILE_API = true; // true & false
@@ -21,10 +21,10 @@ CONFIG.USER_PROFILE_IMAGE = 'uploads/images/users/';
 CONFIG.CATEGORY_DEFAULT_IMAGE = 'uploads/default/category.jpg';
 CONFIG.MARKER_DEFAULT_IMAGE = 'uploads/default/marker.jpg';
 
-CONFIG.SECRET_KEY = '';
+CONFIG.SECRET_KEY = '16f198404de4bb7b994f16b84e30f14f';
 
 CONFIG.GCM_KEY = '';
-CONFIG.GOOGLE_MAP_API_KEY = '';
+CONFIG.GOOGLE_MAP_API_KEY = 'AIzaSyBdQiMiJA7oYVNgV9XIor4s9VUDi9keEAo';
 
 // Notifications
 CONFIG.NOTIFICATION = {};
@@ -58,15 +58,23 @@ CONFIG.NOTIFICATION.HIRED_JOB = 'Hired job';
 // Notifications Ends
 
 
+CONFIG.APNS = {};
+CONFIG.APNS.MODE = true; // Production = true or Development = false
+CONFIG.APNS.BUNDLE_ID_USER = 'com.casperon.quickrabitUser';
+CONFIG.APNS.BUNDLE_ID_TASKER = 'com.casperon.quickrabbitpartner';
+CONFIG.APNS.CERT_TASKER = path.join(__dirname, "/apns/dev/handypartnerdist.pem");
+CONFIG.APNS.CERT_USER = path.join(__dirname, "/apns/dev/handyuserDist.pem");
+CONFIG.APNS.KEY = path.join(__dirname, "/apns/dev/handyuserdistkey.pem");
 
 CONFIG.SOCIAL_NETWORKS = {
     'facebookAuth': {
-        'clientID': '',
-        'clientSecret': '',
-        'callbackURL': ''
+        'clientID': '319675695222608',
+        'clientSecret': '0786d994b8f47fcacae0c0a2463faa7c',
+        'callbackURL': 'http://xtrajob.cleverapps.io//auth/facebook/callback'
       
     },
 };
+
 
 //Export Module
 module.exports = CONFIG;
