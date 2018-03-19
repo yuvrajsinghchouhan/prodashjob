@@ -21,10 +21,10 @@ CONFIG.USER_PROFILE_IMAGE = 'uploads/images/users/';
 CONFIG.CATEGORY_DEFAULT_IMAGE = 'uploads/default/category.jpg';
 CONFIG.MARKER_DEFAULT_IMAGE = 'uploads/default/marker.jpg';
 
-CONFIG.SECRET_KEY = 'c8b3a5ee-f779-49e6-9192-584ed602b41a';
+CONFIG.SECRET_KEY = '';
 
 CONFIG.GCM_KEY = '';
-CONFIG.GOOGLE_MAP_API_KEY = 'AIzaSyBmCGYXTDcTcIKZytBLj8KCPN8OpUgn5hg';
+CONFIG.GOOGLE_MAP_API_KEY = '';
 
 // Notifications
 CONFIG.NOTIFICATION = {};
